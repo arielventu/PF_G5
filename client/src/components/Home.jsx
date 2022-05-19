@@ -1,7 +1,7 @@
 import React from 'react'
 import image from "../image/inicio.png"
 
-const Inicio = () => {
+const Home = () => {
   return (
     <div>HOLAAAAAAAAAAAAAAAA2
       <img src={image} alt="" />
@@ -9,4 +9,4 @@ const Inicio = () => {
   )
 }
 
-export default Inicio
+export default Home
