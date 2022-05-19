@@ -2,7 +2,8 @@
 import { Provider } from 'react-redux';           //es para leer la tineda 
 import generateStore from './store';
 import {Route, Routes} from "react-router-dom";
-import Inicio from './components/Inicio';
+import Home from './components/Home';
+import Login from './components/Login';
 
 import "./App.css"
 
@@ -12,7 +13,8 @@ function App() {
   return (
     <Provider store={store}>   
       <Routes> 
-        <Route path="/" element={<Inicio/>}/>    
+        <Route path="/" element={<Home />} />   
+        <Route path="/login" element={<Login />} />
       </Routes> 
     </Provider>
     
