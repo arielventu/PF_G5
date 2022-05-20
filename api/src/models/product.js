@@ -1,0 +1,46 @@
+const { DataTypes } = require("sequelize");
+
+/*
+attributes model product
+
+id = identificador úncio
+name = nombre corto del producto
+fullName = nombre largo del producto
+gender = género (Masculino, Femenino, Unisex)
+detail = descripción detallada del producto
+imageURL = array de URL de imágenes
+*/
+
+module.exports = (sequelize) => {
+  sequelize.define(
+    "product",
+    {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      fullName: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      gender: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      detail: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      imageURL: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
+    },
+    { timestamps: false }
+  );
+};
