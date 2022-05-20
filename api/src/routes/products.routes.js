@@ -7,12 +7,14 @@
 
 var express = require("express");
 var router = express.Router();
-const { Product, Review } = require("../db.js");
+//const { Product, Review } = require("../db.js");
 
 // import controllers
 const {
   getProducts,
   createProduct,
+  updateProduct,
+  deleteProduct,
 } = require("../controllers/products.controllers.js");
 
 /* GET home page. */
@@ -23,8 +25,8 @@ router.get("/", function (req, res, next) {
 // routes list
 router.get("/products", getProducts);
 router.post("/products", createProduct);
-router.put("/products");
-router.delete("/products/:id");
+router.put("/products/:id", updateProduct);
+router.delete("/products/:id", deleteProduct);
 router.get("/products/:id");
 
 module.exports = router;
