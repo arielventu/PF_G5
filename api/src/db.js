@@ -40,8 +40,14 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Product, Review, Stock } = sequelize.models;
 
 // Aca vendrian las relaciones
-Product.hasMany(Review);
-Product.hasMany(Stock);
+
+// Relationship: 'Product' has many 'Review', 'Review' belong to 'Product'
+Product.hasMany(Review, { foreignKey: "productId", sourceKey: "id" });
+Review.belongsTo(Product, { foreignKey: "productId", targerId: "id" });
+
+// Relationship: 'Product' has many 'Review', 'Review' belong to 'Product'
+Product.hasMany(Stock, { foreignKey: "productId", sourceKey: "id" });
+Stock.belongsTo(Product, { foreignKey: "productId", targerId: "id" });
 
 // Product.belongsToMany(Categori, { through: "productcategori" });
 // Categori.belongsToMany(Product, { through: "productcategori" });
