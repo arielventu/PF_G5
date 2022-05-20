@@ -22,18 +22,6 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-      productID: {
-        type: DataTypes.UUID,
-        allowNull: false,
-      },
-      colorId: {
-        type: DataTypes.UUID,
-        allowNull: false,
-      },
-      sizeID: {
-        type: DataTypes.UUID,
-        allowNull: false,
-      },
       quantity: {
         type: DataTypes.FLOAT,
         defaultValue: 0,
