@@ -8,6 +8,8 @@ var logger = require("morgan");
 // var usersRouter = require('./routes/users');
 
 const productsRoutes = require("./routes/products.routes");
+const sizesRoutes = require("./routes/sizes.routes");
+const colorsRoutes = require("./routes/colors.routes");
 
 var app = express();
 
@@ -26,6 +28,8 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use("/users", usersRouter);
 
 app.use(productsRoutes);
+app.use(sizesRoutes);
+app.use(colorsRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
