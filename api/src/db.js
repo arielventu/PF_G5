@@ -41,11 +41,11 @@ const { Product, Review, Stock, Sizes, Colors } = sequelize.models;
 
 // Aca vendrian las relaciones
 
-// Relationship: 'Product' has many 'Review', 'Review' belong to 'Product'
+// Relationship of model products
+// 'Product' has many 'Review', 'Review' belong to 'Product'
 Product.hasMany(Review, { foreignKey: "productId", sourceKey: "id" });
 Review.belongsTo(Product, { foreignKey: "productId", targerId: "id" });
-
-// Relationship: 'Product' has many 'Review', 'Review' belong to 'Product'
+// 'Product' has many 'Stock', 'Stock' belong to 'Product'
 Product.hasMany(Stock, { foreignKey: "productId", sourceKey: "id" });
 Stock.belongsTo(Product, { foreignKey: "productId", targerId: "id" });
 

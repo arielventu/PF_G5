@@ -21,9 +21,11 @@ const getProduct = async (req, res) => {
   const { id } = req.params;
   try {
     const product = await Product.findByPk(id);
-    res.json(product);
+
     if (!product)
       return res.status(404).json({ message: "Product does not exists" });
+
+    res.json(product);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
