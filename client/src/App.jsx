@@ -4,6 +4,7 @@ import generateStore from './store';
 import {Route, Routes} from "react-router-dom";
 import Home from './components/Home';
 import Login from './components/Login';
+import Shop from './components/Shop';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes> 
         <Route path="/" element={<Home />} />   
         <Route path="/login" element={<Login />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes> 
     </Provider>
     

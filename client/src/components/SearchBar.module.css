@@ -1,0 +1,12 @@
+.container {
+  align-items: center;
+}
+
+.input {
+  font-size: medium;
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgb(190, 190, 190);
+  color: black;
+  padding: 0.3rem;
+  width: 30rem;
+}
