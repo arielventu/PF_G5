@@ -1,3 +1,10 @@
+/* --------------------------------------------
+  file: reviewjs
+  create by: evillalba510@gmail.com
+  github: evillalba510
+  date: 20-05-2022  
+-----------------------------------------------*/
+
 const { DataTypes } = require("sequelize");
 
 /*
@@ -18,10 +25,6 @@ module.exports = (sequelize) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-      },
-      productId: {
-        type: DataTypes.UUID,
-        allowNull: false,
       },
       description: {
         type: DataTypes.TEXT,

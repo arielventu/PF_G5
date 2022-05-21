@@ -1,3 +1,10 @@
+/* --------------------------------------------
+  file: stock.js
+  create by: evillalba510@gmail.com
+  github: evillalba510
+  date: 20-05-2022  
+-----------------------------------------------*/
+
 const { DataTypes } = require("sequelize");
 
 /*
@@ -21,18 +28,6 @@ module.exports = (sequelize) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-      },
-      productID: {
-        type: DataTypes.UUID,
-        allowNull: false,
-      },
-      colorId: {
-        type: DataTypes.UUID,
-        allowNull: false,
-      },
-      sizeID: {
-        type: DataTypes.UUID,
-        allowNull: false,
       },
       quantity: {
         type: DataTypes.FLOAT,
