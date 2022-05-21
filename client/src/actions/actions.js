@@ -1,19 +1,12 @@
-import axios from  'axios'
+// import axios from 'axios'
+import products from '../Products.json'
+export const GET_PRODUCTS = 'GET_PRODUCTS'
 
 
 
-export const inicio = (e) => async (dispatch) => {
-    console.log("HOME")
-    try {    
-        const respuesta = await axios.get(`http://localhost:3001/countries`)
-        if (respuesta.data.length > 0) {
-            dispatch({
-                type:"HOME",
-                payload:respuesta.data,
-                load:true
-            })  
-        }                      
-    } catch (error){
-        console.log(error)
-    }    
+export const getProducts = () => {
+    return {
+        type: GET_PRODUCTS,
+        payload: products
+    }
 }
