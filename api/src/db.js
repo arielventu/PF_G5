@@ -37,21 +37,17 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring:
-const { Product, Review, Stock, Sizes, Colors, Material, Category } = sequelize.models;
+const { Product, Review, Stock, Sizes, Colors, Material, Category } =
+  sequelize.models;
 
 // Aca vendrian las relaciones
 
 // Relationship of model products
 // 'Product' has many 'Review', 'Review' belong to 'Product'
 Product.hasMany(Review, { foreignKey: "productId", sourceKey: "id" });
-<<<<<<< HEAD
 Review.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
 
 // Relationship: 'Product' has many 'Stock', 'Stock' belong to 'Product'
-=======
-Review.belongsTo(Product, { foreignKey: "productId", targerId: "id" });
-// 'Product' has many 'Stock', 'Stock' belong to 'Product'
->>>>>>> eliecer
 Product.hasMany(Stock, { foreignKey: "productId", sourceKey: "id" });
 Stock.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
 
@@ -72,8 +68,8 @@ Product.hasMany(Sizes, { foreignKey: "productId", sourceKey: "id" });
 Sizes.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
 
 // Relationship: 'Product' belongsToMany 'Category', 'Category' belongsToMany 'Product'
-Product.belongsToMany(Category, { through: "product-category"});
-Category.belongsToMany(Product, { through: "product-category"});
+Product.belongsToMany(Category, { through: "product-category" });
+Category.belongsToMany(Product, { through: "product-category" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
