@@ -1,3 +1,10 @@
+/* --------------------------------------------
+  file: reviewjs
+  create by: evillalba510@gmail.com
+  github: evillalba510
+  date: 20-05-2022  
+-----------------------------------------------*/
+
 const { DataTypes } = require("sequelize");
 
 /*

@@ -12,6 +12,7 @@ var router = express.Router();
 // import controllers
 const {
   getProducts,
+  getProduct,
   createProduct,
   updateProduct,
   deleteProduct,
@@ -27,6 +28,6 @@ router.get("/products", getProducts);
 router.post("/products", createProduct);
 router.put("/products/:id", updateProduct);
 router.delete("/products/:id", deleteProduct);
-router.get("/products/:id");
+router.get("/products/:id", getProduct);
 
 module.exports = router;
