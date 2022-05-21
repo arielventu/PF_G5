@@ -43,7 +43,16 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      imageURL: {
+      price: {
+        type: DataTypes.FLOAT,
+        defaultValue: 0,
+        validate: { min: 0 },
+      },
+      imagecover: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
+      imageurl: {
         type: DataTypes.ARRAY(DataTypes.TEXT),
         allowNull: true,
       },
