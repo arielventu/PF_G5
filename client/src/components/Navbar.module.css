@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  color: rgb(189, 186, 186);
+  background-color: rgba(243, 242, 242, 0.993);
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  margin-left: 0.2rem;
+  font-family: Cabin;
+}
+
+.button:hover {
+  background-color: rgb(75, 74, 74);
+  border: 0.1rem solid rgb(75, 74, 74);
+  cursor: pointer;
+}
+
+.carrito {
+  height: 2rem;
+  width: auto;
+  left: 1rem;
+}
