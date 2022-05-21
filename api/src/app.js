@@ -10,6 +10,7 @@ var logger = require("morgan");
 const productsRoutes = require("./routes/products.routes");
 const sizesRoutes = require("./routes/sizes.routes");
 const colorsRoutes = require("./routes/colors.routes");
+const dbDataPushRoutes = require("./routes/db-data-push.routes");
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(productsRoutes);
 app.use(sizesRoutes);
 app.use(colorsRoutes);
+app.use(dbDataPushRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
