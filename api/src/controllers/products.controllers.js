@@ -17,16 +17,32 @@ const getProducts = async (req, res) => {
   }
 };
 
+const getProduct = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const product = await Product.findByPk(id);
+    res.json(product);
+    if (!product)
+      return res.status(404).json({ message: "Product does not exists" });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 const createProduct = async (req, res) => {
   const { name, fullName, gender, detail, imageURL } = req.body;
-  const newProduct = await Product.create({
-    name,
-    fullName,
-    gender,
-    detail,
-    imageURL,
-  });
-  res.json(newProduct);
+  try {
+    const newProduct = await Product.create({
+      name,
+      fullName,
+      gender,
+      detail,
+      imageURL,
+    });
+    res.json(newProduct);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 };
 
 const updateProduct = async (req, res) => {
@@ -60,6 +76,7 @@ const deleteProduct = async (req, res) => {
 
 module.exports = {
   getProducts,
+  getProduct,
   createProduct,
   updateProduct,
   deleteProduct,
