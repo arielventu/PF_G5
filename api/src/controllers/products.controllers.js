@@ -6,11 +6,13 @@
 -----------------------------------------------*/
 
 //const { send } = require("express/lib/response");
-const { Product, Review } = require("../db.js");
+const { Product, Review, Stock, Category } = require("../db.js");
 
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.findAll();
+    const products = await Product.findAll({
+      include: [Category, Stock, Review],
+    });
     res.json(products);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -20,7 +22,9 @@ const getProducts = async (req, res) => {
 const getProduct = async (req, res) => {
   const { id } = req.params;
   try {
-    const product = await Product.findByPk(id);
+    const product = await Product.findByPk(id, {
+      include: [Category, Stock, Review],
+    });
 
     if (!product)
       return res.status(404).json({ message: "Product does not exists" });

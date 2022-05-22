@@ -1,0 +1,27 @@
+{
+"stocks": [
+	{
+		"id" : 1,
+		"quantity" : 10.0,
+		"available" : true,
+		"productId" : 1,
+		"sizeId" : 1,
+		"colorId" : 1
+	},
+	{
+		"id" : 2,
+		"quantity" : 50.0,
+		"available" : true,
+		"productId" : 1,
+		"sizeId" : 2,
+		"colorId" : 2
+	},
+	{
+		"id" : 3,
+		"quantity" : 5.0,
+		"available" : true,
+		"productId" : 2,
+		"sizeId" : 3,
+		"colorId" : 3
+	}
+]}
