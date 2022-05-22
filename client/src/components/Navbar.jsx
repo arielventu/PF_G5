@@ -1,19 +1,28 @@
 import React from 'react'
 import SearchBar from './SearchBar'
+<<<<<<< HEAD
 import carrito from "../image/carrito2.png"
 import { useDispatch } from 'react-redux'
+=======
+import cart from "../image/cart.png"
+import BlueBird from "../image/BlueBird.svg"
+import styles from './Navbar.module.css';
+>>>>>>> d8e7f9d43c741f3902ddff9ed5e47d58c09d6053
 
 const Navbar = () => {
   return (
-    <div className='conteiner'>
-        <div className='botones'>
-            <h4 style={{marginLeft:"20px"}}>Home</h4>
-            <h4 style={{marginLeft:"20px"}}>Shop</h4>
-            <h4 style={{marginLeft:"20px"}}>About Us</h4>
-            <h4 style={{marginLeft:"20px"}}>Contact</h4>
-            <img src={carrito}alt="" style={{height:"30px",width:"30px",marginLeft:"20px",marginRight:"20px"}} />
-            <SearchBar />
-        </div>
+    <div className={styles.container}>
+        <ul className={styles.menu}>
+            <div><img className={styles.logo} src={BlueBird}alt="logo Blue Bird"/></div>
+            <li className={styles.button}><a href="#">Home</a></li>
+            <li className={styles.button}><a href="#">Shop</a></li>
+            <li className={styles.button}><a href="#">About Us</a></li>
+            <li className={styles.button}><a href="#">Contact</a></li>
+            <li className={styles.button}><a href="#">Register</a></li>
+            <li className={styles.button}><a href="#">Sign In</a></li>
+            <div className={styles.cart}><a href="#"><img className={styles.carrito} src={cart}alt="carrito de compras"/></a></div>
+            <div className={styles.SearchBar}><SearchBar/></div>
+        </ul>
     </div>
   )
 }

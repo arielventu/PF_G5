@@ -1,3 +1,10 @@
+/* --------------------------------------------
+  file: reviewjs
+  create by: evillalba510@gmail.com
+  github: evillalba510
+  date: 20-05-2022  
+-----------------------------------------------*/
+
 const { DataTypes } = require("sequelize");
 
 /*
@@ -14,11 +21,6 @@ module.exports = (sequelize) => {
   sequelize.define(
     "review",
     {
-      id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-      },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -26,6 +28,11 @@ module.exports = (sequelize) => {
       starsLevel: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 1,
+        validate: {
+          min: 1,
+          max: 5,
+        },
       },
     },
     { timestamps: false }

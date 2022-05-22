@@ -37,20 +37,35 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring:
-const { Product, Review, Stock, Sizes, Colors } = sequelize.models;
+const { Product, Review, Stock, Sizes, Colors, Category } = sequelize.models;
 
 // Aca vendrian las relaciones
 
-// Relationship: 'Product' has many 'Review', 'Review' belong to 'Product'
+// -------------------------------------------------------------------------
+// Relationship of model ?products'
+// 'Product' has many 'Review', 'Review' belong to 'Product'
 Product.hasMany(Review, { foreignKey: "productId", sourceKey: "id" });
-Review.belongsTo(Product, { foreignKey: "productId", targerId: "id" });
+Review.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
 
-// Relationship: 'Product' has many 'Review', 'Review' belong to 'Product'
+// Relationship: 'Product' has many 'Stock', 'Stock' belong to 'Product'
 Product.hasMany(Stock, { foreignKey: "productId", sourceKey: "id" });
-Stock.belongsTo(Product, { foreignKey: "productId", targerId: "id" });
+Stock.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
 
-// Product.belongsToMany(Categori, { through: "productcategori" });
-// Categori.belongsToMany(Product, { through: "productcategori" });
+// Relationship: 'Product' belongs To Many 'Category', 'Category' belong to Many 'Product'
+Product.belongsToMany(Category, { through: "productscategories" });
+Category.belongsToMany(Product, { through: "productscategories" });
+
+// -------------------------------------------------------------------------
+// Relationship of model 'Sizes'
+// 'Sizes' has many 'Stock', 'Stock' belong to 'Sizes'
+Sizes.hasMany(Stock, { foreignKey: "sizeId", sourceKey: "id" });
+Stock.belongsTo(Sizes, { foreignKey: "sizeId", targetId: "id" });
+
+// -------------------------------------------------------------------------
+// Relationship of model 'Colors'
+// 'Colors' has many 'Stock', 'Stock' belong to 'Colors'
+Colors.hasMany(Stock, { foreignKey: "colorId", sourceKey: "id" });
+Stock.belongsTo(Colors, { foreignKey: "colorId", targetId: "id" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

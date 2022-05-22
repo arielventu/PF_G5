@@ -1,0 +1,13 @@
+.container {
+  top: 1rem;
+  left: 0.5rem;
+}
+
+.input {
+  font-size: medium;
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgb(190, 190, 190);
+  color: rgb(218, 216, 216);
+  padding: 0.3rem;
+  width: 25rem;
+}

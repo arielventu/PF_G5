@@ -1,0 +1,38 @@
+.container {
+  background-color: rgba(243, 242, 242, 0.993);
+  margin-left: 2rem;
+  margin-top: 3rem;
+  height: 21.5rem;
+  width: 14.15rem;
+  overflow: hidden;
+  color: black;
+  align-items: center;
+  font-family: Cabin;
+}
+
+.h2 {
+  margin-top: -0.1rem;
+  font-size: 0.9rem;
+}
+
+.img {
+  height: 14rem;
+  width: 14rem;
+  margin-bottom: 0.1rem;
+  background-color: white;
+  border: 0.05rem solid rgba(240, 240, 240, 0.993);
+}
+
+.price {
+  margin-top: 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 0.01rem;
+  font-family: Koulen;
+}
+
+.rating {
+  margin-top: -1.5rem;
+  height: 5rem;
+  width: auto;
+}
