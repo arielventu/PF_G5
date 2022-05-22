@@ -1,3 +1,4 @@
+
 import { GET_PRODUCTS,
     GET_DETAILS ,
     GET_NAME_SHOE,
@@ -6,12 +7,14 @@ import { GET_PRODUCTS,
     POST_PRODUCT,
     PUT_PRODUCT,
     FILTER_BY_BEST ,
-    FILTER_BY_CATEGORIES } from '../actions/actions.js'
+    FILTER_BY_CATEGORIES,
+    SEARCH_BAR } from '../actions/actions.js'
 
 
 const initialState = {
     shoes: [],
     auxShoes: [],
+    searchBar: ""
 
     
 }
@@ -24,6 +27,12 @@ export default function rootReducer(state = initialState, {payload, type}){
 				shoes: payload,
 				auxShoes: payload,
             }
+            case SEARCH_BAR:
+            return {
+                ...state,
+				searchBar:payload
+            }
+      
             case FILTER_BY_BEST:
                 const best = state.auxShoes ;
                 let bestFiltered;

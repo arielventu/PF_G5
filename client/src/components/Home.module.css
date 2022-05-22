@@ -1,0 +1,10 @@
+.flyer {
+/* position: absolute; */
+width: 1440px;
+height: 780px;
+left: 0px;
+top: 14px;
+
+background: linear-gradient(180deg, #79F7FF 0%, #6584D5 66.67%);
+border-radius: 5px;
+}

@@ -5,7 +5,7 @@ const axios = require("axios");
 const port = 3001;
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
     axios("http://localhost:3001/pushdbdata")
