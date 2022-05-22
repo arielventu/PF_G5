@@ -9,14 +9,12 @@ const postDBData = async (req, res) => {
         items.forEach( element => {
             const data = {
                 "name": element.handle,
-                "fullname": element.fullName,
+                "fullName": element.fullName,
                 "gender": element.gender,
                 "detail": element.description,
-                "imageURL": element.featuredImage.src,
-                "color": element.colors[0],
-                "size": element.sizesSortOrder[0],
-                "category": element.bestFor,
                 "price": element.price,
+                "imagecover": element.featuredImage.src,
+                "imageurl": element.images
             }
             newData.push(data);
         });  

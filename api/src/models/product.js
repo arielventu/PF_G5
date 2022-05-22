@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
       },
       fullName: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       gender: {
         type: DataTypes.STRING,
@@ -44,7 +44,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       price: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.INTEGER,
         defaultValue: 0,
         validate: { min: 0 },
       },
@@ -53,7 +53,7 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       imageurl: {
-        type: DataTypes.ARRAY(DataTypes.TEXT),
+        type: DataTypes.JSON,
         allowNull: true,
       },
     },
