@@ -1,8 +1,7 @@
-
-import React, { useEffect } from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-import {getProducts}  from '../actions/actions'
-// import image from "../image/inicio.png"
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { getProducts } from '../actions/actions'
+import styles from './Home.module.css'
 
 const Home = () => {
   const products = useSelector(state => state.shoes)
@@ -10,21 +9,24 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getProducts())
-  }, [])
-
+  }, [dispatch])
+  
+  console.log(products);
+  
   return (
-    <div>
-      {/* <img src={image} alt="" /> */}
-      <h1>Bienvenido a la tienda</h1>
+      <div className={styles.home}>
+        <div className={styles.flyer}></div>
+        <div className="Rated-products"></div>
       <ul>
-        {products.map(product => (
+        {products.slice(0, 4).map(product => (
           <li key={product.id}>
             {product.fullName} - {product.price}
             <img src={product.images[0].src} alt="" width="105" />
           </li>
         ))}
       </ul>
-    </div>
+        <div className="Pre-footer"></div>
+      </div>
   )
 }
 
