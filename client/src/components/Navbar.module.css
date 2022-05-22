@@ -1,0 +1,50 @@
+body {
+  margin-top: 0;
+}
+
+.container {
+  background-color: white;
+  display: flex;
+  padding: 0.2rem;
+  align-items: center;
+  width: 100%;
+  left: 0rem;
+  border-bottom: 0.05rem solid rgba(223, 222, 222, 0.993);
+}
+
+.menu {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  margin-left: auto;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  color: black;
+  margin-left: 2rem;
+  font-family: Koulen;
+  font-size: 1rem;
+  border: none;
+  text-decoration: none;
+}
+
+.carrito {
+  height: 1.2rem;
+  width: auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  text-decoration: none;
+}
+
+.cart {
+  margin-left: 2rem;
+  margin-right: 1rem;
+}

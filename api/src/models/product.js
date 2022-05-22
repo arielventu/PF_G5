@@ -22,18 +22,13 @@ module.exports = (sequelize) => {
   sequelize.define(
     "product",
     {
-      id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       fullName: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       gender: {
         type: DataTypes.STRING,
@@ -43,8 +38,17 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      imageURL: {
-        type: DataTypes.ARRAY(DataTypes.TEXT),
+      price: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: { min: 0 },
+      },
+      imagecover: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
+      imageurl: {
+        type: DataTypes.JSON,
         allowNull: true,
       },
     },

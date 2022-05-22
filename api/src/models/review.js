@@ -21,11 +21,6 @@ module.exports = (sequelize) => {
   sequelize.define(
     "review",
     {
-      id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-      },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -33,6 +28,11 @@ module.exports = (sequelize) => {
       starsLevel: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 1,
+        validate: {
+          min: 1,
+          max: 5,
+        },
       },
     },
     { timestamps: false }

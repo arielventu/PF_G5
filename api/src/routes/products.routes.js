@@ -7,7 +7,6 @@
 
 var express = require("express");
 var router = express.Router();
-//const { Product, Review } = require("../db.js");
 
 // import controllers
 const {
@@ -16,18 +15,19 @@ const {
   createProduct,
   updateProduct,
   deleteProduct,
+  getProductReviews,
 } = require("../controllers/products.controllers.js");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
+// router.get("/", function (req, res, next) {
+//   res.render("index", { title: "Express" });
+// });
 
-// routes list
-router.get("/products", getProducts);
+// C.R.U.D.
+router.get("/products", getProducts); // get all products
 router.post("/products", createProduct);
 router.put("/products/:id", updateProduct);
 router.delete("/products/:id", deleteProduct);
-router.get("/products/:id", getProduct);
-
+router.get("/products/:id", getProduct); // get product by id
+router.get("/products/:id/reviews", getProductReviews); // get reviews related with a product
 module.exports = router;

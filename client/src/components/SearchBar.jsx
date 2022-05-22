@@ -1,9 +1,10 @@
 import React from 'react'
+import styles from './SearchBar.module.css';
 
 const SearchBar = () => {
   return (
-    <div>
-        <input type="text" value={"buscar"} />
+    <div className={styles.container}>
+        <input className={styles.input} type="text" value={"buscar..."} />
     </div>
   )
 }
