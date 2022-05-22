@@ -27,11 +27,12 @@
   margin-top: 0.5rem;
   text-decoration: none;
   font-size: 1rem;
-  margin-bottom: 0.05rem;
+  margin-bottom: 0.01rem;
+  font-family: Koulen;
 }
 
 .rating {
-  margin-top: -1rem;
+  margin-top: -1.5rem;
   height: 5rem;
   width: auto;
 }
