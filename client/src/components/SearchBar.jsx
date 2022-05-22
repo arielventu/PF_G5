@@ -1,13 +1,14 @@
 import React from 'react'   
 import { useDispatch } from 'react-redux'
-import { getSearchBar } from '../actions/actions'
 
 const SearchBar = () => {
-  const dis = useDispatch()
+  const Dispatch = useDispatch()
 
   const input = (e)=>{
     const {value} = e.target
-    //Dispatch(getSearchBar(value))
+    Dispatch({
+      type:"SEARCH_BAR",
+      payload: value})
     console.log(value)
   }
     return (

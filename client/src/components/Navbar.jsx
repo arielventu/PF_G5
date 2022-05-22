@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import carrito from "../image/carrito2.png"
+import { useDispatch } from 'react-redux'
 
 const Navbar = () => {
   return (
@@ -12,8 +13,6 @@ const Navbar = () => {
             <h4 style={{marginLeft:"20px"}}>Contact</h4>
             <img src={carrito}alt="" style={{height:"30px",width:"30px",marginLeft:"20px",marginRight:"20px"}} />
             <SearchBar />
-            <button>Login</button>
-            <button>Create</button>
         </div>
     </div>
   )

@@ -1,9 +1,10 @@
-import { GET_PRODUCTS } from '../actions/actions.js'
+import { GET_PRODUCTS,SEARCH_BAR} from '../actions/actions.js'
 
 
 const initialState = {
     shoes: [],
     auxShoes: [],
+    searchBar: ""
 
     
 }
@@ -15,6 +16,11 @@ export default function rootReducer(state = initialState, {payload, type}){
                 ...state,
 				shoes: payload,
 				auxShoes: payload,
+            }
+            case SEARCH_BAR:
+            return {
+                ...state,
+				searchBar:payload
             }
       
 

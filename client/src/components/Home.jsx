@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {getProducts}  from '../actions/actions'
+import Navbar from './Navbar'
 // import image from "../image/inicio.png"
 
 const Home = () => {

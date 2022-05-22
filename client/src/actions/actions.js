@@ -11,9 +11,4 @@ export const getProducts = () => {
         payload: products
     }
 }
-export const getSearchBar = () => {
-    return {
-        type: SEARCH_BAR,
-        payload: products
-    }
-}
+

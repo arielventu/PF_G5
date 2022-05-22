@@ -4,6 +4,7 @@ import generateStore from './store';
 import {Route, Routes} from "react-router-dom";
 import Home from './components/Home';
 import Login from './components/Login';
+import Navbar from './components/Navbar';
 
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
   const store = generateStore()
   return (
     <Provider store={store}>   
-      <Routes> 
+    <Navbar/>
+      <Routes>
         <Route path="/" element={<Home />} />   
         <Route path="/login" element={<Login />} />
       </Routes> 
