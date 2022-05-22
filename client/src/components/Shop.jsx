@@ -22,10 +22,10 @@ const Shop = () => {
   useEffect(() => {
     dispatch(getProducts())
     /* dispatch(filterByBestFor()) */
-    dispatch(filterByCategories())
+   // dispatch(filterByCategories())
   }, [])
 
-
+  console.log(currentShoes)
   return (
     <div className={styles.container}>
       {/* <img src={image} alt="" /> */}
