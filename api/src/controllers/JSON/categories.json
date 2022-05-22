@@ -1,0 +1,23 @@
+{
+"categories": [
+	{
+		"id" : 1,
+		"name" : "running"
+	},
+	{
+		"id" : 2,
+		"name" : "everyday"
+	},
+	{
+		"id" : 3,
+		"name" : "warm-weather"
+	},
+	{
+		"id" : 4,
+		"name" : "cool-weather"
+	},
+	{
+		"id" : 5,
+		"name" : "wet-weather"
+	}
+]}

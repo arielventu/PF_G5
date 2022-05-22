@@ -1,0 +1,21 @@
+{
+"productscategories": [
+	{
+		"createdAt" : "2022-05-22T18:48:41.000Z",
+		"updatedAt" : "2022-05-22T18:48:41.000Z",
+		"productId" : 1,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-22T18:48:41.000Z",
+		"updatedAt" : "2022-05-22T18:48:41.000Z",
+		"productId" : 1,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-22T18:48:41.000Z",
+		"updatedAt" : "2022-05-22T18:48:41.000Z",
+		"productId" : 2,
+		"categoryId" : 3
+	}
+]}
