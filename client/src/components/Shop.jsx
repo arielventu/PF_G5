@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getProducts}  from '../actions/actions'
+import {getProducts , filterByBestFor , filterByCategories}  from '../actions/actions'
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Pagination from "./Pagination"
@@ -21,7 +21,10 @@ const Shop = () => {
 
   useEffect(() => {
     dispatch(getProducts())
+    /* dispatch(filterByBestFor()) */
+    dispatch(filterByCategories())
   }, [])
+
 
   return (
     <div className={styles.container}>
@@ -33,6 +36,7 @@ const Shop = () => {
               <Card key={product.id} id={product.id} fullName={product.fullName} price={product.price} img={product.images[0].src}/>
             </Link>
         ))}
+        
       </div>
       <div>
         <Pagination key= {1} shoesPerPage={shoesPerPage} products={products.length} pagination={pagination}/>
