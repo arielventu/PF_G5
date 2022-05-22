@@ -1,0 +1,21 @@
+{
+"reviews": [
+	{
+		"id" : 1,
+		"description" : "This style is available in whole sizes only",
+		"starsLevel" : 4,
+		"productId" : 1
+	},
+	{
+		"id" : 2,
+		"description" : "In between sizes?",
+		"starsLevel" : 5,
+		"productId" : 1
+	},
+	{
+		"id" : 3,
+		"description" : "We recommend you size up",
+		"starsLevel" : 1,
+		"productId" : 2
+	}
+]}
