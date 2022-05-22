@@ -21,11 +21,6 @@ module.exports = (sequelize) => {
   sequelize.define(
     "review",
     {
-      id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-      },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
