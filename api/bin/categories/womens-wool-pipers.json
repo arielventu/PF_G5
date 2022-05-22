@@ -1,0 +1,1076 @@
+{
+  "id": 190811177092,
+  "name": "Women's Wool Pipers",
+  "handle": "womens-wool-pipers",
+  "description": "\u003cp\u003eThe Wool Piper is a classic low-top silhouette that's been reimagined for everyday casual wear while walking in cooler weather. It's made with soft, cozy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e",
+  "products": { "womens-wool-pipers-true-black":{
+  "id": 5052183183492,
+  "handle": "womens-wool-pipers-true-black",
+  "masterId": "WOMENS_WOOL_PIPERS",
+  "description": "\u003cp\u003eThe Wool Piper is a classic low-top silhouette that's been reimagined for everyday casual wear while walking in cooler weather. It's made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e",
+  "localizedDescription": {"de-DE":"\u003cp\u003eDer Wool Piper ist ein klassischer, niedriger Sneaker, der sich am besten als Freizeitschuh bei kühlerem Wetter eignet. Er besteht aus weichen und bequemen natürlichen Materialien und passt dank seines simplen und doch trendigen Designs perfekt zu jedem Outfit.\u003c\/p\u003e","en-AU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-CA":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-EU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-GB":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-NZ":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-US":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cozy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","fr-FR":"\u003cp\u003eLa Wool Piper est une chaussure basse au look intemporel qui a été réimaginée pour un quotidien décontracté lors de vos promenades par temps frais. Elle est conçue en matériaux naturels doux, cosy et peut être portée avec différents looks.\u003c\/p\u003e","it-IT":"\u003cp\u003eLe Wool Piper sono un modello basso dalla linea classica reinventato per essere indossato ogni giorno e passeggiare quando fa freddo. Sono realizzate in materiali naturali morbidi, caldi e comodi. L’equilibrio perfetto tra semplicità e audacia, per uno stile versatile.\u003c\/p\u003e","ja-JP":"\u003cp\u003eWool Piperは、クラシックなデザインを洗練させたローカットスニーカー。柔らかくて肌触りの良い天然素材を使用し、特徴的なディティールとシンプルさをバランスよく取り入れました。どんなコーディネートとも相性がよく、普段使いにぴったりです。\u003c\/p\u003e","ko-KR":"\u003cp\u003eWool Piper는 클래식 로우탑 디자인을 재해석한 쌀쌀한 날씨에 적합한 데일리 캐주얼웨어입니다. 부드럽고 포근한 천연 소재로 만든 어디에나 어울리는 조화로운 디자인을 자랑하는 신발입니다. \u003c\/p\u003e","nl-NL":"\u003cp\u003eDe Wool Piper is een klassiek low-top silhouet ideaal voor frissere dagen. De comfortabele schoen is gemaakt van zachte, natuurlijke materialen en kun je zowel eenvoudig en veelzijdig stylen.\u003c\/p\u003e","zh-CN":"\u003cp\u003e用天然材料重塑经典鞋型，平衡简单风格和多样穿搭场景，妥帖你的百变日常。\u003c\/p\u003e"},
+  "localizedSizeRecommendation": {},
+  "localizedSeoTitle": {"de-DE":"Allbirds Wool Pipers \u0026 Reviews, Women's - True Black | Classic Low-Top Sneaker","en-AU":"Allbirds Wool Pipers \u0026 Reviews, Women's - True Black | Classic Low-Top Sneaker","en-CA":"Allbirds Wool Pipers \u0026 Reviews, Women's - True Black | Classic Low-Top Sneaker","en-GB":"Allbirds Wool Pipers \u0026 Reviews, Women's - True Black | Classic Low-Top Sneaker","en-NZ":"Allbirds Wool Pipers \u0026 Reviews, Women's - True Black | Classic Low-Top Sneaker","en-US":"Allbirds Wool Pipers \u0026 Reviews, Women's - True Black | Classic Low-Top Sneaker"},
+  "localizedDifferentiatorsHeading": null,
+  "localizedDifferentiators": null,
+  "price": 10500,
+  "compareAtPrice": null,
+  "fullName": "Women's Wool Pipers - True Black (White Sole)",
+  "masterName": "Women's Wool Pipers",
+  "colorName": "True Black (White Sole)",
+  "type": "Shoes",
+  "template_suffix": "womens-wool-pipers",
+  "silhouette": "piper",
+  "master": "womens-wool-pipers",
+  "material": "wool",
+  "edition": "classic",
+  "gender": "womens",
+  "bestFor": ["everyday","cool-weather"],
+  "canonicalProduct": {"id":"5052183117956"},
+  "swatchImageUrl": null,
+  "colors":["#333132","#FFFFFA"],
+  "hues":["black"],
+  "video": {"metadata":{"tags":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"5yd6H9wBrNZbqDGnW90gu5","type":"Asset","createdAt":"2021-09-28T17:30:26.150Z","updatedAt":"2021-09-28T17:30:26.150Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":1,"locale":"en-GB"},"fields":{"title":"pdp-video-womens-wool-pipers","file":{"url":"\/\/videos.ctfassets.net\/9uo1qvvet3xa\/5yd6H9wBrNZbqDGnW90gu5\/7173b6ead8ac703cc5f929f4a275ee19\/pdp-video-womens-wool-pipers.mp4","details":{"size":2463245},"fileName":"pdp-video-womens-wool-pipers.mp4","contentType":"video\/mp4"}}},
+  "backorderMessage": null,
+  "localizedBackorderMessage": {},
+  "soldOutMessage": null,
+  "localizedSoldOutMessage": {},
+  "enableBackInStockEmail":false,
+  "featuredImage":  {"src":"https:\/\/cdn.allbirds.com\/image\/upload\/f_auto,q_auto\/v1\/production\/colorway\/en-US\/images\/73UsKoMMKAXH4xM3WLQp9h\/1","altText":"WP1MTBK SHOE LEFT GLOBAL MENS WOOL PIPER TRUE BLACK WHITE"},
+  "laydownShotImage":  {"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/73UsKoMMKAXH4xM3WLQp9h\/3591bcad1fceb3e550fb1ef17afc8ac8\/WP1MTBK_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE.png","tags":[]},
+  "cfMetadata": {"colorwayEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"color-womens-wool-pipers-true-black","type":"Entry","createdAt":"2020-09-01T18:44:40.216Z","updatedAt":"2022-04-27T18:31:39.511Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":30,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"colorway"}},"locale":"en-US"},"productEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"product-womens-wool-pipers","type":"Entry","createdAt":"2020-09-01T18:49:45.043Z","updatedAt":"2022-04-06T23:25:58.375Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":55,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"product"}},"locale":"en-GB"}},
+  "isVirtualTryOnEnabled": true,
+  "isShoprunnerEnabled": true,
+  "images": [{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MTBK_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE_v1_161037fd-1021-470c-90a6-0ec7cc08dd1f.png?v=1650580293",
+        "alt": "Women's Wool Pipers - True Black (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/PDP_Lifestyle_Image-Women_3c6ddcdd-d378-48da-ba5e-ab30224dbd5f.jpg?v=1650580293",
+        "alt": "Women's Wool Pipers - True Black (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MTBK_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE_ab0368b9-052b-481a-bd5c-89ba52da9451.png?v=1650580293",
+        "alt": "Women's Wool Pipers - True Black (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MTBK_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE_ec585641-d0ab-46fa-88d8-707a616a1fa4.png?v=1650580293",
+        "alt": "Women's Wool Pipers - True Black (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MTBK_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE_e03797ed-de8e-4f97-a80f-64ea6a8eba9f.png?v=1650580293",
+        "alt": "Women's Wool Pipers - True Black (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MTBK_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE_9697a275-14b0-46dc-bb4b-6fd4943ee47f.png?v=1650580293",
+        "alt": "Women's Wool Pipers - True Black (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MTBK_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE_7fa359c5-8211-432e-82d3-69327bb54dc2.png?v=1650580293",
+        "alt": "Women's Wool Pipers - True Black (White Sole)"
+      }],
+  "contentfulImages":[{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3jfQLV4joOMUbvaZ4Q34q6\/36b60c605c11a196d276f104a752a6f4\/WP1MTBK_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE_v1.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3zNycepwuQaGvtNH7ekYRl\/efcd78b89cb5941d0bf543c140397a7c\/PDP_Lifestyle_Image-Women.jpg","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/73UsKoMMKAXH4xM3WLQp9h\/3591bcad1fceb3e550fb1ef17afc8ac8\/WP1MTBK_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/2RjNld3Y6OHxon5rfIC3zg\/6b390ba1514dd071a394181a8e7a8776\/WP1MTBK_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/1HNxUKzTqYM0GoKcsZF8Y2\/b4700b4de0a433838f1585b29d716d94\/WP1MTBK_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/2XHsEu4kT4hFV2ZpSoaZ0t\/45f48ca7a1c304e233f4e92ff9359bca\/WP1MTBK_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/26JjIIunAa5xPn7oAjc6Iw\/b109bc629b98e54c602d06cce080bf27\/WP1MTBK_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_TRUE_BLACK_WHITE.png","tags":[]}],
+  "localizedModelDescription": {},
+  "sizes": {"uk-2":{
+  "id": 34172483207300,
+  "sku": "WP1WTBK050",
+  "value": "UK 2",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-2"
+}
+,"uk-3":{
+  "id": 34172483240068,
+  "sku": "WP1WTBK060",
+  "value": "UK 3",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-3"
+}
+,"uk-4":{
+  "id": 34172483272836,
+  "sku": "WP1WTBK070",
+  "value": "UK 4",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-4"
+}
+,"uk-5":{
+  "id": 34172483305604,
+  "sku": "WP1WTBK080",
+  "value": "UK 5",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-5"
+}
+,"uk-6":{
+  "id": 34172483338372,
+  "sku": "WP1WTBK090",
+  "value": "UK 6",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-6"
+}
+,"uk-7":{
+  "id": 34172483371140,
+  "sku": "WP1WTBK100",
+  "value": "UK 7",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-7"
+}
+,"uk-8":{
+  "id": 34172483403908,
+  "sku": "WP1WTBK110",
+  "value": "UK 8",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-8"
+}
+},"sizesSortOrder":["uk-2","uk-3","uk-4","uk-5","uk-6","uk-7","uk-8"]}
+,"womens-wool-pipers-natural-white":{
+  "id": 5052183216260,
+  "handle": "womens-wool-pipers-natural-white",
+  "masterId": "WOMENS_WOOL_PIPERS",
+  "description": "\u003cp\u003eThe Wool Piper is a classic low-top silhouette that's been reimagined for everyday casual wear while walking in cooler weather. It's made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e",
+  "localizedDescription": {"de-DE":"\u003cp\u003eDer Wool Piper ist ein klassischer, niedriger Sneaker, der sich am besten als Freizeitschuh bei kühlerem Wetter eignet. Er besteht aus weichen und bequemen natürlichen Materialien und passt dank seines simplen und doch trendigen Designs perfekt zu jedem Outfit.\u003c\/p\u003e","en-AU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-CA":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-EU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-GB":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-NZ":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-US":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cozy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","fr-FR":"\u003cp\u003eLa Wool Piper est une chaussure basse au look intemporel qui a été réimaginée pour un quotidien décontracté lors de vos promenades par temps frais. Elle est conçue en matériaux naturels doux, cosy et peut être portée avec différents looks.\u003c\/p\u003e","it-IT":"\u003cp\u003eLe Wool Piper sono un modello basso dalla linea classica reinventato per essere indossato ogni giorno e passeggiare quando fa freddo. Sono realizzate in materiali naturali morbidi, caldi e comodi. L’equilibrio perfetto tra semplicità e audacia, per uno stile versatile.\u003c\/p\u003e","ja-JP":"\u003cp\u003eWool Piperは、クラシックなデザインを洗練させたローカットスニーカー。柔らかくて肌触りの良い天然素材を使用し、特徴的なディティールとシンプルさをバランスよく取り入れました。どんなコーディネートとも相性がよく、普段使いにぴったりです。\u003c\/p\u003e","ko-KR":"\u003cp\u003eWool Piper는 클래식 로우탑 디자인을 재해석한 쌀쌀한 날씨에 적합한 데일리 캐주얼웨어입니다. 부드럽고 포근한 천연 소재로 만든 어디에나 어울리는 조화로운 디자인을 자랑하는 신발입니다. \u003c\/p\u003e","nl-NL":"\u003cp\u003eDe Wool Piper is een klassiek low-top silhouet ideaal voor frissere dagen. De comfortabele schoen is gemaakt van zachte, natuurlijke materialen en kun je zowel eenvoudig en veelzijdig stylen.\u003c\/p\u003e","zh-CN":"\u003cp\u003e用天然材料重塑经典鞋型，平衡简单风格和多样穿搭场景，妥帖你的百变日常。\u003c\/p\u003e"},
+  "localizedSizeRecommendation": {},
+  "localizedSeoTitle": {"de-DE":"Allbirds Wool Pipers \u0026 Reviews, Women's (Natural White) | Low-Top, Cup Sole-Style Sneaker","en-AU":"Allbirds Wool Pipers \u0026 Reviews, Women's (Natural White) | Low-Top, Cup Sole-Style Sneaker","en-CA":"Allbirds Wool Pipers \u0026 Reviews, Women's (Natural White) | Low-Top, Cup Sole-Style Sneaker","en-GB":"Allbirds Wool Pipers \u0026 Reviews, Women's (Natural White) | Low-Top, Cup Sole-Style Sneaker","en-NZ":"Allbirds Wool Pipers \u0026 Reviews, Women's (Natural White) | Low-Top, Cup Sole-Style Sneaker","en-US":"Allbirds Wool Pipers \u0026 Reviews, Women's (Natural White) | Low-Top, Cup Sole-Style Sneaker"},
+  "localizedDifferentiatorsHeading": null,
+  "localizedDifferentiators": null,
+  "price": 10500,
+  "compareAtPrice": null,
+  "fullName": "Women's Wool Pipers - Natural White (White Sole)",
+  "masterName": "Women's Wool Pipers",
+  "colorName": "Natural White (White Sole)",
+  "type": "Shoes",
+  "template_suffix": "womens-wool-pipers",
+  "silhouette": "piper",
+  "master": "womens-wool-pipers",
+  "material": "wool",
+  "edition": "classic",
+  "gender": "womens",
+  "bestFor": ["everyday","cool-weather"],
+  "canonicalProduct": {"id":"5052183117956"},
+  "swatchImageUrl": null,
+  "colors":["#F9F7F2"],
+  "hues":["white"],
+  "video": {"metadata":{"tags":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"5yd6H9wBrNZbqDGnW90gu5","type":"Asset","createdAt":"2021-09-28T17:30:26.150Z","updatedAt":"2021-09-28T17:30:26.150Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":1,"locale":"en-GB"},"fields":{"title":"pdp-video-womens-wool-pipers","file":{"url":"\/\/videos.ctfassets.net\/9uo1qvvet3xa\/5yd6H9wBrNZbqDGnW90gu5\/7173b6ead8ac703cc5f929f4a275ee19\/pdp-video-womens-wool-pipers.mp4","details":{"size":2463245},"fileName":"pdp-video-womens-wool-pipers.mp4","contentType":"video\/mp4"}}},
+  "backorderMessage": null,
+  "localizedBackorderMessage": {},
+  "soldOutMessage": null,
+  "localizedSoldOutMessage": {},
+  "enableBackInStockEmail":false,
+  "featuredImage":  {"src":"https:\/\/cdn.allbirds.com\/image\/upload\/f_auto,q_auto\/v1\/production\/colorway\/en-US\/images\/2Xswa18ibWOhSh83IW2jrg\/1","altText":"WP1MAWW SHOE LEFT GLOBAL MENS WOOL PIPER NATURAL WHITE WHITE"},
+  "laydownShotImage":  {"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/2Xswa18ibWOhSh83IW2jrg\/a48ece95c1c544cbd47746129bc5fe06\/WP1MAWW_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE.png","tags":[]},
+  "cfMetadata": {"colorwayEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"color-womens-wool-pipers-natural-white","type":"Entry","createdAt":"2020-09-01T18:44:41.646Z","updatedAt":"2022-04-27T18:31:40.577Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":29,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"colorway"}},"locale":"en-US"},"productEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"product-womens-wool-pipers","type":"Entry","createdAt":"2020-09-01T18:49:45.043Z","updatedAt":"2022-04-06T23:25:58.375Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":55,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"product"}},"locale":"en-GB"}},
+  "isVirtualTryOnEnabled": true,
+  "isShoprunnerEnabled": true,
+  "images": [{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MAWW_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE_v1_4008c37f-cb17-4571-8733-e2dcc995dcac.png?v=1650580324",
+        "alt": "Women's Wool Pipers - Natural White (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/PDP_Lifestyle_Image-Women_1591da87-9d86-42d6-8cc9-30370d6e4999.jpg?v=1650580324",
+        "alt": "Women's Wool Pipers - Natural White (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MAWW_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE_648f442e-7bef-40aa-a7ec-7a3bfbefc9cd.png?v=1650580324",
+        "alt": "Women's Wool Pipers - Natural White (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MAWW_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE_8f0c9b93-5769-488e-a550-681c7c2ad162.png?v=1650580324",
+        "alt": "Women's Wool Pipers - Natural White (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MAWW_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE_5d383889-f5a1-43c6-a892-5b88e4e75840.png?v=1650580324",
+        "alt": "Women's Wool Pipers - Natural White (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MAWW_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE_1b6cb4ef-d2f4-43f9-9089-a6ccc771f7fc.png?v=1650580324",
+        "alt": "Women's Wool Pipers - Natural White (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MAWW_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE_ac9459b2-21e9-4f01-8135-aca2e138d4b2.png?v=1650580324",
+        "alt": "Women's Wool Pipers - Natural White (White Sole)"
+      }],
+  "contentfulImages":[{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/rBZk2NWSPLTniks4IsaKT\/5d51e206042fec81d22fa4cb29cdb9f8\/WP1MAWW_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE_v1.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3zNycepwuQaGvtNH7ekYRl\/efcd78b89cb5941d0bf543c140397a7c\/PDP_Lifestyle_Image-Women.jpg","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/2Xswa18ibWOhSh83IW2jrg\/a48ece95c1c544cbd47746129bc5fe06\/WP1MAWW_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/2GUGWs1WTvcZLQZz4dTa7F\/29cb0d1cb275b76aa04fcfac5b4b5bb7\/WP1MAWW_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3ZsrICHnSG2JXLjyks74WZ\/a21e249df6a91a89801644191e7e8be9\/WP1MAWW_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/1lvPbe6S0p5aiDeqsDw9nK\/dfb17b6b49566d36c12d59535cc55f17\/WP1MAWW_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/1kboVWcO7oxyvOHTf6ZYXG\/62745754bd965294253ed9aa8383ca18\/WP1MAWW_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_NATURAL_WHITE_WHITE.png","tags":[]}],
+  "localizedModelDescription": {},
+  "sizes": {"uk-2":{
+  "id": 34172483502212,
+  "sku": "WP1WAWW050",
+  "value": "UK 2",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-2"
+}
+,"uk-3":{
+  "id": 34172483567748,
+  "sku": "WP1WAWW060",
+  "value": "UK 3",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-3"
+}
+,"uk-4":{
+  "id": 34172483633284,
+  "sku": "WP1WAWW070",
+  "value": "UK 4",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-4"
+}
+,"uk-5":{
+  "id": 34172483666052,
+  "sku": "WP1WAWW080",
+  "value": "UK 5",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-5"
+}
+,"uk-6":{
+  "id": 34172483731588,
+  "sku": "WP1WAWW090",
+  "value": "UK 6",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-6"
+}
+,"uk-7":{
+  "id": 34172483797124,
+  "sku": "WP1WAWW100",
+  "value": "UK 7",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-7"
+}
+,"uk-8":{
+  "id": 34172483829892,
+  "sku": "WP1WAWW110",
+  "value": "UK 8",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-8"
+}
+},"sizesSortOrder":["uk-2","uk-3","uk-4","uk-5","uk-6","uk-7","uk-8"]}
+,"womens-wool-pipers":{
+  "id": 5052183117956,
+  "handle": "womens-wool-pipers",
+  "masterId": "WOMENS_WOOL_PIPERS",
+  "description": "\u003cp\u003eThe Wool Piper is a classic low-top silhouette that's been reimagined for everyday casual wear while walking in cooler weather. It's made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e",
+  "localizedDescription": {"de-DE":"\u003cp\u003eDer Wool Piper ist ein klassischer, niedriger Sneaker, der sich am besten als Freizeitschuh bei kühlerem Wetter eignet. Er besteht aus weichen und bequemen natürlichen Materialien und passt dank seines simplen und doch trendigen Designs perfekt zu jedem Outfit.\u003c\/p\u003e","en-AU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-CA":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-EU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-GB":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-NZ":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-US":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cozy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","fr-FR":"\u003cp\u003eLa Wool Piper est une chaussure basse au look intemporel qui a été réimaginée pour un quotidien décontracté lors de vos promenades par temps frais. Elle est conçue en matériaux naturels doux, cosy et peut être portée avec différents looks.\u003c\/p\u003e","it-IT":"\u003cp\u003eLe Wool Piper sono un modello basso dalla linea classica reinventato per essere indossato ogni giorno e passeggiare quando fa freddo. Sono realizzate in materiali naturali morbidi, caldi e comodi. L’equilibrio perfetto tra semplicità e audacia, per uno stile versatile.\u003c\/p\u003e","ja-JP":"\u003cp\u003eWool Piperは、クラシックなデザインを洗練させたローカットスニーカー。柔らかくて肌触りの良い天然素材を使用し、特徴的なディティールとシンプルさをバランスよく取り入れました。どんなコーディネートとも相性がよく、普段使いにぴったりです。\u003c\/p\u003e","ko-KR":"\u003cp\u003eWool Piper는 클래식 로우탑 디자인을 재해석한 쌀쌀한 날씨에 적합한 데일리 캐주얼웨어입니다. 부드럽고 포근한 천연 소재로 만든 어디에나 어울리는 조화로운 디자인을 자랑하는 신발입니다. \u003c\/p\u003e","nl-NL":"\u003cp\u003eDe Wool Piper is een klassiek low-top silhouet ideaal voor frissere dagen. De comfortabele schoen is gemaakt van zachte, natuurlijke materialen en kun je zowel eenvoudig en veelzijdig stylen.\u003c\/p\u003e","zh-CN":"\u003cp\u003e用天然材料重塑经典鞋型，平衡简单风格和多样穿搭场景，妥帖你的百变日常。\u003c\/p\u003e"},
+  "localizedSizeRecommendation": {},
+  "localizedSeoTitle": {"de-DE":"Allbirds Wool Piper, Damen | Bewertungen, Infos zur Größe | Klassische niedrige Sneaker (Grey)","en-AU":"Allbirds Wool Pipers, Women's | Reviews, Sizing Info | Classic Low-Top Sneaker (Dapple Grey)","en-CA":"Allbirds Wool Pipers, Women's | Reviews, Sizing Info | Classic Low-Top Sneaker (Dapple Grey)","en-GB":"Allbirds Wool Pipers, Women's | Reviews, Sizing Info | Classic Low-Top Sneaker (Dapple Grey)","en-NZ":"Allbirds Wool Pipers, Women's | Reviews, Sizing Info | Classic Low-Top Sneaker (Dapple Grey)","en-US":"Allbirds Wool Pipers, Women's | Reviews, Sizing Info | Classic Low-Top Sneaker (Dapple Grey)","fr-FR":"Wool Pipers Allbirds pour Femme | Avis, informations sur les tailles | Basket basse classique (Grey)","it-IT":"Wool Pipers Allbirds, donna | Recensioni, info misure | Classiche sneakers basse (Dapple Grey)","nl-NL":"Allbirds Wool Pipers, voor dames | Reviews, maatgids | Klassieke lage sneaker (Dapple Grey)"},
+  "localizedDifferentiatorsHeading": null,
+  "localizedDifferentiators": null,
+  "price": 10500,
+  "compareAtPrice": null,
+  "fullName": "Women's Wool Pipers - Dapple Grey (White Sole)",
+  "masterName": "Women's Wool Pipers",
+  "colorName": "Dapple Grey (White Sole)",
+  "type": "Shoes",
+  "template_suffix": "womens-wool-pipers",
+  "silhouette": "piper",
+  "master": "womens-wool-pipers",
+  "material": "wool",
+  "edition": "classic",
+  "gender": "womens",
+  "bestFor": ["everyday","cool-weather"],
+  "canonicalProduct": {"id":"5052183117956"},
+  "swatchImageUrl": null,
+  "colors":["#B1B1AF","#fff"],
+  "hues":["grey"],
+  "video": {"metadata":{"tags":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"5yd6H9wBrNZbqDGnW90gu5","type":"Asset","createdAt":"2021-09-28T17:30:26.150Z","updatedAt":"2021-09-28T17:30:26.150Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":1,"locale":"en-GB"},"fields":{"title":"pdp-video-womens-wool-pipers","file":{"url":"\/\/videos.ctfassets.net\/9uo1qvvet3xa\/5yd6H9wBrNZbqDGnW90gu5\/7173b6ead8ac703cc5f929f4a275ee19\/pdp-video-womens-wool-pipers.mp4","details":{"size":2463245},"fileName":"pdp-video-womens-wool-pipers.mp4","contentType":"video\/mp4"}}},
+  "backorderMessage": null,
+  "localizedBackorderMessage": {},
+  "soldOutMessage": null,
+  "localizedSoldOutMessage": {},
+  "enableBackInStockEmail":false,
+  "featuredImage":  {"src":"https:\/\/cdn.allbirds.com\/image\/upload\/f_auto,q_auto\/v1\/production\/colorway\/en-US\/images\/7xIcdyn4O7a1sxmqACZxVL\/1","altText":"WP1MDPG SHOE LEFT GLOBAL MENS WOOL PIPER DAPPLE GREY WHITE"},
+  "laydownShotImage":  {"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/7xIcdyn4O7a1sxmqACZxVL\/96d9ac6f11acd79aee6609108a3a8cbc\/WP1MDPG_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE.png","tags":[]},
+  "cfMetadata": {"colorwayEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"color-womens-wool-pipers","type":"Entry","createdAt":"2020-09-01T18:44:39.016Z","updatedAt":"2022-04-27T18:31:38.643Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":39,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"colorway"}},"locale":"en-US"},"productEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"product-womens-wool-pipers","type":"Entry","createdAt":"2020-09-01T18:49:45.043Z","updatedAt":"2022-04-06T23:25:58.375Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":55,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"product"}},"locale":"en-GB"}},
+  "isVirtualTryOnEnabled": true,
+  "isShoprunnerEnabled": true,
+  "images": [{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MDPG_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE_v1_ab9d3560-87a0-4015-9e94-419c5549d402.png?v=1650580273",
+        "alt": "Women's Wool Pipers - Dapple Grey (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/PDP_Lifestyle_Image-Women_07e3b55f-f546-4ff2-be2b-2db4675aa4db.jpg?v=1650580273",
+        "alt": "Women's Wool Pipers - Dapple Grey (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MDPG_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE_101195a3-3f9a-402b-8681-3692273ae349.png?v=1650580273",
+        "alt": "Women's Wool Pipers - Dapple Grey (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MDPG_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE_d3bc7097-db37-4c29-9a9d-cb8d02d6068b.png?v=1650580273",
+        "alt": "Women's Wool Pipers - Dapple Grey (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MDPG_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE_2e71c6c9-cdd1-417d-a671-29d0ddc2d90a.png?v=1650580273",
+        "alt": "Women's Wool Pipers - Dapple Grey (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MDPG_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE_4fe31bb3-ddb8-40ed-82e2-f2ad7f25bbca.png?v=1650580273",
+        "alt": "Women's Wool Pipers - Dapple Grey (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MDPG_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE_e7c109cd-93f3-4571-a967-362beb47498e.png?v=1650580273",
+        "alt": "Women's Wool Pipers - Dapple Grey (White Sole)"
+      }],
+  "contentfulImages":[{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/9O2GsQAWcnylrFwL79C26\/bdd0ebd127b5ad29a83d0c8950d2197d\/WP1MDPG_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE_v1.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3zNycepwuQaGvtNH7ekYRl\/efcd78b89cb5941d0bf543c140397a7c\/PDP_Lifestyle_Image-Women.jpg","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/7xIcdyn4O7a1sxmqACZxVL\/96d9ac6f11acd79aee6609108a3a8cbc\/WP1MDPG_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/5vmH2vuieW12leW2YefFLJ\/868b9fe0c3620a01736b0a13ea748344\/WP1MDPG_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/5O0r7MsQtQl9Wkmxv0qyXu\/8332e9ba9e73021f756ff5e8fa22044a\/WP1MDPG_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/6pRc5S5Itj3qdll9RweAQu\/8745af0b05648a7e28d0fd429b230104\/WP1MDPG_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/01Kj3C69vFgqdTPI0JjHwF\/049a76eb9ceea2b015edb9c686160575\/WP1MDPG_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_DAPPLE_GREY_WHITE.png","tags":[]}],
+  "localizedModelDescription": {},
+  "sizes": {"uk-2":{
+  "id": 34172482945156,
+  "sku": "WP1WDPG050",
+  "value": "UK 2",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-2"
+}
+,"uk-3":{
+  "id": 34172482977924,
+  "sku": "WP1WDPG060",
+  "value": "UK 3",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-3"
+}
+,"uk-4":{
+  "id": 34172483010692,
+  "sku": "WP1WDPG070",
+  "value": "UK 4",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-4"
+}
+,"uk-5":{
+  "id": 34172483043460,
+  "sku": "WP1WDPG080",
+  "value": "UK 5",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-5"
+}
+,"uk-6":{
+  "id": 34172483076228,
+  "sku": "WP1WDPG090",
+  "value": "UK 6",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-6"
+}
+,"uk-7":{
+  "id": 34172483108996,
+  "sku": "WP1WDPG100",
+  "value": "UK 7",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-7"
+}
+,"uk-8":{
+  "id": 34172483141764,
+  "sku": "WP1WDPG110",
+  "value": "UK 8",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-8"
+}
+},"sizesSortOrder":["uk-2","uk-3","uk-4","uk-5","uk-6","uk-7","uk-8"]}
+,"womens-wool-pipers-natural-black":{
+  "id": 5052183314564,
+  "handle": "womens-wool-pipers-natural-black",
+  "masterId": "WOMENS_WOOL_PIPERS",
+  "description": "\u003cp\u003eThe Wool Piper is a classic low-top silhouette that's been reimagined for everyday casual wear while walking in cooler weather. It's made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e",
+  "localizedDescription": {"de-DE":"\u003cp\u003eDer Wool Piper ist ein klassischer, niedriger Sneaker, der sich am besten als Freizeitschuh bei kühlerem Wetter eignet. Er besteht aus weichen und bequemen natürlichen Materialien und passt dank seines simplen und doch trendigen Designs perfekt zu jedem Outfit.\u003c\/p\u003e","en-AU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-CA":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-EU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-GB":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-NZ":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-US":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cozy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","fr-FR":"\u003cp\u003eLa Wool Piper est une chaussure basse au look intemporel qui a été réimaginée pour un quotidien décontracté lors de vos promenades par temps frais. Elle est conçue en matériaux naturels doux, cosy et peut être portée avec différents looks.\u003c\/p\u003e","it-IT":"\u003cp\u003eLe Wool Piper sono un modello basso dalla linea classica reinventato per essere indossato ogni giorno e passeggiare quando fa freddo. Sono realizzate in materiali naturali morbidi, caldi e comodi. L’equilibrio perfetto tra semplicità e audacia, per uno stile versatile.\u003c\/p\u003e","ja-JP":"\u003cp\u003eWool Piperは、クラシックなデザインを洗練させたローカットスニーカー。柔らかくて肌触りの良い天然素材を使用し、特徴的なディティールとシンプルさをバランスよく取り入れました。どんなコーディネートとも相性がよく、普段使いにぴったりです。\u003c\/p\u003e","ko-KR":"\u003cp\u003eWool Piper는 클래식 로우탑 디자인을 재해석한 쌀쌀한 날씨에 적합한 데일리 캐주얼웨어입니다. 부드럽고 포근한 천연 소재로 만든 어디에나 어울리는 조화로운 디자인을 자랑하는 신발입니다. \u003c\/p\u003e","nl-NL":"\u003cp\u003eDe Wool Piper is een klassiek low-top silhouet ideaal voor frissere dagen. De comfortabele schoen is gemaakt van zachte, natuurlijke materialen en kun je zowel eenvoudig en veelzijdig stylen.\u003c\/p\u003e","zh-CN":"\u003cp\u003e用天然材料重塑经典鞋型，平衡简单风格和多样穿搭场景，妥帖你的百变日常。\u003c\/p\u003e"},
+  "localizedSizeRecommendation": {},
+  "localizedSeoTitle": {"de-DE":"Allbirds Wool Pipers \u0026 Reviews, Women's - Natural Black | Classic Low-Top Sneaker","en-AU":"Allbirds Wool Pipers \u0026 Reviews, Women's - Natural Black | Classic Low-Top Sneaker","en-CA":"Allbirds Wool Pipers \u0026 Reviews, Women's - Natural Black | Classic Low-Top Sneaker","en-GB":"Allbirds Wool Pipers \u0026 Reviews, Women's - Natural Black | Classic Low-Top Sneaker","en-NZ":"Allbirds Wool Pipers \u0026 Reviews, Women's - Natural Black | Classic Low-Top Sneaker","en-US":"Allbirds Wool Pipers \u0026 Reviews, Women's - Natural Black | Classic Low-Top Sneaker"},
+  "localizedDifferentiatorsHeading": null,
+  "localizedDifferentiators": null,
+  "price": 10500,
+  "compareAtPrice": null,
+  "fullName": "Women's Wool Pipers - Natural Black (Black Sole)",
+  "masterName": "Women's Wool Pipers",
+  "colorName": "Natural Black (Black Sole)",
+  "type": "Shoes",
+  "template_suffix": "womens-wool-pipers",
+  "silhouette": "piper",
+  "master": "womens-wool-pipers",
+  "material": "wool",
+  "edition": "classic",
+  "gender": "womens",
+  "bestFor": ["everyday","cool-weather"],
+  "canonicalProduct": {"id":"5052183117956"},
+  "swatchImageUrl": null,
+  "colors":["#4A4A49"],
+  "hues":["black"],
+  "video": {"metadata":{"tags":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"5yd6H9wBrNZbqDGnW90gu5","type":"Asset","createdAt":"2021-09-28T17:30:26.150Z","updatedAt":"2021-09-28T17:30:26.150Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":1,"locale":"en-GB"},"fields":{"title":"pdp-video-womens-wool-pipers","file":{"url":"\/\/videos.ctfassets.net\/9uo1qvvet3xa\/5yd6H9wBrNZbqDGnW90gu5\/7173b6ead8ac703cc5f929f4a275ee19\/pdp-video-womens-wool-pipers.mp4","details":{"size":2463245},"fileName":"pdp-video-womens-wool-pipers.mp4","contentType":"video\/mp4"}}},
+  "backorderMessage": null,
+  "localizedBackorderMessage": {},
+  "soldOutMessage": null,
+  "localizedSoldOutMessage": {},
+  "enableBackInStockEmail":false,
+  "featuredImage":  {"src":"https:\/\/cdn.allbirds.com\/image\/upload\/f_auto,q_auto\/v1\/production\/colorway\/en-US\/images\/7pYa9Zt6dQGgIWgicJAK4e\/1","altText":"WP1MABC SHOE LEFT GLOBAL MENS WOOL PIPER NATURAL BLACK BLACK"},
+  "laydownShotImage":  {"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/7pYa9Zt6dQGgIWgicJAK4e\/55401d049c3680ec31e0f5db7f96efff\/WP1MABC_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK.png","tags":[]},
+  "cfMetadata": {"colorwayEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"color-womens-wool-pipers-natural-black","type":"Entry","createdAt":"2020-09-01T18:44:42.846Z","updatedAt":"2022-04-27T18:31:41.485Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":29,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"colorway"}},"locale":"en-US"},"productEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"product-womens-wool-pipers","type":"Entry","createdAt":"2020-09-01T18:49:45.043Z","updatedAt":"2022-04-06T23:25:58.375Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":55,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"product"}},"locale":"en-GB"}},
+  "isVirtualTryOnEnabled": true,
+  "isShoprunnerEnabled": true,
+  "images": [{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MABC_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK_v1_13467c63-9b9e-421d-9754-e9337e54a54c.png?v=1650580309",
+        "alt": "Women's Wool Pipers - Natural Black (Black Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/PDP_Lifestyle_Image-Women_4f9ebd04-4494-46ae-8fe9-47d4822b9bb5.jpg?v=1650580309",
+        "alt": "Women's Wool Pipers - Natural Black (Black Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MABC_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK_54d2765d-5aa4-463d-b308-2ef47b4c37e7.png?v=1650580309",
+        "alt": "Women's Wool Pipers - Natural Black (Black Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MABC_SHOE_HEEL_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK_fcac6412-234c-442a-b5eb-a963f5c52df9.png?v=1650580309",
+        "alt": "Women's Wool Pipers - Natural Black (Black Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MABC_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK_5fae293c-8986-49e8-af1c-eba013bee28d.png?v=1650580309",
+        "alt": "Women's Wool Pipers - Natural Black (Black Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MABC_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK_a37d3e85-7eab-4ca8-b559-77cd53f5f5ea.png?v=1650580309",
+        "alt": "Women's Wool Pipers - Natural Black (Black Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MABC_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK_ea4107cd-66af-4848-85cb-825c98231220.png?v=1650580309",
+        "alt": "Women's Wool Pipers - Natural Black (Black Sole)"
+      }],
+  "contentfulImages":[{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/6Nr9cF6HO2jiMAYxMxkNg2\/e85b1ba41e78a10aa393e2380a92b2ca\/WP1MABC_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK_v1.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3zNycepwuQaGvtNH7ekYRl\/efcd78b89cb5941d0bf543c140397a7c\/PDP_Lifestyle_Image-Women.jpg","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/7pYa9Zt6dQGgIWgicJAK4e\/55401d049c3680ec31e0f5db7f96efff\/WP1MABC_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/6Z8oa9dQ59aNTdoQ3x4tDI\/4a963d69a110725df348f74423844b30\/WP1MABC_SHOE_HEEL_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/75cb9m5TYZI3UfIbomC7Ct\/568b56648ce450979282499751e7f09d\/WP1MABC_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/pT2AEaM5kHwJ4exWx1yrF\/5e2c625071ca83fc54294d9ce94e4186\/WP1MABC_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/4tUVLwNm5NRk2XlKtGdAYC\/608eedf5480419275fb87abb49ea9272\/WP1MABC_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_NATURAL_BLACK_BLACK.png","tags":[]}],
+  "localizedModelDescription": {},
+  "sizes": {"uk-2":{
+  "id": 34172483928196,
+  "sku": "WP1WABC050",
+  "value": "UK 2",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-2"
+}
+,"uk-3":{
+  "id": 34172483960964,
+  "sku": "WP1WABC060",
+  "value": "UK 3",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-3"
+}
+,"uk-4":{
+  "id": 34172483993732,
+  "sku": "WP1WABC070",
+  "value": "UK 4",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-4"
+}
+,"uk-5":{
+  "id": 34172484026500,
+  "sku": "WP1WABC080",
+  "value": "UK 5",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-5"
+}
+,"uk-6":{
+  "id": 34172484059268,
+  "sku": "WP1WABC090",
+  "value": "UK 6",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-6"
+}
+,"uk-7":{
+  "id": 34172484092036,
+  "sku": "WP1WABC100",
+  "value": "UK 7",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-7"
+}
+,"uk-8":{
+  "id": 34172484124804,
+  "sku": "WP1WABC110",
+  "value": "UK 8",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-8"
+}
+},"sizesSortOrder":["uk-2","uk-3","uk-4","uk-5","uk-6","uk-7","uk-8"]}
+,"womens-wool-pipers-diablo":{
+  "id": 6616506237060,
+  "handle": "womens-wool-pipers-diablo",
+  "masterId": "WOMENS_WOOL_PIPERS",
+  "description": "\u003cp\u003eThe Wool Piper is a classic low-top silhouette that's been reimagined for everyday casual wear while walking in cooler weather. It's made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e",
+  "localizedDescription": {"de-DE":"\u003cp\u003eDer Wool Piper ist ein klassischer, niedriger Sneaker, der sich am besten als Freizeitschuh bei kühlerem Wetter eignet. Er besteht aus weichen und bequemen natürlichen Materialien und passt dank seines simplen und doch trendigen Designs perfekt zu jedem Outfit.\u003c\/p\u003e","en-AU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-CA":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-EU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-GB":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-NZ":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-US":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cozy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","fr-FR":"\u003cp\u003eLa Wool Piper est une chaussure basse au look intemporel qui a été réimaginée pour un quotidien décontracté lors de vos promenades par temps frais. Elle est conçue en matériaux naturels doux, cosy et peut être portée avec différents looks.\u003c\/p\u003e","it-IT":"\u003cp\u003eLe Wool Piper sono un modello basso dalla linea classica reinventato per essere indossato ogni giorno e passeggiare quando fa freddo. Sono realizzate in materiali naturali morbidi, caldi e comodi. L’equilibrio perfetto tra semplicità e audacia, per uno stile versatile.\u003c\/p\u003e","ja-JP":"\u003cp\u003eWool Piperは、クラシックなデザインを洗練させたローカットスニーカー。柔らかくて肌触りの良い天然素材を使用し、特徴的なディティールとシンプルさをバランスよく取り入れました。どんなコーディネートとも相性がよく、普段使いにぴったりです。\u003c\/p\u003e","ko-KR":"\u003cp\u003eWool Piper는 클래식 로우탑 디자인을 재해석한 쌀쌀한 날씨에 적합한 데일리 캐주얼웨어입니다. 부드럽고 포근한 천연 소재로 만든 어디에나 어울리는 조화로운 디자인을 자랑하는 신발입니다. \u003c\/p\u003e","nl-NL":"\u003cp\u003eDe Wool Piper is een klassiek low-top silhouet ideaal voor frissere dagen. De comfortabele schoen is gemaakt van zachte, natuurlijke materialen en kun je zowel eenvoudig en veelzijdig stylen.\u003c\/p\u003e","zh-CN":"\u003cp\u003e用天然材料重塑经典鞋型，平衡简单风格和多样穿搭场景，妥帖你的百变日常。\u003c\/p\u003e"},
+  "localizedSizeRecommendation": {},
+  "localizedSeoTitle": {"en-AU":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-CA":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-GB":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-NZ":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-US":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","nl-NL":"Women's Wool Pipers - Dapple Grey (witte zool) | Lage, casual sneaker | Allbirds","zh-CN":"女士羊毛板鞋｜低帮休闲鞋｜Allbirds","de-DE":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","fr-FR":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","ja-JP":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","ko-KR":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","it-IT":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-EU":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds"},
+  "localizedDifferentiatorsHeading": null,
+  "localizedDifferentiators": null,
+  "price": 10500,
+  "compareAtPrice": null,
+  "fullName": "Women's Wool Pipers - Diablo (White Sole)",
+  "masterName": "Women's Wool Pipers",
+  "colorName": "Diablo (White Sole)",
+  "type": "Shoes",
+  "template_suffix": "womens-wool-pipers",
+  "silhouette": "piper",
+  "master": "womens-wool-pipers",
+  "material": "wool",
+  "edition": "limited",
+  "gender": "womens",
+  "bestFor": ["everyday","cool-weather"],
+  "canonicalProduct": {"id":"5052183117956"},
+  "swatchImageUrl": null,
+  "colors":["#b86b5c","#FFFFFA"],
+  "hues":["red","orange"],
+  "video": {"metadata":{"tags":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"5yd6H9wBrNZbqDGnW90gu5","type":"Asset","createdAt":"2021-09-28T17:30:26.150Z","updatedAt":"2021-09-28T17:30:26.150Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":1,"locale":"en-GB"},"fields":{"title":"pdp-video-womens-wool-pipers","file":{"url":"\/\/videos.ctfassets.net\/9uo1qvvet3xa\/5yd6H9wBrNZbqDGnW90gu5\/7173b6ead8ac703cc5f929f4a275ee19\/pdp-video-womens-wool-pipers.mp4","details":{"size":2463245},"fileName":"pdp-video-womens-wool-pipers.mp4","contentType":"video\/mp4"}}},
+  "backorderMessage": null,
+  "localizedBackorderMessage": {},
+  "soldOutMessage": null,
+  "localizedSoldOutMessage": {},
+  "enableBackInStockEmail":false,
+  "featuredImage":  {"src":"https:\/\/cdn.allbirds.com\/image\/upload\/f_auto,q_auto\/v1\/production\/colorway\/en-US\/images\/3rdkKIbO4NzEvIxSIg4XQ4\/1","altText":"WP1MXXX080 SHOE LEFT GLOBAL MENS WOOL PIPER DIABLO WHITE"},
+  "laydownShotImage":  {"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3rdkKIbO4NzEvIxSIg4XQ4\/1539b180aef5f70074d65126932d8ee9\/WP1MXXX080_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png","tags":[]},
+  "cfMetadata": {"colorwayEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"color-womens-wool-pipers-diablo-white","type":"Entry","createdAt":"2021-09-28T17:12:20.545Z","updatedAt":"2022-04-27T18:40:18.271Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":18,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"colorway"}},"locale":"en-US"},"productEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"product-womens-wool-pipers","type":"Entry","createdAt":"2020-09-01T18:49:45.043Z","updatedAt":"2022-04-06T23:25:58.375Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":55,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"product"}},"locale":"en-GB"}},
+  "isVirtualTryOnEnabled": true,
+  "isShoprunnerEnabled": true,
+  "images": [{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MXXX080_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png?v=1650580493",
+        "alt": "Women's Wool Pipers - Diablo (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/PDP_Lifestyle_Image-Women_7bb2f883-4655-4ecd-b3b4-a3074e3b6833.jpg?v=1650580493",
+        "alt": "Women's Wool Pipers - Diablo (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MXXX080_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png?v=1650580493",
+        "alt": "Women's Wool Pipers - Diablo (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MXXX080_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png?v=1650580493",
+        "alt": "Women's Wool Pipers - Diablo (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MXXX080_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png?v=1650580493",
+        "alt": "Women's Wool Pipers - Diablo (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MXXX080_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png?v=1650580493",
+        "alt": "Women's Wool Pipers - Diablo (White Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/WP1MXXX080_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png?v=1650580493",
+        "alt": "Women's Wool Pipers - Diablo (White Sole)"
+      }],
+  "contentfulImages":[{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/26OUywxs2OagIMI6BUKyL8\/672038eafd5eeab659b29947523dc103\/WP1MXXX080_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3zNycepwuQaGvtNH7ekYRl\/efcd78b89cb5941d0bf543c140397a7c\/PDP_Lifestyle_Image-Women.jpg","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3rdkKIbO4NzEvIxSIg4XQ4\/1539b180aef5f70074d65126932d8ee9\/WP1MXXX080_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/7d0dhaYKWVTWwpMXKYHMcx\/a7d4de312a1568396fe11ddcda600e3b\/WP1MXXX080_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/5Ntq6qsm50JVvqayLTtnAR\/e6f8f25efbb1791ff94e657f3b491eb5\/WP1MXXX080_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/4S5I2eEtkjGwL7DywypnyS\/4bed9f5ddcbeef19ab13c41f47687273\/WP1MXXX080_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/2ny8c1OBZ9KFVUledoNMRw\/4c9fc1ee069f1e4947d6c8c430b21b3f\/WP1MXXX080_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_DIABLO_WHITE.png","tags":[]}],
+  "localizedModelDescription": {},
+  "sizes": {"uk-2":{
+  "id": 39561760637060,
+  "sku": "AB000RW050",
+  "value": "UK 2",
+  "available": false,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-2"
+}
+,"uk-3":{
+  "id": 39561760669828,
+  "sku": "AB000RW060",
+  "value": "UK 3",
+  "available": false,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-3"
+}
+,"uk-4":{
+  "id": 39561760702596,
+  "sku": "AB000RW070",
+  "value": "UK 4",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-4"
+}
+,"uk-5":{
+  "id": 39561760735364,
+  "sku": "AB000RW080",
+  "value": "UK 5",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-5"
+}
+,"uk-6":{
+  "id": 39561760768132,
+  "sku": "AB000RW090",
+  "value": "UK 6",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-6"
+}
+,"uk-7":{
+  "id": 39561760800900,
+  "sku": "AB000RW100",
+  "value": "UK 7",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-7"
+}
+,"uk-8":{
+  "id": 39561760833668,
+  "sku": "AB000RW110",
+  "value": "UK 8",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-8"
+}
+},"sizesSortOrder":["uk-2","uk-3","uk-4","uk-5","uk-6","uk-7","uk-8"]}
+,"womens-wool-pipers-dark-jungle":{
+  "id": 6710751756420,
+  "handle": "womens-wool-pipers-dark-jungle",
+  "masterId": "WOMENS_WOOL_PIPERS",
+  "description": "\u003cp\u003eThe Wool Piper is a classic low-top silhouette that's been reimagined for everyday casual wear while walking in cooler weather. It's made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e",
+  "localizedDescription": {"de-DE":"\u003cp\u003eDer Wool Piper ist ein klassischer, niedriger Sneaker, der sich am besten als Freizeitschuh bei kühlerem Wetter eignet. Er besteht aus weichen und bequemen natürlichen Materialien und passt dank seines simplen und doch trendigen Designs perfekt zu jedem Outfit.\u003c\/p\u003e","en-AU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-CA":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-EU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-GB":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-NZ":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-US":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cozy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","fr-FR":"\u003cp\u003eLa Wool Piper est une chaussure basse au look intemporel qui a été réimaginée pour un quotidien décontracté lors de vos promenades par temps frais. Elle est conçue en matériaux naturels doux, cosy et peut être portée avec différents looks.\u003c\/p\u003e","it-IT":"\u003cp\u003eLe Wool Piper sono un modello basso dalla linea classica reinventato per essere indossato ogni giorno e passeggiare quando fa freddo. Sono realizzate in materiali naturali morbidi, caldi e comodi. L’equilibrio perfetto tra semplicità e audacia, per uno stile versatile.\u003c\/p\u003e","ja-JP":"\u003cp\u003eWool Piperは、クラシックなデザインを洗練させたローカットスニーカー。柔らかくて肌触りの良い天然素材を使用し、特徴的なディティールとシンプルさをバランスよく取り入れました。どんなコーディネートとも相性がよく、普段使いにぴったりです。\u003c\/p\u003e","ko-KR":"\u003cp\u003eWool Piper는 클래식 로우탑 디자인을 재해석한 쌀쌀한 날씨에 적합한 데일리 캐주얼웨어입니다. 부드럽고 포근한 천연 소재로 만든 어디에나 어울리는 조화로운 디자인을 자랑하는 신발입니다. \u003c\/p\u003e","nl-NL":"\u003cp\u003eDe Wool Piper is een klassiek low-top silhouet ideaal voor frissere dagen. De comfortabele schoen is gemaakt van zachte, natuurlijke materialen en kun je zowel eenvoudig en veelzijdig stylen.\u003c\/p\u003e","zh-CN":"\u003cp\u003e用天然材料重塑经典鞋型，平衡简单风格和多样穿搭场景，妥帖你的百变日常。\u003c\/p\u003e"},
+  "localizedSizeRecommendation": {},
+  "localizedSeoTitle": {"en-AU":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-CA":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-GB":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-NZ":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-US":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","nl-NL":"Women's Wool Pipers - Dapple Grey (witte zool) | Lage, casual sneaker | Allbirds","zh-CN":"女士羊毛板鞋｜低帮休闲鞋｜Allbirds","de-DE":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","fr-FR":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","ja-JP":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","ko-KR":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","it-IT":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-EU":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds"},
+  "localizedDifferentiatorsHeading": null,
+  "localizedDifferentiators": null,
+  "price": 10500,
+  "compareAtPrice": null,
+  "fullName": "Women's Wool Pipers - Dark Jungle (Blizzard Sole)",
+  "masterName": "Women's Wool Pipers",
+  "colorName": "Dark Jungle (Blizzard Sole)",
+  "type": "Shoes",
+  "template_suffix": "womens-wool-pipers",
+  "silhouette": "piper",
+  "master": "womens-wool-pipers",
+  "material": "wool",
+  "edition": "limited",
+  "gender": "womens",
+  "bestFor": ["everyday","cool-weather"],
+  "canonicalProduct": {"id":"5052183117956"},
+  "swatchImageUrl": null,
+  "colors":["#3b3b34","#e0e2dc"],
+  "hues":["green"],
+  "video": {"metadata":{"tags":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"5yd6H9wBrNZbqDGnW90gu5","type":"Asset","createdAt":"2021-09-28T17:30:26.150Z","updatedAt":"2021-09-28T17:30:26.150Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":1,"locale":"en-GB"},"fields":{"title":"pdp-video-womens-wool-pipers","file":{"url":"\/\/videos.ctfassets.net\/9uo1qvvet3xa\/5yd6H9wBrNZbqDGnW90gu5\/7173b6ead8ac703cc5f929f4a275ee19\/pdp-video-womens-wool-pipers.mp4","details":{"size":2463245},"fileName":"pdp-video-womens-wool-pipers.mp4","contentType":"video\/mp4"}}},
+  "backorderMessage": null,
+  "localizedBackorderMessage": {},
+  "soldOutMessage": null,
+  "localizedSoldOutMessage": {},
+  "enableBackInStockEmail":false,
+  "featuredImage":  {"src":"https:\/\/cdn.allbirds.com\/image\/upload\/f_auto,q_auto\/v1\/production\/colorway\/en-US\/images\/2liRGe5BUPJpMBuR6XnFxC\/2","altText":"AB0034M SHOE LEFT GLOBAL MENS WOOL PIPER Dark Jungle Blizzard"},
+  "laydownShotImage":  null,
+  "cfMetadata": {"colorwayEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"color-womens-wool-pipers-dark-jungle-blizzard","type":"Entry","createdAt":"2022-01-19T23:47:18.047Z","updatedAt":"2022-05-16T20:49:07.660Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":13,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"colorway"}},"locale":"en-US"},"productEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"product-womens-wool-pipers","type":"Entry","createdAt":"2020-09-01T18:49:45.043Z","updatedAt":"2022-04-06T23:25:58.375Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":55,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"product"}},"locale":"en-GB"}},
+  "isVirtualTryOnEnabled": true,
+  "isShoprunnerEnabled": true,
+  "images": [{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0034M_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard_feb0160c-591a-4b17-963c-9d73346194bc.png?v=1650580468",
+        "alt": "Women's Wool Pipers - Dark Jungle (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/PDP_Lifestyle_Image-Women_2109b6bc-5b94-499f-b5d6-3b3aaae64fbe.jpg?v=1650580468",
+        "alt": "Women's Wool Pipers - Dark Jungle (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0034M_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard_613b93c8-8dff-4b2d-aa87-dfa34778f1f2.png?v=1650580468",
+        "alt": "Women's Wool Pipers - Dark Jungle (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0034M_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard_26eaafc2-4da2-44af-a008-647ce0b00f07.png?v=1650580468",
+        "alt": "Women's Wool Pipers - Dark Jungle (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0034M_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard_a0b4a52b-13f5-4ace-95e7-eef37e966862.png?v=1650580468",
+        "alt": "Women's Wool Pipers - Dark Jungle (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0034M_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard_5d537069-b293-4b9a-83a0-2d3604bd28fa.png?v=1650580468",
+        "alt": "Women's Wool Pipers - Dark Jungle (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0034M_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard_ea5a9d70-1c44-4a8c-9975-37be916583ce.png?v=1650580468",
+        "alt": "Women's Wool Pipers - Dark Jungle (Blizzard Sole)"
+      }],
+  "contentfulImages":[{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/15opQgwcCA5BQjC1WGyJIW\/24f4c6007906556aefcad1293bb6c7ad\/AB0034M_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3zNycepwuQaGvtNH7ekYRl\/efcd78b89cb5941d0bf543c140397a7c\/PDP_Lifestyle_Image-Women.jpg","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/2liRGe5BUPJpMBuR6XnFxC\/12d07cf2689c949e0aa520b03280b93d\/AB0034M_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/1qUepmdp9J3RUEXfxHYlAl\/ae53347758ca5880b082554018caff5e\/AB0034M_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/1C7L9IJgqRq22W1uLmNFuG\/c64f57dcb7b2d3fd0657e778df5e5645\/AB0034M_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3FsxomUAWrolIxWK9Zff2s\/92956690c7d36ec5927f96e61ea05a9a\/AB0034M_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/pRPlY1SVUR9tlEl0rTH33\/efe870bf0fda68392069bd4ba3952063\/AB0034M_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_Dark_Jungle_Blizzard.png","tags":[]}],
+  "localizedModelDescription": {},
+  "sizes": {"uk-2":{
+  "id": 39974953812100,
+  "sku": "AB002SW050",
+  "value": "UK 2",
+  "available": false,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-2"
+}
+,"uk-3":{
+  "id": 39974953844868,
+  "sku": "AB002SW060",
+  "value": "UK 3",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-3"
+}
+,"uk-4":{
+  "id": 39974953877636,
+  "sku": "AB002SW070",
+  "value": "UK 4",
+  "available": false,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-4"
+}
+,"uk-5":{
+  "id": 39974953943172,
+  "sku": "AB002SW080",
+  "value": "UK 5",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-5"
+}
+,"uk-6":{
+  "id": 39974953975940,
+  "sku": "AB002SW090",
+  "value": "UK 6",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-6"
+}
+,"uk-7":{
+  "id": 39974954008708,
+  "sku": "AB002SW100",
+  "value": "UK 7",
+  "available": false,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-7"
+}
+,"uk-8":{
+  "id": 39974954041476,
+  "sku": "AB002SW110",
+  "value": "UK 8",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-8"
+}
+},"sizesSortOrder":["uk-2","uk-3","uk-4","uk-5","uk-6","uk-7","uk-8"]}
+,"womens-wool-pipers-hazy-mauve":{
+  "id": 6710734127236,
+  "handle": "womens-wool-pipers-hazy-mauve",
+  "masterId": "WOMENS_WOOL_PIPERS",
+  "description": "\u003cp\u003eThe Wool Piper is a classic low-top silhouette that's been reimagined for everyday casual wear while walking in cooler weather. It's made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e",
+  "localizedDescription": {"de-DE":"\u003cp\u003eDer Wool Piper ist ein klassischer, niedriger Sneaker, der sich am besten als Freizeitschuh bei kühlerem Wetter eignet. Er besteht aus weichen und bequemen natürlichen Materialien und passt dank seines simplen und doch trendigen Designs perfekt zu jedem Outfit.\u003c\/p\u003e","en-AU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-CA":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-EU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-GB":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-NZ":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-US":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cozy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","fr-FR":"\u003cp\u003eLa Wool Piper est une chaussure basse au look intemporel qui a été réimaginée pour un quotidien décontracté lors de vos promenades par temps frais. Elle est conçue en matériaux naturels doux, cosy et peut être portée avec différents looks.\u003c\/p\u003e","it-IT":"\u003cp\u003eLe Wool Piper sono un modello basso dalla linea classica reinventato per essere indossato ogni giorno e passeggiare quando fa freddo. Sono realizzate in materiali naturali morbidi, caldi e comodi. L’equilibrio perfetto tra semplicità e audacia, per uno stile versatile.\u003c\/p\u003e","ja-JP":"\u003cp\u003eWool Piperは、クラシックなデザインを洗練させたローカットスニーカー。柔らかくて肌触りの良い天然素材を使用し、特徴的なディティールとシンプルさをバランスよく取り入れました。どんなコーディネートとも相性がよく、普段使いにぴったりです。\u003c\/p\u003e","ko-KR":"\u003cp\u003eWool Piper는 클래식 로우탑 디자인을 재해석한 쌀쌀한 날씨에 적합한 데일리 캐주얼웨어입니다. 부드럽고 포근한 천연 소재로 만든 어디에나 어울리는 조화로운 디자인을 자랑하는 신발입니다. \u003c\/p\u003e","nl-NL":"\u003cp\u003eDe Wool Piper is een klassiek low-top silhouet ideaal voor frissere dagen. De comfortabele schoen is gemaakt van zachte, natuurlijke materialen en kun je zowel eenvoudig en veelzijdig stylen.\u003c\/p\u003e","zh-CN":"\u003cp\u003e用天然材料重塑经典鞋型，平衡简单风格和多样穿搭场景，妥帖你的百变日常。\u003c\/p\u003e"},
+  "localizedSizeRecommendation": {},
+  "localizedSeoTitle": {"en-AU":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-CA":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-GB":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-NZ":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-US":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","nl-NL":"Women's Wool Pipers - Dapple Grey (witte zool) | Lage, casual sneaker | Allbirds","zh-CN":"女士羊毛板鞋｜低帮休闲鞋｜Allbirds","de-DE":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","fr-FR":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","ja-JP":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","ko-KR":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","it-IT":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-EU":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds"},
+  "localizedDifferentiatorsHeading": null,
+  "localizedDifferentiators": null,
+  "price": 10500,
+  "compareAtPrice": null,
+  "fullName": "Women's Wool Pipers - Hazy Mauve (Blizzard Sole)",
+  "masterName": "Women's Wool Pipers",
+  "colorName": "Hazy Mauve (Blizzard Sole)",
+  "type": "Shoes",
+  "template_suffix": "womens-wool-pipers",
+  "silhouette": "piper",
+  "master": "womens-wool-pipers",
+  "material": "wool",
+  "edition": "limited",
+  "gender": "womens",
+  "bestFor": ["everyday","cool-weather"],
+  "canonicalProduct": {"id":"5052183117956"},
+  "swatchImageUrl": null,
+  "colors":["#938a8c","#e0e2dc"],
+  "hues":["pink","purple"],
+  "video": {"metadata":{"tags":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"5yd6H9wBrNZbqDGnW90gu5","type":"Asset","createdAt":"2021-09-28T17:30:26.150Z","updatedAt":"2021-09-28T17:30:26.150Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":1,"locale":"en-GB"},"fields":{"title":"pdp-video-womens-wool-pipers","file":{"url":"\/\/videos.ctfassets.net\/9uo1qvvet3xa\/5yd6H9wBrNZbqDGnW90gu5\/7173b6ead8ac703cc5f929f4a275ee19\/pdp-video-womens-wool-pipers.mp4","details":{"size":2463245},"fileName":"pdp-video-womens-wool-pipers.mp4","contentType":"video\/mp4"}}},
+  "backorderMessage": null,
+  "localizedBackorderMessage": {},
+  "soldOutMessage": null,
+  "localizedSoldOutMessage": {},
+  "enableBackInStockEmail":false,
+  "featuredImage":  {"src":"https:\/\/cdn.allbirds.com\/image\/upload\/f_auto,q_auto\/v1\/production\/colorway\/en-US\/images\/grNQmXam4U6xCwCEJiUXn\/2","altText":"AB002TM SHOE LEFT GLOBAL MENS WOOL PIPER Hazy Mauve Blizzard"},
+  "laydownShotImage":  null,
+  "cfMetadata": {"colorwayEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"color-womens-wool-pipers-hazy-mauve-blizzard","type":"Entry","createdAt":"2022-01-19T23:14:55.484Z","updatedAt":"2022-05-13T20:49:08.547Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":15,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"colorway"}},"locale":"en-US"},"productEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"product-womens-wool-pipers","type":"Entry","createdAt":"2020-09-01T18:49:45.043Z","updatedAt":"2022-04-06T23:25:58.375Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":55,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"product"}},"locale":"en-GB"}},
+  "isVirtualTryOnEnabled": true,
+  "isShoprunnerEnabled": true,
+  "images": [{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB002TM_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard_43927863-9765-42b0-82d0-deecd62d489b.png?v=1650580522",
+        "alt": "Women's Wool Pipers - Hazy Mauve (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/PDP_Lifestyle_Image-Women_312f7546-7076-4d54-8c10-742c12c387bf.jpg?v=1650580522",
+        "alt": "Women's Wool Pipers - Hazy Mauve (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB002TM_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard_084d5ccc-68e0-4b3b-a63a-fccc196d8880.png?v=1650580522",
+        "alt": "Women's Wool Pipers - Hazy Mauve (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB002TM_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard_1beddda7-1fa4-472b-9798-516dff06df1c.png?v=1650580522",
+        "alt": "Women's Wool Pipers - Hazy Mauve (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB002TM_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard_1a2deeb5-07f0-4528-ad46-d59ae8351c6e.png?v=1650580522",
+        "alt": "Women's Wool Pipers - Hazy Mauve (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB002TM_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard_21e7c425-5805-42ff-99eb-cfe7bed670fe.png?v=1650580522",
+        "alt": "Women's Wool Pipers - Hazy Mauve (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB002TM_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard_3eb9595f-3703-4ead-9e7b-3b8615791e52.png?v=1650580522",
+        "alt": "Women's Wool Pipers - Hazy Mauve (Blizzard Sole)"
+      }],
+  "contentfulImages":[{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/6jUoOk6VJHHbjSDrU7kphr\/927858d4485bc01f0df62cff96e34a22\/AB002TM_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3zNycepwuQaGvtNH7ekYRl\/efcd78b89cb5941d0bf543c140397a7c\/PDP_Lifestyle_Image-Women.jpg","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/grNQmXam4U6xCwCEJiUXn\/2dc493946787cdf4b8c49ea1fcaeab4f\/AB002TM_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/71iVOA66UnZotFn8sncJpI\/de45b1f449feef117b51e09bd266e160\/AB002TM_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/4RDasAyxvzpk7s0jPQc8kY\/a1971a66500c583a6079bd321694deca\/AB002TM_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/1IJ6Y2UXFQJo9f2vM6sgcY\/dc744a337cd246a4ef786fcf322a17aa\/AB002TM_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/5PjMqstTeDLMhiNG0O6oDO\/c2500e07cc185b9fc4a4760eba25e407\/AB002TM_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_Hazy_Mauve_Blizzard.png","tags":[]}],
+  "localizedModelDescription": {},
+  "sizes": {"uk-2":{
+  "id": 39974899941508,
+  "sku": "AB0031W050",
+  "value": "UK 2",
+  "available": false,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-2"
+}
+,"uk-3":{
+  "id": 39974899974276,
+  "sku": "AB0031W060",
+  "value": "UK 3",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-3"
+}
+,"uk-4":{
+  "id": 39974900007044,
+  "sku": "AB0031W070",
+  "value": "UK 4",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-4"
+}
+,"uk-5":{
+  "id": 39974900039812,
+  "sku": "AB0031W080",
+  "value": "UK 5",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-5"
+}
+,"uk-6":{
+  "id": 39974900072580,
+  "sku": "AB0031W090",
+  "value": "UK 6",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-6"
+}
+,"uk-7":{
+  "id": 39974900105348,
+  "sku": "AB0031W100",
+  "value": "UK 7",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-7"
+}
+,"uk-8":{
+  "id": 39974900138116,
+  "sku": "AB0031W110",
+  "value": "UK 8",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-8"
+}
+},"sizesSortOrder":["uk-2","uk-3","uk-4","uk-5","uk-6","uk-7","uk-8"]}
+,"womens-wool-pipers-hazy-burgundy":{
+  "id": 6710740156548,
+  "handle": "womens-wool-pipers-hazy-burgundy",
+  "masterId": "WOMENS_WOOL_PIPERS",
+  "description": "\u003cp\u003eThe Wool Piper is a classic low-top silhouette that's been reimagined for everyday casual wear while walking in cooler weather. It's made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e",
+  "localizedDescription": {"de-DE":"\u003cp\u003eDer Wool Piper ist ein klassischer, niedriger Sneaker, der sich am besten als Freizeitschuh bei kühlerem Wetter eignet. Er besteht aus weichen und bequemen natürlichen Materialien und passt dank seines simplen und doch trendigen Designs perfekt zu jedem Outfit.\u003c\/p\u003e","en-AU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-CA":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-EU":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-GB":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-NZ":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cosy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","en-US":"\u003cp\u003eThe Wool Piper is a classic low-top silhouette that\u0026#39;s been reimagined for everyday casual wear while walking in cooler weather. It\u0026#39;s made with soft, cozy, and comfortable natural materials, and is all about balancing simplicity and exaggeration for versatile styling.\u003c\/p\u003e","fr-FR":"\u003cp\u003eLa Wool Piper est une chaussure basse au look intemporel qui a été réimaginée pour un quotidien décontracté lors de vos promenades par temps frais. Elle est conçue en matériaux naturels doux, cosy et peut être portée avec différents looks.\u003c\/p\u003e","it-IT":"\u003cp\u003eLe Wool Piper sono un modello basso dalla linea classica reinventato per essere indossato ogni giorno e passeggiare quando fa freddo. Sono realizzate in materiali naturali morbidi, caldi e comodi. L’equilibrio perfetto tra semplicità e audacia, per uno stile versatile.\u003c\/p\u003e","ja-JP":"\u003cp\u003eWool Piperは、クラシックなデザインを洗練させたローカットスニーカー。柔らかくて肌触りの良い天然素材を使用し、特徴的なディティールとシンプルさをバランスよく取り入れました。どんなコーディネートとも相性がよく、普段使いにぴったりです。\u003c\/p\u003e","ko-KR":"\u003cp\u003eWool Piper는 클래식 로우탑 디자인을 재해석한 쌀쌀한 날씨에 적합한 데일리 캐주얼웨어입니다. 부드럽고 포근한 천연 소재로 만든 어디에나 어울리는 조화로운 디자인을 자랑하는 신발입니다. \u003c\/p\u003e","nl-NL":"\u003cp\u003eDe Wool Piper is een klassiek low-top silhouet ideaal voor frissere dagen. De comfortabele schoen is gemaakt van zachte, natuurlijke materialen en kun je zowel eenvoudig en veelzijdig stylen.\u003c\/p\u003e","zh-CN":"\u003cp\u003e用天然材料重塑经典鞋型，平衡简单风格和多样穿搭场景，妥帖你的百变日常。\u003c\/p\u003e"},
+  "localizedSizeRecommendation": {},
+  "localizedSeoTitle": {"en-AU":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-CA":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-GB":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-NZ":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-US":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","nl-NL":"Women's Wool Pipers - Dapple Grey (witte zool) | Lage, casual sneaker | Allbirds","zh-CN":"女士羊毛板鞋｜低帮休闲鞋｜Allbirds","de-DE":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","fr-FR":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","ja-JP":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","ko-KR":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","it-IT":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds","en-EU":"Women's Wool Pipers | Low Top, Classic Sneaker. Order \u0026 Find a Review | Allbirds"},
+  "localizedDifferentiatorsHeading": null,
+  "localizedDifferentiators": null,
+  "price": 10500,
+  "compareAtPrice": null,
+  "fullName": "Women's Wool Pipers - Hazy Burgundy (Blizzard Sole)",
+  "masterName": "Women's Wool Pipers",
+  "colorName": "Hazy Burgundy (Blizzard Sole)",
+  "type": "Shoes",
+  "template_suffix": "womens-wool-pipers",
+  "silhouette": "piper",
+  "master": "womens-wool-pipers",
+  "material": "wool",
+  "edition": "limited",
+  "gender": "womens",
+  "bestFor": ["everyday","cool-weather"],
+  "canonicalProduct": {"id":"5052183117956"},
+  "swatchImageUrl": null,
+  "colors":["#523438","#e0e2dc"],
+  "hues":["red"],
+  "video": {"metadata":{"tags":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"5yd6H9wBrNZbqDGnW90gu5","type":"Asset","createdAt":"2021-09-28T17:30:26.150Z","updatedAt":"2021-09-28T17:30:26.150Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":1,"locale":"en-GB"},"fields":{"title":"pdp-video-womens-wool-pipers","file":{"url":"\/\/videos.ctfassets.net\/9uo1qvvet3xa\/5yd6H9wBrNZbqDGnW90gu5\/7173b6ead8ac703cc5f929f4a275ee19\/pdp-video-womens-wool-pipers.mp4","details":{"size":2463245},"fileName":"pdp-video-womens-wool-pipers.mp4","contentType":"video\/mp4"}}},
+  "backorderMessage": null,
+  "localizedBackorderMessage": {},
+  "soldOutMessage": null,
+  "localizedSoldOutMessage": {},
+  "enableBackInStockEmail":false,
+  "featuredImage":  {"src":"https:\/\/cdn.allbirds.com\/image\/upload\/f_auto,q_auto\/v1\/production\/colorway\/en-US\/images\/5oqXmTi7PDAcM0BAIaeCwc\/2","altText":"AB0037M SHOE LEFT GLOBAL MENS WOOL PIPER Hazy Burgundy Blizzard"},
+  "laydownShotImage":  null,
+  "cfMetadata": {"colorwayEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"color-womens-wool-pipers-hazy-burgundy-blizzard","type":"Entry","createdAt":"2022-01-19T23:28:41.410Z","updatedAt":"2022-05-13T20:49:04.658Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":10,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"colorway"}},"locale":"en-US"},"productEntry":{"space":{"sys":{"type":"Link","linkType":"Space","id":"9uo1qvvet3xa"}},"id":"product-womens-wool-pipers","type":"Entry","createdAt":"2020-09-01T18:49:45.043Z","updatedAt":"2022-04-06T23:25:58.375Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"revision":55,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"product"}},"locale":"en-GB"}},
+  "isVirtualTryOnEnabled": true,
+  "isShoprunnerEnabled": true,
+  "images": [{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0037M_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard_37a916d5-8c3b-439a-88df-29a8b7b46998.png?v=1650580441",
+        "alt": "Women's Wool Pipers - Hazy Burgundy (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/PDP_Lifestyle_Image-Women_d2dfe687-cf2b-4585-9da2-3cea13cc057d.jpg?v=1650580441",
+        "alt": "Women's Wool Pipers - Hazy Burgundy (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0037M_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard_7004cee7-652a-47d1-aa6b-4f255001103e.png?v=1650580441",
+        "alt": "Women's Wool Pipers - Hazy Burgundy (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0037M_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard_01cffc7d-e69f-46bc-9d4b-6c3f5499f568.png?v=1650580441",
+        "alt": "Women's Wool Pipers - Hazy Burgundy (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0037M_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard_c95364af-9c4f-4b8a-b3f1-d1d288fbf908.png?v=1650580441",
+        "alt": "Women's Wool Pipers - Hazy Burgundy (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0037M_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard_bcf5083f-a6c6-4b5c-a5be-707068b845d9.png?v=1650580441",
+        "alt": "Women's Wool Pipers - Hazy Burgundy (Blizzard Sole)"
+      },{
+        "src": "\/\/cdn.shopify.com\/s\/files\/1\/0074\/1307\/1990\/products\/AB0037M_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard_00986450-0a41-4876-a4bf-d20a1393fc59.png?v=1650580441",
+        "alt": "Women's Wool Pipers - Hazy Burgundy (Blizzard Sole)"
+      }],
+  "contentfulImages":[{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/1Hy3TPjtNHe88ew6ffS338\/53c8cc6a9d0bcafd997fa119f0d0adae\/AB0037M_SHOE_ANGLE_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3zNycepwuQaGvtNH7ekYRl\/efcd78b89cb5941d0bf543c140397a7c\/PDP_Lifestyle_Image-Women.jpg","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/5oqXmTi7PDAcM0BAIaeCwc\/f3ab631c84e99719f30ec40b24ded19e\/AB0037M_SHOE_LEFT_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/7K48iKQroYHKE56YhKfqki\/d1cb0a77557506ad486f2ba85c1d5c99\/AB0037M_SHOE_BACK_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/g3y1vxhGDT2lvLMqJYLLM\/7993c5c248bbab6e8c4bf91024999560\/AB0037M_SHOE_TOP_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/3LjJdcqKMyUNU33Haf5vZ\/65c6946d57a4d07bfc6deb71ad508244\/AB0037M_SHOE_BOTTOM_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard.png","tags":[]},{"src":"https:\/\/images.ctfassets.net\/9uo1qvvet3xa\/2WxijFwj4UMgTivWgivCxY\/173d9df467f4b6b6b7c74906642c9550\/AB0037M_SHOE_PAIR_GLOBAL_MENS_WOOL_PIPER_Hazy_Burgundy_Blizzard.png","tags":[]}],
+  "localizedModelDescription": {},
+  "sizes": {"uk-2":{
+  "id": 39974915473540,
+  "sku": "AB002XW050",
+  "value": "UK 2",
+  "available": false,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-2"
+}
+,"uk-3":{
+  "id": 39974915506308,
+  "sku": "AB002XW060",
+  "value": "UK 3",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-3"
+}
+,"uk-4":{
+  "id": 39974915539076,
+  "sku": "AB002XW070",
+  "value": "UK 4",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-4"
+}
+,"uk-5":{
+  "id": 39974915571844,
+  "sku": "AB002XW080",
+  "value": "UK 5",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-5"
+}
+,"uk-6":{
+  "id": 39974915604612,
+  "sku": "AB002XW090",
+  "value": "UK 6",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-6"
+}
+,"uk-7":{
+  "id": 39974915637380,
+  "sku": "AB002XW100",
+  "value": "UK 7",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-7"
+}
+,"uk-8":{
+  "id": 39974915670148,
+  "sku": "AB002XW110",
+  "value": "UK 8",
+  "available": true,
+  "backordered": false,
+  "price": 10500,
+  "compareAtPrice": null,
+  "handle": "uk-8"
+}
+},"sizesSortOrder":["uk-2","uk-3","uk-4","uk-5","uk-6","uk-7","uk-8"]}
+ },
+  "productsSortOrder": [ "womens-wool-pipers-true-black","womens-wool-pipers-natural-white","womens-wool-pipers","womens-wool-pipers-natural-black","womens-wool-pipers-diablo","womens-wool-pipers-dark-jungle","womens-wool-pipers-hazy-mauve","womens-wool-pipers-hazy-burgundy" ],
+  "storyCard": null,
+  "tagLine": "Our low top sneaker made with cosy merino wool.",
+  "lifestyleImage": {"src":"\/\/images.ctfassets.net\/9uo1qvvet3xa\/6yCynCGEG5sNWQySvWccgm\/4d433c4e4953d2e6ab0685a96da1a7b6\/Women-WP.png","altText":""},
+  "lifestyleCaption": "Soft Feel, Cosy Material"
+}
