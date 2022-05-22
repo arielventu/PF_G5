@@ -5,8 +5,8 @@
   date: 20-05-2022  
 -----------------------------------------------*/
 
-const { send } = require("express/lib/response");
-const { Product } = require("../db.js");
+//const { send } = require("express/lib/response");
+const { Product, Review } = require("../db.js");
 
 const getProducts = async (req, res) => {
   try {
@@ -73,10 +73,21 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+const getProductReviews = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const reviews = await Review.findAll({ where: { productId: id } });
+    res.json(reviews);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getProducts,
   getProduct,
   createProduct,
   updateProduct,
   deleteProduct,
+  getProductReviews,
 };
