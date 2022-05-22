@@ -1,6 +1,6 @@
 import axios from 'axios';
 import products from '../Products.json'
-import produ from '../shoes'
+// import produ from '../shoes'
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const GET_NAME_SHOE = 'GET_NAME_SHOE'
 export const POST_PRODUCT = 'POST_PRDUCT'
