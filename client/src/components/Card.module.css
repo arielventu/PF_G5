@@ -3,12 +3,11 @@
   margin-left: 2rem;
   margin-top: 3rem;
   height: 21.5rem;
-  width: 14rem;
+  width: 14.15rem;
   overflow: hidden;
   color: black;
   align-items: center;
   font-family: Cabin;
-  border-color: 0.2rem solid rgba(158, 158, 158, 0.993);
 }
 
 .h2 {
@@ -21,6 +20,7 @@
   width: 14rem;
   margin-bottom: 0.1rem;
   background-color: white;
+  border: 0.05rem solid rgba(240, 240, 240, 0.993);
 }
 
 .price {
