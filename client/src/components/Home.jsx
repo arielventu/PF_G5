@@ -13,9 +13,13 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getProducts())
+//   }, [])
+// var gl = products.map((e) =>  {  return e.masterId})
+// gl = [...new Set(gl)] 
+// console.log(gl)
   }, [dispatch])
   
-  console.log(bestRated);
+//   console.log(bestRated);
   
   return (
       <div className={styles.home}>
