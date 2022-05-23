@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getProducts } from '../actions/actions'
 import styles from './Home.module.css'
+import portada from '../image/jordanportada.jpg'
 
 const Home = () => {
   const products = useSelector(state => state.shoes)
@@ -23,7 +24,11 @@ const Home = () => {
         <div className={styles.subtitleContainer}>
           <h2 className={styles.subtitle}>Are you ready for the next step?</h2>
         </div>
+        <button className={styles.buttonShopNow}>Shop Now</button>
       </div>
+      <div className={styles.divImageFlyer}>
+        <img className={styles.imageFlyer} src={portada} alt=""/>
+        </div>
         <div className={styles.ratedProducts}></div>
       <ul>
         {products.slice(0, 4).map(product => (
