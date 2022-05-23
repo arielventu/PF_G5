@@ -10,6 +10,7 @@ export const GET_DETAILS = 'GET_DETAILS'
 export const GET_REVIEWS = 'GET_REVIEWS'
 export const FILTER_BY_BEST = 'FILTER_BY_BEST'
 export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
+export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
 
 export const getProducts = () => {
     return {
@@ -22,14 +23,21 @@ export const filterByBestFor = ()=>{ //despues habra que cambiar payload y tipo 
 
          return  {
             type: 'FILTER_BY_BEST',
-            payload :'Warm-Weather'
+            payload :'wet-weather'
           }       
 }
 export const filterByCategories = ()=>{
 
          return  {
             type: 'FILTER_BY_CATEGORIES',
-            payload :'WOMENS_TREE_SKIPPERS'
+            payload :'MENS_TREE_RUNNERS'
+          }       
+}
+export const filterByColor = ()=>{
+
+         return  {
+            type: 'FILTER_BY_COLOR',
+            payload : "Buoyant Blue (Buoyant Blue Sole)"
           }       
 }
 /* export function getProducts (){
