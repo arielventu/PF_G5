@@ -11,7 +11,9 @@ const Home = () => {
   useEffect(() => {
     dispatch(getProducts())
   }, [])
-
+var gl = products.map((e) =>  {  return e.masterId})
+gl = [...new Set(gl)] 
+console.log(gl)
   return (
     <div>
       {/* <img src={image} alt="" /> */}

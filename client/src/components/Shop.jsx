@@ -18,7 +18,7 @@ const Shop = () => {
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-
+console.log(products)
   useEffect(() => {
     dispatch(getProducts())
     /* dispatch(filterByBestFor()) */

@@ -29,7 +29,7 @@ export const filterByCategories = ()=>{
 
          return  {
             type: 'FILTER_BY_CATEGORIES',
-            payload :'MENS_TREE_RUNNERS'
+            payload :'WOMENS_TREE_SKIPPERS'
           }       
 }
 /* export function getProducts (){
