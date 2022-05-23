@@ -38,7 +38,7 @@ export default function rootReducer(state = initialState, {payload, type}){
              console.log(bestFiltered)
                 return{
                     ...state ,
-                    shoes :bestFiltered
+                    /* shoes :bestFiltered */
                 }
             case FILTER_BY_CATEGORIES:
                 const categories = state.auxShoes;
@@ -51,7 +51,7 @@ export default function rootReducer(state = initialState, {payload, type}){
                 console.log(cat)
                 return{
                     ...state,
-                   shoes :cat
+                   /* shoes :cat */
                 }
             case FILTER_BY_COLOR:
                 const allColors = state.auxShoes; 
@@ -68,13 +68,7 @@ export default function rootReducer(state = initialState, {payload, type}){
                     ...state,
                     shoes : col
                 }
-            case GET_NAME_SHOE:return{...state,shoes :payload}
-            case GET_DETAILS :return{...state , shoesDetail : payload}    
-            case GET_REVIEWS :return{...state , shoes : payload}    
-            case GET_CATEGORIES :return{...state , categories : payload}   
-            case POST_PRODUCT :return{...state , categories : payload}   
-            case PUT_PRODUCT :return{...state , categories : payload}   
-
+            
         default: 
             return state
     }
