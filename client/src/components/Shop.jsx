@@ -39,7 +39,7 @@ const Shop = () => {
         
       </div>
       <div>
-        <Pagination key= {1} shoesPerPage={shoesPerPage} products={products.length} pagination={pagination}/>
+        <Pagination key= {1} shoesPerPage={shoesPerPage} products={products.length} pagination={pagination} currentPage={currentPage} />
       </div>
     </div>
   )
