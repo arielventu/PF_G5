@@ -21,11 +21,12 @@ const promisifiedReadFile = function (filePath) {
 	});
 };
 
-const categoriesFolder = 'D:/PF_G5/api/bin/categories/';
+const categoriesFolder = `${__dirname}/bin/categories/`;
+console.log(categoriesFolder);
 // En files path tengo las rutas a todos los archivos de categorias en forma de []
 const filesPath = [];
 fs.readdir(categoriesFolder, function(err, files) {
-    if (err) throw err;
+    if (err) console.log(err);
     files.forEach( file => {
         filesPath.push(`${categoriesFolder}${file}`)
     } )
