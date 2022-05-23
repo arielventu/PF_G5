@@ -7,6 +7,7 @@ import Card from './Card'
 import styles from './Home.module.css'
 import portada from '../image/jordanportada.jpg'
 
+
 const Home = () => {
   const bestRated = useSelector(state => state.shoes)
   const dispatch = useDispatch()

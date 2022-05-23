@@ -10,7 +10,7 @@
     position: absolute;
     width: 588px;
     height: 356px;
-    left: 15%;
+    left: 8%;
     top: 250px;
 }
 
@@ -22,7 +22,7 @@
 
 .subtitle{
     font-family: Cabin;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #000000;
 }
 
@@ -32,6 +32,7 @@
     width: 180px;
     height: 47px;
     left: 120px;
+    margin-top: 15px;
     font-family: Cabin;
     color: #6584D5;
 }
@@ -40,7 +41,7 @@
     position: absolute;
     width: 348px;
     height: 522px;
-    right: 15%;
+    right: 8%;
     top: 160px;
     background: #99A799;
     border: 20px solid #FFFFFF;
