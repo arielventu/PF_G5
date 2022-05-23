@@ -29,8 +29,9 @@ console.log(products)
   console.log(currentShoes)
   return (
     <div className={styles.container}>
-      {/* <img src={image} alt="" /> */}
-      <h1 className={styles.titulo}>Bienvenido a la tienda</h1>
+      <div className={styles.flyer}>
+        <h1 className={styles.titulo}>Shop</h1>
+      </div>
       <div className = {styles.cards}>
         {currentShoes?.map(product => (
             <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
