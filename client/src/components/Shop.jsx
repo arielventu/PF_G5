@@ -21,12 +21,12 @@ const Shop = () => {
 console.log(products)
   useEffect(() => {
     dispatch(getProducts())
-    dispatch(filterByBestFor())
-    dispatch(filterByCategories())
-    dispatch(filterByColor())
+//     dispatch(filterByColor())
+    /* dispatch(filterByBestFor()) */
+   // dispatch(filterByCategories())
   }, [])
 
-
+  console.log(currentShoes)
   return (
     <div className={styles.container}>
       {/* <img src={image} alt="" /> */}
@@ -34,7 +34,7 @@ console.log(products)
       <div className = {styles.cards}>
         {currentShoes?.map(product => (
             <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
-              <Card key={product.id} id={product.id} fullName={product.fullName} price={product.price} img={product.images[0].src}/>
+              <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.images[0].src}/>
             </Link>
         ))}
         

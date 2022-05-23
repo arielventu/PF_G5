@@ -1,12 +1,23 @@
-import React from 'react'
+import React from 'react'   
+import { useDispatch } from 'react-redux'
 import styles from './SearchBar.module.css';
-
-const SearchBar = () => {
+  
+const SearchBar = (e) => {
+  const Dispatch = useDispatch()
+  
+  const input = (e)=>{
+    const {value} = e.target
+    Dispatch({
+      type:"SEARCH_BAR",
+      payload: value})
+  }
+  
   return (
     <div className={styles.container}>
-        <input className={styles.input} type="text" value={"buscar"} />
+        <input className={styles.input} type="text" onChange={(e)=>input(e)} value={"buscar..."} />
     </div>
   )
 }
+
 
 export default SearchBar

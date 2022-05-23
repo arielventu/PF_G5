@@ -1,32 +1,56 @@
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { getProducts } from '../actions/actions'
+import {Link} from 'react-router-dom'
+import Card from './Card'
 
-import React, { useEffect } from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-import {getProducts}  from '../actions/actions'
-// import image from "../image/inicio.png"
+import styles from './Home.module.css'
+import portada from '../image/jordanportada.jpg'
 
 const Home = () => {
-  const products = useSelector(state => state.shoes)
+  const bestRated = useSelector(state => state.shoes)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getProducts())
-  }, [])
-var gl = products.map((e) =>  {  return e.masterId})
-gl = [...new Set(gl)] 
-console.log(gl)
+//   }, [])
+// var gl = products.map((e) =>  {  return e.masterId})
+// gl = [...new Set(gl)] 
+// console.log(gl)
+  }, [dispatch])
+  
+//   console.log(bestRated);
+  
   return (
-    <div>
-      {/* <img src={image} alt="" /> */}
-      <h1>Bienvenido a la tienda</h1>
-      <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            {product.fullName} - {product.price}
-            <img src={product.images[0].src} alt="" width="105" />
-          </li>
+      <div className={styles.home}>
+      <div className={styles.flyer}></div>
+      <div className={styles.titlesContainer}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.title}>Get the Latest Shoes Models From Us</h1>
+        </div>
+        <div className={styles.subtitleContainer}>
+          <h2 className={styles.subtitle}>Are you ready for the next step?</h2>
+        </div>
+        <Link to='/shop' style={{ textDecoration: 'none' }}>
+          <button className={styles.buttonShopNow}>Shop Now</button>
+        </Link>
+      </div>
+      <div className={styles.divImageFlyer}>
+        <img className={styles.imageFlyer} src={portada} alt=""/>
+        </div>
+      <div className={styles.ratedProducts}>
+        <h1 className={styles.ratedProductsTitle}>&#9733; Best Rated Products &#9733;</h1>
+        </div>
+       <div className = {styles.cards}>
+        {bestRated?.slice(0,5).map(product => (
+            <Link to={'/Shop/details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
+              <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.images[0].src}/>
+            </Link>
         ))}
-      </ul>
-    </div>
+        
+      </div>
+        <div className="Pre-footer"></div>
+      </div>
   )
 }
 
