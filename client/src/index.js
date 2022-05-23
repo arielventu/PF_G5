@@ -11,7 +11,6 @@ const root = createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Navbar/>
       <App />
     </BrowserRouter>
   </React.StrictMode>
