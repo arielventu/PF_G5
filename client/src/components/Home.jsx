@@ -15,8 +15,16 @@ const Home = () => {
   
   return (
       <div className={styles.home}>
-        <div className={styles.flyer}></div>
-        <div className="Rated-products"></div>
+      <div className={styles.flyer}></div>
+      <div className={styles.titlesContainer}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.title}>Get the Latest Shoes Models From Us</h1>
+        </div>
+        <div className={styles.subtitleContainer}>
+          <h2 className={styles.subtitle}>Are you ready for the next step?</h2>
+        </div>
+      </div>
+        <div className={styles.ratedProducts}></div>
       <ul>
         {products.slice(0, 4).map(product => (
           <li key={product.id}>
