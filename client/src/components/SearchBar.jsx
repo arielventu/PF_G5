@@ -13,9 +13,10 @@ const SearchBar = (e) => {
   }
   
   return (
-    <div className={styles.container}>
-        <input className={styles.input} type="text" onChange={(e)=>input(e)} value={"buscar..."} />
-    </div>
+    <form className={styles.container}>
+      <input className={styles.input} type="text" onChange={(e) => input(e)} placeholder="Search..." />
+      <button className={styles.buttonSearch} type="submit">Go</button>
+    </form>
   )
 }
 

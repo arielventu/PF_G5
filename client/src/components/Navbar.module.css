@@ -22,6 +22,11 @@ body {
   width: 25rem;
 }
 
+.divSearch{
+  width: 25rem;
+  padding-right: 1.5rem;
+}
+
 .logo {
   height: 2rem;
   margin-left: 1.5rem;
@@ -58,5 +63,5 @@ ul {
 }
 
 .SearchBar {
-  margin-right: 1.5rem;
+  margin-right: 0;
 }
