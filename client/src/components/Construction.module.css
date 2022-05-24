@@ -3,7 +3,7 @@
     width: 100%;
     height: 780px;
     margin-left: 0px;
-    background: linear-gradient(180deg, rgba(121, 247, 255, .8), rgba(35, 91, 233, 0.9)), url("../image/runnersportada.jpg");
+    background: linear-gradient(180deg, rgba(247, 190, 85, 0.8), rgba(15, 15, 15, 1)), url("../image/runnersportada.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom right;
@@ -38,7 +38,7 @@
 .subtitle{
     font-family: Cabin;
     font-size: 1.7rem;
-    color: #000000;
+    color: #ffffff;
 }
 
 .buttonShopNow{
