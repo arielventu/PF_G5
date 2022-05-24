@@ -7,7 +7,7 @@
 
 const { Stock, Colors, Sizes } = require("../db.js");
 
-const getAllStock = async (req, res) => {
+const getStocks = async (req, res) => {
   try {
     const allStock = await Stock.findAll({
       attributes: ["id", "quantity", "available"],
@@ -88,7 +88,7 @@ const deleteStock = async (req, res) => {
 };
 
 module.exports = {
-  getAllStock,
+  getStocks,
   getStock,
   createStock,
   updateStock,
