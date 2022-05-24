@@ -17,7 +17,7 @@ export default function Pagination({shoesPerPage, products, pagination, currentP
                 {/* BUTTONS */}
                 {currentPage > 3 ? <button className={styles.button} onClick={() => pagination(1)}>1</button> : null}
                 {currentPage > 4 ? <button className={styles.button} disabled>...</button> : null}
-                {pageNumbers.map(number => {
+                {pageNumbers && pageNumbers.map(number => {
                     if (number <= currentPage + 2 && number >= currentPage - 2) {
                         return <button
                             key={number}

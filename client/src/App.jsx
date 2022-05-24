@@ -11,7 +11,6 @@ import Favoritos from './components/Favoritos';
 import Register from './components/Register';
 import Checkout from './components/Checkout';
 
-
 function App() {
  
   const store = generateStore()
