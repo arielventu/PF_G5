@@ -1,10 +1,10 @@
 import React from 'react'
-import Construccion from './Construccion'
+import Construction from './Construction'
 
 const Register = () => {
   return (
     <div>
-        <Construccion/>
+        <Construction/>
     </div>
   )
 }

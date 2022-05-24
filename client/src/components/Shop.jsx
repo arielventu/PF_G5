@@ -18,15 +18,14 @@ const Shop = () => {
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-console.log(products)
+
+  // console.log(products)
+  
   useEffect(() => {
     dispatch(getProducts())
-//     dispatch(filterByColor())
-    /* dispatch(filterByBestFor()) */
-   // dispatch(filterByCategories())
   }, [])
 
-  console.log(currentShoes)
+  // console.log(currentShoes)
   return (
     <div className={styles.container}>
       <div className={styles.flyer}>
@@ -35,7 +34,7 @@ console.log(products)
       <div className = {styles.cards}>
         {currentShoes?.map(product => (
             <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
-              <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover}/>
+              <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.images[0].src}/>
             </Link>
         ))}
         

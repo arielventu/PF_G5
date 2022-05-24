@@ -1,7 +1,7 @@
 import React from 'react'
 import Construction from './Construction'
 
-const Favoritos = () => {
+const ShoppingCar = () => {
   return (
     <div>
         <Construction/>
@@ -9,4 +9,4 @@ const Favoritos = () => {
   )
 }
 
-export default Favoritos
+export default ShoppingCar

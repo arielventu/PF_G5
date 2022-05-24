@@ -6,12 +6,12 @@
 }
 
 .input {
-  font-size: medium;
   border-radius: 0.5rem;
   border: 0.1rem solid rgb(190, 190, 190);
   color: rgb(0, 0, 0);
   padding: 0.3rem;
   width: 12rem;
+  font-family: Koulen;
 }
 
 .buttonSearch {
@@ -21,8 +21,7 @@
   padding: 0.3rem;
   text-align: center;
   text-decoration: none;
-  /* display: inline-block; */
-  font-size: medium;
+  font-family: Koulen;
   border-radius: 0.5rem;
   width: 3rem;
   margin-left: 0.5rem;

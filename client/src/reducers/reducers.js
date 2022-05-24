@@ -1,6 +1,7 @@
 import { Action } from 'history';
 
-import { GET_PRODUCTS,
+import {
+    GET_PRODUCTS,
     GET_DETAILS ,
     GET_NAME_SHOE,
     GET_REVIEWS,
