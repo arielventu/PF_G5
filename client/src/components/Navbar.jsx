@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <div className={styles.container}>
+            <div className={styles.divLogo} ><img className={styles.logo} src={BlueBird} alt="logo Blue Bird"/></div>
         <ul className={styles.menu}>
-            <div><img className={styles.logo} src={BlueBird}alt="logo Blue Bird"/></div>
             <Link to="/">
               <li className={styles.button}><a href="#">Home</a></li>
             </Link>
@@ -21,8 +21,8 @@ const Navbar = () => {
             <li className={styles.button}><a href="#">Register</a></li>
             <li className={styles.button}><a href="#">Sign In</a></li>
             <div className={styles.cart}><a href="#"><img className={styles.carrito} src={cart}alt="carrito de compras"/></a></div>
-            <div className={styles.SearchBar}><SearchBar/></div>
         </ul>
+        <div className={styles.divSearch} ><div className={styles.SearchBar}><SearchBar/></div></div>
     </div>
   )
 }

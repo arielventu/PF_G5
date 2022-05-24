@@ -1,10 +1,78 @@
 .flyer {
-/* position: absolute; */
-width: 1440px;
-height: 780px;
-left: 0px;
-top: 14px;
-
-background: linear-gradient(180deg, #79F7FF 0%, #6584D5 66.67%);
-border-radius: 5px;
+    position: relative;
+    width: 100%;
+    height: 780px;
+    margin-left: 0px;
+    background: linear-gradient(180deg, rgba(121, 247, 255, .8), rgba(35, 91, 233, 0.9)), url("../image/runnersportada.jpg");
 }
+
+.titlesContainer {
+    position: absolute;
+    width: 588px;
+    height: 356px;
+    left: 8%;
+    top: 250px;
+}
+
+.title {
+    font-family: Cabin;
+    font-size: 3rem;
+    color: #FFFFFF;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle{
+    font-family: Cabin;
+    font-size: 1.7rem;
+    color: #000000;
+}
+
+.buttonShopNow{
+    background-color: #FFFFFF;
+    border: none;
+    width: 180px;
+    height: 47px;
+    left: 120px;
+    margin-top: 15px;
+    font-family: Cabin;
+    color: #6584D5;
+}
+
+.divImageFlyer{
+    position: absolute;
+    width: 348px;
+    height: 522px;
+    right: 8%;
+    top: 160px;
+    background: #99A799;
+    border: 20px solid #FFFFFF;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+    border-bottom-right-radius: 5em;
+    filter: drop-shadow(-2px 4px 15px rgb(0, 0, 0));
+}
+
+.imageFlyer{
+    position: absolute;
+    height: 522px;
+    border-top-left-radius: 3.5em;
+    border-top-right-radius: 3.5em;
+    border-bottom-right-radius: 3.5em;
+}
+
+.ratedProductsTitle{
+    font-family: Cabin;
+    font-size: 2.5rem;
+    color: #000000;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }

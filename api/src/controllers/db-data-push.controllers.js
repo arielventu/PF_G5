@@ -1,6 +1,6 @@
-const { Product, Category } = require('../db');
+const { Product, Category, Colors, Sizes } = require('../db');
 const items = require('../../bin/products');
-const fs = require('fs');
+// const fs = require('fs');
 
 // ----------------------------------------------------------------------------------
 // LECTURA DE ARCHIVOS DE CATEGORIAS
@@ -31,6 +31,34 @@ fs.readdir(categoriesFolder, function(err, files) {
         filesPath.push(`${categoriesFolder}${file}`)
     } )
 });
+// // ----------------------------------------------------------------------------------
+// // LECTURA DE ARCHIVOS DE CATEGORIAS
+// // ----------------------------------------------------------------------------------
+// const readFile = function (filePath, callback) {
+//     fs.readFile(filePath, function (err, buffer) {
+//         if (err) callback(err);
+//         else callback(null, buffer.toString());
+//     });
+// };
+
+// const promisifiedReadFile = function (filePath) {
+// 	return new Promise(function (resolve, reject) {
+// 		readFile(filePath, function (err, str) {
+// 			if (err) reject(err);
+// 			else resolve(str);
+// 		});
+// 	});
+// };
+
+// const categoriesFolder = 'D:/PF_G5/api/bin/categories/';
+// // En files path tengo las rutas a todos los archivos de categorias en forma de []
+// const filesPath = [];
+// fs.readdir(categoriesFolder, function(err, files) {
+//     if (err) throw err;
+//     files.forEach( file => {
+//         filesPath.push(`${categoriesFolder}${file}`)
+//     } )
+// });
 
 
 // ----------------------------------------------------------------------------------
@@ -69,33 +97,77 @@ const promisifiedPostProducts = () => {
 // ----------------------------------------------------------------------------------
 // PROMESA: Upload de CATEGORIAS a la base de datos
 // ----------------------------------------------------------------------------------
-const promisifiedPostCategories = (categories) => {
+const promisifiedPostCategories = () => {
     return new Promise(async (resolve, reject) => {
-        const count = await Category.count();
-        if (count === 0) {
-            const promFiles = filesPath.map( filePath => {
-                return promisifiedReadFile(filePath)
-                    .then(async readText => {
-                        let { name } = JSON.parse(readText);
-                        let newCategory = {
-                            "name": name
-                        }
-                        return newCategory
-                    })
+        let newData = [];
+        items.forEach( element => {
+            element.bestFor.forEach( category => {
+                if (!newData.includes(category)) {
+                    newData.push(category);
                 }
-            );
-            Promise.all(promFiles)
-                .then(async data => {
-                    const newType = await Category.bulkCreate(data)
-                    resolve(newType)
-                })
-                .catch( err => reject(err) );
-        }
-        else {
-            resolve(null);
+            })
+
+        });
+        newData = newData.map( elem => { return {"name": elem} })
+        try {
+            const newType = await Category.bulkCreate(newData)
+            resolve(newType);
+        
+        } catch (error) {
+            reject(error);
         }
     })
 }
+
+// ----------------------------------------------------------------------------------
+// PROMESA: Upload de COLORS a la base de datos
+// ----------------------------------------------------------------------------------
+const promisifiedPostColors = () => {
+    return new Promise(async (resolve, reject) => {
+        let newData = [];
+        items.forEach( element => {
+            element.hues.forEach( color => {
+                if (!newData.includes(color)) {
+                    newData.push(color);
+                }
+            })
+        });
+        newData = newData.map( elem => { return { "name": elem } })
+        try {
+            const newType = await Colors.bulkCreate(newData)
+            resolve(newType);
+        
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
+// ----------------------------------------------------------------------------------
+// PROMESA: Upload de SIZES a la base de datos
+// ----------------------------------------------------------------------------------
+const promisifiedPostSizes = () => {
+    return new Promise(async (resolve, reject) => {
+        let newData = [];
+        items.forEach( element => {
+            element.sizesSortOrder.forEach( size => {
+                if (!newData.includes(size)) {
+                    newData.push(size);
+                }
+            })
+        });
+        newData = newData.map( elem => { return { "name": elem } })
+        try {
+            const newType = await Sizes.bulkCreate(newData)
+            resolve(newType);
+        
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
+
 
 // ----------------------------------------------------------------------------------
 // CONTROLADOR: Ejecuta las promesas de carga de productos y categorias a las base de datos
@@ -104,8 +176,11 @@ const postDBData = async (req, res) => {
     
     let products = promisifiedPostProducts();
     let categories = promisifiedPostCategories();
+    let colors = promisifiedPostColors();
+    let sizes = promisifiedPostSizes();
 
-    Promise.all([categories, products])
+
+    Promise.all([products, categories, colors, sizes])
         .then((data) => {
             // console.log(data)
             console.log('Database information has been successfully uploaded!')

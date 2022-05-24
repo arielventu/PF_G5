@@ -1,13 +1,29 @@
 .container {
+  display: flex;
+  justify-content: flex-end;
   top: 1rem;
-  left: 0.5rem;
+  right: 1.5rem;
 }
 
 .input {
   font-size: medium;
   border-radius: 0.5rem;
   border: 0.1rem solid rgb(190, 190, 190);
-  color: rgb(218, 216, 216);
+  color: rgb(0, 0, 0);
   padding: 0.3rem;
-  width: 25rem;
+  width: 12rem;
+}
+
+.buttonSearch {
+  background-color: rgb(107, 214, 221);
+  border: 0.1rem solid rgb(107, 214, 221);
+  color: rgb(255, 255, 255);
+  padding: 0.3rem;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: medium;
+  border-radius: 0.5rem;
+  width: 3rem;
+  margin-left: 0.5rem;
 }

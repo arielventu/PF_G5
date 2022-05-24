@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getProducts , filterByBestFor , filterByCategories}  from '../actions/actions'
+import {getProducts , filterByBestFor , filterByCategories , filterByColor} from '../actions/actions'
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Pagination from "./Pagination"
@@ -18,9 +18,10 @@ const Shop = () => {
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-
+console.log(products)
   useEffect(() => {
     dispatch(getProducts())
+//     dispatch(filterByColor())
     /* dispatch(filterByBestFor()) */
    // dispatch(filterByCategories())
   }, [])
@@ -28,8 +29,9 @@ const Shop = () => {
   console.log(currentShoes)
   return (
     <div className={styles.container}>
-      {/* <img src={image} alt="" /> */}
-      <h1 className={styles.titulo}>Bienvenido a la tienda</h1>
+      <div className={styles.flyer}>
+        <h1 className={styles.titulo}>Shop</h1>
+      </div>
       <div className = {styles.cards}>
         {currentShoes?.map(product => (
             <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
@@ -39,7 +41,7 @@ const Shop = () => {
         
       </div>
       <div>
-        <Pagination key= {1} shoesPerPage={shoesPerPage} products={products.length} pagination={pagination}/>
+        <Pagination key= {1} shoesPerPage={shoesPerPage} products={products.length} pagination={pagination} currentPage={currentPage} />
       </div>
     </div>
   )

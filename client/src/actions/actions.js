@@ -11,26 +11,34 @@ export const GET_DETAILS = 'GET_DETAILS'
 export const GET_REVIEWS = 'GET_REVIEWS'
 export const FILTER_BY_BEST = 'FILTER_BY_BEST'
 export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
+export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
 
 export const getProducts = () => {
     return {
         type: 'GET_PRODUCTS',
-        payload:  products /* Object.values(products['products']) */ //para q funke el mock
+        payload:  products 
         
     }
 }
-export const filterByBestFor = ()=>{ //despues habra que cambiar payload y tipo de function
+export const filterByBestFor = ()=>{
 
          return  {
             type: 'FILTER_BY_BEST',
-            payload :'Warm-Weather'
+            payload :'wet-weather'
           }       
 }
 export const filterByCategories = ()=>{
 
          return  {
             type: 'FILTER_BY_CATEGORIES',
-            payload :'MENS_TREE_RUNNERS'
+            payload :'WOMENS_WOOL_RUNNER_UP_MIZZLES'
+          }       
+}
+export const filterByColor = ()=>{
+
+         return  {
+            type: 'FILTER_BY_COLOR',
+            payload : "Black Sands (Asphalt Sole)"
           }       
 }
 /* export function getProducts (){
