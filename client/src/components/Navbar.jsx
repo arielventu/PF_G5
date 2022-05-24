@@ -22,7 +22,7 @@ const Navbar = () => {
             <li className={styles.button}><a href="#">Sign In</a></li>
             <div className={styles.cart}><a href="#"><img className={styles.carrito} src={cart}alt="carrito de compras"/></a></div>
         </ul>
-            <div className={styles.SearchBar}><SearchBar/></div>
+        <div className={styles.divSearch} ><div className={styles.SearchBar}><SearchBar/></div></div>
     </div>
   )
 }

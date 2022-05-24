@@ -1,21 +1,2559 @@
 {
 "productscategories": [
 	{
-		"createdAt" : "2022-05-22T18:48:41.000Z",
-		"updatedAt" : "2022-05-22T18:48:41.000Z",
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
 		"productId" : 1,
 		"categoryId" : 1
 	},
 	{
-		"createdAt" : "2022-05-22T18:48:41.000Z",
-		"updatedAt" : "2022-05-22T18:48:41.000Z",
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
 		"productId" : 1,
 		"categoryId" : 2
 	},
 	{
-		"createdAt" : "2022-05-22T18:48:41.000Z",
-		"updatedAt" : "2022-05-22T18:48:41.000Z",
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 2,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
 		"productId" : 2,
 		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 3,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 3,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 4,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 4,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 5,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 5,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 6,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 6,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 7,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 7,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 8,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 8,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 9,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 9,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 10,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 10,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 11,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 11,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 12,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 12,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 13,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 13,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 14,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 14,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 15,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 15,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 16,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 16,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 17,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 17,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 18,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 18,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 19,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 19,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 20,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 20,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 21,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 21,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 22,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 22,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 23,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 23,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 24,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 24,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 25,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 25,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 26,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 26,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 27,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 27,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 28,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 28,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 29,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 29,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 30,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 30,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 31,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 31,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 32,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 32,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 33,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 33,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 34,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 34,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 35,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 35,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 36,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 36,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 37,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 37,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 38,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 38,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 39,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 39,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 40,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 40,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 41,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 41,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 42,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 42,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 43,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 43,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 44,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 44,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 45,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 45,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 46,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 46,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 47,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 47,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 48,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 48,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 49,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 49,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 50,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 50,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 51,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 51,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 52,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 52,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 53,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 53,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 54,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 54,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 55,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 55,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 56,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 56,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 57,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 57,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 58,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 58,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 59,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 59,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 60,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 60,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 61,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 61,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 62,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 62,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 63,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 63,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 64,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 64,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 65,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 65,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 66,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 66,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 67,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 67,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 68,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 68,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 69,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 69,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 70,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 70,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 71,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 71,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 72,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 72,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 73,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 73,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 74,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 74,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 75,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 75,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 76,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 76,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 77,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 77,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 78,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 78,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 79,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 79,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 80,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 80,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 81,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 81,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 82,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 82,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 83,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 83,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 84,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 84,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 85,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 85,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 86,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 86,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 87,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 87,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 88,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 88,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 89,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 89,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 90,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 90,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 91,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 91,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 92,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 92,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 93,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 93,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 94,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 94,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 95,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 95,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 96,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 96,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 97,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 97,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 98,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 98,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 99,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 99,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 100,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 100,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 101,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 101,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 102,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 102,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 103,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 103,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 104,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 104,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 105,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 105,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 106,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 106,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 107,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 107,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 108,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 108,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 109,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 109,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 110,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 110,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 111,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 111,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 112,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 112,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 113,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 113,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 114,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 114,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 115,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 115,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 116,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 116,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 117,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 117,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 118,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 118,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 119,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 119,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 120,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 120,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 121,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 121,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 122,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 122,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 123,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 123,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 124,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 124,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 125,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 125,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 126,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 126,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 127,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 127,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 128,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 128,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 129,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 129,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 130,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 130,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 131,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 131,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 132,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 132,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 133,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 133,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 134,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 134,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 135,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 135,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 136,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 136,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 137,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 137,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 138,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 138,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 139,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 139,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 140,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 140,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 141,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 141,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 142,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 142,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 143,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 143,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 144,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 144,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 145,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 145,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 146,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 146,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 147,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 147,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 148,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 148,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 149,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 149,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 150,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 150,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 151,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 151,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 152,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 152,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 153,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 153,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 154,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 154,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 155,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 155,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 156,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 156,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 157,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 157,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 158,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 158,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 159,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 159,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 160,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 160,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 161,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 161,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 162,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 162,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 163,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 163,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 164,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 164,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 165,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 165,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 166,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 166,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 167,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 167,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 168,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 168,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 169,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 169,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 170,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 170,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 171,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 171,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 172,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 172,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 173,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 173,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 174,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 174,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 175,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 175,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 176,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 176,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 177,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 177,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 178,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 178,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 179,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 179,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 180,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 180,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 181,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 181,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 182,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 182,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 183,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 183,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 184,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 184,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 185,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 185,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 186,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 186,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 187,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 187,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 188,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 188,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 189,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 189,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 190,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 190,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 191,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 191,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 192,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 192,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 193,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 193,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 194,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 194,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 195,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 195,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 196,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 196,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 197,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 197,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 198,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 198,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 199,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 199,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 200,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 200,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 201,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 201,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 202,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 202,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 203,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 203,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 204,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 204,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 205,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 205,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 206,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 206,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 207,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 207,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 208,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 208,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 209,
+		"categoryId" : 4
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 209,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 210,
+		"categoryId" : 5
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 210,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 211,
+		"categoryId" : 1
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 211,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 212,
+		"categoryId" : 2
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 212,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 213,
+		"categoryId" : 3
+	},
+	{
+		"createdAt" : "2022-05-23T21:00:00.000Z",
+		"updatedAt" : "2022-05-23T21:00:00.000Z",
+		"productId" : 213,
+		"categoryId" : 1
 	}
 ]}

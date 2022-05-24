@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom'
 import Card from './Card'
 
 import styles from './Home.module.css'
-import portada from '../image/jordanportada.jpg'
+import portada from '../image/imgportada.jpg'
+
 
 const Home = () => {
   const bestRated = useSelector(state => state.shoes)
@@ -17,7 +18,7 @@ const Home = () => {
 // var gl = products.map((e) =>  {  return e.masterId})
 // gl = [...new Set(gl)] 
 // console.log(gl)
-  }, [dispatch])
+  }, [])
   
 //   console.log(bestRated);
   
