@@ -23,8 +23,14 @@ export default function Detail(){
   
   if(detailstate.length != 0){
     detailstate2 = detailstate.find(item => item.id == id )
-    
-    console.log(detailstate2.sizesSortOrder);
+  }
+  const add = (e)=>{
+    const array = []
+    array.push(localStorage.getItem('favoritos'))
+    const {value} = e.target
+    array.push(value)
+    const local = localStorage.setItem('favoritos', `${array}`)
+    console.log(localStorage.getItem('favoritos'))
   }
 
   
@@ -38,11 +44,11 @@ export default function Detail(){
           <p className={styles.description}>{detailstate2.description}</p>
           <div className = {styles.innercontainer}>
             {/* <h3 className={styles.subtitles}>Sizes: {detailstate2.sizes.value}</h3> */}
-            <select>
+            {/* <select>
              {
-            //  detailstate2.sizesSortOrder.map(item => <option value={item}>{item}</option>)
+             detailstate2.sizesSortOrder.map(item => <option value={item}>{item}</option>)
              }
-            </select>
+            </select> */}
             </div>
             <h3 className={styles.colors}>colors:{detailstate2.colors}</h3>
             <div className = {styles.innercontainer2}>
@@ -50,11 +56,13 @@ export default function Detail(){
                 <img className={styles.rating} src={rating} alt='rating'/> 
             </div>
             <div className = {styles.innercontainer3}>
-                <button className={styles.add}>Add to Cart</button>
-                <img className={styles.fav} src={fav} alt='favoritos'/> 
+                <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
+                <img className={styles.fav}  src={fav} alt='favoritos'/> 
             </div>
-          <div className={styles.backToHome}>
-            <Link to='/shop'><button className = {styles.button}>Back to shop</button> </Link>
+            <div className={styles.backToHome}>
+            <Link to='/shop'>
+              <button className = {styles.button}>Back to shop</button> 
+            </Link>
           </div>
       </div> : 
       <div><h2> loading... </h2></div>
