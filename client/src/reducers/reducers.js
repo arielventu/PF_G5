@@ -26,55 +26,53 @@ export default function rootReducer(state = initialState, {payload, type}){
 				shoes: payload,
 				auxShoes: payload,
             }
-            case SEARCH_BAR:
+        case SEARCH_BAR:
             return {
                 ...state,
 				searchBar:payload
             }
-      
-            case FILTER_BY_BEST:
-                const best = state.auxShoes ;
-                
-                let bestFiltered = [];
-                best.map((e) => {
-                e.bestFor.includes(payload)?
-                bestFiltered.push(e):
-                console.log('macha')
+        case FILTER_BY_BEST:
+            const best = state.auxShoes ;
+            
+            let bestFiltered = [];
+            best.map((e) => {
+            e.bestFor.includes(payload)?
+            bestFiltered.push(e):
+            console.log('macha')
             })
-             console.log(bestFiltered)
-                return{
-                    ...state ,
-                    /* shoes :bestFiltered */
-                }
-            case FILTER_BY_CATEGORIES:
-                const categories = state.auxShoes;
+            console.log(bestFiltered)
+            return{
+                ...state ,
+                /* shoes :bestFiltered */
+            }
+        case FILTER_BY_CATEGORIES:
+            const categories = state.auxShoes;
 
-                const cat = []
-                categories.map((e) => {
-                if(e.masterId === payload){
-                    cat.push(e)
+            const cat = []
+            categories.map((e) => {
+            if(e.masterId === payload){
+                cat.push(e)
+            }})
+            console.log(cat)
+            return{
+                ...state,
+                /* shoes :cat */
+            }
+        case FILTER_BY_COLOR:
+            const allColors = state.auxShoes; 
+            
+            const col = [];
+            allColors.map((e) => {
+                if(e.colorName === payload){
+                    col.push(e)
                 }})
-                console.log(cat)
-                return{
-                    ...state,
-                   /* shoes :cat */
-                }
-            case FILTER_BY_COLOR:
-                const allColors = state.auxShoes; 
-              
-                const col = [];
-                allColors.map((e) => {
-                    if(e.colorName === payload){
-                        col.push(e)
-                    }})
-                    console.log(col)
-            
-            console.log (col)
-                return{
-                    ...state,
-                    shoes : col
-                }
-            
+                console.log(col)
+        
+        console.log (col)
+            return{
+                ...state,
+                shoes : col
+            }
         default: 
             return state
     }
