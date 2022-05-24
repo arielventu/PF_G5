@@ -35,7 +35,7 @@ console.log(products)
       <div className = {styles.cards}>
         {currentShoes?.map(product => (
             <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
-              <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.images[0].src}/>
+              <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover}/>
             </Link>
         ))}
         

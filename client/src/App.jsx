@@ -7,6 +7,9 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Shop from './components/Shop';
 import Detail from './components/Detail';
+import Favoritos from './components/Favoritos';
+import Register from './components/Register';
+
 
 function App() {
  
@@ -17,6 +20,9 @@ function App() {
       <Routes> 
         <Route path="/" element={<Home />} />   
         <Route path="/shop" element={<Shop />} />
+        <Route path="/favoritos" element={<Favoritos />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login/>} />
         <Route exact path="/shop/details/:id" element={<Detail/>}/>
       </Routes> 
     </Provider>

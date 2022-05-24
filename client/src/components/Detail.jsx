@@ -34,13 +34,13 @@ export default function Detail(){
       detailstate.length > 0 ? 
       <div className = {styles.container}> 
           <h1 className = {styles.title}> {detailstate2.fullName} </h1>
-          <img src={detailstate2.images[0].src} alt = 'Shoe Image' className = {styles.img}/>
+          <img src={detailstate2.imagecover} alt = 'Shoe Image' className = {styles.img}/>
           <p className={styles.description}>{detailstate2.description}</p>
           <div className = {styles.innercontainer}>
-            <h3 className={styles.subtitles}>Sizes: {detailstate2.sizes.value}</h3>
+            {/* <h3 className={styles.subtitles}>Sizes: {detailstate2.sizes.value}</h3> */}
             <select>
              {
-             detailstate2.sizesSortOrder.map(item => <option value={item}>{item}</option>)
+            //  detailstate2.sizesSortOrder.map(item => <option value={item}>{item}</option>)
              }
             </select>
             </div>

@@ -13,13 +13,13 @@ export const FILTER_BY_BEST = 'FILTER_BY_BEST'
 export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
 export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
 
-export const getProducts = () => {
-    return {
-        type: 'GET_PRODUCTS',
-        payload:  products 
+// export const getProducts = () => {
+//     return {
+//         type: 'GET_PRODUCTS',
+//         payload:  products 
         
-    }
-}
+//     }
+// }
 export const filterByBestFor = ()=>{
 
          return  {
@@ -41,16 +41,17 @@ export const filterByColor = ()=>{
             payload : "Black Sands (Asphalt Sole)"
           }       
 }
-/* export function getProducts (){
+export function getProducts (){
     return async function (dispatch){
-        var json =  await axios.get('http://localhost:3001/products',{});
+        var json =  await axios.get('http://localhost:3001/products');
+        console.log(json.data)
         return dispatch({
         type : 'GET_PRODUCTS', 
         payload :json.data,   
         })
     };
     
-    } */
+    } 
 
     export function getNameShoes (name){ 
         return async function (dispatch){
