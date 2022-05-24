@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import Construccion from './Construccion';
+import Construction from './Construction';
 
 const Login = () => {
     const [darkMode, setDarkMode] = useState();
     return (
-        <div>login
-            <Construccion/>
+        <div>
+            <Construction/>
         </div>
     )
 }

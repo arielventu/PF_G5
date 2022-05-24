@@ -17,8 +17,8 @@ const Navbar = () => {
             <Link to= "/Shop">
               <li className={styles.button}><a href="#">Shop</a></li>
             </Link>
-            <li className={styles.button}><a href="#">About Us</a></li>
-            <li className={styles.button}><a href="#">Contact</a></li>
+            {/* <li className={styles.button}><a href="#">About Us</a></li>
+            <li className={styles.button}><a href="#">Contact</a></li> */}
             <Link to="/register">
             <li className={styles.button}><a href="#">Register</a></li>
             </Link>
@@ -27,7 +27,7 @@ const Navbar = () => {
             </Link>
             <div className={styles.cart}><a href="#"><img className={styles.carrito} src={cart}alt="carrito de compras"/></a></div>
             <Link to="/favoritos">
-            <img style={{height:"22px",width:"auto"}} src={fav} alt='favoritos'/>
+            <img className={styles.fav} src={fav} alt='favoritos'/>
             </Link>
         </ul>
         <div className={styles.divSearch} ><div className={styles.SearchBar}><SearchBar/></div></div>
