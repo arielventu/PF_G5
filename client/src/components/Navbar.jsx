@@ -14,18 +14,18 @@ const Navbar = () => {
             </Link>
         <ul className={styles.menu}>
             <Link to="/">
-              <button className={styles.button}><a href="#">Home</a></button>
+              <button className={styles.button}>Home</button>
             </Link>
             <Link to= "/Shop">
-              <button className={styles.button}><a href="#">Shop</a></button>
+              <button className={styles.button}>Shop</button>
             </Link>
             {/* <button className={styles.button}><a href="#">About Us</a></button>
             <button className={styles.button}><a href="#">Contact</a></button> */}
             <Link to="/register">
-              <button className={styles.button}><a href="#">Register</a></button>
+              <button className={styles.button}>Register</button>
             </Link>
             <Link to= "/login">
-            <button className={styles.button}><a href="#">Sign In</a></button>
+            <button className={styles.button}>Sign In</button>
             </Link>
             <Link to="/checkout" style={{outline: "none"}}>
                   <img className={styles.cart} src={cart} alt="shop cart" onClick={() => alert("This feature is in development")}/>
