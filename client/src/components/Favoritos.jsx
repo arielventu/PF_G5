@@ -1,10 +1,10 @@
 import React from 'react'
-import Construccion from './Construccion'
+import Construction from './Construction'
 
 const Favoritos = () => {
   return (
     <div>
-        <Construccion/>
+        <Construction/>
     </div>
   )
 }

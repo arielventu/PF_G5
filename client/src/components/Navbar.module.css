@@ -20,11 +20,13 @@ body {
 
 .divLogo{
   width: 25rem;
+  outline: none;
 }
 
 .divSearch{
   width: 25rem;
   padding-right: 1.5rem;
+  align-items: center;
 }
 
 .logo {
@@ -41,12 +43,16 @@ body {
   font-size: 1rem;
   border: none;
   text-decoration: none;
+  background-color: white;
 }
 
-.carrito {
+.cart { 
   height: 1.2rem;
   width: auto;
-}
+  outline: none;
+  margin-left: 2rem;
+  margin-right: 1rem;
+} 
 
 a {
   text-decoration: none;
@@ -57,9 +63,9 @@ ul {
   text-decoration: none;
 }
 
-.cart {
-  margin-left: 2rem;
-  margin-right: 1rem;
+.fav{
+  height: 22px;
+  margin-left: 1rem;
 }
 
 .SearchBar {

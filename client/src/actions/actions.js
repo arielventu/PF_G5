@@ -1,6 +1,5 @@
 import axios from 'axios';
 import products from '../Products.json'
-// import produ from '../shoes'
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const SEARCH_BAR = 'SEARCH_BAR'
 export const GET_NAME_SHOE = 'GET_NAME_SHOE'
@@ -13,112 +12,109 @@ export const FILTER_BY_BEST = 'FILTER_BY_BEST'
 export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
 export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
 
-// export const getProducts = () => {
-//     return {
-//         type: 'GET_PRODUCTS',
-//         payload:  products 
-        
-//     }
-// }
-export const filterByBestFor = ()=>{
-
-         return  {
-            type: 'FILTER_BY_BEST',
-            payload :'wet-weather'
-          }       
+export const getProducts = () => {
+    return {
+        type: 'GET_PRODUCTS',
+        payload: products 
+    }
 }
+
+// export function getProducts (){
+//     return async function (dispatch){
+//         var json =  await axios.get('http://localhost:3001/products');
+//         console.log(json.data)
+//         return dispatch({
+//             type : 'GET_PRODUCTS', 
+//             payload :json.data,   
+//         })
+//     };
+// } 
+
+export const filterByBestFor = ()=>{
+    return  {
+        type: 'FILTER_BY_BEST',
+        payload :'wet-weather'
+    }       
+}
+
 export const filterByCategories = ()=>{
 
-         return  {
-            type: 'FILTER_BY_CATEGORIES',
-            payload :'WOMENS_WOOL_RUNNER_UP_MIZZLES'
-          }       
+    return  {
+        type: 'FILTER_BY_CATEGORIES',
+        payload :'WOMENS_WOOL_RUNNER_UP_MIZZLES'
+    }       
 }
+
 export const filterByColor = ()=>{
 
-         return  {
-            type: 'FILTER_BY_COLOR',
-            payload : "Black Sands (Asphalt Sole)"
-          }       
+    return  {
+        type: 'FILTER_BY_COLOR',
+        payload : "Black Sands (Asphalt Sole)"
+    }       
 }
-export function getProducts (){
+
+export function getNameShoes (name){ 
     return async function (dispatch){
-        var json =  await axios.get('http://localhost:3001/products');
-        console.log(json.data)
-        return dispatch({
-        type : 'GET_PRODUCTS', 
-        payload :json.data,   
-        })
-    };
-    
-    } 
-
-    export function getNameShoes (name){ 
-        return async function (dispatch){
-            try{
-                let yeison = await axios.get(`http://localhost:3001/products?name=${name}`)
-                return dispatch({
-                    type : 'GET_NAME_SHOE',
-                    payload : yeison.data
-                })
-                
-            }catch(error){
-            console.log(error)}
-        }
-    }
-    export function getCategories (){ 
-        return async function (dispatch){
-            try{
-                let yeison = await axios.get(`http://localhost:3001/products/categories`)
-                return dispatch({
-                    type : 'GET_CATEGORIES',
-                    payload : yeison.data
-                })
-                
-            }catch(error){
-            console.log(error)}
-        }
-    }
-
-    export function postProduct (payload){
-        return async function(dispatch){
-            try{
-                
-                var yeison = await axios.post("http://localhost:3001/product",payload)
-                return yeison;
-            }catch (error){
-                console.log(error)
-            console.log (yeison)
-            }
-        } 
-        
-    }
-    export function editProduct (payload){
-        return async function(dispatch){
-            try{
-    
-                var yeison = await axios.put("http://localhost:3001/product",payload)
-                return yeison;
-            }catch (error){
-                console.log(error)
-            console.log (yeison)
-            }
-        } 
-        
-    }
-    export function getDetail(id){
-    
-        return async function(dispatch){
-            try{
-                var json = await axios.get(`http://localhost:3001/products/${id}`);
-                console.log(json.data)
-            return dispatch( {
-                type : "GET_DETAILS",
-                payload: json.data
+        try{
+            let yeison = await axios.get(`http://localhost:3001/products?name=${name}`)
+            return dispatch({
+                type : 'GET_NAME_SHOE',
+                payload : yeison.data
             })
-            }catch(error){
-                console.log(json.data)
-            }
+        }catch(error){
+            console.log(error)}
+    }
+}
+
+export function getCategories (){ 
+    return async function (dispatch){
+        try{
+            let yeison = await axios.get(`http://localhost:3001/products/categories`)
+            return dispatch({
+                type : 'GET_CATEGORIES',
+                payload : yeison.data
+            })
+        }catch(error){
+            console.log(error)}
+    }
+}
+
+export function postProduct (payload){
+    return async function(dispatch){
+        try{
+            var yeison = await axios.post("http://localhost:3001/product",payload)
+            return yeison;
+        }catch (error){
+            console.log(error)
+            console.log (yeison)
+        }
+    } 
+}
+
+export function editProduct (payload){
+    return async function(dispatch){
+        try{
+            var yeison = await axios.put("http://localhost:3001/product",payload)
+            return yeison;
+        }catch (error){
+            console.log(error)
+            console.log (yeison)
+        }
+    } 
+}
+
+export function getDetail(id){
+    return async function(dispatch){
+        try{
+            var json = await axios.get(`http://localhost:3001/products/${id}`);
+            console.log(json.data)
+        return dispatch( {
+            type : "GET_DETAILS",
+            payload: json.data
+        })
+        }catch(error){
+            console.log(json.data)
         }
     }
-    
+}
+

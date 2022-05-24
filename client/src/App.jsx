@@ -9,7 +9,7 @@ import Shop from './components/Shop';
 import Detail from './components/Detail';
 import Favoritos from './components/Favoritos';
 import Register from './components/Register';
-
+import Checkout from './components/Checkout';
 
 function App() {
  
@@ -22,7 +22,8 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/favoritos" element={<Favoritos />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route exact path="/shop/details/:id" element={<Detail/>}/>
       </Routes> 
     </Provider>
