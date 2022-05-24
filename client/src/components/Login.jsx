@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Construction from './Construction';
 
 const Login = () => {
-    const [darkMode, setDarkMode] = useState();
     return (
         <div>
             <Construction/>
@@ -11,3 +10,5 @@ const Login = () => {
 }
 
 export default Login
+
+

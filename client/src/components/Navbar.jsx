@@ -9,25 +9,29 @@ import fav from "../image/favorito.png"
 const Navbar = () => {
   return (
     <div className={styles.container}>
-            <div className={styles.divLogo} ><img className={styles.logo} src={BlueBird} alt="logo Blue Bird"/></div>
+            <Link to="/" style={{outline: "none"}} >
+              <div className={styles.divLogo} ><img className={styles.logo} src={BlueBird} alt="logo Blue Bird"/></div>
+            </Link>
         <ul className={styles.menu}>
             <Link to="/">
-              <li className={styles.button}><a href="#">Home</a></li>
+              <button className={styles.button}><a href="#">Home</a></button>
             </Link>
             <Link to= "/Shop">
-              <li className={styles.button}><a href="#">Shop</a></li>
+              <button className={styles.button}><a href="#">Shop</a></button>
             </Link>
-            {/* <li className={styles.button}><a href="#">About Us</a></li>
-            <li className={styles.button}><a href="#">Contact</a></li> */}
+            {/* <button className={styles.button}><a href="#">About Us</a></button>
+            <button className={styles.button}><a href="#">Contact</a></button> */}
             <Link to="/register">
-            <li className={styles.button}><a href="#">Register</a></li>
+              <button className={styles.button}><a href="#">Register</a></button>
             </Link>
             <Link to= "/login">
-            <li className={styles.button}><a href="#">Sign In</a></li>
+            <button className={styles.button}><a href="#">Sign In</a></button>
             </Link>
-            <div className={styles.cart}><a href="#"><img className={styles.carrito} src={cart}alt="carrito de compras"/></a></div>
-            <Link to="/favoritos">
-            <img className={styles.fav} src={fav} alt='favoritos'/>
+            <Link to="/checkout" style={{outline: "none"}}>
+                  <img className={styles.cart} src={cart} alt="shop cart" onClick={() => alert("This feature is in development")}/>
+            </Link>
+            <Link to="/favoritos" style={{outline: "none"}}>
+              <img className={styles.fav} src={fav} alt='favoritos' onClick={() => alert("This feature is in development")}/>
             </Link>
         </ul>
         <div className={styles.divSearch} ><div className={styles.SearchBar}><SearchBar/></div></div>
