@@ -17,8 +17,8 @@ const getProducts = async (req, res) => {
           model: Stock,
           attributes: ["quantity", "available"],
           include: [
-            { model: Sizes, attributes: ["name"] },
-            { model: Colors, attributes: ["name"] },
+            { model: Sizes, attributes: ["size"] },
+            { model: Colors, attributes: ["color"] },
           ],
         },
 
@@ -42,8 +42,8 @@ const getProduct = async (req, res) => {
           model: Stock,
           attributes: ["quantity", "available"],
           include: [
-            { model: Sizes, attributes: ["name"] },
-            { model: Colors, attributes: ["name"] },
+            { model: Sizes, attributes: ["size"] },
+            { model: Colors, attributes: ["color"] },
           ],
         },
 
