@@ -25,6 +25,7 @@ body {
 .divSearch{
   width: 25rem;
   padding-right: 1.5rem;
+  align-items: center;
 }
 
 .logo {
