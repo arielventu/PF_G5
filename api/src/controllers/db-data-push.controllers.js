@@ -31,7 +31,7 @@ const promisifiedPostProducts = () => {
                 "gender": element.gender,
                 "detail": element.description,
                 "price": element.price,
-                "imagecover": `http:${element.featuredImage.src}`,
+                "imagecover": element.featuredImage.src,
                 "imageurl": imgs
             }
             newData.push(data);
