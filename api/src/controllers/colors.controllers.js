@@ -26,7 +26,7 @@ const getColors = async (req, res) => {
 const postColors = async (req, res) => {
   const { name } = req.body;
   try {
-    const colorCreated = await Colors.create({ name: name });
+    const colorCreated = await Colors.create({ "color": name });
     res.json(colorCreated);
   } catch (error) {
     return res.status(500).json({ message: error.message });
