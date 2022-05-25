@@ -13,25 +13,27 @@ const Favorites = () => {
   const products = useSelector(state => state.shoes)
   console.log(favorite)
 
-  useEffect(() => {
-    
-      dispatch(getProducts())
-    
-  }, [dispatch])
+  // useEffect(() => {
+  //   console.log("first")
+  //     dispatch(getProducts()) 
+  // }, [])
+  if(products.length === 0){
+    dispatch(getProducts())
+  }
   array = localStorage.getItem('favoritos').split(",")
-   const cont = array.length
-  // 
+  const cont = array.length
+   
   for (let i = 0; i < cont; i++) {
-    console.log(array[i])
     array2.push(products?.find(item=>item.id.toString() === array[i]))
   }
   
-   console.log(array2)
   
   return (
     <div>
       {
-        array2.map(item=> <Card key={array2.id} id={array2.id} fullName={array2.masterName} price={array2.price} img={array2.imagecover}/>) 
+        !(array2[0] === undefined)? array2.map(item=> <Card key={item.id} id={item.id} fullName={item.masterName} price={item.price} img={item.imagecover}/>):
+       <img style={{display:"block",margin:"auto"}} src="https://pa1.narvii.com/6607/6da40c914c7145c591c0777ada8a9a177bb4f9ba_hq.gif"/>   
+        
       }
     </div>
   )
