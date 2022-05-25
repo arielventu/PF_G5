@@ -109,17 +109,24 @@ const promisifiedRelCatProd = () => {
 // ----------------------------------------------------------------------------------
 const promisifiedPostColors = () => {
     return new Promise(async (resolve, reject) => {
+
         try {
-            items.forEach( async element => {                
-                let colorFound = await Colors.findOne({
-                    where: {
-                        color: element.colors
-                    }
-                })
-                if ( colorFound === null ) {
-                    await Colors.create({ color: element.colors })
-                }
+          const newData = [];
+            items.forEach( element => {                
+                element.colors.forEach( color => {
+
+                  let check = newData.map( objColor => objColor.color).includes(color.toUpperCase());
+
+                  if(!check){
+                    newData.push({"color": color.toUpperCase()});
+                  }
+                });
             })
+            console.log(newData);
+
+
+          const newColors = await Colors.bulkCreate(newData);
+          
             resolve('colors correctly created')
         }
         catch (err) {

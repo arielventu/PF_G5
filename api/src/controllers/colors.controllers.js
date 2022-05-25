@@ -2,8 +2,12 @@ const { Colors } = require("../db");
 
 const getColors = async (req, res) => {
   try {
-    const colors = await Colors.findAll();
-    res.json(colors);
+    const colors = await Colors.findAll(
+      {attributes: ["color"]}
+    );
+    const onlyColorsinArray = [];
+    colors.forEach( objColor => onlyColorsinArray.push(objColor.color))
+    res.json(onlyColorsinArray);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
