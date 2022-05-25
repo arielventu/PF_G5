@@ -3,30 +3,7 @@
   flex-direction: column;
   background-color: white;
   font-size: 1.5rem;
-  font-family: Koulen;
-}
-
-.body {
-  display: flex;
-  /* align-items: center; */
-  justify-content: center;
-  margin-top: 3rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 3rem;
-}
-
-.filtersContainer {
-  width: 20rem;
-}
-
-.filters {
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between; */
-  margin-top: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  font-family: Cabin;
 }
 
 .flyer {
@@ -47,11 +24,102 @@
   font-family: Cabin;
 }
 
+.body {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filtersContainer {
+  width: 20rem;
+}
+
+.divFiltersTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(240, 240, 240, 0.993);
+}
+
+.filtersTitle {
+  font-size: 1.2rem;
+  font-family: Cabin;
+  margin-bottom: 1rem;
+}
+
+.filtersSubtitle {
+  font-size: 1.6rem;
+  font-family: Cabin;
+  margin-bottom: 1rem;
+}
+
+.filters {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.radio {
+  margin: 0.5rem;
+}
+
+.radio .input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.radioLabel {
+  font-size: 1.3rem;
+}
+.radio .input[type="radio"] + .radioLabel:before {
+  content: '';
+  background: #f4f4f4;
+  border-radius: 100%;
+  border: 1px solid #b4b4b4;
+  display: inline-block;
+  width: .8em;
+  height: .8em;
+  position: relative;
+  top: -0.2em;
+  margin-right: .6em;
+  vertical-align: middle;
+  cursor: pointer;
+  text-align: center;
+  transition: all 250ms ease;
+}
+
+.radio .input[type="radio"]:checked + .radioLabel:before {
+  background-color: rgb(106, 203, 233);
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+}
+
+.radio .input[type="radio"]:focus + .radioLabel:before {
+  outline: none;
+  border-color: rgb(106, 203, 233);
+}
+
+.radio .input[type="radio"]:disabled + .radioLabel:before {
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+  border-color: #b4b4b4;
+  background: #b4b4b4;
+}
+
+.radio .input[type="radio"] + .radiLabel:empty:before {
+  margin-right: 0;
+}
+
 .cards {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
   width: 85%;
-  border-left: 0.05rem solid rgba(240, 240, 240, 0.993);
+  /* border-left: 0.05rem solid rgba(240, 240, 240, 0.993); */
 }
