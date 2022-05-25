@@ -30,8 +30,8 @@ const Navbar = () => {
             <Link to="/checkout" style={{outline: "none"}}>
                   <img className={styles.cart} src={cart} alt="shop cart" onClick={() => alert("This feature is in development")}/>
             </Link>
-            <Link to="/favoritos" style={{outline: "none"}}>
-              <img className={styles.fav} src={fav} alt='favoritos' onClick={() => alert("This feature is in development")}/>
+            <Link to="/favorites" style={{outline: "none"}}>
+              <img className={styles.fav} src={fav} alt='favorites' onClick={() => alert("This feature is in development")}/>
             </Link>
         </ul>
         <div className={styles.divSearch} ><div className={styles.SearchBar}><SearchBar/></div></div>

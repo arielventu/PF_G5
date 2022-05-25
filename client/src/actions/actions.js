@@ -11,6 +11,7 @@ export const GET_REVIEWS = 'GET_REVIEWS'
 export const FILTER_BY_BEST = 'FILTER_BY_BEST'
 export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
 export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
+export const FAVORITES = 'FAVORITES'
 
 export const getProducts = () => {
     return {
@@ -22,7 +23,6 @@ export const getProducts = () => {
 // export function getProducts (){
 //     return async function (dispatch){
 //         var json =  await axios.get('http://localhost:3001/products');
-//         console.log(json.data)
 //         return dispatch({
 //             type : 'GET_PRODUCTS', 
 //             payload :json.data,   
@@ -34,6 +34,12 @@ export const filterByBestFor = ()=>{
     return  {
         type: 'FILTER_BY_BEST',
         payload :'wet-weather'
+    }       
+}
+export const favorites = (array)=>{
+    return  {
+        type: 'FAVORITES',
+        payload :array
     }       
 }
 
@@ -107,7 +113,6 @@ export function getDetail(id){
     return async function(dispatch){
         try{
             var json = await axios.get(`http://localhost:3001/products/${id}`);
-            console.log(json.data)
         return dispatch( {
             type : "GET_DETAILS",
             payload: json.data
