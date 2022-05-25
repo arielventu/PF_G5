@@ -62,11 +62,14 @@ export const filterByColor = ()=>{
 export function searchBar (keyword){ 
     return async function (dispatch){
         try{
-            let yeison = await axios.get(`http://localhost:3001/products?search=${keyword}`)
-            return dispatch({
+            await axios.get(`http://localhost:3001/products?search=${keyword}`)
+            .then(yeison => {
+                 console.log(yeison.data)
+            dispatch({
                 type : 'SEARCH_BAR',
-                payload : yeison.data
+                payload: yeison.data
             })
+        })
         }catch(error){
             console.log(error)}
     }

@@ -18,7 +18,7 @@ const initialState = {
     shoes: [],
     auxShoes: [],
     categories: [],
-    searchBar: "",
+    searchBar: [],
     favorites:[],
 }
 
@@ -42,6 +42,7 @@ export default function rootReducer(state = initialState, {payload, type}){
                 favorites: payload,
             }
         case SEARCH_BAR:
+            console.log(payload)
             return {
                 ...state,
 				searchBar: payload

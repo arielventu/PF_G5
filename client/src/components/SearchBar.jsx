@@ -1,10 +1,11 @@
 import React, {useState} from 'react'   
 import { useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { searchBar } from '../actions/actions'
 import styles from './SearchBar.module.css';
   
 const SearchBar = () => {
+  const navegacion = useNavigate()
   const dispatch = useDispatch()
   const [keyword, setKeyword] = useState('')
 
@@ -29,20 +30,29 @@ const SearchBar = () => {
   
   const handleInputChange = (e) => {
     e.preventDefault()
+    
     setKeyword(e.target.value)
   }
   
   const handleSubmit = (e) => {
+    console.log("first")
     e.preventDefault()
+    console.log( keyword.length  )
+    if(keyword.length == 0){
+      setKeyword("no")
+    }
+    
     dispatch(searchBar(keyword));
+    navegacion(`/search/${keyword}`)
+    setKeyword('')
   }
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit} >
+    <form className={styles.container} onSubmit={(e)=>handleSubmit(e)} >
       <input className={styles.input} type="text" onChange={(e) => handleInputChange(e)} value={keyword} placeholder="Search..." />
-      <NavLink to={`/search/${keyword}`}>
-        <button className={styles.buttonSearch} type="submit" value="Search" onClick={() => { setKeyword('') }}>Go</button>
-      </NavLink>
+      
+        <button className={styles.buttonSearch} type="submit" value="Search" onClick={(e)=>handleSubmit(e)}>Go</button>
+    
       {/* <input className={styles.input} type="text" placeholder="Search..." /> */}
       {/* <button className={styles.buttonSearch} type="submit" onClick={inDevelopment}>Go</button> */}
     </form>
