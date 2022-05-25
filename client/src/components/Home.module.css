@@ -52,7 +52,7 @@
     border-top-left-radius: 5em;
     border-top-right-radius: 5em;
     border-bottom-right-radius: 5em;
-    filter: drop-shadow(-2px 4px 15px rgba(255, 255, 255, 0.8));
+    filter: drop-shadow(-2px 4px 15px rgba(255, 255, 255, 0.5));
     overflow:hidden;
 }
 

@@ -11,6 +11,9 @@ const Shop = () => {
   const bestFor = useSelector(state => state.categories)
   const categories = useSelector(state => state.auxShoes)
   const dispatch = useDispatch()
+
+  // const [filterSelected, setFilterSelected] = useState('')
+
   const [currentPage, setCurrentPage] = useState(1);
   const [shoesPerPage, setShoesPerPage]= useState(15) //eslint-disable-line
   const indexOfLastShoe = currentPage * shoesPerPage; 
@@ -46,7 +49,6 @@ const Shop = () => {
   const filterBestForHandler = (e) => {
     const { value } = e.target
     dispatch(filterByBestFor(value))
-   
   }
 
   const filterCategoriesHandler = (e) => {
@@ -67,15 +69,18 @@ const Shop = () => {
       <div className={styles.body}>
         <div className={styles.filtersContainer}>
           <div className={styles.filters}>
-            <h2 className={styles.filtersTitle}>Best For</h2>
-            <ul className={styles.select}>
+            <div className={styles.divFiltersTitle}>
+              <h1 className={styles.filtersTitle}>Filter By:</h1>
+            </div>
+            <h2 className={styles.filtersSubtitle}>Best For</h2>
+            <div className={styles.bestForContainer}>
               {bestFor.map(e => (
-                <li key={e.id}>
-                  <input type="radio" id={e.id} name="bestFor" value={e.name} onChange={filterBestForHandler} />
-                  <label htmlFor={e.id}>{firstCharUpperBestFor(e.name)}</label>
-                </li>
+                <div key={e.id} className={styles.radio}>
+                    <input className={styles.input} type="radio" id={e.id} name="radio" value={e.name} onChange={filterBestForHandler} />
+                    <label className={styles.radioLabel} htmlFor={e.id}>{firstCharUpperBestFor(e.name)}</label>
+                </div>
               ))}               
-            </ul>
+            </div>
           </div>
         </div>
         <div className = {styles.cards}>
