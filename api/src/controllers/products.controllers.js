@@ -5,13 +5,25 @@
   date: 20-05-2022  
 -----------------------------------------------*/
 
-//const { send } = require("express/lib/response");
-const { Product, Review, Stock, Category } = require("../db.js");
+const { Product, Review, Stock, Category, Sizes, Colors } = require("../db.js");
 
 const getProducts = async (req, res) => {
   try {
     const products = await Product.findAll({
-      include: [Category, Stock, Review],
+      include: [
+        { model: Category, attributes: ["name"] },
+
+        {
+          model: Stock,
+          attributes: ["quantity", "available"],
+          include: [
+            { model: Sizes, attributes: ["size"] },
+            { model: Colors, attributes: ["color"] },
+          ],
+        },
+
+        { model: Review, attributes: ["description", "starsLevel"] },
+      ],
     });
     res.json(products);
   } catch (error) {
@@ -23,7 +35,20 @@ const getProduct = async (req, res) => {
   const { id } = req.params;
   try {
     const product = await Product.findByPk(id, {
-      include: [Category, Stock, Review],
+      include: [
+        { model: Category, attributes: ["name"] },
+
+        {
+          model: Stock,
+          attributes: ["quantity", "available"],
+          include: [
+            { model: Sizes, attributes: ["size"] },
+            { model: Colors, attributes: ["color"] },
+          ],
+        },
+
+        { model: Review, attributes: ["description", "starsLevel"] },
+      ],
     });
 
     if (!product)
@@ -36,14 +61,27 @@ const getProduct = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const { name, fullName, gender, detail, imageURL } = req.body;
+  const {
+    name,
+    masterName,
+    fullName,
+    gender,
+    detail,
+    price,
+    imagecover,
+    imageurl,
+  } = req.body;
+
   try {
     const newProduct = await Product.create({
       name,
+      masterName,
       fullName,
       gender,
       detail,
-      imageURL,
+      price,
+      imagecover,
+      imageurl,
     });
 
     res.json(newProduct);

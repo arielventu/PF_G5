@@ -1,21 +1,26 @@
 import { Action } from 'history';
 
-import { GET_PRODUCTS,
+import {
+    GET_PRODUCTS,
     GET_DETAILS ,
     GET_NAME_SHOE,
     GET_REVIEWS,
-    GET_CATEGORIES ,
+    GET_CATEGORIES,
     POST_PRODUCT,
     PUT_PRODUCT,
     FILTER_BY_BEST ,
     FILTER_BY_CATEGORIES,
     FILTER_BY_COLOR,
-    SEARCH_BAR } from '../actions/actions.js'
+    SEARCH_BAR,
+    FAVORITES, 
+    favorites} from '../actions/actions.js'
 
 const initialState = {
     shoes: [],
     auxShoes: [],
-    searchBar: ""
+    categories: [],
+    searchBar: "",
+    favorites:[],
 }
 
 export default function rootReducer(state = initialState, {payload, type}){
@@ -26,24 +31,35 @@ export default function rootReducer(state = initialState, {payload, type}){
 				shoes: payload,
 				auxShoes: payload,
             }
+        case GET_CATEGORIES:
+            // console.log(payload)
+            return {
+                ...state,
+				categories: payload,
+            }
+        case FAVORITES:
+            return {
+                ...state,
+                favorites: payload,
+            }
         case SEARCH_BAR:
             return {
                 ...state,
-				searchBar:payload
+				searchBar: payload
             }
         case FILTER_BY_BEST:
-            const best = state.auxShoes ;
-            
-            let bestFiltered = [];
-            best.map((e) => {
-            e.bestFor.includes(payload)?
-            bestFiltered.push(e):
-            console.log('macha')
-            })
-            console.log(bestFiltered)
+            const best = state.auxShoes;
+            const fix = [];
+            best.map((e)=>{
+                let sol =e.categories.map((e)=>{
+                    if(typeof e === 'object'){
+                    return(e.name)
+                    } else{ return e }})
+                    return sol.includes(payload) ===true? 
+                        fix.push(e):null})
             return{
                 ...state ,
-                /* shoes :bestFiltered */
+                shoes : fix
             }
         case FILTER_BY_CATEGORIES:
             const categories = state.auxShoes;
