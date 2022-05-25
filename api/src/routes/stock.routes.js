@@ -10,7 +10,7 @@ var router = express.Router();
 
 // import controllers
 const {
-  getAllStock,
+  getStocks,
   getStock,
   createStock,
   updateStock,
@@ -18,7 +18,7 @@ const {
 } = require("../controllers/stock.controllers.js");
 
 // crud
-router.get("/stock", getAllStock);
+router.get("/stock", getStocks);
 router.post("/stock", createStock);
 router.put("/stock/:id", updateStock);
 router.delete("/stock/:id", deleteStock);

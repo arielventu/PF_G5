@@ -61,14 +61,27 @@ const getProduct = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const { name, fullName, gender, detail, imageURL } = req.body;
+  const {
+    name,
+    masterName,
+    fullName,
+    gender,
+    detail,
+    price,
+    imagecover,
+    imageurl,
+  } = req.body;
+
   try {
     const newProduct = await Product.create({
       name,
+      masterName,
       fullName,
       gender,
       detail,
-      imageURL,
+      price,
+      imagecover,
+      imageurl,
     });
 
     res.json(newProduct);

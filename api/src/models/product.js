@@ -52,7 +52,7 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       imageurl: {
-        type: DataTypes.JSON,
+        type: DataTypes.ARRAY(DataTypes.TEXT),
         allowNull: true,
       },
     },
