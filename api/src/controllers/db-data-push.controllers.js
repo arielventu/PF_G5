@@ -25,12 +25,13 @@ const promisifiedPostProducts = () => {
         const newData = [];
         items.forEach( element => {
             let imgs = element.images.map( img => `http:${img.src}` )
+            let desc = element.description.substring(3);
             const data = {
                 "name": element.handle,
                 "masterName": element.masterName,
                 "fullName": element.fullName,
                 "gender": element.gender,
-                "detail": element.description,
+                "detail": desc.substring(0,desc.length-4),
                 "price": element.price,
                 "imagecover": element.featuredImage.src,
                 "imageurl": imgs
@@ -108,24 +109,25 @@ const promisifiedRelCatProd = () => {
 // ----------------------------------------------------------------------------------
 const promisifiedPostColors = () => {
     return new Promise(async (resolve, reject) => {
-        let newData = [];
-        items.forEach( element => {
-            element.colors.forEach( color => {
-                if (!newData.includes(color)) {
-                    newData.push(color);
+        try {
+            items.forEach( async element => {                
+                let colorFound = await Colors.findOne({
+                    where: {
+                        color: element.colors
+                    }
+                })
+                if ( colorFound === null ) {
+                    await Colors.create({ color: element.colors })
                 }
             })
-        });
-        newData = newData.map( elem => { return { "color": elem } })
-        try {
-            const newType = await Colors.bulkCreate(newData)
-            resolve(newType);
-        
-        } catch (error) {
-            reject(error);
+            resolve('colors correctly created')
         }
-    })
-}
+        catch (err) {
+            reject(err)
+        }
+        
+})}
+
 
 // ----------------------------------------------------------------------------------
 // PROMESA: Upload de SIZES a la base de datos
@@ -179,29 +181,31 @@ const promisifiedPostStock = async () => {
                         if ( sizeIdQuery !== null ) {
                             // console.log(sizeIdQuery[0].dataValues.id);
                             const sizeId = sizeIdQuery[0].dataValues.id;
-                            prod.colors.forEach( async color => {
-                                const colorIdQuery = await Colors.findAll({
-                                    where: {
-                                        color: color
-                                    }
-                                })
-                                if ( colorIdQuery !== null ) {
-                                    const colorId = colorIdQuery[0].dataValues.id;
+                            // prod.colors.forEach( async color => {
+                            //     // const colorIdQuery = await Colors.findAll({
+                            //     //     where: {
+                            //     //         color: color
+                            //     //     }
+                            //     // })
+                            //     // if ( colorIdQuery !== null ) {
+                            //     //     if ( colorIdQuery.length > 0 ) {
+                            //     //         const colorId = colorIdQuery[0].dataValues.id;
+                                        
+                            //     //         try {
+                            //     //             const newStock = await Stock.create({
+                            //     //                 ...stockReg,
+                            //     //                 "productId": prodId,
+                            //     //                 "sizeId": sizeId,
+                            //     //                 "colorId": colorId
+                            //     //             })
+                            //     //         }
+                            //     //         catch (err) {
+                            //     //             throw new Error(err)
+                            //     //         }
+                            //     //     }
                                     
-                                    try {
-                                        const newStock = await Stock.create({
-                                            ...stockReg,
-                                            "productId": prodId,
-                                            "sizeId": sizeId,
-                                            "colorId": colorId
-                                        })
-                                    }
-                                    catch (err) {
-                                        throw new Error(err)
-                                    }
-                                    
-                                } else console.log('hue not found')
-                            })
+                            //     // } else console.log('hue not found')
+                            // })
                         } else console.log('size not found')
                     }
                 } else console.log('product not found')
@@ -222,17 +226,18 @@ const promisifiedPostStock = async () => {
 const postDBData = async (req, res) => {
     
     let products = promisifiedPostProducts();
-    let categories = promisifiedPostCategories().then( data => {
-        promisifiedRelCatProd()
-            .then( data => console.log(data) )
-            .catch( err => console.log(err) )
-    })
+    let categories = promisifiedPostCategories()
     let colors = promisifiedPostColors();
     let sizes = promisifiedPostSizes();
  
 
     Promise.all([products, categories, colors, sizes])
-    .then( (data) => {
+    .then( data => {
+        promisifiedRelCatProd()
+            .then( data => console.log(data) )
+            .catch( err => console.log(err) )
+    })
+    .then( data => {
         promisifiedPostStock()
             .then( (data) => {
                 console.log('Database information has been successfully uploaded!');
