@@ -2,7 +2,7 @@ import axios from 'axios';
 import products from '../Products.json'
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const SEARCH_BAR = 'SEARCH_BAR'
-export const GET_NAME_SHOE = 'GET_NAME_SHOE'
+// export const GET_NAME_SHOE = 'GET_NAME_SHOE'
 export const POST_PRODUCT = 'POST_PRDUCT'
 export const PUT_PRODUCT = 'PUT_PRODUCT'
 export const GET_CATEGORIES = 'GET_CATEGORIES'
@@ -59,12 +59,12 @@ export const filterByColor = ()=>{
     }       
 }
 
-export function getNameShoes (name){ 
+export function searchBar (keyword){ 
     return async function (dispatch){
         try{
-            let yeison = await axios.get(`http://localhost:3001/products?name=${name}`)
+            let yeison = await axios.get(`http://localhost:3001/products?search=${keyword}`)
             return dispatch({
-                type : 'GET_NAME_SHOE',
+                type : 'SEARCH_BAR',
                 payload : yeison.data
             })
         }catch(error){
