@@ -10,6 +10,7 @@ import Detail from './components/Detail';
 import Favorites from './components/Favorites';
 import Register from './components/Register';
 import Checkout from './components/Checkout';
+import SearchResult from './components/SearchResult';
 
 function App() {
  
@@ -25,6 +26,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route exact path="/shop/details/:id" element={<Detail/>}/>
+        <Route exact path="/search/:keyword" element={<SearchResult/>}/>
+        
       </Routes> 
     </Provider>
     

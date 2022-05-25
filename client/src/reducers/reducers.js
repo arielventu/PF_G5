@@ -3,7 +3,6 @@ import { Action } from 'history';
 import {
     GET_PRODUCTS,
     GET_DETAILS ,
-    GET_NAME_SHOE,
     GET_REVIEWS,
     GET_CATEGORIES,
     POST_PRODUCT,
@@ -13,7 +12,7 @@ import {
     FILTER_BY_COLOR,
     SEARCH_BAR,
     FAVORITES, 
-    favorites} from '../actions/actions.js'
+} from '../actions/actions.js'
 
 const initialState = {
     shoes: [],
