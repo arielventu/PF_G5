@@ -11,7 +11,7 @@ export default function Pagination({shoesPerPage, products, pagination, currentP
         <nav className={styles.nav}>
             <ul className={styles.ul}>
                 {/* BUTTON PREV */}
-            {currentPage === 1 ?
+            {pageNumbers && currentPage === 1 ?
                 <button className={styles.button} disabled>&lt;</button>
                     : currentPage > 1 && <button className={styles.button} onClick={() => pagination(currentPage - 1)}>&lt;</button>}
                 {/* BUTTONS */}
@@ -29,11 +29,6 @@ export default function Pagination({shoesPerPage, products, pagination, currentP
                 })}
                 {currentPage < pageNumbers.length - 2 ? <button className={styles.button} disabled>...</button> : null}
                 {currentPage < pageNumbers.length - 1 ? <button className={styles.button} onClick={() => pagination(pageNumbers.length)}>{pageNumbers.length}</button> : null}
-                {/* {pageNumbers && pageNumbers.slice(currentPage - 1, currentPage + 5).map(number => (
-                    <div key={number} className={styles.divButton}>
-                        <button className={ number === currentPage ? styles.current : styles.button} onClick={() => pagination(number)}>{number}</button>
-                    </div>
-                ))} */}
                 {/* BUTTON NEXT */}
                 {currentPage === pageNumbers.length ?
                     <button className={styles.button} disabled>&gt;</button>

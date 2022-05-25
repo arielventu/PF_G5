@@ -12,28 +12,28 @@ export const FILTER_BY_BEST = 'FILTER_BY_BEST'
 export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
 export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
 
-export const getProducts = () => {
-    return {
-        type: 'GET_PRODUCTS',
-        payload: products 
-    }
-}
+// export const getProducts = () => {
+//     return {
+//         type: 'GET_PRODUCTS',
+//         payload: products 
+//     }
+// }
 
-// export function getProducts (){
-//     return async function (dispatch){
-//         var json =  await axios.get('http://localhost:3001/products');
-//         console.log(json.data)
-//         return dispatch({
-//             type : 'GET_PRODUCTS', 
-//             payload :json.data,   
-//         })
-//     };
-// } 
+export function getProducts (){
+    return async function (dispatch){
+        var json =  await axios.get('http://localhost:3001/products');
+        console.log(json.data)
+        return dispatch({
+            type : 'GET_PRODUCTS', 
+            payload :json.data,   
+        })
+    };
+} 
 
-export const filterByBestFor = ()=>{
+export const filterByBestFor = (payload)=>{
     return  {
         type: 'FILTER_BY_BEST',
-        payload :'wet-weather'
+        payload,
     }       
 }
 
@@ -69,10 +69,13 @@ export function getNameShoes (name){
 export function getCategories (){ 
     return async function (dispatch){
         try{
-            let yeison = await axios.get(`http://localhost:3001/products/categories`)
-            return dispatch({
-                type : 'GET_CATEGORIES',
-                payload : yeison.data
+            await axios.get(`http://localhost:3001/categories`)
+                .then(yeison => {
+                    // console.log(yeison.data)
+                dispatch({
+                    type : 'GET_CATEGORIES',
+                    payload: yeison.data
+                })
             })
         }catch(error){
             console.log(error)}
