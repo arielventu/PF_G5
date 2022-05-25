@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail, getProducts } from "../actions/actions";
+import { favorites, getDetail, getProducts } from "../actions/actions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css"
 import rating from '../image/rating.png'
@@ -25,12 +25,34 @@ export default function Detail(){
     detailstate2 = detailstate.find(item => item.id == id )
   }
   const add = (e)=>{
-    const array = []
-    array.push(localStorage.getItem('favoritos'))
+    var arrayAdd = []
     const {value} = e.target
-    array.push(value)
+    if (localStorage.getItem('carrito') === null) {
+      arrayAdd.push(value)
+    }else{
+      arrayAdd = localStorage.getItem('carrito').split(",")
+      if (!arrayAdd.includes(value)) {
+        arrayAdd.push(value)
+      }
+    }
+    localStorage.setItem('carrito', `${arrayAdd}`)
+  }
+
+  const favorite = (e)=>{
+    var array = []
+    const {accessKey} = e.target
+    console.log(accessKey)
+    if (localStorage.getItem('favoritos') === null) {
+      array.push(accessKey)
+    }else{
+      array = localStorage.getItem('favoritos').split(",")
+      if (!array.includes(accessKey)) {
+        array.push(accessKey)
+      }
+    }
     const local = localStorage.setItem('favoritos', `${array}`)
-    console.log(localStorage.getItem('favoritos'))
+    dispatch(favorites(array))
+
   }
 
   
@@ -57,7 +79,7 @@ export default function Detail(){
             </div>
             <div className = {styles.innercontainer3}>
                 <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
-                <img className={styles.fav}  src={fav} alt='favoritos'/> 
+                <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos'/> 
             </div>
             <div className={styles.backToHome}>
             <Link to='/shop'>

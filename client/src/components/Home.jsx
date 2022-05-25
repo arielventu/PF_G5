@@ -39,7 +39,7 @@ const Home = () => {
        <div className = {styles.cards}>
         {bestRated?.slice(0,5).map(product => (
             <Link to={'/Shop/details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
-              <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.images[0].src}/>
+              <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover}/>
             </Link>
         ))}
         

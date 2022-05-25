@@ -11,12 +11,15 @@ import {
     FILTER_BY_BEST ,
     FILTER_BY_CATEGORIES,
     FILTER_BY_COLOR,
-    SEARCH_BAR } from '../actions/actions.js'
+    SEARCH_BAR,
+    FAVORITES, 
+    favorites} from '../actions/actions.js'
 
 const initialState = {
     shoes: [],
     auxShoes: [],
-    searchBar: ""
+    searchBar: "",
+    favorites:[]
 }
 
 export default function rootReducer(state = initialState, {payload, type}){
@@ -27,6 +30,12 @@ export default function rootReducer(state = initialState, {payload, type}){
 				shoes: payload,
 				auxShoes: payload,
             }
+        case FAVORITES:
+            return {
+                ...state,
+                favorites: payload,
+            }
+            
         case SEARCH_BAR:
             return {
                 ...state,
