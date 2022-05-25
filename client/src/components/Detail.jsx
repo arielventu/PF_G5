@@ -52,7 +52,6 @@ export default function Detail(){
     }
     const local = localStorage.setItem('favoritos', `${array}`)
     dispatch(favorites(array))
-
   }
 
   

@@ -4,31 +4,35 @@ import { getProducts } from '../actions/actions'
 import Card from './Card'
 import Construction from './Construction'
 var array = []
+var array2 = []
 const Favorites = () => {
+  var array = []
+  var array2 = []
   const dispatch = useDispatch()
   const favorite = useSelector(state => state.favorites)
   const products = useSelector(state => state.shoes)
   console.log(favorite)
 
   useEffect(() => {
-    if (!products) {
-      dispatch(getProducts())
-    }
-  }, [])
-  array = localStorage.getItem('favoritos').split(",")
-  console.log(array)
-  console.log(array.length)
-   const cont = array.length
-  for (let i = 0; i == cont; i++) {
-    console.log(cont +1)
-    array.push(products.find(item=>item.id.toString() === favorite[i]))
     
+      dispatch(getProducts())
+    
+  }, [dispatch])
+  array = localStorage.getItem('favoritos').split(",")
+   const cont = array.length
+  // 
+  for (let i = 0; i < cont; i++) {
+    console.log(array[i])
+    array2.push(products?.find(item=>item.id.toString() === array[i]))
   }
-  // console.log(array)
+  
+   console.log(array2)
+  
   return (
     <div>
-       {/* <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover}/> */}
-        <Construction/>
+      {
+        array2.map(item=> <Card key={array2.id} id={array2.id} fullName={array2.masterName} price={array2.price} img={array2.imagecover}/>) 
+      }
     </div>
   )
 }
