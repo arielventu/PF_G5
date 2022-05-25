@@ -62,9 +62,9 @@ export default function Detail(){
       <div className = {styles.container}> 
           <h1 className = {styles.title}> {detailstate2.fullName} </h1>
           <img src={detailstate2.imagecover} alt = 'Shoe Image' className = {styles.img}/>
-          <p className={styles.description}>{detailstate2.description}</p>
+          <p className={styles.description}>{detailstate2.detail}</p>
           <div className = {styles.innercontainer}>
-            {/* <h3 className={styles.subtitles}>Sizes: {detailstate2.sizes.value}</h3> */}
+            <h3 className={styles.subtitles}>Sizes: {detailstate2.stocks.size}</h3>
             {/* <select>
              {
              detailstate2.sizesSortOrder.map(item => <option value={item}>{item}</option>)

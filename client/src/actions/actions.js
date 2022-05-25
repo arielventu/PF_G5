@@ -13,22 +13,22 @@ export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
 export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
 export const FAVORITES = 'FAVORITES'
 
-export const getProducts = () => {
-    return {
-        type: 'GET_PRODUCTS',
-        payload: products 
-    }
-}
+// export const getProducts = () => {
+//     return {
+//         type: 'GET_PRODUCTS',
+//         payload: products 
+//     }
+// }
 
-// export function getProducts (){
-//     return async function (dispatch){
-//         var json =  await axios.get('http://localhost:3001/products');
-//         return dispatch({
-//             type : 'GET_PRODUCTS', 
-//             payload :json.data,   
-//         })
-//     };
-// } 
+export function getProducts (){
+     return async function (dispatch){
+         var json =  await axios.get('http://localhost:3001/products');
+        return dispatch({
+             type : 'GET_PRODUCTS', 
+            payload :json.data,   
+        })
+    };
+ } 
 
 export const filterByBestFor = ()=>{
     return  {
