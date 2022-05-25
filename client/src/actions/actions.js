@@ -19,6 +19,7 @@ export const FAVORITES = 'FAVORITES'
 //         payload: products 
 //     }
 // }
+<<<<<<< HEAD
 
 export function getProducts (){
      return async function (dispatch){
@@ -29,11 +30,26 @@ export function getProducts (){
         })
     };
  } 
+=======
 
-export const filterByBestFor = ()=>{
+
+export function getProducts (){
+    return async function (dispatch){
+        var json =  await axios.get('http://localhost:3001/products');
+        console.log(json.data)
+        return dispatch({
+            type : 'GET_PRODUCTS', 
+            payload :json.data,   
+        })
+    };
+} 
+
+>>>>>>> 20efa79d5f871acb55e1951891ef5838377ba445
+
+export const filterByBestFor = (payload)=>{
     return  {
         type: 'FILTER_BY_BEST',
-        payload :'wet-weather'
+        payload,
     }       
 }
 export const favorites = (array)=>{
@@ -75,10 +91,13 @@ export function getNameShoes (name){
 export function getCategories (){ 
     return async function (dispatch){
         try{
-            let yeison = await axios.get(`http://localhost:3001/products/categories`)
-            return dispatch({
-                type : 'GET_CATEGORIES',
-                payload : yeison.data
+            await axios.get(`http://localhost:3001/categories`)
+                .then(yeison => {
+                    // console.log(yeison.data)
+                dispatch({
+                    type : 'GET_CATEGORIES',
+                    payload: yeison.data
+                })
             })
         }catch(error){
             console.log(error)}
