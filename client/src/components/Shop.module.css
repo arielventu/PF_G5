@@ -6,6 +6,30 @@
   font-family: Koulen;
 }
 
+.body {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filtersContainer {
+  width: 20rem;
+  
+}
+
+.filters {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .flyer {
   display: flex;
   align-items: center;
@@ -14,7 +38,6 @@
   width: 100%;
   height: 120px;
   margin-left: 0px;
-  /* background: linear-gradient(180deg, rgba(121, 247, 255, 1), rgba(35, 91, 233, 1)); */
   background-color: rgb(106, 203, 233);
 }
 
@@ -30,4 +53,6 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  width: 85%;
+  border-left: 0.05rem solid rgba(240, 240, 240, 0.993);
 }
