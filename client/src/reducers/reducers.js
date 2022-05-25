@@ -19,8 +19,8 @@ const initialState = {
     shoes: [],
     auxShoes: [],
     categories: [],
-    searchBar: ""
-    favorites:[]
+    searchBar: "",
+    favorites:[],
 }
 
 export default function rootReducer(state = initialState, {payload, type}){
