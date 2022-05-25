@@ -5,27 +5,54 @@
   date: 20-05-2022  
 -----------------------------------------------*/
 
-const { Product, Review, Stock, Category, Sizes, Colors } = require("../db.js");
+const { Product, Review, Stock, Category, Sizes, Colors, Op } = require("../db.js");
+
+const queryAndLikeBuilder = (keys, col) => {
+  let res = [];
+  keys.forEach( key => {
+    let cond = {
+      [col]: {
+        [Op.iLike]: key
+      }
+    }
+    res.push(cond)
+  })
+  console.log(res)
+  return res
+}
 
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.findAll({
-      include: [
-        { model: Category, attributes: ["name"] },
+    if (!!req.query.search) {
+      let searchKeys = req.query.search.toLowerCase().split(' ').map( key => `%${key}%`)
+      const foundProds = await Product.findAll({
+        where: {
+          [Op.or]: [
+            {[Op.and]: queryAndLikeBuilder(searchKeys, 'name')}, 
+            {[Op.and]: queryAndLikeBuilder(searchKeys, 'masterName')}
+          ] 
+        }  
+      })
+      res.json(foundProds)
+    }
+    else {
+      const products = await Product.findAll({
+        include: [
+          { model: Category, attributes: ["name"] },
+          {
+            model: Stock,
+            attributes: ["quantity", "available"],
+            include: [
+              { model: Sizes, attributes: ["size"] },
+              { model: Colors, attributes: ["color"] },
+            ],
+          },
 
-        {
-          model: Stock,
-          attributes: ["quantity", "available"],
-          include: [
-            { model: Sizes, attributes: ["size"] },
-            { model: Colors, attributes: ["color"] },
-          ],
-        },
-
-        { model: Review, attributes: ["description", "starsLevel"] },
-      ],
-    });
-    res.json(products);
+          { model: Review, attributes: ["description", "starsLevel"] },
+        ],
+      });
+      res.json(products);
+    }
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

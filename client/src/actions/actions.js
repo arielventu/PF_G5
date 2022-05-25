@@ -19,7 +19,6 @@ export const FAVORITES = 'FAVORITES'
 //         payload: products 
 //     }
 // }
-<<<<<<< HEAD
 
 export function getProducts (){
      return async function (dispatch){
@@ -30,21 +29,6 @@ export function getProducts (){
         })
     };
  } 
-=======
-
-
-export function getProducts (){
-    return async function (dispatch){
-        var json =  await axios.get('http://localhost:3001/products');
-        console.log(json.data)
-        return dispatch({
-            type : 'GET_PRODUCTS', 
-            payload :json.data,   
-        })
-    };
-} 
-
->>>>>>> 20efa79d5f871acb55e1951891ef5838377ba445
 
 export const filterByBestFor = (payload)=>{
     return  {
