@@ -8,6 +8,7 @@ export const PUT_PRODUCT = 'PUT_PRODUCT'
 export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const GET_DETAILS = 'GET_DETAILS'
 export const GET_REVIEWS = 'GET_REVIEWS'
+export const GET_COLORS = 'GET_COLORS'
 export const FILTER_BY_BEST = 'FILTER_BY_BEST'
 export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
 export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
@@ -55,7 +56,7 @@ export const filterByColor = ()=>{
 
     return  {
         type: 'FILTER_BY_COLOR',
-        payload : "Black Sands (Asphalt Sole)"
+        payload : "Black"
     }       
 }
 
@@ -83,6 +84,22 @@ export function getCategories (){
                     // console.log(yeison.data)
                 dispatch({
                     type : 'GET_CATEGORIES',
+                    payload: yeison.data
+                })
+            })
+        }catch(error){
+            console.log(error)}
+    }
+}
+
+export function getColors() { 
+    return async function (dispatch){
+        try{
+            await axios.get(`http://localhost:3001/colors`)
+                .then(yeison => {
+                    // console.log(yeison.data)
+                dispatch({
+                    type : 'GET_COLORS',
                     payload: yeison.data
                 })
             })

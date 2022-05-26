@@ -104,8 +104,8 @@
   border-radius: 100%;
   border: 1px solid #b4b4b4;
   display: inline-block;
-  width: .8em;
-  height: .8em;
+  width: .6em;
+  height: .6em;
   position: relative;
   top: -0.2em;
   margin-right: .6em;
@@ -123,6 +123,7 @@
 .radio .input[type="radio"]:focus + .radioLabel:before {
   outline: none;
   border-color: rgb(106, 203, 233);
+  border-width: 4px;
 }
 
 .radio .input[type="radio"]:disabled + .radioLabel:before {
