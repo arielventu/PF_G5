@@ -2,6 +2,7 @@ import { Action } from 'history';
 
 import {
     GET_PRODUCTS,
+    GET_COLORS,
     GET_DETAILS ,
     GET_REVIEWS,
     GET_CATEGORIES,
@@ -12,6 +13,7 @@ import {
     FILTER_BY_COLOR,
     SEARCH_BAR,
     FAVORITES, 
+
 } from '../actions/actions.js'
 
 const initialState = { //hacer un estado para los filtros
@@ -19,7 +21,8 @@ const initialState = { //hacer un estado para los filtros
     auxShoes: [],
     categories: [],
     searchBar: [],
-    favorites:[],
+    favorites: [],
+    colors: [],
 }
 
 export default function rootReducer(state = initialState, {payload, type}){
@@ -35,6 +38,12 @@ export default function rootReducer(state = initialState, {payload, type}){
             return {
                 ...state,
 				categories: payload,
+            }
+        case GET_COLORS:
+            // console.log(payload)
+            return {
+                ...state,
+				colors: payload,
             }
         case FAVORITES:
             return {
@@ -80,14 +89,17 @@ export default function rootReducer(state = initialState, {payload, type}){
                 shoes :cat
             }
         case FILTER_BY_COLOR:
-            const allColors = state.auxShoes; 
+            // const allColors = state.colors; 
+            
             const col = [];
 
-            allColors.map((e) => {
-                if(e.colorName === payload){
-                    col.push(e)
-                }})
+            // allColors.map((e) => {
+            //     if(e.colorName === payload){
+            //         col.push(e)
+            //     }})
                 // console.log(col)
+            
+            
             return{
                 ...state,
                 shoes : col

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getProducts, getCategories, filterByBestFor, filterByCategories, filterByColor} from '../actions/actions'
+import {getProducts, getCategories, filterByBestFor, filterByCategories, getColors, filterByColor} from '../actions/actions'
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Pagination from "./Pagination"
@@ -8,6 +8,7 @@ import styles from './Shop.module.css';
 
 const Shop = () => {
   const products = useSelector(state => state.shoes)
+  const allProducts = useSelector(state => state.auxShoes)
   const bestFor = useSelector(state => state.categories)
   const categories = useSelector(state => state.auxShoes)
   const dispatch = useDispatch()
@@ -40,12 +41,23 @@ const Shop = () => {
   useEffect(() => {
     dispatch(getCategories())
     dispatch(getProducts())
+    dispatch(getColors())
   }, [])
+  
+  // useEffect(() => {
+  //   console.log(products)
+  // }, [products])
 
+  const filterColorHandler = () => {
+    dispatch(getProducts())
+  }
+  
   const filterHandler = (e) => {
+    e.preventDefault()
     const { value, name } = e.target
     name === 'categories' && dispatch(filterByCategories(value))
     name === 'bestFor' && dispatch(filterByBestFor(value))
+    name === 'colors' && dispatch(filterByColor(value))
     setCurrentPage(1)
   }
 
@@ -61,6 +73,9 @@ const Shop = () => {
       </div>
       <div className={styles.body}>
         <div className={styles.filtersContainer}>
+          <div>
+            { allProducts.length !== products.length && <button onClick={e => filterColorHandler()}>Back To all Shoes</button> }
+          </div>
           <div className={styles.filters}>
             <div className={styles.divFiltersTitle}>
               <h1 className={styles.filtersTitle}>Filter By:</h1>
