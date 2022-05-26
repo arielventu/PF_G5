@@ -30,31 +30,41 @@ const Shop = () => {
         arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
     }
     const str2 = arr.join(" ");
+    console.log(str2)
     return str2;
   }
+  
 
-  const catArray = () => {
+
+    var joint = []
+     categories.map(e=> joint.push(e.masterName))
+     joint= [... new Set(joint)]
+     
+    
+
+
     // const categories = state.auxShoes;
-    let joint = []
-    categories.map(e=> joint.push(e.masterName))
-    joint= [... new Set(joint)]
-    console.log(joint)
-  }
+  
   
   useEffect(() => {
     dispatch(getCategories())
     dispatch(getProducts())
+   
   }, [])
 
-  const filterBestForHandler = (e) => {
+  const filterHandler = (e) => {
+    const { value } = e.target
+    if( value.length>15){dispatch(filterByCategories(value))}
+    else{dispatch(filterByBestFor(value))}
+  }
+    
+   
+  
+  /* const filterBestForHandler = (e) => {
     const { value } = e.target
     dispatch(filterByBestFor(value))
-  }
+  } */
 
-  const filterCategoriesHandler = (e) => {
-    const { value } = e.target
-    dispatch(filterByCategories(value))
-  }
 
   const filterColorHandler = (e) => {
     const { value } = e.target
@@ -76,11 +86,22 @@ const Shop = () => {
             <div className={styles.bestForContainer}>
               {bestFor.map(e => (
                 <div key={e.id} className={styles.radio}>
-                    <input className={styles.input} type="radio" id={e.id} name="radio" value={e.name} onChange={filterBestForHandler} />
+                    <input className={styles.input} type="radio" id={e.id} name="radio" value={e.name} onChange={filterHandler} />
                     <label className={styles.radioLabel} htmlFor={e.id}>{firstCharUpperBestFor(e.name)}</label>
                 </div>
-              ))}               
+              ))}
+          <h2 className={styles.filtersSubtitle}>Categories</h2>          
             </div>
+            <div className={styles.bestForContainer}>
+              {joint.map((e) => (
+                <div key={e} className={styles.radio}>
+                    <input className={styles.input} type="radio" id={e} name="radio" value={e} onChange={filterHandler } />
+                    {<label className={styles.radioLabel} htmlFor={e}>{e}</label>}
+                </div>
+              ))}
+                             
+            </div>
+
           </div>
         </div>
         <div className = {styles.cards}>
