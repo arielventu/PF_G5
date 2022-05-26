@@ -38,7 +38,7 @@ const Favorites = () => {
     return (
       <div>
         {
-          !(array2[0] === undefined )? array2.map(item=> <Card  key={item.id} id={item.id} fullName={item.masterName} price={item.price}  img={item.imagecover} component={"favorites"}/>):
+          !(array2[0] === undefined )? array2.map(item=> <Card key={item.id} id={item.id} fullName={item.masterName} price={item.price}  img={item.imagecover} component={"favorites"}/>):
         <img style={{display:"block",margin:"auto"}} src="https://pa1.narvii.com/6607/6da40c914c7145c591c0777ada8a9a177bb4f9ba_hq.gif"/>   
           
         }

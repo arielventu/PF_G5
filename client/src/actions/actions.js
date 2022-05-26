@@ -33,7 +33,7 @@ export function getProducts (){
 export const filterByBestFor = (payload)=>{
     return  {
         type: 'FILTER_BY_BEST',
-        payload,
+        payload
     }       
 }
 export const favorites = (array)=>{
@@ -43,11 +43,11 @@ export const favorites = (array)=>{
     }       
 }
 
-export const filterByCategories = ()=>{
-
+export const filterByCategories = (payload)=>{
+    // console.log(payload)
     return  {
         type: 'FILTER_BY_CATEGORIES',
-        payload :'WOMENS_WOOL_RUNNER_UP_MIZZLES'
+        payload 
     }       
 }
 
@@ -64,7 +64,7 @@ export function searchBar (keyword){
         try{
             await axios.get(`http://localhost:3001/products?search=${keyword}`)
             .then(yeison => {
-                 console.log(yeison.data)
+                //  console.log(yeison.data)
             dispatch({
                 type : 'SEARCH_BAR',
                 payload: yeison.data

@@ -28,6 +28,10 @@ const SearchResult = () => {
      dispatch(searchBar(keyword))
    }, [])
   
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [keyword])
+  
   return (
     <div className={styles.container}>
       <div className={styles.flyer}>

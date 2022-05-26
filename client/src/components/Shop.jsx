@@ -26,40 +26,33 @@ const Shop = () => {
 
   const firstCharUpperBestFor = (str) => {
     const arr = str.split("-");
-    for (var i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
     }
     const str2 = arr.join(" ");
     return str2;
   }
 
-  const catArray = () => {
-    // const categories = state.auxShoes;
-    let joint = []
-    categories.map(e=> joint.push(e.masterName))
-    joint= [... new Set(joint)]
-    console.log(joint)
-  }
+  let joint = []
+  categories.map(e=> joint.push(e.masterName))
+  joint= [... new Set(joint)].sort()
   
   useEffect(() => {
     dispatch(getCategories())
     dispatch(getProducts())
   }, [])
 
-  const filterBestForHandler = (e) => {
-    const { value } = e.target
-    dispatch(filterByBestFor(value))
+  const filterHandler = (e) => {
+    const { value, name } = e.target
+    name === 'categories' && dispatch(filterByCategories(value))
+    name === 'bestFor' && dispatch(filterByBestFor(value))
+    setCurrentPage(1)
   }
 
-  const filterCategoriesHandler = (e) => {
-    const { value } = e.target
-    dispatch(filterByCategories(value))
-  }
-
-  const filterColorHandler = (e) => {
-    const { value } = e.target
-    dispatch(filterByColor(value))
-  }
+  // const filterColorHandler = (e) => {
+  //   const { value } = e.target
+  //   dispatch(filterByColor(value))
+  // }
 
   return (
     <div className={styles.container}>
@@ -72,14 +65,32 @@ const Shop = () => {
             <div className={styles.divFiltersTitle}>
               <h1 className={styles.filtersTitle}>Filter By:</h1>
             </div>
-            <h2 className={styles.filtersSubtitle}>Best For</h2>
-            <div className={styles.bestForContainer}>
-              {bestFor.map(e => (
-                <div key={e.id} className={styles.radio}>
-                    <input className={styles.input} type="radio" id={e.id} name="radio" value={e.name} onChange={filterBestForHandler} />
-                    <label className={styles.radioLabel} htmlFor={e.id}>{firstCharUpperBestFor(e.name)}</label>
+            <div className={styles.divFiltersBestFor}>
+              <h2 className={styles.filtersSubtitle}>Best For</h2>
+                {bestFor.map(e => (
+                  <div key={e.id} className={styles.radio}>
+                      <input className={styles.input} type="radio" id={e.id} name="bestFor" value={e.name} onChange={filterHandler} />
+                      <label className={styles.radioLabel} htmlFor={e.id}>{firstCharUpperBestFor(e.name)}</label>
+                  </div>
+                ))}
+            </div>
+            <div className={styles.divFiltersCategories}>
+              <h2 className={styles.filtersSubtitle}>Categories</h2>          
+              {/* <div className={styles.divFiltersCategories} onChange={filterHandler } >
+              {joint.map((e) => (
+                <div key={e} className={styles.radio}>
+                <input className={styles.input} type="radio" id={e} name="radio" value={e} onChange={filterHandler } />
+                <label className={styles.radioLabel} htmlFor={e}>{e}</label>
                 </div>
-              ))}               
+                ))}
+                
+              </div> */}
+              <select className={styles.selectCategories} onChange={filterHandler } name="categories">
+                <option className={styles.input} value='All'>All</option>
+                {joint.map((e) => (
+                  <option className={styles.input} id={e} value={e}>{e}</option>
+                  ))}
+              </select>
             </div>
           </div>
         </div>
@@ -92,7 +103,9 @@ const Shop = () => {
         </div>
       </div>
       <div>
-        <Pagination key= {1} shoesPerPage={shoesPerPage} products={products.length} pagination={pagination} currentPage={currentPage} />
+        {currentShoes.length ?
+          <Pagination key={1} shoesPerPage={shoesPerPage} products={products.length} pagination={pagination} currentPage={currentPage} />
+          : null}
       </div>
     </div>
   )
