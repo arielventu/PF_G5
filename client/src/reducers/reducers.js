@@ -15,7 +15,7 @@ import {
     FAVORITES, 
     favorites} from '../actions/actions.js'
 
-const initialState = {
+const initialState = { //hacer un estado para los filtros
     shoes: [],
     auxShoes: [],
     categories: [],
@@ -57,22 +57,23 @@ export default function rootReducer(state = initialState, {payload, type}){
                     } else{ return e }})
                     return sol.includes(payload) ===true? 
                         fix.push(e):null})
-            return{
-                ...state ,
-                shoes : fix
-            }
+                        console.log(fix)
+                        return{
+                            ...state ,
+                            shoes : fix
+                        }
         case FILTER_BY_CATEGORIES:
             const categories = state.auxShoes;
 
             const cat = []
             categories.map((e) => {
-            if(e.masterId === payload){
+            if(e.masterName === payload){
                 cat.push(e)
             }})
             console.log(cat)
             return{
                 ...state,
-                /* shoes :cat */
+                shoes :cat
             }
         case FILTER_BY_COLOR:
             const allColors = state.auxShoes; 

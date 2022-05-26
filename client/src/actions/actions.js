@@ -33,7 +33,7 @@ export function getProducts (){
 export const filterByBestFor = (payload)=>{
     return  {
         type: 'FILTER_BY_BEST',
-        payload,
+        payload
     }       
 }
 export const favorites = (array)=>{
@@ -43,11 +43,11 @@ export const favorites = (array)=>{
     }       
 }
 
-export const filterByCategories = ()=>{
+export const filterByCategories = (payload)=>{
 
     return  {
         type: 'FILTER_BY_CATEGORIES',
-        payload :'WOMENS_WOOL_RUNNER_UP_MIZZLES'
+        payload 
     }       
 }
 
