@@ -12,8 +12,8 @@ const Shop = () => {
   const categories = useSelector(state => state.auxShoes)
   const dispatch = useDispatch()
 
-  // const [filterSelected, setFilterSelected] = useState('')
-
+   //const [valuef, setFilterSelected] = useState('')
+  
   const [currentPage, setCurrentPage] = useState(1);
   const [shoesPerPage, setShoesPerPage]= useState(15) //eslint-disable-line
   const indexOfLastShoe = currentPage * shoesPerPage; 
@@ -47,28 +47,23 @@ const Shop = () => {
   
   
   useEffect(() => {
+
     dispatch(getCategories())
     dispatch(getProducts())
-   
-  }, [])
-
-  const filterHandler = (e) => {
-    const { value } = e.target
-    if( value.length>15){dispatch(filterByCategories(value))}
-    else{dispatch(filterByBestFor(value))}
-  }
     
    
-  
-  /* const filterBestForHandler = (e) => {
+  }, [])
+  const filterHandler = (e) => {
+    
     const { value } = e.target
-    dispatch(filterByBestFor(value))
-  } */
-
-
-  const filterColorHandler = (e) => {
-    const { value } = e.target
-    dispatch(filterByColor(value))
+    
+    if(value.length>15){dispatch(filterByCategories(value))}
+    else {dispatch(filterByBestFor(value))}
+   
+  }
+  const filterColorHandler = () => {
+    
+    dispatch(getProducts())
   }
 
   return (
@@ -81,6 +76,7 @@ const Shop = () => {
           <div className={styles.filters}>
             <div className={styles.divFiltersTitle}>
               <h1 className={styles.filtersTitle}>Filter By:</h1>
+              
             </div>
             <h2 className={styles.filtersSubtitle}>Best For</h2>
             <div className={styles.bestForContainer}>
@@ -101,7 +97,7 @@ const Shop = () => {
               ))}
                              
             </div>
-
+            <div><button onClick={e => filterColorHandler() }>Back To all Shoes</button></div>
           </div>
         </div>
         <div className = {styles.cards}>
