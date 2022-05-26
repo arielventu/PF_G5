@@ -41,21 +41,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(240, 240, 240, 0.993);
 }
 
 .filtersTitle {
   font-size: 1.2rem;
   font-family: Cabin;
-  margin-bottom: 1rem;
+  margin-bottom: .1rem;
 }
 
 .filtersSubtitle {
   font-size: 1.6rem;
   font-family: Cabin;
   margin-bottom: 1rem;
+  border-top: 1px solid rgba(240, 240, 240, 0.993);
+  padding-top: .6rem;
 }
+
+.divFiltersBestFor:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.divFiltersCategories:hover{
+  background-color: rgb(250, 250, 250);
+}
+
+.selectCategories {
+  font-size: 1rem;
+  font-family: Cabin;
+  margin-left: 0;
+}
+
+.selectCategories:hover {
+  background-color: rgb(250, 250, 250);
+}
+
 
 .filters {
   /* display: flex;
@@ -76,8 +95,9 @@
 }
 
 .radioLabel {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
+
 .radio .input[type="radio"] + .radioLabel:before {
   content: '';
   background: #f4f4f4;
@@ -123,3 +143,4 @@
   width: 85%;
   /* border-left: 0.05rem solid rgba(240, 240, 240, 0.993); */
 }
+

@@ -50,42 +50,44 @@ export default function rootReducer(state = initialState, {payload, type}){
         case FILTER_BY_BEST:
             const best = state.auxShoes;
             const fix = [];
+
             best.map((e)=>{
-                let sol =e.categories.map((e)=>{
-                    if(typeof e === 'object'){
-                    return(e.name)
-                    } else{ return e }})
-                    return sol.includes(payload) ===true? 
-                        fix.push(e):null})
-                        console.log(fix)
-                        return{
-                            ...state ,
-                            shoes : fix
-                        }
+            let sol = e.categories.map((e)=>{
+                if(typeof e === 'object') return(e.name)
+                else { return e }
+            })
+                return sol.includes(payload) ? fix.push(e) : null
+            })
+                // console.log(fix)
+            return{
+                ...state ,
+                shoes : fix
+            }
         case FILTER_BY_CATEGORIES:
             const categories = state.auxShoes;
-
             const cat = []
-            categories.map((e) => {
-            if(e.masterName === payload){
-                cat.push(e)
-            }})
-            console.log(cat)
+
+            payload === 'All' ?
+                cat.push(...categories) 
+            : categories.map((e) => {
+                if(e.masterName === payload){
+                    cat.push(e)
+                    }
+                })
+            // console.log(cat)
             return{
                 ...state,
                 shoes :cat
             }
         case FILTER_BY_COLOR:
             const allColors = state.auxShoes; 
-            
             const col = [];
+
             allColors.map((e) => {
                 if(e.colorName === payload){
                     col.push(e)
                 }})
-                console.log(col)
-        
-        console.log (col)
+                // console.log(col)
             return{
                 ...state,
                 shoes : col

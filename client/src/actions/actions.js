@@ -44,7 +44,7 @@ export const favorites = (array)=>{
 }
 
 export const filterByCategories = (payload)=>{
-
+    // console.log(payload)
     return  {
         type: 'FILTER_BY_CATEGORIES',
         payload 
@@ -64,7 +64,7 @@ export function searchBar (keyword){
         try{
             await axios.get(`http://localhost:3001/products?search=${keyword}`)
             .then(yeison => {
-                 console.log(yeison.data)
+                //  console.log(yeison.data)
             dispatch({
                 type : 'SEARCH_BAR',
                 payload: yeison.data
