@@ -35,17 +35,17 @@ const SearchBar = () => {
   }
   
   const handleSubmit = (e) => {
-    console.log("first")
+    var key = keyword
     e.preventDefault()
-    console.log( keyword.length  )
-    if(keyword.length == 0){
-      setKeyword("no")
+    if(key.length === 0){
+      key = "no hay" 
     }
     
-    dispatch(searchBar(keyword));
-    navegacion(`/search/${keyword}`)
+    dispatch(searchBar(key));
+    navegacion(`/search/${key}`)
     setKeyword('')
   }
+  console.log("sk",keyword)
 
   return (
     <form className={styles.container} onSubmit={(e)=>handleSubmit(e)} >

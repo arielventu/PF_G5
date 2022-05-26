@@ -11,6 +11,7 @@ import Favorites from './components/Favorites';
 import Register from './components/Register';
 import Checkout from './components/Checkout';
 import SearchResult from './components/SearchResult';
+import ShoppingCar from './components/ShoppingCar';
 
 function App() {
  
@@ -24,7 +25,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/shoppingCar" element={<ShoppingCar />} />
         <Route exact path="/shop/details/:id" element={<Detail/>}/>
         <Route exact path="/search/:keyword" element={<SearchResult/>}/>
         
