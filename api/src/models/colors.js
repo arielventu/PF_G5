@@ -4,10 +4,16 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('colors', {
-      name: {
-      type: DataTypes.STRING,
+    //   color: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+
+    color: {
+      type: DataTypes.TEXT,
       allowNull: false,
     },
+    
   },
   { timestamps: false }
   );

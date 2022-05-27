@@ -26,6 +26,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      masterName: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       fullName: {
         type: DataTypes.TEXT,
         allowNull: true,
@@ -48,7 +52,11 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       imageurl: {
-        type: DataTypes.JSON,
+        type: DataTypes.ARRAY(DataTypes.TEXT),
+        allowNull: true,
+      },
+      colors: {
+        type: DataTypes.ARRAY(DataTypes.TEXT),
         allowNull: true,
       },
     },

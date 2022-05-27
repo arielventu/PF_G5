@@ -5,12 +5,38 @@
   date: 21-05-2022  
 -----------------------------------------------*/
 
-//const { send } = require("express/lib/response");
-const { Stock } = require("../db.js");
+const { Stock, Colors, Sizes, Product, Category } = require("../db.js");
 
-const getAllStock = async (req, res) => {
+//Primer version
+// const getStocks = async (req, res) => {
+//   try {
+//     const allStock = await Stock.findAll({
+//       attributes: ["id", "quantity", "available"],
+//       include: [
+//         { model: Sizes, attributes: ["size"] },
+//         { model: Colors, attributes: ["color"] },
+//       ],
+//     });
+//     res.json(allStock);
+//   } catch (error) {
+//     return res.status(500).json({ message: error.message });
+//   }
+// };
+
+//Segunda Version
+const getStocks = async (req, res) => {
   try {
-    const allStock = await Stock.findAll();
+    const allStock = await Product.findAll({
+      include: [
+        { model: Category, attributes: ["name"]},
+        { model: Stock, attributes: ["quantity", "available"],
+          include: [
+            { model: Sizes, attributes: ["size"] },
+            { model: Colors, attributes: ["color"] },
+          ]
+          }
+        ],
+    });
     res.json(allStock);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -20,7 +46,13 @@ const getAllStock = async (req, res) => {
 const getStock = async (req, res) => {
   const { id } = req.params;
   try {
-    const stock = await Stock.findByPk(id);
+    const stock = await Stock.findByPk(id, {
+      attributes: ["id", "quantity", "available"],
+      include: [
+        { model: Sizes, attributes: ["size"] },
+        { model: Colors, attributes: ["color"] },
+      ],
+    });
 
     if (!stock)
       return res.status(404).json({ message: "Stock does not exists" });
@@ -77,7 +109,7 @@ const deleteStock = async (req, res) => {
 };
 
 module.exports = {
-  getAllStock,
+  getStocks,
   getStock,
   createStock,
   updateStock,

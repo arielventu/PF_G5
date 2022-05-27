@@ -1,7 +1,7 @@
 import React from 'react'
 import Construction from './Construction'
 
-const Checkout = () => {
+const Register = () => {
   return (
     <div>
         <Construction/>
@@ -9,4 +9,4 @@ const Checkout = () => {
   )
 }
 
-export default Checkout
+export default Register

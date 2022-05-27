@@ -1,13 +1,30 @@
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   top: 1rem;
-  left: 0.5rem;
+  right: 1.5rem;
+  height: 2rem;
 }
 
 .input {
-  font-size: medium;
   border-radius: 0.5rem;
   border: 0.1rem solid rgb(190, 190, 190);
-  color: rgb(218, 216, 216);
+  color: rgb(0, 0, 0);
   padding: 0.3rem;
-  width: 25rem;
+  width: 12rem;
+  font-family: Koulen;
+}
+
+.buttonSearch {
+  background-color: rgb(106, 203, 233);
+  border: 0.1rem solid rgb(106, 203, 233);
+  color: rgb(255, 255, 255);
+  padding: 0.3rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: Koulen;
+  border-radius: 0.5rem;
+  width: 3rem;
+  margin-left: 0.5rem;
 }
