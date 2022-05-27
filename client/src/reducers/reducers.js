@@ -60,7 +60,9 @@ export default function rootReducer(state = initialState, {payload, type}){
             const best = state.auxShoes;
             const fix = [];
 
-            best.map((e)=>{
+            payload === 'All' ?
+                fix.push(...best)
+            : best.map((e)=>{
             let sol = e.categories.map((e)=>{
                 if(typeof e === 'object') return(e.name)
                 else { return e }

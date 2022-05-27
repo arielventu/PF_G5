@@ -8,7 +8,7 @@ import styles from './Shop.module.css';
 
 const Shop = () => {
   const products = useSelector(state => state.shoes)
-  const allProducts = useSelector(state => state.auxShoes)
+  const auxProducts = useSelector(state => state.auxShoes)
   const bestFor = useSelector(state => state.categories)
   const categories = useSelector(state => state.auxShoes)
   const dispatch = useDispatch()
@@ -44,12 +44,10 @@ const Shop = () => {
     dispatch(getColors())
   }, [])
   
-  // useEffect(() => {
-  //   console.log(products)
-  // }, [products])
 
-  const filterColorHandler = () => {
-    dispatch(getProducts())
+  const clearFilters = () => {
+    dispatch(filterByBestFor('All'))
+    dispatch(filterByCategories('All'))
   }
   
   const filterHandler = (e) => {
@@ -61,54 +59,39 @@ const Shop = () => {
     setCurrentPage(1)
   }
 
-  // const filterColorHandler = (e) => {
-  //   const { value } = e.target
-  //   dispatch(filterByColor(value))
-  // }
-
   return (
     <div className={styles.container}>
       <div className={styles.flyer}>
         <h1 className={styles.titulo}>Shop</h1>
       </div>
       <div className={styles.body}>
-        <div className={styles.filtersContainer}>
-          <div>
-            { allProducts.length !== products.length && <button onClick={e => filterColorHandler()}>Back To all Shoes</button> }
-          </div>
-          <div className={styles.filters}>
+        { products.length > 0 && <div className={styles.filtersContainer}>
             <div className={styles.divFiltersTitle}>
               <h1 className={styles.filtersTitle}>Filter By:</h1>
+              {auxProducts.length !== products.length &&
+                <div className={styles.divButtonClearFilters}>Clear filters
+                  <button className={styles.buttonClearFilters} onClick={e => clearFilters()}>x</button>
+                </div>}
             </div>
             <div className={styles.divFiltersBestFor}>
               <h2 className={styles.filtersSubtitle}>Best For</h2>
-                {bestFor.map(e => (
-                  <div key={e.id} className={styles.radio}>
-                      <input className={styles.input} type="radio" id={e.id} name="bestFor" value={e.name} onChange={filterHandler} />
-                      <label className={styles.radioLabel} htmlFor={e.id}>{firstCharUpperBestFor(e.name)}</label>
-                  </div>
-                ))}
+              {bestFor.map(e => (
+                <div key={e.id} className={styles.radio}>
+                  <input className={styles.input} type="radio" id={e.id} name="bestFor" value={e.name} onChange={filterHandler} />
+                  <label className={styles.radioLabel} htmlFor={e.id}>{firstCharUpperBestFor(e.name)}</label>
+                </div>
+              ))}
             </div>
             <div className={styles.divFiltersCategories}>
-              <h2 className={styles.filtersSubtitle}>Categories</h2>          
-              {/* <div className={styles.divFiltersCategories} onChange={filterHandler } >
-              {joint.map((e) => (
-                <div key={e} className={styles.radio}>
-                <input className={styles.input} type="radio" id={e} name="radio" value={e} onChange={filterHandler } />
-                <label className={styles.radioLabel} htmlFor={e}>{e}</label>
-                </div>
-                ))}
-                
-              </div> */}
-              <select className={styles.selectCategories} onChange={filterHandler } name="categories">
+              <h2 className={styles.filtersSubtitle}>Categories</h2>
+              <select className={styles.selectCategories} onChange={filterHandler} name="categories">
                 <option className={styles.input} value='All'>All</option>
                 {joint.map((e) => (
                   <option className={styles.input} id={e} value={e}>{e}</option>
-                  ))}
+                ))}
               </select>
             </div>
-          </div>
-        </div>
+        </div>}
         <div className = {styles.cards}>
           {currentShoes?.map(product => (
               <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
