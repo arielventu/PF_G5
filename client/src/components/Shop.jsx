@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getProducts, getCategories, filterByBestFor, filterByCategories, getColors, filterByColor} from '../actions/actions'
+import {getProducts, getCategories, filterByBestFor, filterByCategories, getColors, filterByColor, filterByGender} from '../actions/actions'
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Pagination from "./Pagination"
@@ -44,6 +44,9 @@ const Shop = () => {
     dispatch(getColors())
   }, [])
   
+  useEffect(() => {
+    dispatch(filterByGender())
+  }, [products.length])
 
   const clearFilters = () => {
     dispatch(filterByBestFor('All'))
