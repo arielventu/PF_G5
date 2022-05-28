@@ -5,16 +5,37 @@
   date: 21-05-2022  
 -----------------------------------------------*/
 
-const { Stock, Colors, Sizes } = require("../db.js");
+const { Stock, Colors, Sizes, Product, Category } = require("../db.js");
 
+//Primer version
+// const getStocks = async (req, res) => {
+//   try {
+//     const allStock = await Stock.findAll({
+//       attributes: ["id", "quantity", "available"],
+//       include: [
+//         { model: Sizes, attributes: ["size"] },
+//         { model: Colors, attributes: ["color"] },
+//       ],
+//     });
+//     res.json(allStock);
+//   } catch (error) {
+//     return res.status(500).json({ message: error.message });
+//   }
+// };
+
+//Segunda Version
 const getStocks = async (req, res) => {
   try {
-    const allStock = await Stock.findAll({
-      attributes: ["id", "quantity", "available"],
+    const allStock = await Product.findAll({
       include: [
-        { model: Sizes, attributes: ["size"] },
-        { model: Colors, attributes: ["color"] },
-      ],
+        { model: Category, attributes: ["name"]},
+        { model: Stock, attributes: ["quantity", "available"],
+          include: [
+            { model: Sizes, attributes: ["size"] },
+            { model: Colors, attributes: ["color"] },
+          ]
+          }
+        ],
     });
     res.json(allStock);
   } catch (error) {

@@ -34,7 +34,8 @@ const promisifiedPostProducts = () => {
                 "detail": desc.substring(0,desc.length-4),
                 "price": element.price,
                 "imagecover": element.featuredImage.src,
-                "imageurl": imgs
+                "imageurl": imgs,
+                "colors": element.colors
             }
             newData.push(data);
         });  
@@ -110,16 +111,18 @@ const promisifiedRelCatProd = () => {
 const promisifiedPostColors = () => {
     return new Promise(async (resolve, reject) => {
         try {
-            items.forEach( async element => {                
-                let colorFound = await Colors.findOne({
-                    where: {
-                        color: element.colors
+            const newData = [];
+            items.forEach(element => {
+                element.hues.forEach(hues => {
+                    if (!newData.includes(hues)) {
+                        newData.push(hues);
                     }
                 })
-                if ( colorFound === null ) {
-                    await Colors.create({ color: element.colors })
-                }
+                
             })
+            const colorObjArray = newData.map( color => ({"color": color}));
+            // console.log(colorObjArray);
+            const colorCreated = await Colors.bulkCreate(colorObjArray);
             resolve('colors correctly created')
         }
         catch (err) {
@@ -170,7 +173,7 @@ const promisifiedPostStock = async () => {
                     }
                 })
                 if ( prodIdQuery !== null ) {
-                    // console.log(prodId[0].dataValues.id)
+                    // console.log(prodIdQuery[0].dataValues.id)
                     const prodId = prodIdQuery[0].dataValues.id
                     for ( let size in prod.sizes ) {
                         const sizeIdQuery = await Sizes.findAll({
@@ -181,31 +184,31 @@ const promisifiedPostStock = async () => {
                         if ( sizeIdQuery !== null ) {
                             // console.log(sizeIdQuery[0].dataValues.id);
                             const sizeId = sizeIdQuery[0].dataValues.id;
-                            // prod.colors.forEach( async color => {
-                            //     // const colorIdQuery = await Colors.findAll({
-                            //     //     where: {
-                            //     //         color: color
-                            //     //     }
-                            //     // })
-                            //     // if ( colorIdQuery !== null ) {
-                            //     //     if ( colorIdQuery.length > 0 ) {
-                            //     //         const colorId = colorIdQuery[0].dataValues.id;
+                            prod.hues.forEach( async color => {
+                                const colorIdQuery = await Colors.findAll({
+                                    where: {
+                                        color: color
+                                    }
+                                })
+                                if ( colorIdQuery !== null ) {
+                                    if ( colorIdQuery.length > 0 ) {
+                                        const colorId = colorIdQuery[0].dataValues.id;
                                         
-                            //     //         try {
-                            //     //             const newStock = await Stock.create({
-                            //     //                 ...stockReg,
-                            //     //                 "productId": prodId,
-                            //     //                 "sizeId": sizeId,
-                            //     //                 "colorId": colorId
-                            //     //             })
-                            //     //         }
-                            //     //         catch (err) {
-                            //     //             throw new Error(err)
-                            //     //         }
-                            //     //     }
+                                        try {
+                                            const newStock = await Stock.create({
+                                                ...stockReg,
+                                                "productId": prodId,
+                                                "sizeId": sizeId,
+                                                "colorId": colorId
+                                            })
+                                        }
+                                        catch (err) {
+                                            throw new Error(err)
+                                        }
+                                    }
                                     
-                            //     // } else console.log('hue not found')
-                            // })
+                                } else console.log('hue not found')
+                            })
                         } else console.log('size not found')
                     }
                 } else console.log('product not found')

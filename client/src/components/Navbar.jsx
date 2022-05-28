@@ -27,11 +27,11 @@ const Navbar = () => {
             <Link to= "/login">
             <button className={styles.button}>Sign In</button>
             </Link>
-            <Link to="/checkout" style={{outline: "none"}}>
-                  <img className={styles.cart} src={cart} alt="shop cart" onClick={() => alert("This feature is in development")}/>
+            <Link to="/shoppingCar" style={{outline: "none"}}>
+                  <img className={styles.cart} src={cart} alt="shop cart"/>
             </Link>
             <Link to="/favorites" style={{outline: "none"}}>
-              <img className={styles.fav} src={fav} alt='favorites' onClick={() => alert("This feature is in development")}/>
+              <img className={styles.fav} src={fav} alt='favorites'/>
             </Link>
         </ul>
         <div className={styles.divSearch} ><div className={styles.SearchBar}><SearchBar/></div></div>
