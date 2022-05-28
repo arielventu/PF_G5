@@ -1,9 +1,10 @@
 import React from "react";
+import { firstWordBye } from '../utils';
 import styles from './Card.module.css'
 import rating from '../image/rating.png'
 import Favorites from "./Favorites";
 
-export default function Card({img, fullName, price,component,id}){
+export default function Card({img, fullName, price, component, id}){
     var array = []
     const quitar = (e) =>{
         e.preventDefault()
@@ -22,7 +23,7 @@ export default function Card({img, fullName, price,component,id}){
     return(
         <div className={styles.container}>
             <img className={styles.img}src= {img} alt='img'></img>  
-            <h2 className={styles.h2}>{fullName}</h2>
+            <h2 className={styles.h2}>{firstWordBye(fullName)}</h2>
             <p className={styles.price}>${price}</p>
             <img className={styles.rating} src={rating} alt='rating'/> 
             {
