@@ -40,7 +40,35 @@
 .divFiltersTitle {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+}
+
+.divButtonClearFilters {
+  background-color: #f0f0f0;
+  border: 1px solid rgba(240, 240, 240, 0.993);
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  font-size: 1rem;
+  font-family: Cabin;
+  color: #000000;
+  text-decoration: none;
+  /* margin-left: 0.5rem; */
+}
+
+.buttonClearFilters { 
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 1rem;
+  font-size: .9rem;
+  font-family: Cabin;
+  color: #000000;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+
+.buttonClearFilters:hover {
+  background-color: #FFFFFF;
 }
 
 .filtersTitle {
@@ -116,7 +144,7 @@
 }
 
 .radio .input[type="radio"]:checked + .radioLabel:before {
-  background-color: rgb(106, 203, 233);
+  background-color: rgb(255, 255, 255);
   box-shadow: inset 0 0 0 4px #f4f4f4;
 }
 
