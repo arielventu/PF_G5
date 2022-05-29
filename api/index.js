@@ -7,7 +7,7 @@ const axios = require("axios");
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   app.listen(process.env.PORT, () => {
-    console.log(`Example app listening on port ${port}`);
+    // console.log(`Example app listening on port ${port}`);
     axios(`http://localhost:${process.env.PORT}/pushdbdata`)
       .then(() => {
         console.log("JSON Data Loaded to Database.");
