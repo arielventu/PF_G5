@@ -20,7 +20,7 @@ const Navbar = () => {
         <Link to="/Shop">
           <button className={styles.button}>Shop</button>
         </Link>
-        {/* <button className={styles.button} onClick={() => {
+        <button className={styles.button} onClick={() => {
           swal({
             title: "¿Estás seguro?",
             text: "¿Deseas salir de la aplicación?",
@@ -28,7 +28,7 @@ const Navbar = () => {
             // buttons: true,
             // dangerMode: true,
           })
-        }}><a href="#">About Us</a></button> */}
+        }}><a href="#">About Us</a></button>
             {/* <button className={styles.button}><a href="#">Contact</a></button>  */}
             <Link to="/register">
               <button className={styles.button}>Register</button>
