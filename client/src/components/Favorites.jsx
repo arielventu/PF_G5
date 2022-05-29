@@ -3,6 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { favorites, getProducts } from '../actions/actions'
 import Card from './Card'
+
+//import Construction from './Construction'
+var array = []
+var array2 = []
+
 const Favorites = () => {
   const navegation = useNavigate()
   var array = []
