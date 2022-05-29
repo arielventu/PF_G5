@@ -15,11 +15,7 @@ import {
     FILTER_BY_GENDER,
     SEARCH_BAR,
     FAVORITES, 
-<<<<<<< HEAD
     SHOPCAR,
-=======
-
->>>>>>> 14b0706b661f92c4ba53b2387109f5c627d4bc31
 } from '../actions/actions.js'
 
 const initialState = { //hacer un estado para los filtros
@@ -27,13 +23,10 @@ const initialState = { //hacer un estado para los filtros
     auxShoes: [],
     categories: [],
     searchBar: [],
-<<<<<<< HEAD
     favorites:[],
     shoppingCar:[],
-=======
     favorites: [],
     colors: [],
->>>>>>> 14b0706b661f92c4ba53b2387109f5c627d4bc31
 }
 
 export default function rootReducer(state = initialState, {payload, type}){
