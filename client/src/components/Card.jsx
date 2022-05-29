@@ -6,15 +6,10 @@ import Favorites from "./Favorites";
 import { favorites } from "../actions/actions";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-
-<<<<<<< HEAD
 export default function Card({img, fullName, price,component,id}){
    const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
-=======
-export default function Card({img, fullName, price, component, id}){
->>>>>>> 14b0706b661f92c4ba53b2387109f5c627d4bc31
     var array = []
     console.log("card",sampleLocation.pathname)
     const quitar =  (e) =>{
