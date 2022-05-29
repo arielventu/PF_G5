@@ -2,6 +2,11 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
     "@auth0/auth0-react": "^1.10.1",
     "@reduxjs/toolkit": "^1.8.1",
@@ -11,10 +16,11 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0-beta1",
     "react": "^18.1.0",
+    "react-app-rewired": "^2.2.1",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "sweetalert": "^2.1.2",

@@ -1,9 +1,11 @@
 import React from 'react';
+import App from './App';
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import axios from 'axios';
 import { Auth0Provider } from '@auth0/auth0-react'
 
+axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001';
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 

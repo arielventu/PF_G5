@@ -1,5 +1,6 @@
 .container {
   font-family: Koulen;
+  margin-bottom: 3rem;
 }
 
 .title {
@@ -9,6 +10,7 @@
 h3 {
   margin-top: 0;
   margin-bottom: 0;
+  color: black;
 }
 
 .innercontainer {
@@ -18,12 +20,11 @@ h3 {
 .innercontainer2 {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .innercontainer3 {
   display: flex;
-  margin-top: 2rem;
 }
 
 .price {
@@ -45,14 +46,7 @@ h3 {
   margin-right: 3rem;
 }
 
-.backToHome {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-}
-
 .button {
-  margin-top: 4rem;
   font-family: Koulen;
   font-size: 0.8rem;
   height: auto;
@@ -67,6 +61,9 @@ h3 {
 select {
   margin-left: 1rem;
   overflow: hidden;
+  border-radius: 0.2rem;
+  height: 2rem;
+  width: 4rem;
 }
 
 .colors {
@@ -100,4 +97,33 @@ select {
 
 .fav:hover {
   cursor: pointer;
+}
+
+.subtitles {
+  color: black;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.color1 {
+  height: 2rem;
+  width: 1rem;
+  border-top-left-radius: 100% 50%;
+  border-bottom-left-radius: 100% 50%;
+  border: 1px solid rgb(124, 124, 124);
+  border-right: none;
+}
+
+.color2 {
+  height: 2rem;
+  width: 1rem;
+  border-top-right-radius: 100% 50%;
+  border-bottom-right-radius: 100% 50%;
+  border: 1px solid rgb(124, 124, 124);
+  border-left: none;
+}
+
+.containercolors {
+  margin-top: -1rem;
+  display: flex;
 }

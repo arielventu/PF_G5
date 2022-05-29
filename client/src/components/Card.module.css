@@ -8,16 +8,16 @@
   overflow: hidden;
   color: black;
   align-items: center;
-  font-family: Cabin;
+  font-family: Koulen;
 }
 
 .container:hover {
   transform: translateY(-2px);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px rgba(69, 167, 212, 0.829);
 }
 
 .h2 {
-  margin-top: -0.1rem;
+  margin-top: -0.5rem;
   margin-left: 0.2rem;
   font-size: 0.9rem;
 }
@@ -25,7 +25,7 @@
 .img {
   height: 14rem;
   width: 14rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0rem;
   background-color: white;
   /* border: 0.05rem solid rgba(240, 240, 240, 0.993); */
 }

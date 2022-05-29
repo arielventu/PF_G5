@@ -16,7 +16,21 @@ export default function Detail(){
   const dispatch = useDispatch() 
   useEffect (() => {dispatch(getDetail(id))} ,[]) // eslint-disable-line
   const detailstate = useSelector((state) => state.shoes)
+  const products = useSelector(state => state.shoes)
+  const auxProducts = useSelector(state => state.auxShoes)
 
+  let sizes = []
+  let lala = products.map((e) => {
+    e.stocks.map((e) => {
+        sizes = e.size.size
+    })
+    return sizes
+  })
+    lala= [... new Set(lala)].sort()
+    console.log(lala)
+    console.log(sizes)
+
+ 
   useEffect(() => {
     dispatch(getProducts())
   }, [])
@@ -24,34 +38,45 @@ export default function Detail(){
   if(detailstate.length != 0){
     detailstate2 = detailstate.find(item => item.id == id )
   }
+  
   const add = (e)=>{
     var arrayAdd = []
     const {value} = e.target
     if (localStorage.getItem('carrito') === null) {
-      arrayAdd.push(value)
+      var findAdd = detailstate.find(item => item.id == value )
+      arrayAdd.push(findAdd)
     }else{
-      arrayAdd = localStorage.getItem('carrito').split(",")
-      if (!arrayAdd.includes(value)) {
-        arrayAdd.push(value)
+      arrayAdd = JSON.parse(localStorage.getItem('carrito'))
+      console.log("first",typeof value)
+      const idMap = arrayAdd.find(item=>  item.id == value)
+      if (idMap === undefined) {
+        console.log(detailstate)
+        const find = detailstate.find(item => item.id == value )
+        arrayAdd.push(find)
       }
     }
-    localStorage.setItem('carrito', `${arrayAdd}`)
+    localStorage.setItem('carrito', JSON.stringify(arrayAdd))
+    dispatch(favorites( JSON.parse(localStorage.getItem('carrito'))))
   }
 
-  const favorite = (e)=>{
+  const favorite = async (e)=>{
     var array = []
     const {accessKey} = e.target
-    console.log(accessKey)
     if (localStorage.getItem('favoritos') === null) {
-      array.push(accessKey)
+      var findKey = detailstate.find(item => item.id == accessKey )
+      array.push(findKey)
     }else{
-      array = localStorage.getItem('favoritos').split(",")
-      if (!array.includes(accessKey)) {
-        array.push(accessKey)
+      array = await JSON.parse(localStorage.getItem('favoritos'))
+      console.log("first",typeof accessKey)
+      const idMap = array.find(item=>  item.id == accessKey)
+      if (idMap === undefined) {
+        console.log(detailstate)
+        const find = detailstate.find(item => item.id == accessKey )
+        array.push(find)
       }
     }
-    const local = localStorage.setItem('favoritos', `${array}`)
-    dispatch(favorites(array))
+    localStorage.setItem('favoritos', JSON.stringify(array))
+    dispatch(favorites( JSON.parse(localStorage.getItem('favoritos'))))
   }
 
   
@@ -59,19 +84,23 @@ export default function Detail(){
     <div>
     { 
       detailstate.length > 0 ? 
-      <div className = {styles.container}> 
+      <div className = {styles.container}>
           <h1 className = {styles.title}> {detailstate2.fullName} </h1>
           <img src={detailstate2.imagecover} alt = 'Shoe Image' className = {styles.img}/>
           <p className={styles.description}>{detailstate2.detail}</p>
           <div className = {styles.innercontainer}>
-            <h3 className={styles.subtitles}>Sizes: {detailstate2.stocks.size}</h3>
-            {/* <select>
+            <h3 className={styles.subtitles}>Sizes:</h3>
+            <select>
              {
-             detailstate2.sizesSortOrder.map(item => <option value={item}>{item}</option>)
+             lala.map(item => <option value={item}>{item}</option>)
              }
-            </select> */}
+            </select>
             </div>
-            <h3 className={styles.colors}>colors:{detailstate2.colors}</h3>
+            <h3 className={styles.subtitles}>colors:</h3>
+            <div className={styles.containercolors}>
+              <div className={styles.color1} style={{ backgroundColor: `${detailstate2.colors[0]}` }}></div>
+              <div className={styles.color2} style={{ backgroundColor: `${detailstate2.colors[1]}` }}></div>
+            </div>
             <div className = {styles.innercontainer2}>
                 <h5 className = {styles.price}> ${detailstate2.price}</h5>
                 <img className={styles.rating} src={rating} alt='rating'/> 
@@ -80,11 +109,6 @@ export default function Detail(){
                 <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos'/> 
             </div>
-            <div className={styles.backToHome}>
-            <Link to='/shop'>
-              <button className = {styles.button}>Back to shop</button> 
-            </Link>
-          </div>
       </div> : 
       <div><h2> loading... </h2></div>
     }
