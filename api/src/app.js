@@ -77,6 +77,6 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.use(jwtCheck);  // Utiliza el jwtCheck
+// app.use(jwtCheck);  // Utiliza el jwtCheck
 
 module.exports = app;
