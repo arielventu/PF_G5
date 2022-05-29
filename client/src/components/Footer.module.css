@@ -1,0 +1,82 @@
+.container {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding: 5px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: rgb(54, 54, 54);
+  color: rgb(145, 143, 143);
+  font-size: 0.8rem;
+  font-family: Cabin;
+}
+
+.innercontainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  color: rgb(145, 143, 143);
+}
+
+.innercontainer2 {
+  padding-top: 1rem;
+}
+
+.footernav {
+  color: rgb(145, 143, 143);
+}
+
+h3 {
+  margin-bottom: 1rem;
+  color: rgb(197, 194, 194);
+}
+
+li {
+  padding: 0.3rem;
+}
+
+a {
+  color: rgb(145, 143, 143);
+}
+
+.icono {
+  height: 1rem;
+  margin-right: 0.5rem;
+  width: auto;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.texto {
+  max-width: 20rem;
+  margin-top: -3.5rem;
+}
+
+.footertitles {
+  color: rgb(197, 194, 194);
+  margin-bottom: 1rem;
+}
+
+.bluetitle {
+  margin-bottom: 5rem;
+  color: rgb(197, 194, 194);
+}
+
+.button {
+  background-color: #ffffff;
+  border: none;
+  width: 6rem;
+  height: 1.8rem;
+  font-family: Cabin;
+  color: #6584d5;
+  margin-top: 1rem;
+}

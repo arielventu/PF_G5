@@ -12,6 +12,7 @@ import Register from './components/Register';
 import Checkout from './components/Checkout';
 import SearchResult from './components/SearchResult';
 import ShoppingCar from './components/ShoppingCar';
+import Footer from './components/Footer';
 
 function App() {
  
@@ -28,8 +29,8 @@ function App() {
         <Route path="/shoppingCar" element={<ShoppingCar />} />
         <Route exact path="/shop/details/:id" element={<Detail/>}/>
         <Route exact path="/search/:keyword" element={<SearchResult/>}/>
-        
-      </Routes> 
+      </Routes>
+      <Footer/> 
     </Provider>
     
   );

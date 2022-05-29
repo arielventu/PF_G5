@@ -1,7 +1,9 @@
 import { Action } from 'history';
 
+
 import {
     GET_PRODUCTS,
+    GET_COLORS,
     GET_DETAILS ,
     GET_REVIEWS,
     GET_CATEGORIES,
@@ -10,9 +12,14 @@ import {
     FILTER_BY_BEST ,
     FILTER_BY_CATEGORIES,
     FILTER_BY_COLOR,
+    FILTER_BY_GENDER,
     SEARCH_BAR,
     FAVORITES, 
+<<<<<<< HEAD
     SHOPCAR,
+=======
+
+>>>>>>> 14b0706b661f92c4ba53b2387109f5c627d4bc31
 } from '../actions/actions.js'
 
 const initialState = { //hacer un estado para los filtros
@@ -20,8 +27,13 @@ const initialState = { //hacer un estado para los filtros
     auxShoes: [],
     categories: [],
     searchBar: [],
+<<<<<<< HEAD
     favorites:[],
     shoppingCar:[],
+=======
+    favorites: [],
+    colors: [],
+>>>>>>> 14b0706b661f92c4ba53b2387109f5c627d4bc31
 }
 
 export default function rootReducer(state = initialState, {payload, type}){
@@ -38,6 +50,12 @@ export default function rootReducer(state = initialState, {payload, type}){
                 ...state,
 				categories: payload,
             }
+        case GET_COLORS:
+            // console.log(payload)
+            return {
+                ...state,
+				colors: payload,
+            }
         case FAVORITES:
             return {
                 ...state,
@@ -49,7 +67,7 @@ export default function rootReducer(state = initialState, {payload, type}){
                 shoppingCar: payload,
             }
         case SEARCH_BAR:
-            console.log(payload)
+            // console.log(payload)
             return {
                 ...state,
 				searchBar: payload
@@ -58,11 +76,13 @@ export default function rootReducer(state = initialState, {payload, type}){
             const best = state.auxShoes;
             const fix = [];
 
-            best.map((e)=>{
-            let sol = e.categories.map((e)=>{
-                if(typeof e === 'object') return(e.name)
-                else { return e }
-            })
+            payload === 'All' ?
+                fix.push(...best)
+                : best.map((e)=>{
+                    let sol = e.categories.map((e)=>{
+                    if(typeof e === 'object') return(e.name)
+                    else { return e }
+                    })
                 return sol.includes(payload) ? fix.push(e) : null
             })
                 // console.log(fix)
@@ -76,7 +96,7 @@ export default function rootReducer(state = initialState, {payload, type}){
 
             payload === 'All' ?
                 cat.push(...categories) 
-            : categories.map((e) => {
+                : categories.map((e) => {
                 if(e.masterName === payload){
                     cat.push(e)
                     }
@@ -90,15 +110,31 @@ export default function rootReducer(state = initialState, {payload, type}){
             const allColors = state.auxShoes; 
             const col = [];
 
-            allColors.map((e) => {
-                if(e.colorName === payload){
-                    col.push(e)
-                }})
-                // console.log(col)
-            return{
+                payload === 'All' ?
+                col.push(...allColors)
+                : allColors.map((e) => {
+                let color = e.stocks.map((e) => {
+                    return e.color.color
+                })
+                return color.includes(payload) ? col.push(e) : null
+            })
+            // console.log('colors', col)
+            return {
                 ...state,
-                shoes : col
+                shoes: col
             }
+        case FILTER_BY_GENDER:
+            const gender = state.auxShoes
+            
+            const limbo= []
+            payload === 'All'?limbo.push(...gender):
+            gender.filter(e=> e.gender === payload ? limbo.push(e): null)
+            console.log(limbo)
+            return {
+                ...state,
+                 shoes: limbo
+            }
+        
         default: 
             return state
     }
