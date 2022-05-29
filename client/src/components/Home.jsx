@@ -6,6 +6,7 @@ import Card from './Card'
 
 import styles from './Home.module.css'
 import portada from '../image/imgportada.jpg'
+import Footer from './Footer'
 
 
 const Home = () => {
@@ -36,15 +37,13 @@ const Home = () => {
       <div className={styles.ratedProducts}>
         <h1 className={styles.ratedProductsTitle}>&#9733; Best Rated Products &#9733;</h1>
         </div>
-       <div className = {styles.cards}>
+      <div className = {styles.cards}>
         {bestRated?.slice(0,5).map(product => (
             <Link to={'/Shop/details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
               <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover}/>
             </Link>
         ))}
-        
       </div>
-        <div className="Pre-footer"></div>
       </div>
   )
 }

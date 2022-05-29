@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getProducts, getCategories, filterByBestFor, filterByCategories, getColors, filterByColor} from '../actions/actions'
+import {getProducts, getCategories, filterByBestFor, filterByCategories, getColors, filterByColor, filterByGender} from '../actions/actions'
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Pagination from "./Pagination"
 import styles from './Shop.module.css';
+import {firstWordBye} from '../utils'
 
 const Shop = () => {
   const products = useSelector(state => state.shoes)
@@ -16,7 +17,7 @@ const Shop = () => {
   // const [filterSelected, setFilterSelected] = useState('')
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [shoesPerPage, setShoesPerPage]= useState(15) //eslint-disable-line
+  const [shoesPerPage, setShoesPerPage]= useState(16) //eslint-disable-line
   const indexOfLastShoe = currentPage * shoesPerPage; 
   const indexOfFirstShoe = indexOfLastShoe - shoesPerPage;
   const currentShoes = products.slice(indexOfFirstShoe, indexOfLastShoe);
@@ -45,9 +46,12 @@ const Shop = () => {
   }, [])
   
 
+
   const clearFilters = () => {
     dispatch(filterByBestFor('All'))
     dispatch(filterByCategories('All'))
+    dispatch(filterByGender('All'))
+
   }
   
   const filterHandler = (e) => {
@@ -56,9 +60,9 @@ const Shop = () => {
     name === 'categories' && dispatch(filterByCategories(value))
     name === 'bestFor' && dispatch(filterByBestFor(value))
     name === 'colors' && dispatch(filterByColor(value))
+    name === 'gender' && dispatch(filterByGender(value))
     setCurrentPage(1)
   }
-
   return (
     <div className={styles.container}>
       <div className={styles.flyer}>
@@ -91,6 +95,18 @@ const Shop = () => {
                 ))}
               </select>
             </div>
+                  <div className={styles.divFiltersBestFor}>
+                <h2 className={styles.filtersSubtitle}>Genre</h2>
+                <div>
+                  <input className={styles.input} type="radio"  name= 'gender' value='womens'onChange={filterHandler} />
+                  <label className={styles.radioLabel} >womens</label>
+                  </div>
+                  <div>
+                  <input className={styles.input} type="radio"  name= 'gender' value='mens'onChange={filterHandler} />
+                  <label className={styles.radioLabel} >mens</label>
+                  </div>
+                </div>
+                  
         </div>}
         <div className = {styles.cards}>
           {currentShoes?.map(product => (
