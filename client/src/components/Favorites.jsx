@@ -11,7 +11,6 @@ var array2 = []
 const Favorites = () => {
   const navegation = useNavigate()
   var array = []
-  var array2 = []
   const dispatch = useDispatch()
   const favorite = useSelector(state => state.favorites)
   const products = useSelector(state => state.shoes)
@@ -34,6 +33,7 @@ const Favorites = () => {
    if(localStorage.getItem('favoritos') != null || !(Object.values(localStorage.getItem('favoritos')).length === 0) ){
     return (
       <div>
+        <h1 style={{textAlign:"center"}}>Favorites</h1>
         {
           !(array[0] === undefined )? array.map(item=> <Card  key={item.id} id={item.id} fullName={item.masterName} price={item.price}  img={item.imagecover} component={"favorites"}/>):
           navegation("/shop") 

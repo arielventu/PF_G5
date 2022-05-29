@@ -20,24 +20,31 @@ const ShoppingCar = () => {
     dispatch(ShopCar(array))
   }, [])
   if(localStorage.getItem('carrito') != null){
-    //console.log(localStorage.getItem('carrito'))
     array = JSON.parse(localStorage.getItem('carrito'))
+    const sum = array.map(item =>{return item.price})
+    
+    var sumW = sum.reduce(
+      (previousValue, currentValue) => previousValue + currentValue, 0);
+    console.log(sumW)
+    
+    
   }
   if (localStorage.getItem('carrito') === null) {
-    //alert("LLena tu favorito")
     return navegation("/shop")
   }
   
  
    if(localStorage.getItem('carrito') != null){
-   
     return (
       <div>
+        <h1 style={{textAlign:"center"}}>ShoppingCar</h1>
         {
           !(array[0] === undefined)? array.map(item=> <Card key={item.id} id={item.id} fullName={item.masterName} price={item.price} img={item.imagecover} component={"carrito"}/>):
-          navegation("/shop")   
-          
+          navegation("/shop")     
         }
+      <div >
+      <h3 style={{textAlign:"end",verticalAlign:"top"}}>Precio total: {sumW}</h3>
+      </div>
       </div>
     )
       }else{

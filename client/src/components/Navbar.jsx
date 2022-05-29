@@ -6,21 +6,24 @@ import styles from './Navbar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import fav from "../image/favorito.png"
 import swal from 'sweetalert';
+import { useDispatch, useSelector } from 'react-redux';
+import Favorites from './Favorites';
 
 const Navbar = () => {
   
+  const favo = useSelector((state) => state.favorites)  
+  const dispatch = useDispatch() 
   var valit = ""
   const navegation = useNavigate()
-  const validation = (valit)=>{
-
-
+  var arrayCar = JSON.parse(localStorage.getItem('carrito'))
+  var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+  const validation = (valit)=>{  
     if (valit ==="favorites") {
       if (localStorage.getItem('favoritos') === "[]") {
         return navegation(1)
       }else{
         navegation("/favorites")
-      }   
-      
+      }      
     }
     if (valit ==="car") {
       console.log("first")
@@ -28,13 +31,9 @@ const Navbar = () => {
         return navegation(1)
       }else{
         navegation("/shoppingCar")
-      }
-      
-     
-    }
-    
+      }    
+    }  
   }
-
   return (
     <div className={styles.container}>
       <Link to="/" style={{ outline: "none" }} >
@@ -62,13 +61,11 @@ const Navbar = () => {
             </Link>
             <Link to= "/login">
             <button className={styles.button}>Sign In</button>
-            </Link>
-           
-                  <img className={styles.cart} src={cart} alt="shop cart" onClick={()=>validation(valit="car")}/>
-           
-            
-              <img className={styles.fav} src={fav} alt='favorites' onClick={()=>validation(valit="favorites")}/>
-            
+            </Link>      
+            <img className={styles.cart} src={cart} alt="shop cart" onClick={()=>validation(valit="car")}/>
+            <span style={{position:"absolute",marginLeft:"400px",}}>{arrayCar.length}</span>
+            <img className={styles.fav} src={fav} alt='favorites' onClick={()=>validation(valit="favorites")}/> 
+            <span style={{position:"absolute",marginLeft:"525px"}}>{arrayFav.length}</span>
         </ul>
         <div className={styles.divSearch} ><div className={styles.SearchBar}><SearchBar/></div></div>
     </div>

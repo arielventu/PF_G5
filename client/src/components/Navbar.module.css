@@ -47,7 +47,7 @@ body {
 }
 
 .cart { 
-  height: 1.2rem;
+  height: 35px;;
   width: auto;
   outline: none;
   margin-left: 2rem;
@@ -64,7 +64,7 @@ ul {
 }
 
 .fav{
-  height: 22px;
+  height: 35px;
   margin-left: 1rem;
 }
 
