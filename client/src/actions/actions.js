@@ -12,6 +12,7 @@ export const FILTER_BY_BEST = 'FILTER_BY_BEST'
 export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
 export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
 export const FAVORITES = 'FAVORITES'
+export const SHOPCAR = 'SHOPCAR'
 
 // export const getProducts = () => {
 //     return {
@@ -36,12 +37,27 @@ export const filterByBestFor = (payload)=>{
         payload
     }       
 }
-export const favorites = (array)=>{
+export const favorites = ()=>{
+    var array = []
+    if(localStorage.getItem('favoritos') != null){
+        array = localStorage.getItem('favoritos').split(",")
+      }
     return  {
         type: 'FAVORITES',
         payload :array
     }       
 }
+export const ShopCar = ()=>{
+    var array = []
+    if(localStorage.getItem('favoritos') != null){
+        array = localStorage.getItem('favoritos').split(",")
+      }
+    return  {
+        type: 'SHOPCAR',
+        payload :array
+    }       
+}
+
 
 export const filterByCategories = (payload)=>{
     // console.log(payload)

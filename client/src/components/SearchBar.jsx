@@ -45,7 +45,7 @@ const SearchBar = () => {
     navegacion(`/search/${key}`)
     setKeyword('')
   }
-  console.log("sk",keyword)
+
 
   return (
     <form className={styles.container} onSubmit={(e)=>handleSubmit(e)} >
