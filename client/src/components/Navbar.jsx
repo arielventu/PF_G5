@@ -17,6 +17,16 @@ const Navbar = () => {
   const navegation = useNavigate()
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+  
+  if (arrayCar === null ) {
+    localStorage.setItem('carrito', JSON.stringify([]))
+  }
+  if (arrayFav === null ) {
+    localStorage.setItem('favoritos', JSON.stringify([]))
+  }
+ 
+
+
 
   const validation = (valit)=>{  
     if (valit ==="favorites") {
