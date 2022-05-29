@@ -60,10 +60,10 @@ export const filterByColor = (payload)=>{
     }       
 }
 
-export const filterByGender = ()=>{
+export const filterByGender = (payload)=>{
     return  {
         type: 'FILTER_BY_GENDER',
-        payload: 'womens'
+        payload
     }       
 }
 
