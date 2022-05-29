@@ -31,13 +31,8 @@ const getStocks = async (req, res) => {
         { model: Category, attributes: ["name"]},
         { model: Stock, attributes: ["id", "quantity", "available"],
           include: [
-<<<<<<< HEAD
-            { model: Sizes, attributes: ["id", "size"] },
-            { model: Colors, attributes: ["id", "color"] },
-=======
             { model: Sizes, attributes: ["id","size"] },
-            { model: Colors, attributes: ["id","color"] },
->>>>>>> ee358f9774d6a51b7a6d299134b2b91c75c418c1
+            { model: Colors, attributes: ["id","color"] },  
           ]
           }
         ],
