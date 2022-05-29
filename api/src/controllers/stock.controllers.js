@@ -31,8 +31,8 @@ const getStocks = async (req, res) => {
         { model: Category, attributes: ["name"]},
         { model: Stock, attributes: ["quantity", "available"],
           include: [
-            { model: Sizes, attributes: ["size"] },
-            { model: Colors, attributes: ["color"] },
+            { model: Sizes, attributes: ["id","size"] },
+            { model: Colors, attributes: ["id","color"] },
           ]
           }
         ],
@@ -49,8 +49,8 @@ const getStock = async (req, res) => {
     const stock = await Stock.findByPk(id, {
       attributes: ["id", "quantity", "available"],
       include: [
-        { model: Sizes, attributes: ["size"] },
-        { model: Colors, attributes: ["color"] },
+        { model: Sizes, attributes: ["id","size"] },
+        { model: Colors, attributes: ["id","color"] },
       ],
     });
 

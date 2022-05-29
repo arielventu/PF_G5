@@ -8,16 +8,15 @@ import fav from "../image/favorito.png"
 import swal from 'sweetalert';
 import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
-import { useAuth0 } from '@auth0/auth0-react';
+
 const Navbar = () => {
-  const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
+  
   const favo = useSelector((state) => state.favorites)  
   const dispatch = useDispatch() 
   var valit = ""
   const navegation = useNavigate()
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
-
   const validation = (valit)=>{  
     if (valit ==="favorites") {
       if (localStorage.getItem('favoritos') === "[]") {
@@ -35,10 +34,6 @@ const Navbar = () => {
       }    
     }  
   }
-
-  
-  console.log(isAuthenticated)
-
   return (
     <div className={styles.container}>
       <Link to="/" style={{ outline: "none" }} >
@@ -60,10 +55,13 @@ const Navbar = () => {
             // dangerMode: true,
           })
         }}><a href="#">About Us</a></button>
-                      
-            <button className={styles.button} onClick={() => loginWithRedirect()}> Log In </button>
-            <button className={styles.button} onClick={() => logout()}> Log Out </button>
-            
+            {/* <button className={styles.button}><a href="#">Contact</a></button>  */}
+            <Link to="/register">
+              <button className={styles.button}>Register</button>
+            </Link>
+            <Link to= "/login">
+            <button className={styles.button}>Sign In</button>
+            </Link>      
             <img className={styles.cart} src={cart} alt="shop cart" onClick={()=>validation(valit="car")}/>
             <span style={{position:"absolute",marginLeft:"400px",}}>{arrayCar.length}</span>
             <img className={styles.fav} src={fav} alt='favorites' onClick={()=>validation(valit="favorites")}/> 

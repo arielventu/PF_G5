@@ -21,6 +21,19 @@ const queryAndLikeBuilder = (keys, col) => {
   return res
 }
 
+const includeArr = [
+  { model: Category, attributes: ["name"] },
+  {
+    model: Stock,
+    attributes: ["id", "quantity", "available"],
+    include: [
+      { model: Sizes, attributes: ["id", "size"] },
+      { model: Colors, attributes: ["id", "color"] },
+    ],
+  },
+  { model: Review, attributes: ["description", "starsLevel"] },
+];
+
 const getProducts = async (req, res) => {
   try {
     if (!!req.query.search) {
@@ -31,25 +44,14 @@ const getProducts = async (req, res) => {
             {[Op.and]: queryAndLikeBuilder(searchKeys, 'name')}, 
             {[Op.and]: queryAndLikeBuilder(searchKeys, 'masterName')}
           ] 
-        }  
+        },
+        include: includeArr
       })
       res.json(foundProds)
     }
     else {
       const products = await Product.findAll({
-        include: [
-          { model: Category, attributes: ["name"] },
-          {
-            model: Stock,
-            attributes: ["quantity", "available"],
-            include: [
-              { model: Sizes, attributes: ["size"] },
-              { model: Colors, attributes: ["color"] },
-            ],
-          },
-
-          { model: Review, attributes: ["description", "starsLevel"] },
-        ],
+        include: includeArr
       });
       res.json(products);
     }
@@ -62,20 +64,7 @@ const getProduct = async (req, res) => {
   const { id } = req.params;
   try {
     const product = await Product.findByPk(id, {
-      include: [
-        { model: Category, attributes: ["name"] },
-
-        {
-          model: Stock,
-          attributes: ["quantity", "available"],
-          include: [
-            { model: Sizes, attributes: ["size"] },
-            { model: Colors, attributes: ["color"] },
-          ],
-        },
-
-        { model: Review, attributes: ["description", "starsLevel"] },
-      ],
+      include: includeArr
     });
 
     if (!product)
@@ -111,6 +100,12 @@ const createProduct = async (req, res) => {
       imageurl,
     });
 
+    // las categorias asociadas deben venir en forma de array de números. Los números son los ID de categoria para asociar
+    // en cada caso.
+    if (req.body.hasOwnProperty('categories')) {
+      await newProduct.setCategories(req.body.categories);
+    }
+
     res.json(newProduct);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -124,7 +119,25 @@ const updateProduct = async (req, res) => {
     product.set(req.body);
     await product.save();
 
+    // las categorias asociadas deben venir en forma de array de números. Los números son los ID de categoria para asociar
+    // en cada caso.
+    if (req.body.hasOwnProperty('categories')) {
+      await product.setCategories(req.body.categories);
+    }
+
+    // RELACIONES DE MUCHOS A MUCHOS
+    // products - categories
+    
+    // product = setCategories([id-cat,id-cat...])
+    // product = getCategories() --> devuelve un [ ids catego ]
+
+    // categories = setPoruducts([id-prod1, id-prod2, ...])
+    // categories = getProducts() --> devuelve un [ ids prod ]
+
+
     res.json(product);
+
+
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
