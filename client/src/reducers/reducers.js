@@ -96,7 +96,7 @@ export default function rootReducer(state = initialState, {payload, type}){
             const allColors = state.auxShoes; 
             const col = [];
 
-            payload === 'All' ?
+                payload === 'All' ?
                 col.push(...allColors)
                 : allColors.map((e) => {
                 let color = e.stocks.map((e) => {
@@ -111,15 +111,14 @@ export default function rootReducer(state = initialState, {payload, type}){
             }
         case FILTER_BY_GENDER:
             const gender = state.auxShoes
-            const gen = [];
-
-            gender.map((e) => {
-                return e
-            })
-            console.log(gen);
+            
+            const limbo= []
+            payload === 'All'?limbo.push(...gender):
+            gender.filter(e=> e.gender === payload ? limbo.push(e): null)
+            console.log(limbo)
             return {
                 ...state,
-                // shoes: gen
+                 shoes: limbo
             }
         
         default: 
