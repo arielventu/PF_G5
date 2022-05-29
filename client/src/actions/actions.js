@@ -24,7 +24,7 @@ export const FAVORITES = 'FAVORITES'
 
 export function getProducts (){
      return async function (dispatch){
-         var json =  await axios.get('http://localhost:3001/products');
+         var json =  await axios.get('/products');
         return dispatch({
              type : 'GET_PRODUCTS', 
             payload :json.data,   
@@ -70,7 +70,7 @@ export const filterByGender = (payload)=>{
 export function searchBar (keyword){ 
     return async function (dispatch){
         try{
-            await axios.get(`http://localhost:3001/products?search=${keyword}`)
+            await axios.get(`/products?search=${keyword}`)
             .then(yeison => {
                 //  console.log(yeison.data)
             dispatch({
@@ -86,7 +86,7 @@ export function searchBar (keyword){
 export function getCategories (){ 
     return async function (dispatch){
         try{
-            await axios.get(`http://localhost:3001/categories`)
+            await axios.get(`/categories`)
                 .then(yeison => {
                     // console.log(yeison.data)
                 dispatch({
@@ -102,7 +102,7 @@ export function getCategories (){
 export function getColors() { 
     return async function (dispatch){
         try{
-            await axios.get(`http://localhost:3001/colors`)
+            await axios.get(`/colors`)
                 .then(yeison => {
                     // console.log(yeison.data)
                 dispatch({
@@ -118,7 +118,7 @@ export function getColors() {
 export function postProduct (payload){
     return async function(dispatch){
         try{
-            var yeison = await axios.post("http://localhost:3001/product",payload)
+            var yeison = await axios.post("/product",payload)
             return yeison;
         }catch (error){
             console.log(error)
@@ -130,7 +130,7 @@ export function postProduct (payload){
 export function editProduct (payload){
     return async function(dispatch){
         try{
-            var yeison = await axios.put("http://localhost:3001/product",payload)
+            var yeison = await axios.put("/product",payload)
             return yeison;
         }catch (error){
             console.log(error)
@@ -142,7 +142,7 @@ export function editProduct (payload){
 export function getDetail(id){
     return async function(dispatch){
         try{
-            var json = await axios.get(`http://localhost:3001/products/${id}`);
+            var json = await axios.get(`/products/${id}`);
         return dispatch( {
             type : "GET_DETAILS",
             payload: json.data
