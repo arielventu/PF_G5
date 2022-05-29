@@ -8,24 +8,29 @@ import fav from "../image/favorito.png"
 import swal from 'sweetalert';
 
 const Navbar = () => {
-  var array = []
+  
   var valit = ""
   const navegation = useNavigate()
   const validation = (valit)=>{
+
+
     if (valit ==="favorites") {
-      if (localStorage.getItem('favoritos') == null) {
+      if (localStorage.getItem('favoritos') === "[]") {
         return navegation(1)
+      }else{
+        navegation("/favorites")
+      }   
+      
+    }
+    if (valit ==="car") {
+      console.log("first")
+      if (localStorage.getItem('carrito') === "[]") {
+        return navegation(1)
+      }else{
+        navegation("/shoppingCar")
       }
-      array = localStorage.getItem('favoritos').split(",")
-      console.log(array)
-      const pru = array.map(item=>{
-        if (item === "") {
-          localStorage.removeItem('favoritos');
-          return alert("LLena tus favoritos")
-        }
-      })
-      console.log(pru)
-      navegation("/favorites")
+      
+     
     }
     
   }
@@ -58,9 +63,9 @@ const Navbar = () => {
             <Link to= "/login">
             <button className={styles.button}>Sign In</button>
             </Link>
-            <Link to="/shoppingCar" style={{outline: "none"}}>
-                  <img className={styles.cart} src={cart} alt="shop cart"/>
-            </Link>
+           
+                  <img className={styles.cart} src={cart} alt="shop cart" onClick={()=>validation(valit="car")}/>
+           
             
               <img className={styles.fav} src={fav} alt='favorites' onClick={()=>validation(valit="favorites")}/>
             
