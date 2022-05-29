@@ -15,12 +15,18 @@ const Navbar = () => {
   const dispatch = useDispatch() 
   var valit = ""
   const navegation = useNavigate()
-  var arrayCar = JSON.parse(localStorage.getItem('carrito') === null? localStorage.setItem('carrito', JSON.stringify([])):localStorage.getItem('carrito'));
-  var arrayFav = JSON.parse(localStorage.getItem('favoritos') === null? localStorage.setItem('favoritos', JSON.stringify([])):localStorage.getItem('favoritos'));
+  var arrayCar = JSON.parse(localStorage.getItem('carrito'))
+  var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+  
+  if (arrayCar === null ) {
+    localStorage.setItem('carrito', JSON.stringify([]))
+  }
+  if (arrayFav === null ) {
+    localStorage.setItem('favoritos', JSON.stringify([]))
+  }
+ 
 
-  console.log(arrayCar, "hola");
-  console.log(arrayFav, "hola1111");
-  console.log(localStorage, "hola11123231");
+
 
   const validation = (valit)=>{  
     if (valit ==="favorites") {

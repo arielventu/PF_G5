@@ -50,7 +50,6 @@ const SearchBar = () => {
   return (
     <form className={styles.container} onSubmit={(e)=>handleSubmit(e)} >
       <input className={styles.input} type="text" onChange={(e) => handleInputChange(e)} value={keyword} placeholder="Search..." />
-      
         <button className={styles.buttonSearch} type="submit" value="Search" onClick={(e)=>handleSubmit(e)}>Go</button>
     
       {/* <input className={styles.input} type="text" placeholder="Search..." /> */}
