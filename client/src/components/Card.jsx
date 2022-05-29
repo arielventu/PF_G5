@@ -1,4 +1,5 @@
 import React from "react";
+import { firstWordBye } from '../utils';
 import styles from './Card.module.css'
 import rating from '../image/rating.png'
 import Favorites from "./Favorites";
@@ -6,10 +7,14 @@ import { favorites } from "../actions/actions";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
+<<<<<<< HEAD
 export default function Card({img, fullName, price,component,id}){
    const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
+=======
+export default function Card({img, fullName, price, component, id}){
+>>>>>>> 14b0706b661f92c4ba53b2387109f5c627d4bc31
     var array = []
     console.log("card",sampleLocation.pathname)
     const quitar =  (e) =>{
@@ -48,7 +53,7 @@ export default function Card({img, fullName, price,component,id}){
     return(
         <div className={styles.container}>
             <img className={styles.img}src= {img} alt='img'></img>  
-            <h2 className={styles.h2}>{fullName}</h2>
+            <h2 className={styles.h2}>{firstWordBye(fullName)}</h2>
             <p className={styles.price}>${price}</p>
             <img className={styles.rating} src={rating} alt='rating'/> 
             {

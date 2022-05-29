@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
     // },
 
     color: {
-      type: DataTypes.ARRAY(DataTypes.TEXT),
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     
