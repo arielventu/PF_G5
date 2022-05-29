@@ -15,8 +15,12 @@ const Navbar = () => {
   const dispatch = useDispatch() 
   var valit = ""
   const navegation = useNavigate()
-  var arrayCar = JSON.parse(localStorage.getItem('carrito'))
-  var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+  var arrayCar = JSON.parse(localStorage.getItem('carrito') === null? localStorage.setItem('carrito', JSON.stringify([])):localStorage.getItem('carrito'));
+  var arrayFav = JSON.parse(localStorage.getItem('favoritos') === null? localStorage.setItem('favoritos', JSON.stringify([])):localStorage.getItem('favoritos'));
+
+  console.log(arrayCar, "hola");
+  console.log(arrayFav, "hola1111");
+  console.log(localStorage, "hola11123231");
 
   const validation = (valit)=>{  
     if (valit ==="favorites") {
@@ -67,7 +71,7 @@ const Navbar = () => {
             <img className={styles.cart} src={cart} alt="shop cart" onClick={()=>validation(valit="car")}/>
             <span style={{position:"absolute",marginLeft:"400px",}}>{arrayCar.length}</span>
             <img className={styles.fav} src={fav} alt='favorites' onClick={()=>validation(valit="favorites")}/> 
-            <span style={{position:"absolute",marginLeft:"525px"}}>{arrayFav.length}</span>
+            <span style={{position:"absolute",marginLeft:"525px"}}>{arrayFav}</span>
         </ul>
         <div className={styles.divSearch} ><div className={styles.SearchBar}><SearchBar/></div></div>
     </div>
