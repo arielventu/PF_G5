@@ -12,6 +12,7 @@ import {
     FILTER_BY_COLOR,
     SEARCH_BAR,
     FAVORITES, 
+    SHOPCAR,
 } from '../actions/actions.js'
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
     categories: [],
     searchBar: [],
     favorites:[],
+    shoppingCar:[],
 }
 
 export default function rootReducer(state = initialState, {payload, type}){
@@ -40,6 +42,11 @@ export default function rootReducer(state = initialState, {payload, type}){
             return {
                 ...state,
                 favorites: payload,
+            }
+        case SHOPCAR:
+            return {
+                ...state,
+                shoppingCar: payload,
             }
         case SEARCH_BAR:
             console.log(payload)
