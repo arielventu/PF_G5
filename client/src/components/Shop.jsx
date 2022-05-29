@@ -16,7 +16,7 @@ const Shop = () => {
   // const [filterSelected, setFilterSelected] = useState('')
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [shoesPerPage, setShoesPerPage]= useState(15) //eslint-disable-line
+  const [shoesPerPage, setShoesPerPage]= useState(16) //eslint-disable-line
   const indexOfLastShoe = currentPage * shoesPerPage; 
   const indexOfFirstShoe = indexOfLastShoe - shoesPerPage;
   const currentShoes = products.slice(indexOfFirstShoe, indexOfLastShoe);
