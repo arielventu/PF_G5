@@ -15,7 +15,7 @@ const {
   createOrder,
   updateOrder,
   deleteOrder,
-} = require("../controllers/customers.controllers.js");
+} = require("../controllers/orders.controllers.js");
 
 // C.R.U.D.
 router.get("/orders", getOrders); // get orders
