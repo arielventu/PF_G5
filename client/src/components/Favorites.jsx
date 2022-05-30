@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { favorites, getProducts } from '../actions/actions'
 import Card from './Card'
+import styles from './Favorites.module.css'
 
 //import Construction from './Construction'
 var array = []
@@ -32,12 +33,14 @@ const Favorites = () => {
   
    if(localStorage.getItem('favoritos') != null || !(Object.values(localStorage.getItem('favoritos')).length === 0) ){
     return (
-      <div>
-        <h1 style={{textAlign:"center"}}>Favorites</h1>
+      <div className={styles.containerfav}>
+        <h1 className={styles.titulofav}>Favorites</h1>
+        <div className={styles.icontainerfav}>
         {
-          !(array[0] === undefined )? array.map(item=> <Card  key={item.id} id={item.id} fullName={item.masterName} price={item.price}  img={item.imagecover} component={"favorites"}/>):
+          !(array[0] === undefined )? array.map(item=> <Card className={styles.cardfav} key={item.id} id={item.id} fullName={item.masterName} price={item.price}  img={item.imagecover} component={"favorites"}/>):
           navegation("/shop") 
         }
+        </div>
       </div>
     )
       }else{

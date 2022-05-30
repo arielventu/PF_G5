@@ -1,0 +1,12 @@
+.containerfav {
+  font-family: Koulen;
+}
+
+.titulofav {
+  text-align: center;
+}
+
+.icontainerfav {
+  display: flex;
+  margin-left: 3rem;
+}
