@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState }  from "react";
 import { firstWordBye } from '../utils';
-import styles from './Card.module.css'
+import styles from './CardCart.module.css'
 import rating from '../image/rating.png'
 import Favorites from "./Favorites";
 import { favorites } from "../actions/actions";
@@ -11,6 +11,16 @@ export default function Card({img, fullName, price,component,id}){
    const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
+    const [quantity, setQuantity] = useState(1)
+
+    const handleDecrement = () => {
+        setQuantity(prevCount => prevCount - 1)
+    }
+
+    const handleIncrement = () => {
+        setQuantity(prevCount => prevCount + 1)
+    }
+
     var array = []
     const quitar =  (e) =>{
         e.preventDefault()
@@ -46,17 +56,21 @@ export default function Card({img, fullName, price,component,id}){
 
     }
     return(
-        <div className={styles.container}>
+        <div className={styles.containercart}>
             <img className={styles.img}src= {img} alt='img'></img>  
             <h2 className={styles.h2}>{firstWordBye(fullName)}</h2>
             <p className={styles.price}>${price}</p>
-            <img className={styles.rating} src={rating} alt='rating'/> 
-            {
-                component === "favorites"?<button className={styles.bfav} value={id} onClick={(e)=>comprar(e)}>Comprar</button>:null
-            } 
-            {
-                component === "favorites" || component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitar(e)}>Quitar</button>:null
-            }
+            <img className={styles.rating} src={rating} alt='rating'/>
+            <div className={styles.icontainer}>
+                <div className={styles.counter}>
+                    <button onClick={handleDecrement} className={styles.bquantity}>-</button>
+                    <div className={styles.quantity}>{quantity}</div>
+                    <button onClick={handleIncrement} className={styles.bquantity}>+</button>
+                </div>
+                {
+                    component === "favorites" || component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitar(e)}>Quitar</button>:null
+                }
+            </div>
                                   
         </div>
     );

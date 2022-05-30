@@ -1,0 +1,18 @@
+.containercart {
+  font-family: Koulen;
+}
+
+.titulofav {
+  text-align: center;
+}
+
+.icontainercart {
+  margin-left: 3rem;
+}
+
+.pricecart {
+  text-align: right;
+  margin-right: 3rem;
+  color: black;
+  font-size: 2rem;
+}
