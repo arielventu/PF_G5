@@ -40,7 +40,7 @@ li {
   padding: 0.3rem;
 }
 
-a {
+.flink {
   color: rgb(145, 143, 143);
 }
 
@@ -71,7 +71,7 @@ a {
   color: rgb(197, 194, 194);
 }
 
-.button {
+.buttonshop {
   background-color: #ffffff;
   border: none;
   width: 6rem;
@@ -79,4 +79,5 @@ a {
   font-family: Cabin;
   color: #6584d5;
   margin-top: 1rem;
+  cursor: pointer;
 }

@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {  getProducts, ShopCar } from '../actions/actions'
-import Card from './Card'
+import CardCart from './CardCart'
+import styles from './ShoppingCar.module.css'
 
 const ShoppingCar = () => {
   const navegation = useNavigate()
@@ -36,14 +37,16 @@ const ShoppingCar = () => {
  
    if(localStorage.getItem('carrito') != null){
     return (
-      <div>
-        <h1 style={{textAlign:"center"}}>ShoppingCar</h1>
+      <div className={styles.containercart}>
+        <h1 style={{textAlign:"center"}}>Shopping Cart</h1>
+        <div className={styles.icontainercart}>
         {
-          !(array[0] === undefined)? array.map(item=> <Card key={item.id} id={item.id} fullName={item.masterName} price={item.price} img={item.imagecover} component={"carrito"}/>):
+          !(array[0] === undefined)? array.map(item=> <CardCart key={item.id} id={item.id} fullName={item.masterName} price={item.price} img={item.imagecover} component={"carrito"}/>):
           navegation("/shop")     
         }
+        </div>
       <div >
-      <h3 style={{textAlign:"end",verticalAlign:"top"}}>Precio total: {sumW}</h3>
+      <h3 className={styles.pricecart}>Precio total: {sumW}</h3>
       </div>
       </div>
     )
