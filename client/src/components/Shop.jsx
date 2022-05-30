@@ -6,12 +6,14 @@ import Card from "./Card";
 import Pagination from "./Pagination"
 import styles from './Shop.module.css';
 import {firstWordBye} from '../utils'
+import {vix} from '../utils'
 
 const Shop = () => {
   const products = useSelector(state => state.shoes)
   const auxProducts = useSelector(state => state.auxShoes)
   const bestFor = useSelector(state => state.categories)
   const categories = useSelector(state => state.auxShoes)
+  const colors = useSelector(state => state.colors)
   const dispatch = useDispatch()
 
   // const [filterSelected, setFilterSelected] = useState('')
@@ -106,6 +108,20 @@ const Shop = () => {
                   <label className={styles.radioLabel} >mens</label>
                   </div>
                 </div>
+                
+   <h3 className={styles.subtitles}>colors:</h3>
+              <div>
+                {/*   { vix.map((e , i)=>
+                  <button className={styles.color1 } id ={e} name = "colors" value={e} style={{ backgroundColor: e}}onClick= {filterHandler}></button>
+                   )} */}
+                   { colors.map((e , i)=>
+                   <div>
+                     <label className={styles.color1 } id ={e} name = "colors" value={e.color} style={{ backgroundColor: vix[i]}}onClick= {filterHandler}></label>
+                     <button className={styles.colorName} id ={e.id} name = "colors" value={e.color} onClick= {filterHandler}>{e.color}</button>
+                     
+                   </div>
+                   )}
+              </div>
                   
         </div>}
         <div className = {styles.cards}>

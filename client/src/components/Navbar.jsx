@@ -15,8 +15,8 @@ const Navbar = () => {
   const dispatch = useDispatch() 
   var valit = ""
   const navegation = useNavigate()
-  var arrayCar = JSON.parse(localStorage.getItem('carrito'))
-  var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+  var arrayCar = JSON.stringify(localStorage.getItem('carrito'))
+  var arrayFav = JSON.stringify(localStorage.getItem('favoritos'))
   
   if (arrayCar === null ) {
     localStorage.setItem('carrito', JSON.stringify([]))
