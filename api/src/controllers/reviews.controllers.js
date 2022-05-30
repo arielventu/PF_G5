@@ -9,6 +9,18 @@ const getReviews = async (req, res) => {
   }
 };
 
+// GET REVIEW BY PRODUCT ID
+const getReviewByProductId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const reviews = await Review.findAll({ where: { productId: id } });
+    res.json(reviews);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+
 const postReviews = async (req, res) => {
   const { description, starsLevel, productId } = req.body;
   console.log(description);
@@ -27,4 +39,5 @@ const postReviews = async (req, res) => {
 module.exports = {
   getReviews,
   postReviews,
+  getReviewByProductId,
 };
