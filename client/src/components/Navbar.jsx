@@ -75,9 +75,9 @@ const Navbar = () => {
             <button className={styles.button} onClick={() => logout()}> Log Out </button>
             
             <img className={styles.cart} src={cart} alt="shop cart" onClick={()=>validation(valit="car")}/>
-            <span style={{position:"absolute",marginLeft:"400px",}}>{arrayCar.length}</span>
+            <span className={styles.cartq}>{arrayCar.length}</span>
             <img className={styles.fav} src={fav} alt='favorites' onClick={()=>validation(valit="favorites")}/> 
-            <span style={{position:"absolute",marginLeft:"525px"}}>{arrayFav.length}</span>
+            <span className={styles.favq}>{arrayFav.length}</span>
         </ul>
         <div className={styles.divSearch} ><div className={styles.SearchBar}><SearchBar/></div></div>
     </div>
