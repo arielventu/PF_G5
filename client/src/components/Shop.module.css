@@ -193,3 +193,34 @@
   width: 85%;
   /* border-left: 0.05rem solid rgba(240, 240, 240, 0.993); */
 }
+
+.containercolors {
+  justify-content: center;
+  align-self: center;
+  margin-top: 1rem;
+}
+
+.innercont {
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid rgb(0, 0, 0); */
+}
+
+.color1 {
+  width: 20px;
+  height: 20px;
+  margin: 0px auto;
+  border-radius: 50%;
+
+  position: relative;
+  display: inline-block;
+  border: 1px solid rgb(211, 212, 213);
+  margin-right: 0.5rem;
+}
+
+.colorName {
+  background-color: white;
+  border: 1px solid rgb(211, 212, 213);
+  border-radius: 0.2rem;
+  font-size: 1rem;
+}

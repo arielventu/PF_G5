@@ -103,11 +103,13 @@ const Navbar = () => {
         <div className={styles.favCarBtns}>
           <div className={styles.favCarBtns}>
             <img className={styles.icon} src={cart} alt="shop cart" onClick={()=>validation(valit="car")}/>
-            <span>{arrayCar.length}</span>
+            {arrayCar.length ? <span>{arrayCar.length}</span> : null 
+            }
           </div>
           <div className={styles.favCarBtns}>
-            <img className={styles.icon} src={fav} alt='favorites' onClick={()=>validation(valit="favorites")}/> 
-            <span>{arrayFav.length}</span>
+            <img className={styles.icon} src={fav} alt='favorites' onClick={()=>validation(valit="favorites")}/>
+            {arrayFav.length ? <span>{arrayFav.length}</span> : null 
+            } 
           </div>
         </div>
       </ul>
