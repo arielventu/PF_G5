@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { favorites, getDetail, getProducts } from "../actions/actions";
+import { favorites, getDetail, getProducts, ShopCar } from "../actions/actions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css"
 import rating from '../image/rating.png'
@@ -56,7 +56,7 @@ export default function Detail(){
       }
     }
     localStorage.setItem('carrito', JSON.stringify(arrayAdd))
-    dispatch(favorites( JSON.parse(localStorage.getItem('carrito'))))
+    dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
   }
 
   const favorite = async (e)=>{

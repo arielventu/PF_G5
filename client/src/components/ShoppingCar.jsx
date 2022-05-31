@@ -13,7 +13,6 @@ const ShoppingCar = () => {
   const favorite = useSelector(state => state.favorites)
   const products = useSelector(state => state.shoes)
 
-
   if(products.length === 0){
     dispatch(getProducts())
   }
