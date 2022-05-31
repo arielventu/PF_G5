@@ -29,10 +29,10 @@ const getStocks = async (req, res) => {
     const allStock = await Product.findAll({
       include: [
         { model: Category, attributes: ["name"]},
-        { model: Stock, attributes: ["quantity", "available"],
+        { model: Stock, attributes: ["id", "quantity", "available"],
           include: [
             { model: Sizes, attributes: ["id","size"] },
-            { model: Colors, attributes: ["id","color"] },
+            { model: Colors, attributes: ["id","color"] },  
           ]
           }
         ],

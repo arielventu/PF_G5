@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { favorites, getDetail, getProducts } from "../actions/actions";
+import { favorites, getDetail, getProducts, ShopCar } from "../actions/actions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css"
 import rating from '../image/rating.png'
@@ -56,7 +56,7 @@ export default function Detail(){
       }
     }
     localStorage.setItem('carrito', JSON.stringify(arrayAdd))
-    dispatch(favorites( JSON.parse(localStorage.getItem('carrito'))))
+    dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
   }
 
   const favorite = async (e)=>{
@@ -84,7 +84,7 @@ export default function Detail(){
     <div>
     { 
       detailstate.length > 0 ? 
-      <div className = {styles.container}>
+      <div className = {styles.containerp}>
           <h1 className = {styles.title}> {detailstate2.fullName} </h1>
           <img src={detailstate2.imagecover} alt = 'Shoe Image' className = {styles.img}/>
           <p className={styles.description}>{detailstate2.detail}</p>
@@ -95,7 +95,7 @@ export default function Detail(){
              lala.map(item => <option value={item}>{item}</option>)
              }
             </select>
-            </div>
+          </div>
             <h3 className={styles.subtitles}>colors:</h3>
             <div className={styles.containercolors}>
               <div className={styles.color1} style={{ backgroundColor: `${detailstate2.colors[0]}` }}></div>

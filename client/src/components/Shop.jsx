@@ -6,6 +6,7 @@ import Card from "./Card";
 import Pagination from "./Pagination"
 import styles from './Shop.module.css';
 import {firstWordBye} from '../utils'
+import {vix} from '../utils'
 
 const Shop = () => {
   const products = useSelector(state => state.shoes)
@@ -13,6 +14,7 @@ const Shop = () => {
   const bestFor = useSelector(state => state.categories)
   const categories = useSelector(state => state.auxShoes)
   const dispatch = useDispatch()
+  const colors = useSelector(state => state.colors)
 
   // const [filterSelected, setFilterSelected] = useState('')
   console.log(products)
@@ -95,17 +97,25 @@ const Shop = () => {
                 ))}
               </select>
             </div>
-                  <div className={styles.divFiltersBestFor}>
+              <div className={styles.divFiltersBestFor}>
                 <h2 className={styles.filtersSubtitle}>Genre</h2>
                 <div>
                   <input className={styles.input} type="radio"  name= 'gender' value='womens'onChange={filterHandler} />
                   <label className={styles.radioLabel} >womens</label>
-                  </div>
-                  <div>
+                </div>
+                <div>
                   <input className={styles.input} type="radio"  name= 'gender' value='mens'onChange={filterHandler} />
                   <label className={styles.radioLabel} >mens</label>
-                  </div>
                 </div>
+              </div>
+              <div className={styles.containercolors}>
+                   { colors.map((e , i)=>
+                   <div className={styles.innercont}>
+                     <label className={styles.color1 } id ={e} name = "colors" value={e.color} style={{ backgroundColor: vix[i]}}onClick= {filterHandler}></label>
+                     <button className={styles.colorName} id ={e.id} name = "colors" value={e.color} onClick= {filterHandler}>{e.color}</button>
+                   </div>
+                   )}
+              </div>
                   
         </div>}
         <div className = {styles.cards}>
