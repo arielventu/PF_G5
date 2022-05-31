@@ -13,8 +13,8 @@ const Shop = () => {
   const auxProducts = useSelector(state => state.auxShoes)
   const bestFor = useSelector(state => state.categories)
   const categories = useSelector(state => state.auxShoes)
-  const dispatch = useDispatch()
   const colors = useSelector(state => state.colors)
+  const dispatch = useDispatch()
 
   // const [filterSelected, setFilterSelected] = useState('')
 
