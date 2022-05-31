@@ -67,78 +67,103 @@ const Navbar = () => {
 
   return (
     <>
-    <div className={styles.container}>
-      <div className={styles.leftContent}>
-        <Link to="/" className={styles.divLogo}>
-          <div>
-            <img className={styles.logo} src={BlueBird} alt="logo Blue Bird" />
-          </div>
-        </Link>
-        { isLoading ? 
-          <button className={styles.loginButton}> Loading </button> : 
-          (
-            isAuthenticated ? 
-              <button className={styles.loginButton} onClick={ () => dropMenu() }> {user.name} </button> :
-              <button className={styles.loginButton} onClick={ () => loginWithRedirect() }> Login </button>
-          )
-        }
-      </div>
-      <ul className={styles.menu}>
-        <Link to="/">
-          <button className={styles.button}>Home</button>
-        </Link>
-        <Link to="/Shop">
-          <button className={styles.button}>Shop</button>
-        </Link>
-        <Link to="/about">
-          <button className={styles.button}>About Us</button>
-        </Link>
-            
-        {/* {
+      <div className={styles.container}>
+        <div className={styles.leftContent}>
+          <Link to="/" className={styles.divLogo}>
+            <div>
+              <img
+                className={styles.logo}
+                src={BlueBird}
+                alt="logo Blue Bird"
+              />
+            </div>
+          </Link>
+          {isLoading ? (
+            <button className={styles.loginButton}> Loading </button>
+          ) : isAuthenticated ? (
+            <button className={styles.loginButton} onClick={() => dropMenu()}>
+              {" "}
+              {user.name}{" "}
+            </button>
+          ) : (
+            <button
+              className={styles.loginButton}
+              onClick={() => loginWithRedirect()}
+            >
+              {" "}
+              Login{" "}
+            </button>
+          )}
+        </div>
+        <ul className={styles.menu}>
+          <Link to="/">
+            <button className={styles.button}>Home</button>
+          </Link>
+          <Link to="/Shop">
+            <button className={styles.button}>Shop</button>
+          </Link>
+          <Link to="/products">
+            <button className={styles.button}>Products</button>
+          </Link>
+          <Link to="/about">
+            <button className={styles.button}>About Us</button>
+          </Link>
+
+          {/* {
           isAuthenticated ? 
           <button className={styles.button} onClick={() => logout()}> Log Out </button> :
           <button className={styles.button} onClick={() => loginWithRedirect()}> Log In </button>
         } */}
 
-        <div className={styles.favCarBtns}>
           <div className={styles.favCarBtns}>
-            <img className={styles.icon} src={cart} alt="shop cart" onClick={()=>validation(valit="car")}/>
-            {arrayCar.length ? <span>{arrayCar.length}</span> : null 
-            }
+            <div className={styles.favCarBtns}>
+              <img
+                className={styles.icon}
+                src={cart}
+                alt="shop cart"
+                onClick={() => validation((valit = "car"))}
+              />
+              {arrayCar.length ? <span>{arrayCar.length}</span> : null}
+            </div>
+            <div className={styles.favCarBtns}>
+              <img
+                className={styles.icon}
+                src={fav}
+                alt="favorites"
+                onClick={() => validation((valit = "favorites"))}
+              />
+              {arrayFav.length ? <span>{arrayFav.length}</span> : null}
+            </div>
           </div>
-          <div className={styles.favCarBtns}>
-            <img className={styles.icon} src={fav} alt='favorites' onClick={()=>validation(valit="favorites")}/>
-            {arrayFav.length ? <span>{arrayFav.length}</span> : null 
-            } 
-          </div>
+        </ul>
+        <div className={styles.divSearch}>
+          <SearchBar />
         </div>
-      </ul>
-      <div className={styles.divSearch}>
-        <SearchBar/>
       </div>
-    </div>
-    { droppedMenu && 
-      <div className={styles.drpMenuStyles}>
-        <button 
-          className={styles.customFont} 
-          onClick={() => {
-            dropMenu();
-            profileRedirect();
-        }}>
-          Mi Cuenta
-        </button>
-        <button 
-          className={styles.customFont} 
-          onClick={() => {
-            dropMenu();
-            logout()
-          }}>
+      {droppedMenu && (
+        <div className={styles.drpMenuStyles}>
+          <button
+            className={styles.customFont}
+            onClick={() => {
+              dropMenu();
+              profileRedirect();
+            }}
+          >
+            Mi Cuenta
+          </button>
+          <button
+            className={styles.customFont}
+            onClick={() => {
+              dropMenu();
+              logout();
+            }}
+          >
             Logout
           </button>
-      </div>
-    }
+        </div>
+      )}
     </>
-  )
+  );
 }
 
 export default Navbar
