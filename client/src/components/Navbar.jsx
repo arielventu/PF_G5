@@ -2,6 +2,7 @@ import React from 'react'
 import SearchBar from './SearchBar'
 import cart from "../image/cart.png"
 import BlueBird from "../image/BlueBird.svg"
+import userQuest from "../image/userQuest.png"
 import styles from './Navbar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import fav from "../image/favorito.png"
@@ -9,6 +10,7 @@ import swal from 'sweetalert';
 import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
 import { useAuth0 } from '@auth0/auth0-react';
+
 const Navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
   const favo = useSelector((state) => state.favorites)  
@@ -47,13 +49,19 @@ const Navbar = () => {
   }
 
   
-  console.log(isAuthenticated)
+  console.log(user)
 
   return (
     <div className={styles.container}>
       <Link to="/" style={{ outline: "none" }} >
         <div className={styles.divLogo} ><img className={styles.logo} src={BlueBird} alt="logo Blue Bird" /></div>
       </Link>
+      <div>
+        {
+          isAuthenticated?null:<img src={userQuest} style={{height:"35px"}}></img>
+        }
+        <span> Quest</span>
+      </div>
       <ul className={styles.menu}>
         <Link to="/">
           <button className={styles.button}>Home</button>
