@@ -13,7 +13,8 @@ import Checkout from './components/Checkout';
 import SearchResult from './components/SearchResult';
 import ShoppingCar from './components/ShoppingCar';
 import Footer from './components/Footer';
-import UserProfile from './components/UserProfile'
+import UserProfile from './components/UserProfile';
+import Create from './components/Create';
 
 function App() {
  
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/shop/details/:id" element={<Detail/>}/>
         <Route exact path="/search/:keyword" element={<SearchResult/>}/>
         <Route exact path="/user-profile" element={<UserProfile/>}/>
+        <Route exact path='/create' element={<Create/>}/>
       </Routes>
       <Footer/> 
     </Provider>
