@@ -62,8 +62,8 @@ li {
 }
 
 .footertitles {
-  color: rgb(197, 194, 194);
-  margin-bottom: 1rem;
+  color: rgb(197, 194, 194) important!;
+  margin-bottom: 1rem important!;
 }
 
 .bluetitle {

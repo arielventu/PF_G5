@@ -6,8 +6,6 @@ import Card from './Card'
 import styles from './Favorites.module.css'
 
 //import Construction from './Construction'
-var array = []
-var array2 = []
 
 const Favorites = () => {
   const navegation = useNavigate()
@@ -23,11 +21,9 @@ const Favorites = () => {
     dispatch(favorites(array))
   }, [])
   if(localStorage.getItem('favoritos') != null){
-    //console.log(localStorage.getItem('favoritos'))
     array = JSON.parse(localStorage.getItem('favoritos'))
   }
   if (localStorage.getItem('favoritos') === null) {
-    //alert("LLena tu favorito")
     return navegation("/shop")
   }
   
