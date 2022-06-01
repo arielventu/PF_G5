@@ -4,10 +4,12 @@
 
 .titulofav {
   text-align: center;
+  margin-top: 2rem;
 }
 
 .icontainercart {
   margin-left: 3rem;
+  margin-top: 2rem;
 }
 
 .pricecart {
