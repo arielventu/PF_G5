@@ -21,6 +21,7 @@ const Products = () => {
   const [products, setProducts] = useState(useSelector((state) => state.shoes));
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
+  const [modalVariants, setModalVariants] = useState(false);
   const [available, setAvailable] = useState(false);
 
   const initial = {
@@ -43,7 +44,7 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch, products, categories, available]);
+  }, [products, categories, available]);
 
   // ----------------------------------------------------
 
@@ -65,6 +66,14 @@ const Products = () => {
     setForm(initial);
   };
 
+  const showModalVariants = (data) => {
+    setModalVariants(true);
+  };
+
+  const closeModalVariants = () => {
+    setModalVariants(false);
+  };
+
   const update = (data) => {
     let i = 0;
     let arrPoducts = products;
@@ -73,9 +82,6 @@ const Products = () => {
         arrPoducts[i].masterName = data.masterName;
         arrPoducts[i].gender = data.gender;
         arrPoducts[i].categories = data.categories;
-        arrPoducts[i].size = data.size;
-        arrPoducts[i].colors = data.colors;
-        arrPoducts[i].stock = data.stock;
         arrPoducts[i].price = data.price;
         arrPoducts[i].imagecover = data.imagecover;
         arrPoducts[i].imageurl = data.imageurl;
@@ -185,13 +191,21 @@ const Products = () => {
                   <td>{new Intl.NumberFormat("en-EN").format(e.price)}</td>
                   <td>{e.available}</td>
                   <td>
-                    <Button color="success">Variants</Button> {"  "}
+                    <Button
+                      color="success"
+                      onClick={() => showModalVariants(e)}
+                    >
+                      Variants
+                    </Button>{" "}
+                    {"  "}
                     <Button color="primary" onClick={() => showModalUpdate(e)}>
                       Edit
                     </Button>{" "}
                     {"  "}
                     <Button color="danger" onClick={() => changeStatus(e)}>
-                      Deactivate
+                      {e.available === "Available"
+                        ? "Check Not Available"
+                        : "Check Available"}
                     </Button>
                   </td>
                 </tr>
@@ -304,6 +318,32 @@ const Products = () => {
         </ModalFooter>
       </Modal>
       {/* -------------------------------------------- */}
+
+      {/* ----------- create variants -------------------- */}
+      {/* -------------------------------------------- */}
+
+      <Modal isOpen={modalVariants}>
+        <ModalHeader>
+          <div>
+            <h3>Add and edit variants</h3>
+          </div>
+        </ModalHeader>
+
+        <ModalBody>
+          <FormGroup>
+            <h3>Sorry we are under construction!</h3>
+          </FormGroup>
+        </ModalBody>
+
+        <ModalFooter>
+          <Button
+            className="btn btn-danger"
+            onClick={() => closeModalVariants()}
+          >
+            Close
+          </Button>
+        </ModalFooter>
+      </Modal>
 
       {/* ----------- update data -------------------- */}
       {/* -------------------------------------------- */}
