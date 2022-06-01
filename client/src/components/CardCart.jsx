@@ -3,11 +3,11 @@ import { firstWordBye } from '../utils';
 import styles from './CardCart.module.css'
 import rating from '../image/rating.png'
 import Favorites from "./Favorites";
-import { favorites } from "../actions/actions";
+import { favorites, ShopCar } from "../actions/actions";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Card({img, fullName, price,component,id}){
+export default function Cardcart({img, fullName, price,component,id}){
    const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
@@ -22,9 +22,10 @@ export default function Card({img, fullName, price,component,id}){
     }
 
     var array = []
-    const quitar =  (e) =>{
+    const quitarCar =  (e) =>{
         e.preventDefault()
         const {value} = e.target
+
         console.log(sampleLocation.pathname.includes("/favorites"))
         if (sampleLocation.pathname.includes("/favorites")) {      
             if(localStorage.getItem('favoritos') != null){
@@ -48,12 +49,11 @@ export default function Card({img, fullName, price,component,id}){
                 }
             })
             localStorage.setItem('carrito', JSON.stringify(filterA));
-            dispatch(favorites( JSON.parse(localStorage.getItem('carrito'))))
+            dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
         }
         
     }
     const comprar = ()=>{
-
     }
     return(
         <div className={styles.containercart}>
@@ -68,7 +68,7 @@ export default function Card({img, fullName, price,component,id}){
                     <button onClick={handleIncrement} className={styles.bquantity}>+</button>
                 </div>
                 {
-                    component === "favorites" || component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitar(e)}>Quitar</button>:null
+                    component === "favorites" || component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitarCar(e)}>Quitar</button>:null
                 }
             </div>
                                   
