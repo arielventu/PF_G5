@@ -27,7 +27,8 @@ const initialState = { //hacer un estado para los filtros
     favorites:[],
     shoppingCar:[],
     colors: [],
-    editState : []
+    editState : [],
+    createdProducts : []
 
 }
 
@@ -136,12 +137,17 @@ export default function rootReducer(state = initialState, {payload, type}){
                 const filo =  []
                 payload === 'All'?filo.push(...precios):
                 precios.filter(e=> e.price > (10000) ? filo.push(e): null )
-
-
                 console.log(filo)
                 return {
                     ...state,
                      shoes: filo}
+                     case POST_PRODUCT:
+                         console.log (payload)
+                        return {
+                            ...state,
+                            createdProducts: payload,
+                        }
+            
         default: 
             return state
     }
