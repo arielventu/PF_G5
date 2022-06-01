@@ -169,3 +169,10 @@ export function getDetail(id){
     }
 }
 
+export const quantityCar = (id, quantity)=>{
+    return  {
+        type: 'QUANTITY_CAR',
+
+    }       
+}
+
