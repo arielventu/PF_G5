@@ -20,7 +20,7 @@ export default function Cardcart({img, fullName, price,component,id}){
     const handleIncrement = () => {
         setQuantity(prevCount => prevCount + 1)
     }
-
+    console.log(id)
     var array = []
     const quitarCar =  (e) =>{
         e.preventDefault()
