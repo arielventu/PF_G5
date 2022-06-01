@@ -134,7 +134,7 @@ const Products = () => {
   };
 
   // ----------------------------------------------------
-
+console.log(form)
   //render
   return (
     <>
