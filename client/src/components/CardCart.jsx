@@ -16,7 +16,7 @@ export default function Cardcart({img, fullName, price,component,id}){
     const counterCar = () => {
         const array = JSON.parse(localStorage.getItem('carrito'))
         const filtro = array.filter(item => item.id === id)
-        filtro[0]
+        // filtro[0]
         console.log(filtro)
     }
 
