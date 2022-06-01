@@ -43,7 +43,7 @@ const ShoppingCar = () => {
    if(localStorage.getItem('carrito') != null || !(Object.values(localStorage.getItem('carrito')).length === 0)){
     return (
       <div className={styles.containercart}>
-        <h1 style={{textAlign:"center"}}>Shopping Cart</h1>
+        <h1 className={styles.titulofav}>Shopping Cart</h1>
         <div className={styles.icontainercart}>
         {
           !(array[0] === undefined)? array.map(item=> <Cardcart key={item.id} id={item.id} fullName={item.masterName} price={item.price} img={item.imagecover} component={"carrito"}/>):
