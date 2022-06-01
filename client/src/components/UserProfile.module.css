@@ -1,0 +1,15 @@
+.userContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem auto;
+    font-family: Koulen;
+    font-size: 1rem;
+    color: black;
+    /* border: 1px solid black; */
+}
+
+.userImage {
+    width: 150px;
+    border-radius: 75px;
+}

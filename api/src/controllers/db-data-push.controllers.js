@@ -1,5 +1,6 @@
-const { Product, Category, Colors, Sizes, Stock } = require('../db');
+const { Product, Category, Colors, Sizes, Stock, Review } = require('../db');
 const items = require('../../bin/products');
+const reviews = require('../../bin/reviews');
 
 // funcion para hacer querys: por id busca por PK y por name busca por findOne
 const getFromDB = async ( table, param, value ) => {
@@ -224,7 +225,37 @@ const promisifiedPostStock = async () => {
 }
 
 // ----------------------------------------------------------------------------------
-// CONTROLADOR: Ejecuta las promesas de carga de productos y categorias a las base de datos
+// PROMESA: Upload de REVIEWS a la base de datos
+// ----------------------------------------------------------------------------------
+const promisifiedPostReviews = () => {
+    return new Promise(async (resolve, reject) => {
+        const newData = [];
+        reviews.forEach( element => {
+            const data = {
+                "description": element.description,
+                "starsLevel": element.starsLevel,
+                "productId": element.productId
+            }
+            newData.push(data);
+        });  
+        const count = await Review.count();
+        if (count === 0) {
+            try {
+                const newType = await Review.bulkCreate(newData)
+                resolve(newType);
+            
+            } catch (error) {
+                reject(error);
+            }
+        } else {
+            resolve(null);
+        }
+    })
+}
+
+// ----------------------------------------------------------------------------------
+// CONTROLADOR: Ejecuta las promesas de carga de products, categories, colors,
+// sizes y reviews a las base de datos.
 // ----------------------------------------------------------------------------------
 const postDBData = async (req, res) => {
     
@@ -232,9 +263,9 @@ const postDBData = async (req, res) => {
     let categories = promisifiedPostCategories()
     let colors = promisifiedPostColors();
     let sizes = promisifiedPostSizes();
- 
+    let reviews = promisifiedPostReviews();
 
-    Promise.all([products, categories, colors, sizes])
+    Promise.all([products, categories, colors, sizes, reviews])
     .then( data => {
         promisifiedRelCatProd()
             .then( data => console.log(data) )
@@ -257,6 +288,3 @@ const postDBData = async (req, res) => {
 module.exports = {
     postDBData
 }; 
-
-
-
