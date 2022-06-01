@@ -16,6 +16,7 @@ import {
     SEARCH_BAR,
     FAVORITES, 
     SHOPCAR,
+    FILTER_BY_PRICE
 } from '../actions/actions.js'
 
 const initialState = { //hacer un estado para los filtros
@@ -26,6 +27,8 @@ const initialState = { //hacer un estado para los filtros
     favorites:[],
     shoppingCar:[],
     colors: [],
+    editState : []
+
 }
 
 export default function rootReducer(state = initialState, {payload, type}){
@@ -126,7 +129,19 @@ export default function rootReducer(state = initialState, {payload, type}){
                 ...state,
                  shoes: limbo
             }
-        
+            
+            case FILTER_BY_PRICE:
+                const precios= state.auxShoes
+                console.log(precios)
+                const filo =  []
+                payload === 'All'?filo.push(...precios):
+                precios.filter(e=> e.price > (10000) ? filo.push(e): null )
+
+
+                console.log(filo)
+                return {
+                    ...state,
+                     shoes: filo}
         default: 
             return state
     }

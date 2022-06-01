@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getProducts, getCategories, filterByBestFor, filterByCategories, getColors, filterByColor, filterByGender} from '../actions/actions'
+import {getProducts, getCategories,filterByPrice, filterByBestFor, filterByCategories, getColors, filterByColor, filterByGender} from '../actions/actions'
 import { Link } from "react-router-dom";
 import Card from "./Card";
+import  EditProduct  from './EditProduct';
 import Pagination from "./Pagination"
 import styles from './Shop.module.css';
 import {firstWordBye} from '../utils'
@@ -27,7 +28,7 @@ const Shop = () => {
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-
+  console.log(products)
   const firstCharUpperBestFor = (str) => {
     const arr = str.split("-");
     for (let i = 0; i < arr.length; i++) {
@@ -63,6 +64,7 @@ const Shop = () => {
     name === 'bestFor' && dispatch(filterByBestFor(value))
     name === 'colors' && dispatch(filterByColor(value))
     name === 'gender' && dispatch(filterByGender(value))
+    name === 'price' && dispatch(filterByPrice(value))
     setCurrentPage(1)
   }
   return (
@@ -108,17 +110,24 @@ const Shop = () => {
                   <label className={styles.radioLabel} >mens</label>
                   </div>
                 </div>
+                  <div className={styles.divFiltersBestFor}>
+                <h2 className={styles.filtersSubtitle}>Price</h2>
+                <div>
+                  <input className={styles.input} type="radio"  name= 'price' value='xpensive'onChange={filterHandler} />
+                  <label className={styles.radioLabel} >xpensive</label>
+                  </div>
+                  <div>
+                  <input className={styles.input} type="radio"  name= 'price' value='cheap'onChange={filterHandler} />
+                  <label className={styles.radioLabel} >cheap</label>
+                  </div>
+                </div>
                 
-   <h3 className={styles.subtitles}>colors:</h3>
+              <h3 className={styles.subtitles}>colors:</h3>
               <div>
-                {/*   { vix.map((e , i)=>
-                  <button className={styles.color1 } id ={e} name = "colors" value={e} style={{ backgroundColor: e}}onClick= {filterHandler}></button>
-                   )} */}
                    { colors.map((e , i)=>
                    <div>
                      <label className={styles.color1 } id ={e} name = "colors" value={e.color} style={{ backgroundColor: vix[i]}}onClick= {filterHandler}></label>
                      <button className={styles.colorName} id ={e.id} name = "colors" value={e.color} onClick= {filterHandler}>{e.color}</button>
-                     
                    </div>
                    )}
               </div>
@@ -128,6 +137,9 @@ const Shop = () => {
           {currentShoes?.map(product => (
               <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
                 <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover}/>
+                <Link to={'edit/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
+                <EditProduct key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover}/>
+              </Link>
               </Link>
           ))}
         </div>

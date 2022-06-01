@@ -15,7 +15,8 @@ export const FILTER_BY_COLOR = 'FILTER_BY_COLOR'
 export const FILTER_BY_GENDER = 'FILTER_BY_GENDER'
 export const FAVORITES = 'FAVORITES'
 export const SHOPCAR = 'SHOPCAR'
-
+export const FILTER_BY_PRICE = 'FILTER_BY_PRICE'
+export const GET_EDIT = 'GET_EDIT'
 // export const getProducts = () => {
 //     return {
 //         type: 'GET_PRODUCTS',
@@ -73,8 +74,14 @@ export const filterByColor = (payload)=>{
     return  {
         type: 'FILTER_BY_COLOR',
         payload
+    }}       
+export const filterByPrice = (payload)=>{
+    return  {
+        type: 'FILTER_BY_PRICE',
+        payload
     }       
 }
+
 
 export const filterByGender = (payload)=>{
     return  {
@@ -143,10 +150,10 @@ export function postProduct (payload){
     } 
 }
 
-export function editProduct (payload){
+/* export function editProduct (payload){
     return async function(dispatch){
         try{
-            var yeison = await axios.put("/product",payload)
+            var yeison = await axios.put("/product/:id")
             return yeison;
         }catch (error){
             console.log(error)
@@ -154,13 +161,26 @@ export function editProduct (payload){
         }
     } 
 }
-
+ */
 export function getDetail(id){
     return async function(dispatch){
         try{
             var json = await axios.get(`/products/${id}`);
         return dispatch( {
             type : "GET_DETAILS",
+            payload: json.data
+        })
+        }catch(error){
+            console.log(json.data)
+        }
+    }
+}
+export function getEdit(id){
+    return async function(dispatch){
+        try{
+            var json = await axios.get(`/products/${id}`);
+        return dispatch( {
+            type : "GET_EDIT",
             payload: json.data
         })
         }catch(error){
