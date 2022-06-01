@@ -13,22 +13,22 @@ export default function Footer() {
             <div className={styles.innercontainer2}>
                 <h3 className={styles.bluetitle}>BlueBird Store</h3>
                 <p className={styles.texto}>Laoreet ligula neque sed non netus nascetur at venenatis dictum, eleifend praesent turpis eget libero cras rutrum semper, magnis inceptos senectus sociis sociosqu auctor fames habitant..</p>
-                <button className={styles.button}>Shop Now</button>
+                <button className={styles.buttonshop}>Shop Now</button>
             </div>
             <ul className={styles.footernav}>
             <h3 className={styles.footertitles}>Home</h3>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Press</a></li>
-                <li><a href="#">iOS App</a></li>
-                <li><a href="#">Android App</a></li>
+                <li><a href="#" className={styles.flink}>About us</a></li>
+                <li><a href="#" className={styles.flink}>Blog</a></li>
+                <li><a href="#" className={styles.flink}>Press</a></li>
+                <li><a href="#" className={styles.flink}>iOS App</a></li>
+                <li><a href="#" className={styles.flink}>Android App</a></li>
             </ul>
             <ul className={styles.footernav}>
             <h3 className={styles.footertitles}>Shop</h3>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">All</a></li>
-                <li><a href="#">Women</a></li>
-                <li><a href="#">Men</a></li>
+                <li><a href="#" className={styles.flink}>Categories</a></li>
+                <li><a href="#" className={styles.flink}>All</a></li>
+                <li><a href="#" className={styles.flink}>Women</a></li>
+                <li><a href="#" className={styles.flink}>Men</a></li>
             </ul>
             <ul className={styles.sociallinks}>
             <h3 className={styles.footertitles}>Contact</h3>

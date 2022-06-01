@@ -25,7 +25,6 @@ const initialState = { //hacer un estado para los filtros
     searchBar: [],
     favorites:[],
     shoppingCar:[],
-    favorites: [],
     colors: [],
 }
 

@@ -1,15 +1,12 @@
-.container {
-  background-color: rgba(243, 242, 242, 0.993);
-  /* margin-left: 1rem;
-  margin-right: 1rem; */
-  margin-bottom: 3rem;
-  height: 22.5rem;
-  width: 14rem;
-  overflow: hidden;
+.containercart {
+  background-color: rgba(223, 221, 221, 0.993);
+  height: 12.5rem;
+  width: 38rem;
   color: black;
   align-items: center;
   font-family: Koulen;
-  margin-left: 1rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .container:hover {
@@ -17,16 +14,21 @@
   box-shadow: 0px 0px 10px rgba(69, 167, 212, 0.829);
 }
 
+.icontainer {
+  display: flex;
+}
+
 .h2 {
   margin-top: 0.2rem;
   margin-left: 0.2rem;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
 }
 
 .img {
-  height: 14rem;
-  width: 14rem;
-  margin-bottom: 0rem;
+  float: left;
+  height: 10.8rem;
+  width: 10.8rem;
+  margin-right: 1rem;
   background-color: white;
   /* border: 0.05rem solid rgba(240, 240, 240, 0.993); */
 }
@@ -35,7 +37,7 @@
   margin-top: 0.5rem;
   margin-left: 0.2rem;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-bottom: 0.01rem;
   font-family: Koulen;
 }
@@ -44,7 +46,6 @@
   margin-left: 0.2rem;
   height: 5rem;
   width: auto;
-  margin-top: -0.5rem;
 }
 
 .bfav {
@@ -52,9 +53,33 @@
   border: 0.1rem solid rgb(190, 190, 190);
   cursor: pointer;
   position: left;
+  margin-left: 14rem;
+  margin-top: -0.5rem;
 }
 
 .bfav:hover {
   background-color: rgb(75, 74, 74);
   color: white;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -0.5rem;
+  background-color: white;
+  height: 1.4rem;
+  font-family: Cabin;
+}
+
+.quantity {
+  width: 3rem;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.bquantity {
+  height: 1.5rem;
+  border: 0.1rem solid rgb(190, 190, 190);
 }

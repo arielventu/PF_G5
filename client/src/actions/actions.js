@@ -42,7 +42,7 @@ export const filterByBestFor = (payload)=>{
 export const favorites = ()=>{
     var array = []
     if(localStorage.getItem('favoritos') != null){
-        array = localStorage.getItem('favoritos').split(",")
+        array = localStorage.getItem('favoritos')
       }
     return  {
         type: 'FAVORITES',
@@ -51,8 +51,8 @@ export const favorites = ()=>{
 }
 export const ShopCar = ()=>{
     var array = []
-    if(localStorage.getItem('favoritos') != null){
-        array = localStorage.getItem('favoritos').split(",")
+    if(localStorage.getItem('carrito') != null){
+        array = localStorage.getItem('carrito')
       }
     return  {
         type: 'SHOPCAR',
@@ -167,5 +167,12 @@ export function getDetail(id){
             console.log(json.data)
         }
     }
+}
+
+export const quantityCar = (id, quantity)=>{
+    return  {
+        type: 'QUANTITY_CAR',
+
+    }       
 }
 

@@ -15,7 +15,6 @@ const {
   createProduct,
   updateProduct,
   deleteProduct,
-  getProductReviews,
 } = require("../controllers/products.controllers.js");
 
 /* GET home page. */
@@ -29,5 +28,4 @@ router.post("/products", createProduct);
 router.put("/products/:id", updateProduct);
 router.delete("/products/:id", deleteProduct);
 router.get("/products/:id", getProduct); // get product by id
-router.get("/products/:id/reviews", getProductReviews); // get reviews related with a product
 module.exports = router;

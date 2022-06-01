@@ -39,7 +39,7 @@ const SearchResult = () => {
       </div>
       <div className = {styles.cards}>
         {products.length != 0?currentShoes?.map(product => (
-          <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
+          <Link to={'/shop/details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
             <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover}/>
           </Link>
         )):<img src='https://thumbs.dreamstime.com/z/lupa-trastornada-s%C3%ADmbolo-no-encontrado-lindo-y-b%C3%BAsqueda-fracasada-enfoque-para-el-icono-ningunos-resultados-convenientes-122205498.jpg'></img>}
