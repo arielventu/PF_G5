@@ -21,6 +21,7 @@ const Products = () => {
   const [products, setProducts] = useState(useSelector((state) => state.shoes));
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
+  const [available, setAvailable] = useState(false);
 
   const initial = {
     id: "",
@@ -42,7 +43,7 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch, products, categories]);
+  }, [dispatch, products, categories, available]);
 
   // ----------------------------------------------------
 
@@ -85,21 +86,25 @@ const Products = () => {
     setModalUpdate(false);
   };
 
-  const remove = (data) => {
+  const changeStatus = (data) => {
     let option = window.confirm(
-      "Are you sure you want to delete the item? " + data.id
+      "Are you sure you want to change the status? " + data.masterName
     );
     if (option) {
       let i = 0;
-      let arrProducts = products;
-      arrProducts.map((e) => {
+      let arrPoducts = products;
+      arrPoducts.map((e) => {
         if (data.id === e.id) {
-          arrProducts.splice(i, 1);
+          const newAvailable =
+            arrPoducts[i].available === "Available"
+              ? "Not Available"
+              : "Available";
+          arrPoducts[i].available = newAvailable;
         }
         i++;
       });
-      setProducts(arrProducts);
-      setModalUpdate(false);
+      setProducts(arrPoducts);
+      setAvailable((prevStatus) => ({ ...prevStatus, available: !!available }));
     }
   };
 
@@ -157,6 +162,7 @@ const Products = () => {
               <th>Gender</th>
               <th>BestFor</th>
               <th>Price</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -176,15 +182,16 @@ const Products = () => {
                   <td>{e.masterName}</td>
                   <td>{e.gender}</td>
                   <td>{e.categories.map((el) => el?.name?.concat(", "))}</td>
-                  <td>{e.price}</td>
+                  <td>{new Intl.NumberFormat("en-EN").format(e.price)}</td>
+                  <td>{e.available}</td>
                   <td>
                     <Button color="success">Variants</Button> {"  "}
                     <Button color="primary" onClick={() => showModalUpdate(e)}>
-                      Update
+                      Edit
                     </Button>{" "}
                     {"  "}
-                    <Button color="danger" onClick={() => remove(e)}>
-                      Delete
+                    <Button color="danger" onClick={() => changeStatus(e)}>
+                      Deactivate
                     </Button>
                   </td>
                 </tr>
@@ -226,7 +233,7 @@ const Products = () => {
           </FormGroup>
 
           <FormGroup>
-            <label>Categories:</label>
+            <label>BestFor:</label>
             {categories?.map((e, index) => {
               return (
                 <div key={index} className="checkbox">
