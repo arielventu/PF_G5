@@ -27,9 +27,6 @@ export default function Detail(){
     return sizes
   })
     lala= [... new Set(lala)].sort()
-    console.log(lala)
-    console.log(sizes)
-
  
   useEffect(() => {
     dispatch(getProducts())
@@ -39,14 +36,14 @@ export default function Detail(){
     detailstate2 = detailstate.find(item => item.id == id )
   }
   
-  const add = (e)=>{
+  const add = async (e)=>{
     var arrayAdd = []
     const {value} = e.target
     if (localStorage.getItem('carrito') === null) {
       var findAdd = detailstate.find(item => item.id == value )
       arrayAdd.push(findAdd)
     }else{
-      arrayAdd = JSON.parse(localStorage.getItem('carrito'))
+      arrayAdd = await JSON.parse(localStorage.getItem('carrito'))
       console.log("first",typeof value)
       const idMap = arrayAdd.find(item=>  item.id == value)
       if (idMap === undefined) {
