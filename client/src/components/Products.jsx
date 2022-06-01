@@ -117,48 +117,22 @@ const Products = () => {
     if (e.target.name === "imageurl") {
       setForm({ ...form, [e.target.name]: [e.target.value] });
     } else if (e.target.name !== "categories") {
-      let obj1 = { [e.target.name]: e.target.value };
-      let obj2 = { ...form, obj1 };
-      console.log(obj2);
-      setForm((prevState) => ({
-        ...prevState,
-        [e.target.name]: e.target.value,
-      }));
+      setForm({ ...form, [e.target.name]: e.target.value });
       console.log(form);
       console.log(e.target.value, e.target.name);
-      //setForm({ ...form, [e.target.name]: { name: e.target.value } });
     }
-
-    // const handleChange = (e) => {
-    //   e.preventDefault();
-    //   const { value, name } = e.target;
-    //   name === "categories" &&
-    //     setForm((prevState) => {
-    //       prevState[name] = e.target.value;
-    //     });
-    //   console.log(form);
-    //   // name === "bestFor" && dispatch(filterByBestFor(value));
-    // name === "masterName" && dispatch(filterByColor(value));
-    // name === "gender" && dispatch(filterByGender(value));
-    // name === "price" && dispatch(filterByPrice(value));
   };
-  //};
-
-  // setForm((prevState) => ({
-  //   categories: [...prevState.categories, { name: e.target.value }],
-  // }));
 
   const handleClick = (e) => {
     if (e.target.name === "categories") {
-      setForm((prevState) => {
-        prevState.categories.concat({ name: e.target.value });
+      let newData = { name: e.target.value };
+      setForm({
+        ...form,
+        categories: [...form.categories, newData],
       });
     }
   };
 
-  // setForm((prevState) => ({
-  //   categories: [...prevState.categories, { name: e.target.value }],
-  // }));
   // ----------------------------------------------------
 
   //render
