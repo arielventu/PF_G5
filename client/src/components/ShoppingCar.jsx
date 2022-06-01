@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {  getProducts, ShopCar } from '../actions/actions'
 import Card from './Card'
-import Cardcart from './Cardcart'
+import Cardcart from './CardCart'
 
 import styles from './ShoppingCar.module.css'
 
