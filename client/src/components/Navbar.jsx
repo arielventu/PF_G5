@@ -17,10 +17,12 @@ const Navbar = () => {
   
   
 
-  const favo = useSelector((state) => state.favorites)  
+  const favo = useSelector((state) => state.favorites)
+  const car = useSelector((state) => state.shoppingCar)
+  
   const dispatch = useDispatch() 
-  var valit = ""
   const navegation = useNavigate()
+  var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
 
@@ -33,6 +35,7 @@ const Navbar = () => {
  
   const validation = (valit)=>{  
     if (valit ==="favorites") {
+      console.log("favorito")
       if (localStorage.getItem('favoritos') === "[]") {
         return navegation(1)
       }else{
@@ -40,7 +43,7 @@ const Navbar = () => {
       }      
     }
     if (valit ==="car") {
-      console.log("first")
+      console.log("carrito")
       if (localStorage.getItem('carrito') === "[]") {
         return navegation(1)
       }else{
@@ -56,14 +59,14 @@ const Navbar = () => {
     else {
       setDroppedMenu(false);
     }
-    console.log(droppedMenu)
+    // console.log(droppedMenu)
   }
 
   const profileRedirect = () => {
     navegation("/user-profile")
   }
   
-  console.log(user)
+  // console.log(user)
 
   return (
     <>
@@ -120,7 +123,7 @@ const Navbar = () => {
               <img
                 className={styles.icon}
                 src={cart}
-                alt="shop cart"
+                alt="shoppingCar"
                 onClick={() => validation((valit = "car"))}
               />
               {arrayCar.length ? <span>{arrayCar.length}</span> : null}
