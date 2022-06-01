@@ -21,6 +21,7 @@ const Products = () => {
   const [products, setProducts] = useState(useSelector((state) => state.shoes));
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
+  const [available, setAvailable] = useState(false);
 
   const initial = {
     id: "",
@@ -42,7 +43,7 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch, products, categories]);
+  }, [dispatch, products, categories, available]);
 
   // ----------------------------------------------------
 
@@ -85,21 +86,25 @@ const Products = () => {
     setModalUpdate(false);
   };
 
-  const remove = (data) => {
+  const changeStatus = (data) => {
     let option = window.confirm(
-      "Are you sure you want to delete the item? " + data.id
+      "Are you sure you want to change the status? " + data.masterName
     );
     if (option) {
       let i = 0;
-      let arrProducts = products;
-      arrProducts.map((e) => {
+      let arrPoducts = products;
+      arrPoducts.map((e) => {
         if (data.id === e.id) {
-          arrProducts.splice(i, 1);
+          const newAvailable =
+            arrPoducts[i].available === "Available"
+              ? "Not Available"
+              : "Available";
+          arrPoducts[i].available = newAvailable;
         }
         i++;
       });
-      setProducts(arrProducts);
-      setModalUpdate(false);
+      setProducts(arrPoducts);
+      setAvailable((prevStatus) => ({ ...prevStatus, available: !!available }));
     }
   };
 
@@ -117,48 +122,22 @@ const Products = () => {
     if (e.target.name === "imageurl") {
       setForm({ ...form, [e.target.name]: [e.target.value] });
     } else if (e.target.name !== "categories") {
-      let obj1 = { [e.target.name]: e.target.value };
-      let obj2 = { ...form, obj1 };
-      console.log(obj2);
-      setForm((prevState) => ({
-        ...prevState,
-        [e.target.name]: e.target.value,
-      }));
+      setForm({ ...form, [e.target.name]: e.target.value });
       console.log(form);
       console.log(e.target.value, e.target.name);
-      //setForm({ ...form, [e.target.name]: { name: e.target.value } });
     }
-
-    // const handleChange = (e) => {
-    //   e.preventDefault();
-    //   const { value, name } = e.target;
-    //   name === "categories" &&
-    //     setForm((prevState) => {
-    //       prevState[name] = e.target.value;
-    //     });
-    //   console.log(form);
-    //   // name === "bestFor" && dispatch(filterByBestFor(value));
-    // name === "masterName" && dispatch(filterByColor(value));
-    // name === "gender" && dispatch(filterByGender(value));
-    // name === "price" && dispatch(filterByPrice(value));
   };
-  //};
-
-  // setForm((prevState) => ({
-  //   categories: [...prevState.categories, { name: e.target.value }],
-  // }));
 
   const handleClick = (e) => {
     if (e.target.name === "categories") {
-      setForm((prevState) => {
-        prevState.categories.concat({ name: e.target.value });
+      let newData = { name: e.target.value };
+      setForm({
+        ...form,
+        categories: [...form.categories, newData],
       });
     }
   };
 
-  // setForm((prevState) => ({
-  //   categories: [...prevState.categories, { name: e.target.value }],
-  // }));
   // ----------------------------------------------------
 
   //render
@@ -183,6 +162,7 @@ const Products = () => {
               <th>Gender</th>
               <th>BestFor</th>
               <th>Price</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -202,15 +182,16 @@ const Products = () => {
                   <td>{e.masterName}</td>
                   <td>{e.gender}</td>
                   <td>{e.categories.map((el) => el?.name?.concat(", "))}</td>
-                  <td>{e.price}</td>
+                  <td>{new Intl.NumberFormat("en-EN").format(e.price)}</td>
+                  <td>{e.available}</td>
                   <td>
                     <Button color="success">Variants</Button> {"  "}
                     <Button color="primary" onClick={() => showModalUpdate(e)}>
-                      Update
+                      Edit
                     </Button>{" "}
                     {"  "}
-                    <Button color="danger" onClick={() => remove(e)}>
-                      Delete
+                    <Button color="danger" onClick={() => changeStatus(e)}>
+                      Deactivate
                     </Button>
                   </td>
                 </tr>
@@ -252,7 +233,7 @@ const Products = () => {
           </FormGroup>
 
           <FormGroup>
-            <label>Categories:</label>
+            <label>BestFor:</label>
             {categories?.map((e, index) => {
               return (
                 <div key={index} className="checkbox">
