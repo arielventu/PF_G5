@@ -10,7 +10,7 @@ const ShoppingCar = () => {
   var array = []
   var array2 = []
   const dispatch = useDispatch()
-  const favorite = useSelector(state => state.favorites)
+  const car = useSelector(state => state.shoppingCar)
   const products = useSelector(state => state.shoes)
 
   if(products.length === 0){
