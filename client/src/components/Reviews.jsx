@@ -64,16 +64,12 @@ const Reviews = () => {
         });
     };
     
-    // const toggle = () => setShowForm(!showForm);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(setReviews(form));
         swal("Review added successfully", "", "success");
         setModalInsert(false);
-        // toggle();
     };
-
 
     return (
         <div>
@@ -102,38 +98,11 @@ const Reviews = () => {
                                     <td>{review.description}</td>
                                     <td>{review.starsLevel}</td>
                                     <td>{review.productId}</td>
-                                    <td>
-                                        <button className="btn btn-primary" onClick={() => showModalUpdate(review)}>Update</button>
-                                        <button className="btn btn-danger" onClick={() => dispatch(getReviewsById(review.id))}>Delete</button>
-                                    </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div>
-                <Modal isOpen={modalUpdate} toggle={closeModalUpdate}>
-                    <ModalHeader toggle={closeModalUpdate}>Update Review</ModalHeader>
-                    <ModalBody>
-                        <Form onSubmit={handleSubmit}>
-                            <FormGroup>
-                                <Label for="description">Description</Label>
-                                <Input type="text" name="description" id="description" placeholder="Description" value={form.description} onChange={handleChange} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="starsLevel">Stars Level</Label>
-                                <Input type="text" name="starsLevel" id="starsLevel" placeholder="Stars Level" value={form.starsLevel} onChange={handleChange} />   
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="productId">Product Id</Label>
-                                <Input type="text" name="productId" id="productId" placeholder="Product Id" value={form.productId} onChange={handleChange} />
-                            </FormGroup>
-                            <Button type="submit" color="primary">Update</Button>{' '}
-                            <Button color="secondary" onClick={closeModalUpdate}>Cancel</Button>
-                        </Form>
-                    </ModalBody>
-                </Modal>
             </div>
             <div>
                 <Modal isOpen={modalInsert} toggle={closeModalInsert}>

@@ -33,32 +33,6 @@ export function getProducts() {
       payload: json.data,
     });
   };
-
-export const filterByBestFor = (payload)=>{
-    return  {
-        type: 'FILTER_BY_BEST',
-        payload
-    }       
-}
-export const favorites = ()=>{
-    var array = []
-    if(localStorage.getItem('favoritos') != null){
-        array = localStorage.getItem('favoritos')
-      }
-    return  {
-        type: 'FAVORITES',
-        payload :array
-    }       
-}
-export const ShopCar = ()=>{
-    var array = []
-    if(localStorage.getItem('carrito') != null){
-        array = localStorage.getItem('carrito')
-      }
-    return  {
-        type: 'SHOPCAR',
-        payload :array
-    }       
 }
 
 export const filterByBestFor = (payload) => {
