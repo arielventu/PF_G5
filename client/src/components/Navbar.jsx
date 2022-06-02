@@ -103,9 +103,9 @@ const Navbar = () => {
           <Link to="/products">
             <button className={styles.buttonNavBar}>Products</button>
           </Link>
-          <Link to="/about">
+          {/* <Link to="/about">
             <button className={styles.buttonNavBar}>About Us</button>
-          </Link>
+          </Link> */}
 
           {/* {
           isAuthenticated ? 
