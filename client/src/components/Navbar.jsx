@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchBar from './SearchBar'
 import cart from "../image/cart.png"
 import BlueBird from "../image/BlueBird.svg"
+import userQuest from "../image/userQuest.png"
 import styles from './Navbar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import fav from "../image/favorito.png"
@@ -10,26 +11,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
 import { useAuth0 } from '@auth0/auth0-react';
 
-const Navbar = () => {
+if (localStorage.getItem('carrito') === null ) {
+  localStorage.setItem('carrito', JSON.stringify([]))
+}
+if (localStorage.getItem('favoritos') === null ) {
+  localStorage.setItem('favoritos', JSON.stringify([]))
+}
 
+const Navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
   const [ droppedMenu, setDroppedMenu ] = useState(false);
-  
-  
-
   const favo = useSelector((state) => state.favorites)  
+  const car = useSelector((state) => state.shoppingCar)  
   const dispatch = useDispatch() 
   var valit = ""
   const navegation = useNavigate()
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
 
-  if (arrayCar === null ) {
-    localStorage.setItem('carrito', JSON.stringify([]))
-  }
-  if (arrayFav === null ) {
-    localStorage.setItem('favoritos', JSON.stringify([]))
-  }
+  
  
   const validation = (valit)=>{  
     if (valit ==="favorites") {
@@ -40,7 +40,6 @@ const Navbar = () => {
       }      
     }
     if (valit ==="car") {
-      console.log("first")
       if (localStorage.getItem('carrito') === "[]") {
         return navegation(1)
       }else{
@@ -64,7 +63,6 @@ const Navbar = () => {
   }
   
   console.log(user)
-
   return (
     <>
       <div className={styles.container}>
