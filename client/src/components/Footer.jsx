@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
 import fb from '../image/facebook.png'
 import wa from '../image/whatsapp.png'
@@ -13,7 +14,9 @@ export default function Footer() {
             <div className={styles.innercontainer2}>
                 <h3 className={styles.bluetitle}>BlueBird Store</h3>
                 <p className={styles.texto}>Laoreet ligula neque sed non netus nascetur at venenatis dictum, eleifend praesent turpis eget libero cras rutrum semper, magnis inceptos senectus sociis sociosqu auctor fames habitant..</p>
-                <button className={styles.buttonshop}>Shop Now</button>
+                <Link to='/shop' style={{ textDecoration: 'none' }}>
+                    <button className={styles.buttonshop}>Shop Now</button>
+                </Link>
             </div>
             <ul className={styles.footernav}>
             <h3 className={styles.footertitles}>Home</h3>
