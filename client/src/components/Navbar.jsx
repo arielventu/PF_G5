@@ -95,16 +95,16 @@ const Navbar = () => {
         </div>
         <ul className={styles.menu}>
           <Link to="/">
-            <button className={styles.button}>Home</button>
+            <button className={styles.buttonNavBar}>Home</button>
           </Link>
           <Link to="/Shop">
-            <button className={styles.button}>Shop</button>
+            <button className={styles.buttonNavBar}>Shop</button>
           </Link>
           <Link to="/products">
-            <button className={styles.button}>Products</button>
+            <button className={styles.buttonNavBar}>Products</button>
           </Link>
           <Link to="/about">
-            <button className={styles.button}>About Us</button>
+            <button className={styles.buttonNavBar}>About Us</button>
           </Link>
 
           {/* {
@@ -121,7 +121,7 @@ const Navbar = () => {
                 alt="shop cart"
                 onClick={() => validation((valit = "car"))}
               />
-              {arrayCar.length ? <span>{arrayCar.length}</span> : null}
+              {arrayCar.length ? <span className={styles.iconsCartFav}>{arrayCar.length}</span> : null}
             </div>
             <div className={styles.favCarBtns}>
               <img
@@ -130,7 +130,7 @@ const Navbar = () => {
                 alt="favorites"
                 onClick={() => validation((valit = "favorites"))}
               />
-              {arrayFav.length ? <span>{arrayFav.length}</span> : null}
+              {arrayFav.length ? <span className={styles.iconsCartFav}>{arrayFav.length}</span> : null}
             </div>
           </div>
         </ul>
