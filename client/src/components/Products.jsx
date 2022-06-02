@@ -3,7 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../actions/actions";
 
+// import styles bootstrap and Font Awesome Icon
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBoxes,
+  faCheck,
+  faClose,
+  faEdit,
+} from "@fortawesome/free-solid-svg-icons";
+
 import {
   Table,
   Button,
@@ -18,7 +27,9 @@ import {
 // Build componnent
 const Products = () => {
   // initalize local states
-  const [products, setProducts] = useState(useSelector((state) => state.shoes));
+  const [products, setProducts] = useState(
+    useSelector((state) => state.auxShoes)
+  );
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
   const [modalVariants, setModalVariants] = useState(false);
@@ -193,19 +204,38 @@ const Products = () => {
                   <td>
                     <Button
                       color="success"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      title="Add/Edit Variants"
                       onClick={() => showModalVariants(e)}
                     >
-                      Variants
+                      <FontAwesomeIcon icon={faBoxes} />
                     </Button>{" "}
                     {"  "}
-                    <Button color="primary" onClick={() => showModalUpdate(e)}>
-                      Edit
+                    <Button
+                      color="primary"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      title="Edit"
+                      onClick={() => showModalUpdate(e)}
+                    >
+                      <FontAwesomeIcon icon={faEdit} />
                     </Button>{" "}
                     {"  "}
-                    <Button color="danger" onClick={() => changeStatus(e)}>
-                      {e.available === "Available"
-                        ? "Check Not Available"
-                        : "Check Available"}
+                    <Button
+                      color="danger"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      title={
+                        e.available === "Available"
+                          ? "Check to Not Available"
+                          : "Check to Available"
+                      }
+                      onClick={() => changeStatus(e)}
+                    >
+                      <FontAwesomeIcon
+                        icon={e.available === "Available" ? faClose : faCheck}
+                      />
                     </Button>
                   </td>
                 </tr>
@@ -376,6 +406,30 @@ const Products = () => {
               value={form.masterName}
             />
           </FormGroup>
+
+          {/* <FormGroup>
+            <label>BestFor:</label>
+            {categories?.map((e, index) => {
+              return (
+                <div key={index} className="checkbox">
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="categories"
+                      // value={modalUpdate ? e.name : null}
+                      checked={form.categories.map((c, i, e) => {
+                        console.log(c, e);
+                        if (c.name === e.name) return true;
+                        return false;
+                      })}
+                      // onClick={(e) => handleClick(e)}
+                    />
+                    {` ${e.name}`}
+                  </label>
+                </div>
+              );
+            })}
+          </FormGroup> */}
 
           <FormGroup>
             <label>Gender:</label>
