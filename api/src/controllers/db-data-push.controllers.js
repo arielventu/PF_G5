@@ -37,7 +37,7 @@ const promisifiedPostProducts = () => {
         imagecover: element.featuredImage.src,
         imageurl: imgs,
         colors: element.colors,
-        available: "Available",
+        available: true,
       };
       newData.push(data);
     });
