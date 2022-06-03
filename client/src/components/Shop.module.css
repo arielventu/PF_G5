@@ -5,6 +5,26 @@
   font-size: 1.5rem;
   font-family: Koulen;
 }
+.color1 {
+  width: 20px;
+    height: 20px;
+    margin: 0px auto;
+    border-radius: 50%;
+ 
+    position: relative;
+    display: inline-block;
+    border: 1px solid rgb(211, 212, 213);
+}
+
+
+.color2 {
+  height: 2rem;
+  width: 1rem;
+  border-top-right-radius: 100% 50%;
+  border-bottom-right-radius: 100% 50%;
+  border: 1px solid rgb(124, 124, 124);
+  border-left: none;
+}
 
 .flyer {
   display: flex;

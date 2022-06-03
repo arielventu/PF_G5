@@ -5,10 +5,12 @@ import {
     GET_PRODUCTS,
     GET_COLORS,
     GET_DETAILS ,
-    GET_REVIEWS,
     GET_CATEGORIES,
     POST_PRODUCT,
     PUT_PRODUCT,
+    GET_REVIEWS,
+    GET_REVIEWS_BY_ID,
+    POST_REVIEW,
     FILTER_BY_BEST ,
     FILTER_BY_CATEGORIES,
     FILTER_BY_COLOR,
@@ -26,6 +28,8 @@ const initialState = { //hacer un estado para los filtros
     favorites:[],
     shoppingCar:[],
     colors: [],
+    allReviews: [],
+
 }
 
 export default function rootReducer(state = initialState, {payload, type}){
@@ -125,6 +129,24 @@ export default function rootReducer(state = initialState, {payload, type}){
             return {
                 ...state,
                  shoes: limbo
+            }
+        case GET_REVIEWS:
+            return {
+                ...state,
+                allReviews: payload
+            }
+        case GET_REVIEWS_BY_ID:
+            return {
+                ...state,
+                allReviews: payload
+            }
+        case POST_REVIEW:
+            return {
+                ...state,
+                allReviews: [
+                    ...state.allReviews,
+                    payload
+                ]
             }
         
         default: 
