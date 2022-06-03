@@ -60,9 +60,9 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       available: {
-        type: DataTypes.STRING,
+        type: DataTypes.BOOLEAN,
         allowNull: true,
-        defaultValue: "Available",
+        defaultValue: true,
       },
     },
     { timestamps: false }
