@@ -33,19 +33,20 @@ const Products = () => {
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
   const [modalVariants, setModalVariants] = useState(false);
-  const [available, setAvailable] = useState(false);
+  const [available, setAvailable] = useState(true);
 
   const initial = {
-    id: "",
+    id: null,
+    name: "",
     masterName: "",
+    fullName: "",
     gender: "",
-    categories: [],
-    size: {},
-    colors: [],
-    stock: {},
+    detail: "",
     price: 0,
     imagecover: "",
     imageurl: [],
+    available: true,
+    categories: [],
   };
   const [form, setForm] = useState(initial);
 
@@ -90,12 +91,16 @@ const Products = () => {
     let arrPoducts = products;
     arrPoducts.map((e) => {
       if (data.id === e.id) {
+        arrPoducts[i].name = data.name;
         arrPoducts[i].masterName = data.masterName;
+        arrPoducts[i].fullName = data.fullName;
         arrPoducts[i].gender = data.gender;
-        arrPoducts[i].categories = data.categories;
+        arrPoducts[i].detail = data.detail;
         arrPoducts[i].price = data.price;
         arrPoducts[i].imagecover = data.imagecover;
         arrPoducts[i].imageurl = data.imageurl;
+        arrPoducts[i].available = data.available;
+        arrPoducts[i].categories = data.categories;
       }
       i++;
     });
@@ -112,11 +117,7 @@ const Products = () => {
       let arrPoducts = products;
       arrPoducts.map((e) => {
         if (data.id === e.id) {
-          const newAvailable =
-            arrPoducts[i].available === "Available"
-              ? "Not Available"
-              : "Available";
-          arrPoducts[i].available = newAvailable;
+          arrPoducts[i].available = !arrPoducts[i].available;
         }
         i++;
       });
@@ -127,32 +128,37 @@ const Products = () => {
 
   const insert = () => {
     let newForm = { ...form };
-    console.log(newForm);
     newForm.id = products.length + 1;
     let list = products;
     list.push(newForm);
     setModalInsert(false);
     setProducts(list);
+    console.log("arrayProductos: ", products);
   };
 
   const handleChange = (e) => {
-    if (e.target.name === "imageurl") {
+    // if (e.target.name === "imageurl") {
+    //   setForm({ ...form, [e.target.name]: [e.target.value] });
+    // } else if (e.target.name !== "categories") {
+    //   setForm({ ...form, [e.target.name]: e.target.value });
+    // }
+
+    e.target.name === "imageurl" &&
       setForm({ ...form, [e.target.name]: [e.target.value] });
-    } else if (e.target.name !== "categories") {
+    e.target.name !== "categories" &&
       setForm({ ...form, [e.target.name]: e.target.value });
-      console.log(form);
-      console.log(e.target.value, e.target.name);
-    }
   };
 
   const handleClick = (e) => {
-    if (e.target.name === "categories") {
-      let newData = { name: e.target.value };
-      setForm({
-        ...form,
-        categories: [...form.categories, newData],
-      });
-    }
+    let newData = { id: parseInt(e.target.id), name: e.target.value };
+    e.target.name === "categories" &&
+      setForm({ ...form, categories: [...form.categories, newData] });
+  };
+
+  const findCheckSelected = (dataform, categoryElement) => {
+    const arrNameCategories = dataform.categories.map((el) => el.name);
+    if (arrNameCategories.includes(categoryElement.name)) return true;
+    return false;
   };
 
   // ----------------------------------------------------
@@ -170,7 +176,7 @@ const Products = () => {
         </Button>
         <br />
         <br />
-        <Table>
+        <Table hover>
           <thead>
             <tr>
               <th>Id</th>
@@ -200,7 +206,7 @@ const Products = () => {
                   <td>{e.gender}</td>
                   <td>{e.categories.map((el) => el?.name?.concat(", "))}</td>
                   <td>{new Intl.NumberFormat("en-EN").format(e.price)}</td>
-                  <td>{e.available}</td>
+                  <td>{e.available ? "Available" : "Not Available"}</td>
                   <td>
                     <Button
                       color="success"
@@ -227,15 +233,13 @@ const Products = () => {
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       title={
-                        e.available === "Available"
+                        e.available
                           ? "Check to Not Available"
                           : "Check to Available"
                       }
                       onClick={() => changeStatus(e)}
                     >
-                      <FontAwesomeIcon
-                        icon={e.available === "Available" ? faClose : faCheck}
-                      />
+                      <FontAwesomeIcon icon={e.available ? faClose : faCheck} />
                     </Button>
                   </td>
                 </tr>
@@ -272,6 +276,37 @@ const Products = () => {
               className="form-control"
               name="masterName"
               type="text"
+              autoFocus
+              onChange={(e) => handleChange(e)}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <label>Fullname:</label>
+            <input
+              className="form-control"
+              name="fullName"
+              type="text"
+              onChange={(e) => handleChange(e)}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <label>Detail:</label>
+            <textarea
+              className="form-control"
+              col="30"
+              name="detail"
+              onChange={(e) => handleChange(e)}
+            ></textarea>
+          </FormGroup>
+
+          <FormGroup>
+            <label>Categorie:</label>
+            <input
+              className="form-control"
+              name="name"
+              type="text"
               onChange={(e) => handleChange(e)}
             />
           </FormGroup>
@@ -283,6 +318,7 @@ const Products = () => {
                 <div key={index} className="checkbox">
                   <label>
                     <input
+                      id={e.id}
                       type="checkbox"
                       name="categories"
                       value={e.name}
@@ -296,15 +332,17 @@ const Products = () => {
           </FormGroup>
 
           <FormGroup>
-            <label>Gender:</label>
-            <select
-              className="form-control"
-              name="gender"
-              onChange={(e) => handleChange(e)}
-            >
-              <option>mens</option>
-              <option>womens</option>
-            </select>
+            <label>
+              {`Gender: `}
+              <select
+                //className="form-control"
+                name="gender"
+                onChange={(e) => handleChange(e)}
+              >
+                <option>mens</option>
+                <option>womens</option>
+              </select>
+            </label>
           </FormGroup>
 
           <FormGroup>
@@ -402,12 +440,45 @@ const Products = () => {
               className="form-control"
               name="masterName"
               type="text"
-              onChange={(e) => handleChange(e)}
               value={form.masterName}
+              onChange={(e) => handleChange(e)}
             />
           </FormGroup>
 
-          {/* <FormGroup>
+          <FormGroup>
+            <label>Fullname:</label>
+            <input
+              className="form-control"
+              name="fullName"
+              type="text"
+              value={form.fullName}
+              onChange={(e) => handleChange(e)}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <label>Detail:</label>
+            <textarea
+              className="form-control"
+              col="30"
+              name="detail"
+              value={form.detail}
+              onChange={(e) => handleChange(e)}
+            ></textarea>
+          </FormGroup>
+
+          <FormGroup>
+            <label>Categorie:</label>
+            <input
+              className="form-control"
+              name="name"
+              type="text"
+              value={form.name}
+              onChange={(e) => handleChange(e)}
+            />
+          </FormGroup>
+
+          <FormGroup>
             <label>BestFor:</label>
             {categories?.map((e, index) => {
               return (
@@ -416,36 +487,29 @@ const Products = () => {
                     <input
                       type="checkbox"
                       name="categories"
-                      // value={modalUpdate ? e.name : null}
-                      checked={form.categories.map((c, i, e) => {
-                        console.log(c, e);
-                        if (c.name === e.name) return true;
-                        return false;
-                      })}
-                      // onClick={(e) => handleClick(e)}
+                      value={e.name}
+                      checked={findCheckSelected(form, e)}
+                      onClick={(e) => handleClick(e)}
                     />
                     {` ${e.name}`}
                   </label>
                 </div>
               );
             })}
-          </FormGroup> */}
+          </FormGroup>
 
           <FormGroup>
-            <label>Gender:</label>
-            <select
-              className="form-control"
-              name="gender"
-              value={form.gender}
-              onChange={(e) => handleChange(e)}
-            >
-              <option selected={form.gender === "mens" ? true : false}>
-                mens
-              </option>
-              <option selected={form.gender === "womens" ? true : false}>
-                womens
-              </option>
-            </select>
+            <label>
+              {`Gender: `}
+              <select
+                name="gender"
+                value={form.gender}
+                onChange={(e) => handleChange(e)}
+              >
+                <option>mens</option>
+                <option>womens</option>
+              </select>
+            </label>
           </FormGroup>
 
           <FormGroup>
