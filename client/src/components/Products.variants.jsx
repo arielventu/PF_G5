@@ -1,7 +1,13 @@
 // import libraries
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../actions/actions";
+import {
+  getColors,
+  getSizes,
+  getProducts,
+  getStock,
+  getStockByProductId,
+} from "../actions/actions";
 
 // import styles bootstrap and Font Awesome Icon
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,37 +32,26 @@ import {
 
 // Build componnent
 const Products = () => {
-  // initalize local states
-  const [products, setProducts] = useState(
-    useSelector((state) => state.auxShoes)
-  );
+  // local react states
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
   const [modalVariants, setModalVariants] = useState(false);
   const [available, setAvailable] = useState(true);
 
-  const initial = {
-    id: null,
-    name: "",
-    masterName: "",
-    fullName: "",
-    gender: "",
-    detail: "",
-    price: 0,
-    imagecover: "",
-    imageurl: [],
-    available: true,
-    categories: [],
-  };
-  const [form, setForm] = useState(initial);
+  const initialState = {};
+  const [form, setForm] = useState(initialState);
 
-  // get 'redux store' of shoes / products
-  const categories = useSelector((state) => state.categories);
+  // global redux states
+  const products = useSelector((state) => state.auxShoes);
+  const colors = useSelector((state) => state.colors);
+  const sizes = useSelector((state) => state.sizes);
+  const stock = useSelector((state) => state.stock);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [products, categories, available]);
+    dispatch(getStock());
+  }, [dispatch]);
 
   // ----------------------------------------------------
 
@@ -144,33 +139,9 @@ const Products = () => {
   };
 
   const handleClick = (e) => {
-    // let newData = { id: parseInt(e.target.id), name: e.target.value };
-    // e.target.name === "categories" &&
-    //   setForm({ ...form, categories: [...form.categories, newData] });
-
     let newData = { id: parseInt(e.target.id), name: e.target.value };
-    let categoriesArray = [];
-    if (form.categories.length > 0) {
-      categoriesArray = [...form.categories];
-    }
-    if (e.target.checked) {
-      categoriesArray.push(newData);
-    } else {
-<<<<<<< HEAD
-        if (categoriesArray) {
-          categoriesArray = categoriesArray.filter(element => element.name !== e.target.value)
-        }
-    }
-      setForm({ ...form, categories: categoriesArray});
-=======
-      if (categoriesArray) {
-        categoriesArray = categoriesArray.filter(
-          (element) => element.name !== e.target.value
-        );
-      }
-    }
-    setForm({ ...form, categories: categoriesArray });
->>>>>>> eliecer
+    e.target.name === "categories" &&
+      setForm({ ...form, categories: [...form.categories, newData] });
   };
 
   const findCheckSelected = (dataform, categoryElement) => {
@@ -197,14 +168,12 @@ const Products = () => {
         <Table hover>
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Image</th>
+              <th>Product Id</th>
               <th>Name</th>
-              <th>Gender</th>
-              <th>BestFor</th>
-              <th>Price</th>
-              <th>Status</th>
-              <th>Actions</th>
+              <th>Size</th>
+              <th>Color</th>
+              <th>In stock</th>
+              <th>Availabe</th>
             </tr>
           </thead>
           <tbody>
