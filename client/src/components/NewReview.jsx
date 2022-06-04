@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { getReviews, getReviewsById, setReviews } from "../actions/actions";
 import starB from "../image/starb.svg";
 import starY from "../image/stary.svg";
-import styles from "./Reviews.module.css";
+import styles from "./NewReview.module.css";
 import swal from "sweetalert";
 // import { FontAwesomeIcon } from "@htmlFortawesome/react-fontawesome";
 // import {
 //     faStar
 // } from "@htmlFortawesome/free-solid-svg-icons";
 
-const Reviews = () => {
+const NewReview = () => {
   // const { productId } = useParams();
   const productId = 52;
   const dispatch = useDispatch();
@@ -154,4 +154,4 @@ return (
   );
 };
 
-export default Reviews;
+export default NewReview;
