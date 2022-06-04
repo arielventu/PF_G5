@@ -151,8 +151,18 @@ const Products = () => {
 
   const handleClick = (e) => {
     let newData = { id: parseInt(e.target.id), name: e.target.value };
-    e.target.name === "categories" &&
-      setForm({ ...form, categories: [...form.categories, newData] });
+    let categoriesArray = [];
+    if (form.categories.length > 0) {
+      categoriesArray = [...form.categories];
+    }
+    if (e.target.checked) {
+      categoriesArray.push(newData);
+    } else {
+        if (categoriesArray) {
+          categoriesArray = categoriesArray.filter(element => element.name !== e.target.value)
+        }
+    }
+      setForm({ ...form, categories: categoriesArray});
   };
 
   const findCheckSelected = (dataform, categoryElement) => {
