@@ -28,14 +28,16 @@ const getStocks = async (req, res) => {
   try {
     const allStock = await Product.findAll({
       include: [
-        { model: Category, attributes: ["name"]},
-        { model: Stock, attributes: ["id", "quantity", "available"],
+        { model: Category, attributes: ["name"] },
+        {
+          model: Stock,
+          attributes: ["id", "quantity", "available"],
           include: [
-            { model: Sizes, attributes: ["id","size"] },
-            { model: Colors, attributes: ["id","color"] },  
-          ]
-          }
-        ],
+            { model: Sizes, attributes: ["id", "size"] },
+            { model: Colors, attributes: ["id", "color"] },
+          ],
+        },
+      ],
     });
     res.json(allStock);
   } catch (error) {
@@ -49,13 +51,35 @@ const getStock = async (req, res) => {
     const stock = await Stock.findByPk(id, {
       attributes: ["id", "quantity", "available"],
       include: [
-        { model: Sizes, attributes: ["id","size"] },
-        { model: Colors, attributes: ["id","color"] },
+        { model: Sizes, attributes: ["id", "size"] },
+        { model: Colors, attributes: ["id", "color"] },
       ],
     });
 
     if (!stock)
       return res.status(404).json({ message: "Stock does not exists" });
+
+    res.json(stock);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+const getStockByPruductId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const stock = await Stock.findAll({
+      where: { productId: id },
+      include: [
+        { model: Sizes, attributes: ["id", "size"] },
+        { model: Colors, attributes: ["id", "color"] },
+      ],
+    });
+
+    if (!stock)
+      return res
+        .status(404)
+        .json({ message: "Stock does not exists by this productId" });
 
     res.json(stock);
   } catch (error) {
@@ -111,6 +135,7 @@ const deleteStock = async (req, res) => {
 module.exports = {
   getStocks,
   getStock,
+  getStockByPruductId,
   createStock,
   updateStock,
   deleteStock,

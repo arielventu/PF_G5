@@ -15,6 +15,7 @@ const {
   createStock,
   updateStock,
   deleteStock,
+  getStockByPruductId,
 } = require("../controllers/stock.controllers.js");
 
 // crud
@@ -23,5 +24,6 @@ router.post("/stock", createStock);
 router.put("/stock/:id", updateStock);
 router.delete("/stock/:id", deleteStock);
 router.get("/stock/:id", getStock);
+router.get("/stock/product/:id", getStockByPruductId);
 
 module.exports = router;
