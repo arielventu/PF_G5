@@ -149,12 +149,12 @@ export function getReviews() {
   };
 }
 
-export function getReviewsById(id) {
+export function getReviewsById(payload) {
   return async function (dispatch) {
     try {
-      await axios.get(`/reviews/${id}`)
+      await axios.get(`/reviews/product/${payload}`)
         .then((yeison) => {
-        // console.log(yeison.data)
+        console.log(yeison.data)
         dispatch({
           type: "GET_REVIEWS_BY_ID",
           payload: yeison.data,
@@ -166,10 +166,10 @@ export function getReviewsById(id) {
   };
 }
 
-export function setReviews(id, review) {
+export function setReviews(payload) {
   return async function (dispatch) {
     try {
-      await axios.post(`/reviews/${id}`, review)
+      await axios.post(`/reviews`, payload)
         .then((yeison) => {
         // console.log(yeison.data)
         dispatch({
