@@ -17,6 +17,9 @@ export const FILTER_BY_COLOR = "FILTER_BY_COLOR";
 export const FILTER_BY_GENDER = "FILTER_BY_GENDER";
 export const FAVORITES = "FAVORITES";
 export const SHOPCAR = "SHOPCAR";
+export const GET_STOCK_BY_PRODUCTID = "GET_STOCK_BY_PRODUCTID";
+export const GET_SIZES = "GET_SIZES";
+export const GET_SIZES_BY_ID = "GET_SIZES_BY_ID";
 
 // export const getProducts = () => {
 //     return {
@@ -135,8 +138,7 @@ export function getColors() {
 export function getReviews() {
   return async function (dispatch) {
     try {
-      await axios.get(`/reviews`)
-        .then((yeison) => {
+      await axios.get(`/reviews`).then((yeison) => {
         // console.log(yeison.data)
         dispatch({
           type: "GET_REVIEWS",
@@ -152,8 +154,7 @@ export function getReviews() {
 export function getReviewsById(id) {
   return async function (dispatch) {
     try {
-      await axios.get(`/reviews/${id}`)
-        .then((yeison) => {
+      await axios.get(`/reviews/${id}`).then((yeison) => {
         // console.log(yeison.data)
         dispatch({
           type: "GET_REVIEWS_BY_ID",
@@ -169,8 +170,7 @@ export function getReviewsById(id) {
 export function setReviews(id, review) {
   return async function (dispatch) {
     try {
-      await axios.post(`/reviews/${id}`, review)
-        .then((yeison) => {
+      await axios.post(`/reviews/${id}`, review).then((yeison) => {
         // console.log(yeison.data)
         dispatch({
           type: "POST_REVIEWS",
@@ -195,7 +195,6 @@ export function postProduct(payload) {
   };
 }
 
-
 export function editProduct(payload) {
   return async function (dispatch) {
     try {
@@ -207,7 +206,6 @@ export function editProduct(payload) {
     }
   };
 }
-
 
 export function getDetail(id) {
   return async function (dispatch) {
@@ -223,10 +221,51 @@ export function getDetail(id) {
   };
 }
 
-export const quantityCar = (id, quantity)=>{
-    return  {
-        type: 'QUANTITY_CAR',
-    }       
+export const quantityCar = (id, quantity) => {
+  return {
+    type: "QUANTITY_CAR",
+  };
+};
+
+// actions for products stock
+export function getStockByProductId(id) {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/stock/product/${id}`).then((stock) => {
+        dispatch({
+          type: "GET_STOCK_BY_PRODUCTID",
+          payload: stock.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
+export function getSizes() {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/sizes`).then((sizes) => {
+        dispatch({ type: "GET_SIZES", payload: sizes.data });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
+export function getSizesById(id) {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/sizes/${id}`).then((size) => {
+        dispatch({
+          type: "GET_SIZES_BY_ID",
+          payload: size.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
