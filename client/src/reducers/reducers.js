@@ -29,6 +29,7 @@ const initialState = { //hacer un estado para los filtros
     shoppingCar:[],
     colors: [],
     allReviews: [],
+    reviewsById: [],
 
 }
 
@@ -138,7 +139,7 @@ export default function rootReducer(state = initialState, {payload, type}){
         case GET_REVIEWS_BY_ID:
             return {
                 ...state,
-                allReviews: payload
+                reviewsById : payload
             }
         case POST_REVIEW:
             return {
