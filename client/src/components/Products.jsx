@@ -13,6 +13,7 @@ import {
   faEdit,
 } from "@fortawesome/free-solid-svg-icons";
 
+// import reactstrap
 import {
   Table,
   Button,
@@ -30,6 +31,7 @@ const Products = () => {
   const [products, setProducts] = useState(
     useSelector((state) => state.auxShoes)
   );
+
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
   const [modalVariants, setModalVariants] = useState(false);
