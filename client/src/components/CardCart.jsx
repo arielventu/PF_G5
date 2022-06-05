@@ -13,22 +13,23 @@ export default function CardCart({img, fullName, price,component,id}){
     const sampleLocation = useLocation();
     const [quantity, setQuantity] = useState(1)
     const conteo = quantity
+    console.log(conteo) 
     const counterCar = () => {
         const array = JSON.parse(localStorage.getItem('carrito'))
         const filtro = array.filter(item => item.id === id)
-        console.log(conteo)
+        console.log(quantity)
     }
 
     const handleDecrement = () => {
         if(quantity !== 0) {
             setQuantity(prevCount => prevCount - 1)
         }
-        counterCar()
+        counterCar(quantity)
     }
 
     const handleIncrement = (e) => {
         setQuantity(prevCount => prevCount + 1)
-        counterCar()
+        counterCar(quantity)
     }
     console.log(id)
     var array = []
