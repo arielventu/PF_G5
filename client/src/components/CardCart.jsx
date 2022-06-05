@@ -12,12 +12,11 @@ export default function CardCart({img, fullName, price,component,id}){
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
     const [quantity, setQuantity] = useState(1)
-
+    const conteo = quantity
     const counterCar = () => {
         const array = JSON.parse(localStorage.getItem('carrito'))
         const filtro = array.filter(item => item.id === id)
-        // filtro[0]
-        console.log(filtro)
+        console.log(conteo)
     }
 
     const handleDecrement = () => {
@@ -29,7 +28,6 @@ export default function CardCart({img, fullName, price,component,id}){
 
     const handleIncrement = (e) => {
         setQuantity(prevCount => prevCount + 1)
-        console.log(e.target.id, quantity)
         counterCar()
     }
     console.log(id)
@@ -80,7 +78,7 @@ export default function CardCart({img, fullName, price,component,id}){
                     <button onClick={handleIncrement} id={id} className={styles.bquantity}>+</button>
                 </div>
                 {
-                    component === "favorites" || component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitarCar(e)}>Quitar</button>:null
+                    component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitarCar(e)}>Quitar</button>:null
                 }
             </div>
                                   

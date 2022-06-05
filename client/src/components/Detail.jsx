@@ -53,7 +53,7 @@ export default function Detail(){
       }
     }
     localStorage.setItem('carrito', JSON.stringify(arrayAdd))
-    dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
+    dispatch(ShopCar( ))
   }
 
   const favorite = async (e)=>{
@@ -73,7 +73,7 @@ export default function Detail(){
       }
     }
     localStorage.setItem('favoritos', JSON.stringify(array))
-    dispatch(favorites( JSON.parse(localStorage.getItem('favoritos'))))
+    dispatch(favorites())
   }
 
   

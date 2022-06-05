@@ -55,8 +55,8 @@ export const favorites = () => {
 };
 export const ShopCar = () => {
   var array = [];
-  if (localStorage.getItem("favoritos") != null) {
-    array = localStorage.getItem("favoritos");
+  if (localStorage.getItem("carrito") != null) {
+    array = localStorage.getItem("carrito");
   }
   return {
     type: "SHOPCAR",
