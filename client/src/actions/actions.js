@@ -154,9 +154,8 @@ export function getReviews() {
 export function getReviewsById(payload) {
   return async function (dispatch) {
     try {
-      await axios.get(`/reviews/product/${payload}`)
-        .then((yeison) => {
-        console.log(yeison.data)
+      await axios.get(`/reviews/product/${payload}`).then((yeison) => {
+        // console.log(yeison.data)
         dispatch({
           type: "GET_REVIEWS_BY_ID",
           payload: yeison.data,

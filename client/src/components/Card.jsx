@@ -12,7 +12,7 @@ export default function Card({img, fullName, price,component,id}){
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
     var array = []
-    const quitar =  (e) =>{
+    const quitar = (e) =>{
         e.preventDefault()
         const {value} = e.target
         //console.log(sampleLocation.pathname.includes("/favorites"))
@@ -40,7 +40,6 @@ export default function Card({img, fullName, price,component,id}){
             localStorage.setItem('carrito', JSON.stringify(filterAr));
             dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
         }
-        
     }
  
     const comprar = ()=>{

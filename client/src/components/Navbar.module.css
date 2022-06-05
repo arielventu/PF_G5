@@ -145,3 +145,7 @@ a {
   padding: 0.1rem 0.7rem;
   margin-top: -1.5rem;
 }
+
+.buttonNavBar {
+  cursor: pointer;
+}
