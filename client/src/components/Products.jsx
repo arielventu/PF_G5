@@ -2,10 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../actions/actions";
-import styles from "./Products.module.css"
 
 // import styles bootstrap and Font Awesome Icon
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBoxes,
@@ -157,14 +156,14 @@ const Products = () => {
     if (e.target.checked) {
       categoriesArray.push(newData);
     } else {
-   if (categoriesArray) {
-          categoriesArray = categoriesArray.filter(
-            (element) => element.name !== e.target.value
-          );
-        }
+      if (categoriesArray) {
+        categoriesArray = categoriesArray.filter(
+          (element) => element.name !== e.target.value
+        );
       }
       setForm({ ...form, categories: categoriesArray });
     };
+
 
 
   const findCheckSelected = (dataform, categoryElement) => {
@@ -178,13 +177,16 @@ const Products = () => {
   //render
   return (
     <>
-      <div className={styles.containerproducts}>
-        <h3 className={styles.titleproducts}>Product Management</h3>
-        <Button color="success" onClick={() => showModalInsert()} className={styles.addProduct}>
+      <div>
+        <h3>Product Management</h3>
+      </div>
+      <Container>
+        <br />
+        <Button color="success" onClick={() => showModalInsert()}>
           Add Product
         </Button>
-      </div>
-      <Container className={styles.containerproducts2}>
+        <br />
+        <br />
         <Table hover>
           <thead>
             <tr>
@@ -207,8 +209,8 @@ const Products = () => {
                     <img
                       src={e.imagecover}
                       alt="img not found!"
-                      width="80"
-                      height="80"
+                      width="50"
+                      height="50"
                     ></img>
                   </td>
                   <td>{e.masterName}</td>
@@ -217,7 +219,7 @@ const Products = () => {
                   <td>{new Intl.NumberFormat("en-EN").format(e.price)}</td>
                   <td>{e.available ? "Available" : "Not Available"}</td>
                   <td>
-                    <Button className={styles.variants}
+                    <Button
                       color="success"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
@@ -227,7 +229,7 @@ const Products = () => {
                       <FontAwesomeIcon icon={faBoxes} />
                     </Button>{" "}
                     {"  "}
-                    <Button className={styles.edit}
+                    <Button
                       color="primary"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
@@ -237,7 +239,7 @@ const Products = () => {
                       <FontAwesomeIcon icon={faEdit} />
                     </Button>{" "}
                     {"  "}
-                    <Button className={styles.available}
+                    <Button
                       color="danger"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
@@ -260,24 +262,26 @@ const Products = () => {
 
       {/* ----------- insert data -------------------- */}
       {/* -------------------------------------------- */}
-      <Modal isOpen={modalInsert} className={styles.containerModal}>
-        <ModalBody className={styles.modalBody}>
-        <ModalHeader className={styles.modalHeader}>
+
+      <Modal isOpen={modalInsert}>
+        <ModalHeader>
           <div>
-            <h3 className={styles.modalTitle}>Add Product</h3>
+            <h3>Add Product</h3>
           </div>
         </ModalHeader>
-          <FormGroup className={styles.form}>
+
+        <ModalBody>
+          <FormGroup>
             <label>Id:</label>
             <input
-              className={styles.inputmodal}
+              className="form-control"
               readOnly
               type="text"
               value={products.length + 1}
             />
           </FormGroup>
 
-          <FormGroup className={styles.form}>
+          <FormGroup>
             <label>Name:</label>
             <input
               className="form-control"
@@ -288,7 +292,7 @@ const Products = () => {
             />
           </FormGroup>
 
-          <FormGroup className={styles.form}>
+          <FormGroup>
             <label>Fullname:</label>
             <input
               className="form-control"
@@ -298,7 +302,7 @@ const Products = () => {
             />
           </FormGroup>
 
-          <FormGroup className={styles.form}>
+          <FormGroup>
             <label>Detail:</label>
             <textarea
               className="form-control"
@@ -308,7 +312,7 @@ const Products = () => {
             ></textarea>
           </FormGroup>
 
-          <FormGroup className={styles.form}>
+          <FormGroup>
             <label>Categorie:</label>
             <input
               className="form-control"
@@ -318,7 +322,7 @@ const Products = () => {
             />
           </FormGroup>
 
-          <FormGroup className={styles.form}>
+          <FormGroup>
             <label>BestFor:</label>
             {categories?.map((e, index) => {
               return (
@@ -338,7 +342,7 @@ const Products = () => {
             })}
           </FormGroup>
 
-          <FormGroup className={styles.form}>
+          <FormGroup>
             <label>
               {`Gender: `}
               <select
@@ -352,7 +356,7 @@ const Products = () => {
             </label>
           </FormGroup>
 
-          <FormGroup className={styles.form}>
+          <FormGroup>
             <label>Price:</label>
             <input
               className="form-control"
@@ -362,7 +366,7 @@ const Products = () => {
             />
           </FormGroup>
 
-          <FormGroup className={styles.form}>
+          <FormGroup>
             <label>Image Cover:</label>
             <input
               className="form-control"
@@ -372,7 +376,7 @@ const Products = () => {
             />
           </FormGroup>
 
-          <FormGroup className={styles.form}>
+          <FormGroup>
             <label>Other Images:</label>
             <input
               className="form-control"
@@ -381,30 +385,30 @@ const Products = () => {
               onChange={(e) => handleChange(e)}
             />
           </FormGroup>
-          <ModalFooter>
-          <Button color="primary" onClick={() => insert()} className={styles.bmodal}>
+        </ModalBody>
+
+        <ModalFooter>
+          <Button color="primary" onClick={() => insert()}>
             Add
           </Button>
-          <Button onClick={() => closeModalInsert()} className={styles.bmodal}>
+          <Button className="btn btn-danger" onClick={() => closeModalInsert()}>
             Cancel
           </Button>
         </ModalFooter>
-      </ModalBody>
       </Modal>
       {/* -------------------------------------------- */}
 
       {/* ----------- create variants -------------------- */}
       {/* -------------------------------------------- */}
 
-      <Modal isOpen={modalVariants} className={styles.containerModal}>
-      <ModalBody className={styles.modalVariant}>
-        <ModalHeader className={styles.modalHeader}>
+      <Modal isOpen={modalVariants}>
+        <ModalHeader>
           <div>
-            <h3 className={styles.modalTitle}>Add and edit variants</h3>
+            <h3>Add and edit variants</h3>
           </div>
         </ModalHeader>
 
-        <FormGroup className={styles.form}>
+        <FormGroup>
           <label>Product code:</label>
           <input
             className="form-control"
@@ -415,7 +419,7 @@ const Products = () => {
           />
         </FormGroup>
 
-        <FormGroup className={styles.form}>
+        <FormGroup>
           <label>Name:</label>
           <input
             className="form-control"
@@ -434,7 +438,6 @@ const Products = () => {
             Close
           </Button>
         </ModalFooter>
-      </ModalBody>
       </Modal>
 
       {/* ----------- update data -------------------- */}

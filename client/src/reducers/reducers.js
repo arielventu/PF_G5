@@ -169,24 +169,6 @@ export default function rootReducer(state = initialState, { payload, type }) {
         ...state,
         sizes: payload
       };
-    case GET_REVIEWS:
-      return {
-        ...state,
-        allReviews: payload
-      }
-    case GET_REVIEWS_BY_ID:
-      return {
-        ...state,
-        reviewsById : payload
-      }
-    case POST_REVIEW:
-      return {
-        ...state,
-        allReviews: [
-            ...state.allReviews,
-            payload
-        ]
-      }
     default: 
       return state
   }
