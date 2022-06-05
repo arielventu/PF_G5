@@ -157,22 +157,15 @@ const Products = () => {
     if (e.target.checked) {
       categoriesArray.push(newData);
     } else {
-<<<<<<< HEAD
-
-=======
->>>>>>> Diana
-      if (categoriesArray) {
-        categoriesArray = categoriesArray.filter(
-          (element) => element.name !== e.target.value
-        );
+   if (categoriesArray) {
+          categoriesArray = categoriesArray.filter(
+            (element) => element.name !== e.target.value
+          );
+        }
       }
-    }
-    setForm({ ...form, categories: categoriesArray });
-<<<<<<< HEAD
-
-=======
->>>>>>> Diana
-  };
+      setForm({ ...form, categories: categoriesArray });
+      };
+    };
 
   const findCheckSelected = (dataform, categoryElement) => {
     const arrNameCategories = dataform.categories.map((el) => el.name);
