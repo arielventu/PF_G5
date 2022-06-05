@@ -1,14 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
 
-
-* {
+body {
+  background: white;
   margin: 0;
   padding: 0;
-  font-family: roboto;
-}
-
-body {
-  background: #000;
+  font-family: Koulen;
 }
 
 .cont {

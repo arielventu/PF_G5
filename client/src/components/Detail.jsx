@@ -78,7 +78,7 @@ export default function Detail(){
 
   
   return(
-    <div>
+    <div className={styles.details}>
     { 
       detailstate.length > 0 ? 
       <div className = {styles.containerp}>

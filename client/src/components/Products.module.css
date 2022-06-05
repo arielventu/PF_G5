@@ -1,0 +1,126 @@
+.containerproducts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  margin-top: 2rem;
+}
+
+.containerproducts2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.titleproducts {
+  color: black;
+  font-size: 2rem;
+}
+
+.addProduct {
+  height: 2rem;
+  width: 6rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0.1rem solid rgb(190, 190, 190);
+  border-radius: 0.2rem;
+}
+
+thead {
+  font-size: 1.2rem;
+}
+
+th {
+  border-bottom: 0.1rem solid rgb(194, 194, 194);
+  padding-bottom: 1rem;
+}
+
+tr {
+  margin-left: 1rem;
+}
+
+td {
+  text-align: center;
+  border-bottom: 0.1rem solid rgb(194, 194, 194);
+  padding: 0rem 1rem;
+}
+
+.available {
+  background-color: red;
+  color: white;
+  border: 0.1rem solid red;
+  border-radius: 0.2rem;
+}
+
+.variants {
+  background-color: rgb(58, 143, 255);
+  color: white;
+  border: 0.1rem solid rgb(58, 143, 255);
+  border-radius: 0.2rem;
+}
+
+.edit {
+  background-color: rgb(2, 124, 73);
+  color: white;
+  border: 0.1rem solid rgb(2, 124, 73);
+  border-radius: 0.2rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.containerModal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 10rem;
+  height: 46rem;
+  padding: 1rem 2rem;
+  z-index: 10;
+  border-radius: 0.5rem;
+}
+
+.modalVariant {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 10rem;
+  height: 12rem;
+  padding: 1rem 2rem;
+  z-index: 10;
+  border-radius: 0.5rem;
+}
+
+.modalTitle {
+  color: black;
+  margin-top: -1rem;
+}
+
+.modalHeader {
+  background-color: white;
+}
+
+.form {
+  margin-bottom: 1rem;
+}
+
+.bmodal {
+  border-radius: 0.2rem;
+  border: 0.1rem solid rgb(151, 151, 151);
+  color: rgb(0, 0, 0);
+}
