@@ -164,8 +164,8 @@ const Products = () => {
         }
       }
       setForm({ ...form, categories: categoriesArray });
-      };
     };
+
 
   const findCheckSelected = (dataform, categoryElement) => {
     const arrNameCategories = dataform.categories.map((el) => el.name);
