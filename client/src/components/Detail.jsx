@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { favorites, getDetail, getProducts, ShopCar } from "../actions/actions";
+import { favorites, getDetail, getProducts, ShopCar, getReviewsById} from "../actions/actions";
 import { useEffect } from "react";
+import Reviews from "./Reviews";
+import NewReview from "./NewReview";
 import styles from "./Detail.module.css"
 import rating from '../image/rating.png'
 import fav from '../image/favorito.png'
+import {Modal} from "reactstrap";
 
 var detailstate2 = []
 var size = []
@@ -76,7 +79,26 @@ export default function Detail(){
     dispatch(favorites( JSON.parse(localStorage.getItem('favoritos'))))
   }
 
+
+  // Reviews -----------------------------------
+  const reviewsById = useSelector((state) => state.reviewsById);
+  const [showModal, setShowModal] = useState(false);
   
+  const handleModal = (e) => {
+    setShowModal(!showModal);
+  }
+
+  const starsAvg = () => {
+    const starsLevels = []
+    reviewsById.map((e) => {
+        starsLevels.push(e.starsLevel)
+      })
+    return Math.ceil(starsLevels.reduce((a, b) => a + b, 0) / starsLevels.length)
+  }
+
+  // console.log(starsAvg())
+
+
   return(
     <div className={styles.details}>
     { 
@@ -106,6 +128,14 @@ export default function Detail(){
                 <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos'/> 
             </div>
+            <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>
+            <Modal isOpen={showModal} className={styles.containerModal}>
+              <div className={styles.divModal}>
+                <button onClick={handleModal} className={styles.buttonCloseModal}>x</button>
+                <NewReview handleModal={ handleModal }/>
+              </div>
+            </Modal>
+            <Reviews productId={ id } name={ detailstate2.fullName }/>
       </div> : 
       <div><h2> loading... </h2></div>
     }

@@ -11,13 +11,12 @@ import swal from "sweetalert";
 //     faStar
 // } from "@htmlFortawesome/free-solid-svg-icons";
 
-const NewReview = () => {
+const NewReview = ({ handleModal }) => {
   // const { productId } = useParams();
-  const productId = 52;
+  const productId = 4;
   const dispatch = useDispatch();
   const reviews = useSelector((state) => state.allReviews);
   const reviewsById = useSelector((state) => state.reviewsById);
-  const [reviewsList, setReviewsList] = useState([]);
   const initialReview = {
     username: "",
     description: "",
@@ -31,10 +30,6 @@ const NewReview = () => {
     dispatch(getReviewsById(productId));
     // console.log(reviews);
   }, []);
-
-    useEffect(() => {
-      setReviewsList(reviews);
-    }, [reviewsById]);
 
   const handleChange = (e) => {
     setNewReview({
@@ -60,12 +55,13 @@ const NewReview = () => {
             timer: 3000,
         });
     } else {
-          dispatch(setReviews(newReview));
-          swal("Success!", "Your review has been added!", "success");
-          setNewReview(initialReview);
+        dispatch(setReviews(newReview));
+        swal("Success!", "Your review has been added!", "success");
+        setNewReview(initialReview);
         reviews.push(newReview);
         reviewsById.push(newReview);
       }
+      handleModal(); // Cierra modal en componente padre 'Detail'
   };
 
 return (

@@ -32,6 +32,7 @@ const initialState = {
   shoppingCar: [],
   colors: [],
   allReviews: [],
+  reviewsById: [],
   stock: [],
   sizes: [],
 };
@@ -145,7 +146,7 @@ export default function rootReducer(state = initialState, { payload, type }) {
     case GET_REVIEWS_BY_ID:
       return {
         ...state,
-        allReviews: payload,
+        reviewsById: payload,
       };
     case POST_REVIEW:
       return {
