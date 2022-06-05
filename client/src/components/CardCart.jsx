@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useEffect, useState }  from "react";
 import { firstWordBye } from '../utils';
 import styles from './CardCart.module.css'
 import rating from '../image/rating.png'
@@ -14,14 +14,37 @@ export default function CardCart({img, fullName, price,component,id}){
     const [quantity, setQuantity] = useState(1)
     const conteo = quantity
     console.log(conteo) 
+
+    useEffect(() => {
+        const array = JSON.parse(localStorage.getItem('carrito'))
+        console.log(array[0].cantidad)
+        if (array[0].cantidad === undefined) {
+         const prue = array.map((item)=>{
+                item.cantidad=conteo
+                return item
+            })
+            localStorage.setItem('carrito', JSON.stringify(prue))
+            console.log(prue)
+        }else{
+            const array = JSON.parse(localStorage.getItem('carrito'))
+
+        }
+
+    }, [])
+       
+
     const counterCar = () => {
         const array = JSON.parse(localStorage.getItem('carrito'))
-        const filtro = array.filter(item => item.id === id)
-        console.log(quantity)
+        const findd = array.find(item => item.id === id)
+        findd.cantidad=conteo
+        const filtro = array.filter(item => item.id !== id)
+        filtro.push(findd)
+        localStorage.setItem('carrito', JSON.stringify(filtro))
+        console.log(filtro)
     }
 
     const handleDecrement = () => {
-        if(quantity !== 0) {
+        if(quantity !== 1) {
             setQuantity(prevCount => prevCount - 1)
         }
         counterCar(quantity)

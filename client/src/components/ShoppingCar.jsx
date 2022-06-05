@@ -19,15 +19,16 @@ const ShoppingCar = () => {
   }
   if(localStorage.getItem('carrito') != null){
     array = JSON.parse(localStorage.getItem('carrito'))
-    const sum = array.map(item =>{return item.price})
+    const sum = array.map(item =>{return (item.price*item.cantidad)})
+    const cant = array.map(item =>{return item.cantidad})
+    console.log(cant)
     var sumW = sum.reduce(
-      (previousValue, currentValue) => previousValue + currentValue, 0);
-    console.log(sumW)    
+      (previousValue, currentValue) => previousValue + currentValue, 0);   
   }
   useEffect(() => {
     if(localStorage.getItem('carrito') != null){
       array = JSON.parse(localStorage.getItem('carrito'))
-      const sum = array.map(item =>{return item.price})
+      const sum = array.map(item =>{return item.price*item.cantidad})
       var sumW = sum.reduce(
         (previousValue, currentValue) => previousValue + currentValue, 0);
       console.log(sumW)    
