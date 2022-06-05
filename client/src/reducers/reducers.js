@@ -150,7 +150,10 @@ export default function rootReducer(state = initialState, { payload, type }) {
     case POST_REVIEW:
       return {
         ...state,
-        allReviews: [...state.allReviews, payload],
+        allReviews: [
+          ...state.allReviews,
+          payload
+        ],
       };
     // reducer for products stock
     case GET_STOCK_BY_PRODUCTID:
