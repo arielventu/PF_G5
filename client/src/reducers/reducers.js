@@ -190,3 +190,5 @@ export default function rootReducer(state = initialState, { payload, type }) {
     default: 
       return state
   }
+}
+ 
