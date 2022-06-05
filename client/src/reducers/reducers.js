@@ -152,19 +152,47 @@ export default function rootReducer(state = initialState, { payload, type }) {
         ...state,
         allReviews: [...state.allReviews, payload],
       };
-
     // reducer for products stock
     case GET_STOCK_BY_PRODUCTID:
-      return { ...state, stock: payload };
-
+      return {
+        ...state,
+        stock: payload
+      };
     // reducer for Sizes
     case GET_SIZES:
-      return { ...state, sizes: payload };
-
+      return {
+        ...state,
+        sizes: payload
+      };
     case GET_SIZES_BY_ID:
-      return { ...state, sizes: payload };
-
-    default:
-      return state;
+      return {
+        ...state,
+        sizes: payload
+      };
+    case GET_REVIEWS:
+      return {
+        ...state,
+        allReviews: payload
+      }
+    case GET_REVIEWS_BY_ID:
+      return {
+        ...state,
+        reviewsById : payload
+      }
+    case POST_REVIEW:
+      return {
+        ...state,
+        allReviews: [
+            ...state.allReviews,
+            payload
+        ]
+      }
+    default: 
+      return state
   }
+<<<<<<< HEAD
+} 
+
+=======
 }
+>>>>>>> Diana

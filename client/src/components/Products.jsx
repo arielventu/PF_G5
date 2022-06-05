@@ -157,6 +157,10 @@ const Products = () => {
     if (e.target.checked) {
       categoriesArray.push(newData);
     } else {
+<<<<<<< HEAD
+
+=======
+>>>>>>> Diana
       if (categoriesArray) {
         categoriesArray = categoriesArray.filter(
           (element) => element.name !== e.target.value
@@ -164,6 +168,10 @@ const Products = () => {
       }
     }
     setForm({ ...form, categories: categoriesArray });
+<<<<<<< HEAD
+
+=======
+>>>>>>> Diana
   };
 
   const findCheckSelected = (dataform, categoryElement) => {
