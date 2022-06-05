@@ -16,7 +16,8 @@ export const FILTER_BY_GENDER = 'FILTER_BY_GENDER'
 export const FAVORITES = 'FAVORITES'
 export const SHOPCAR = 'SHOPCAR'
 export const FILTER_BY_PRICE = 'FILTER_BY_PRICE'
-export const GET_EDIT = 'GET_EDIT'
+export const GET_SIZES = 'GET_SIZES'
+export const OTRO_MAS = 'OTRO_MAS'
 // export const getProducts = () => {
 //     return {
 //         type: 'GET_PRODUCTS',
@@ -60,12 +61,17 @@ export const ShopCar = ()=>{
         payload :array
     }       
 }
-
-
 export const filterByCategories = (payload)=>{
     // console.log(payload)
     return  {
         type: 'FILTER_BY_CATEGORIES',
+        payload 
+    }       
+}
+export const otroFilterMas = (payload)=>{
+     console.log(payload)
+    return  {
+        type: 'OTRO_MAS',
         payload 
     }       
 }
@@ -121,6 +127,21 @@ export function getCategories (){
             console.log(error)}
     }
 }
+export function getSizes (){ 
+    return async function (dispatch){
+        try{
+            await axios.get(`/sizes`)
+                .then(yeison => {
+                    // console.log(yeison.data)
+                dispatch({
+                type: 'GET_SIZES',
+                payload :yeison.data
+                })
+            })
+        }catch(error){
+            console.log(error)}
+    }
+}
 
 export function getColors() { 
     return async function (dispatch){
@@ -143,10 +164,7 @@ export function postProduct (payload){
         console.log(payload)
         try{
             var yeison = await axios.post("/products",payload)
-           dispatch({
-               type: 'POST_PRODUCT',
-               payload 
-           })
+           console.log(yeison)
         }catch (error){
             console.log(error)
           

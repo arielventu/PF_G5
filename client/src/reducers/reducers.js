@@ -16,7 +16,9 @@ import {
     SEARCH_BAR,
     FAVORITES, 
     SHOPCAR,
-    FILTER_BY_PRICE
+    FILTER_BY_PRICE,
+    OTRO_MAS,
+    GET_SIZES
 } from '../actions/actions.js'
 
 const initialState = { //hacer un estado para los filtros
@@ -28,7 +30,8 @@ const initialState = { //hacer un estado para los filtros
     shoppingCar:[],
     colors: [],
     editState : [],
-    createdProducts : []
+    createdProducts : [],
+    sizes : []
 
 }
 
@@ -45,6 +48,12 @@ export default function rootReducer(state = initialState, {payload, type}){
             return {
                 ...state,
 				categories: payload,
+            }
+        case GET_SIZES:
+            // console.log(payload)
+            return {
+                ...state,
+				sizes: payload,
             }
         case GET_COLORS:
             // console.log(payload)
@@ -67,6 +76,24 @@ export default function rootReducer(state = initialState, {payload, type}){
             return {
                 ...state,
 				searchBar: payload
+            }
+        case OTRO_MAS :
+                const products = state.auxShoes
+                console.log(payload)
+                const flea = []
+                console.log(products)
+                payload === 'All' ?
+                flea.push(...products)
+                :
+                  products.map((e)=> {
+                  let fino=  e.stocks.map((e) => {
+                    return(e.size.size)})
+                 return fino.includes(payload) === true?flea.push(e):null;
+                    })
+                     console.log(flea)
+            return{
+                ...state,
+                shoes : flea
             }
         case FILTER_BY_BEST:
             const best = state.auxShoes;
