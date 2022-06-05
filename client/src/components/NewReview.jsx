@@ -47,14 +47,14 @@ const NewReview = () => {
     e.preventDefault();
     if (newReview.starsLevel === 0) {
         swal({
-            text: "Please don't forget to rate us with stars",
+            text: "Don't forget to rate us with stars",
             icon: "warning",
             buttons: false,
             timer: 3000,
         });
     } else if (newReview.description.length === 0) {
         swal({
-            text: "Please don't forget to write a review",
+            text: "Don't forget to write a review",
             icon: "warning",
             buttons: false,
             timer: 3000,

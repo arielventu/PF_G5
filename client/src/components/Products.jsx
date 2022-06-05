@@ -157,15 +157,14 @@ const Products = () => {
       categoriesArray.push(newData);
     } else {
 
-      if (categoriesArray) {
+    if (categoriesArray) {
         categoriesArray = categoriesArray.filter(
           (element) => element.name !== e.target.value
         );
       }
     }
     setForm({ ...form, categories: categoriesArray });
-
-  };
+    };
 
   const findCheckSelected = (dataform, categoryElement) => {
     const arrNameCategories = dataform.categories.map((el) => el.name);
