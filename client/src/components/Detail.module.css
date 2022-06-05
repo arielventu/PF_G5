@@ -1,7 +1,13 @@
+body {
+  background-color: white;
+  font-family: Koulen;
+}
+
 .containerp {
   font-family: Koulen;
   margin-bottom: 3rem;
   margin-left: 2rem;
+  background-color: white;
 }
 
 .innercontainer {

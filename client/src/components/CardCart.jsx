@@ -62,7 +62,12 @@ export default function CardCart({img, fullName, price,component,id}){
             localStorage.setItem('carrito', JSON.stringify(filterA));
             dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
         }
-        
+        const resultado = window.confirm('Estás seguro de que quieres eliminar éste item?')
+        if(resultado == true) {
+            return true;
+        } else {
+            return false
+        }
     }
     const comprar = ()=>{
     }
