@@ -11,6 +11,7 @@ body {
   height: 4rem;
   /* border: 1px solid black; */
   font-family: Cabin;
+  border-bottom: 0.08rem solid rgb(190, 190, 190);
 }
 
 .leftContent {

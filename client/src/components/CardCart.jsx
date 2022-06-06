@@ -6,6 +6,7 @@ import Favorites from "./Favorites";
 import { favorites, ShopCar } from "../actions/actions";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 export default function CardCart({img, fullName, price,component,id}){
    const navegation = useNavigate()
@@ -13,7 +14,12 @@ export default function CardCart({img, fullName, price,component,id}){
     const sampleLocation = useLocation();
     const [quantity, setQuantity] = useState(1)
     const conteo = quantity
-    console.log(conteo) 
+    // console.log(conteo) 
+    // useEffect(() => {
+    //     const array1 = JSON.parse(localStorage.getItem('carrito'))
+    // const prueba1 = array1.find(item => item.id === id)
+    // setQuantity(prevCount => prevCount = prueba1.cantidad)
+    // })
 
     useEffect(() => {
         const array = JSON.parse(localStorage.getItem('carrito'))
@@ -60,7 +66,19 @@ export default function CardCart({img, fullName, price,component,id}){
         e.preventDefault()
         const {value} = e.target
 
-        console.log(sampleLocation.pathname.includes("/favorites"))
+        swal({
+            title:"Are you sure?",
+            text: "Once deleted, you will have to search again for this item!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("The item was deleted", {
+                icon: "success",
+              });
+              console.log(sampleLocation.pathname.includes("/favorites"))
         if (sampleLocation.pathname.includes("/favorites")) {      
             if(localStorage.getItem('favoritos') != null){
                 array = JSON.parse(localStorage.getItem('favoritos'))
@@ -85,13 +103,12 @@ export default function CardCart({img, fullName, price,component,id}){
             localStorage.setItem('carrito', JSON.stringify(filterA));
             dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
         }
-        const resultado = window.confirm('Estás seguro de que quieres eliminar éste item?')
-        if(resultado == true) {
-            return true;
-        } else {
-            return false
-        }
+            } else {
+              swal("Your item is safe!");
+            }
+          });
     }
+
     const comprar = ()=>{
     }
     return(
@@ -107,7 +124,7 @@ export default function CardCart({img, fullName, price,component,id}){
                     <button onClick={handleIncrement} id={id} className={styles.bquantity}>+</button>
                 </div>
                 {
-                    component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitarCar(e)}>Quitar</button>:null
+                    component === "carrito" ? <button className={styles.bfav} value={id} onClick={(e)=>quitarCar(e)}>Quitar</button>:null
                 }
             </div>
                                   

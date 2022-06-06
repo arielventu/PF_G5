@@ -6,6 +6,7 @@ import Favorites from "./Favorites";
 import { favorites, ShopCar } from "../actions/actions";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 export default function Card({img, fullName, price,component,id}){
    const navegation = useNavigate()
@@ -16,30 +17,46 @@ export default function Card({img, fullName, price,component,id}){
         e.preventDefault()
         const {value} = e.target
         //console.log(sampleLocation.pathname.includes("/favorites"))
-        if (sampleLocation.pathname.includes("/favorites")) {      
-            if(localStorage.getItem('favoritos') != null){
-                array = JSON.parse(localStorage.getItem('favoritos'))
-            }
-            const filterA = array.filter(item=>{ 
-                if (item.id != value) {
-                    return item
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will have to search again for this item!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("The item was deleted", {
+                icon: "success",
+              });
+              if (sampleLocation.pathname.includes("/favorites")) {      
+                if(localStorage.getItem('favoritos') != null){
+                    array = JSON.parse(localStorage.getItem('favoritos'))
                 }
-            })
-            localStorage.setItem('favoritos', JSON.stringify(filterA));
-            dispatch(favorites( JSON.parse(localStorage.getItem('favoritos'))))
-        }
-        if (sampleLocation.pathname.includes("/shoppingCar")) {      
-            if(localStorage.getItem('carrito') != null){
-                array = JSON.parse(localStorage.getItem('carrito'))
+                const filterA = array.filter(item=>{ 
+                    if (item.id != value) {
+                        return item
+                    }
+                })
+                localStorage.setItem('favoritos', JSON.stringify(filterA));
+                dispatch(favorites( JSON.parse(localStorage.getItem('favoritos'))))
             }
-            const filterAr = array.filter(item=>{ 
-                if (item.id != value) {
-                    return item
+            if (sampleLocation.pathname.includes("/shoppingCar")) {      
+                if(localStorage.getItem('carrito') != null){
+                    array = JSON.parse(localStorage.getItem('carrito'))
                 }
-            })
-            localStorage.setItem('carrito', JSON.stringify(filterAr));
-            dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
-        }
+                const filterAr = array.filter(item=>{ 
+                    if (item.id != value) {
+                        return item
+                    }
+                })
+                localStorage.setItem('carrito', JSON.stringify(filterAr));
+                dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
+            }
+            } else {
+              swal("Your item is safe!");
+            }
+          });
     }
  
     const comprar = ()=>{
