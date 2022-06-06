@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../actions/actions";
 import styles from "./Products.module.css"
 
+//import 'Product.variants (stock)', the auxiliar component.
+import ProductVariants from "./ProductVariants";
+
 // import styles bootstrap and Font Awesome Icon
 // import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,8 +15,10 @@ import {
   faCheck,
   faClose,
   faEdit,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
+// import reactstrap
 import {
   Table,
   Button,
@@ -31,6 +36,7 @@ const Products = () => {
   const [products, setProducts] = useState(
     useSelector((state) => state.auxShoes)
   );
+
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
   const [modalVariants, setModalVariants] = useState(false);
@@ -81,6 +87,7 @@ const Products = () => {
 
   const showModalVariants = (data) => {
     setModalVariants(true);
+    setForm(data);
   };
 
   const closeModalVariants = () => {
@@ -134,7 +141,6 @@ const Products = () => {
     list.push(newForm);
     setModalInsert(false);
     setProducts(list);
-    console.log("arrayProductos: ", products);
   };
 
   const handleChange = (e) => {
@@ -157,6 +163,7 @@ const Products = () => {
     if (e.target.checked) {
       categoriesArray.push(newData);
     } else {
+<<<<<<< HEAD
    if (categoriesArray) {
           categoriesArray = categoriesArray.filter(
             (element) => element.name !== e.target.value
@@ -166,6 +173,16 @@ const Products = () => {
       setForm({ ...form, categories: categoriesArray });
       };
 
+=======
+      if (categoriesArray) {
+        categoriesArray = categoriesArray.filter(
+          (element) => element.name !== e.target.value
+        );
+      }
+    }
+    setForm({ ...form, categories: categoriesArray });
+  };
+>>>>>>> eliecer
 
   const findCheckSelected = (dataform, categoryElement) => {
     const arrNameCategories = dataform.categories.map((el) => el.name);
@@ -178,16 +195,27 @@ const Products = () => {
   //render
   return (
     <>
+<<<<<<< HEAD
       <div className={styles.containerproducts}>
         <h3 className={styles.titleproducts}>Product Management</h3>
         <Button color="success" onClick={() => showModalInsert()} className={styles.addProduct}>
           Add Product
+=======
+      <div>
+        <h3>Product Management</h3>
+      </div>
+      <Container>
+        <br />
+        <Button color="success" onClick={() => showModalInsert()}>
+          <FontAwesomeIcon icon={faPlus} />
+>>>>>>> eliecer
         </Button>
       </div>
       <Container className={styles.containerproducts2}>
         <Table hover>
           <thead>
             <tr>
+              <th>Item</th>
               <th>Id</th>
               <th>Image</th>
               <th>Name</th>
@@ -199,9 +227,10 @@ const Products = () => {
             </tr>
           </thead>
           <tbody>
-            {products?.map((e, index) => {
+            {products?.map((e, i) => {
               return (
-                <tr key={index}>
+                <tr key={i}>
+                  <td>{i + 1}</td>
                   <td>{e.id}</td>
                   <td>
                     <img
@@ -221,7 +250,7 @@ const Products = () => {
                       color="success"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
-                      title="Add/Edit Variants"
+                      title="Variant Management"
                       onClick={() => showModalVariants(e)}
                     >
                       <FontAwesomeIcon icon={faBoxes} />
@@ -400,6 +429,7 @@ const Products = () => {
       <ModalBody className={styles.modalVariant}>
         <ModalHeader className={styles.modalHeader}>
           <div>
+<<<<<<< HEAD
             <h3 className={styles.modalTitle}>Add and edit variants</h3>
           </div>
         </ModalHeader>
@@ -425,12 +455,18 @@ const Products = () => {
             readOnly
           />
         </FormGroup>
+=======
+            <h3>Variant Management</h3>
+          </div>
+        </ModalHeader>
+
+        <ModalBody>
+          <ProductVariants idproduct={form.id} productName={form.masterName} />
+        </ModalBody>
+>>>>>>> eliecer
 
         <ModalFooter>
-          <Button
-            className="btn btn-danger"
-            onClick={() => closeModalVariants()}
-          >
+          <Button color="secundary" onClick={() => closeModalVariants()}>
             Close
           </Button>
         </ModalFooter>

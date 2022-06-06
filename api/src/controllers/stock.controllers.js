@@ -70,8 +70,13 @@ const getStockByPruductId = async (req, res) => {
   try {
     const stock = await Stock.findAll({
       where: { productId: id },
+
       include: [
-        { model: Sizes, attributes: ["id", "size"] },
+        {
+          model: Sizes,
+          attributes: ["id", "size"],
+          order: [["size", "ASC"]],
+        },
         { model: Colors, attributes: ["id", "color"] },
       ],
     });
@@ -88,13 +93,10 @@ const getStockByPruductId = async (req, res) => {
 };
 
 const createStock = async (req, res) => {
-  const { quantity, cost, price, available, productId, sizeId, colorId } =
-    req.body;
+  const { quantity, available, productId, sizeId, colorId } = req.body;
   try {
     const newStock = await Stock.create({
       quantity,
-      cost,
-      price,
       available,
       productId,
       sizeId,
@@ -111,7 +113,7 @@ const updateStock = async (req, res) => {
   try {
     const { id } = req.params;
     const stock = await Stock.findByPk(id);
-    product.set(req.body);
+    stock.set(req.body);
     await stock.save();
 
     res.json(stock);
