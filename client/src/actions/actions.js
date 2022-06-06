@@ -154,14 +154,8 @@ export function getReviews() {
 export function getReviewsById(payload) {
   return async function (dispatch) {
     try {
-<<<<<<< HEAD
-      await axios.get(`/reviews/product/${payload}`)
-        .then((yeison) => {
-        console.log(yeison.data)
-=======
       await axios.get(`/reviews/${id}`).then((yeison) => {
         // console.log(yeison.data)
->>>>>>> eliecer
         dispatch({
           type: "GET_REVIEWS_BY_ID",
           payload: yeison.data,
@@ -176,12 +170,7 @@ export function getReviewsById(payload) {
 export function setReviews(payload) {
   return async function (dispatch) {
     try {
-<<<<<<< HEAD
-      await axios.post(`/reviews`, payload)
-        .then((yeison) => {
-=======
       await axios.post(`/reviews/${id}`, review).then((yeison) => {
->>>>>>> eliecer
         // console.log(yeison.data)
         dispatch({
           type: "POST_REVIEWS",
@@ -280,3 +269,4 @@ export function getSizesById(id) {
     }
   };
 }
+  
