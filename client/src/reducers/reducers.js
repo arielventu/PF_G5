@@ -154,20 +154,8 @@ export default function rootReducer(state = initialState, { payload, type }) {
     case POST_REVIEW:
       return {
         ...state,
-        allReviews: [
-          ...state.allReviews,
-          payload
-        ],
+        allReviews: [...state.allReviews, payload],
       };
-<<<<<<< HEAD
-    // reducer for products stock
-    case GET_STOCK_BY_PRODUCTID:
-      return {
-        ...state,
-        stock: payload
-      };
-    // reducer for Sizes
-=======
 
     // ----------- REDUCER FOR STOCK  -----------
     // Adding by ELIECER
@@ -193,18 +181,17 @@ export default function rootReducer(state = initialState, { payload, type }) {
     // Adding by ELIECER
     // DateTime: 2022-06-04 13:30
     // ------------------------------------------
->>>>>>> eliecer
     case GET_SIZES:
       return {
         ...state,
-        sizes: payload
+        sizes: payload,
       };
     case GET_SIZES_BY_ID:
       return {
         ...state,
-        sizes: payload
+        sizes: payload,
       };
-    default: 
-      return state
+    default:
+      return state;
   }
 }
