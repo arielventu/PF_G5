@@ -57,6 +57,7 @@ const getProducts = async (req, res) => {
       res.json(foundProds);
     } else {
       const products = await Product.findAll({
+        order: [["id", "ASC"]],
         include: includeArr,
       });
       res.json(products);
@@ -70,6 +71,7 @@ const getProduct = async (req, res) => {
   const { id } = req.params;
   try {
     const product = await Product.findByPk(id, {
+      order: [["id", "ASC"]],
       include: includeArr,
     });
 

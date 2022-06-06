@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../actions/actions";
 
+//import 'Product.variants (stock)', the auxiliar component.
+import ProductVariants from "./ProductVariants";
+
 // import styles bootstrap and Font Awesome Icon
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +14,7 @@ import {
   faCheck,
   faClose,
   faEdit,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 // import reactstrap
@@ -82,6 +86,7 @@ const Products = () => {
 
   const showModalVariants = (data) => {
     setModalVariants(true);
+    setForm(data);
   };
 
   const closeModalVariants = () => {
@@ -135,7 +140,6 @@ const Products = () => {
     list.push(newForm);
     setModalInsert(false);
     setProducts(list);
-    console.log("arrayProductos: ", products);
   };
 
   const handleChange = (e) => {
@@ -184,13 +188,14 @@ const Products = () => {
       <Container>
         <br />
         <Button color="success" onClick={() => showModalInsert()}>
-          Add Product
+          <FontAwesomeIcon icon={faPlus} />
         </Button>
         <br />
         <br />
         <Table hover>
           <thead>
             <tr>
+              <th>Item</th>
               <th>Id</th>
               <th>Image</th>
               <th>Name</th>
@@ -202,9 +207,10 @@ const Products = () => {
             </tr>
           </thead>
           <tbody>
-            {products?.map((e, index) => {
+            {products?.map((e, i) => {
               return (
-                <tr key={index}>
+                <tr key={i}>
+                  <td>{i + 1}</td>
                   <td>{e.id}</td>
                   <td>
                     <img
@@ -224,7 +230,7 @@ const Products = () => {
                       color="success"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
-                      title="Add/Edit Variants"
+                      title="Variant Management"
                       onClick={() => showModalVariants(e)}
                     >
                       <FontAwesomeIcon icon={faBoxes} />
@@ -405,37 +411,16 @@ const Products = () => {
       <Modal isOpen={modalVariants}>
         <ModalHeader>
           <div>
-            <h3>Add and edit variants</h3>
+            <h3>Variant Management</h3>
           </div>
         </ModalHeader>
 
-        <FormGroup>
-          <label>Product code:</label>
-          <input
-            className="form-control"
-            name="productId"
-            type="text"
-            value={form.id}
-            readOnly
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <label>Name:</label>
-          <input
-            className="form-control"
-            name="masterName"
-            type="text"
-            value={form.masterName}
-            readOnly
-          />
-        </FormGroup>
+        <ModalBody>
+          <ProductVariants idproduct={form.id} productName={form.masterName} />
+        </ModalBody>
 
         <ModalFooter>
-          <Button
-            className="btn btn-danger"
-            onClick={() => closeModalVariants()}
-          >
+          <Button color="secundary" onClick={() => closeModalVariants()}>
             Close
           </Button>
         </ModalFooter>
