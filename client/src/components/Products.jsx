@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../actions/actions";
-import styles from "./Products.module.css"
+import styles from "./Products.module.css";
 
 //import 'Product.variants (stock)', the auxiliar component.
 import ProductVariants from "./ProductVariants";
@@ -163,17 +163,6 @@ const Products = () => {
     if (e.target.checked) {
       categoriesArray.push(newData);
     } else {
-<<<<<<< HEAD
-   if (categoriesArray) {
-          categoriesArray = categoriesArray.filter(
-            (element) => element.name !== e.target.value
-          );
-        }
-      }
-      setForm({ ...form, categories: categoriesArray });
-      };
-
-=======
       if (categoriesArray) {
         categoriesArray = categoriesArray.filter(
           (element) => element.name !== e.target.value
@@ -182,7 +171,6 @@ const Products = () => {
     }
     setForm({ ...form, categories: categoriesArray });
   };
->>>>>>> eliecer
 
   const findCheckSelected = (dataform, categoryElement) => {
     const arrNameCategories = dataform.categories.map((el) => el.name);
@@ -195,20 +183,14 @@ const Products = () => {
   //render
   return (
     <>
-<<<<<<< HEAD
       <div className={styles.containerproducts}>
         <h3 className={styles.titleproducts}>Product Management</h3>
-        <Button color="success" onClick={() => showModalInsert()} className={styles.addProduct}>
-          Add Product
-=======
-      <div>
-        <h3>Product Management</h3>
-      </div>
-      <Container>
-        <br />
-        <Button color="success" onClick={() => showModalInsert()}>
+        <Button
+          color="success"
+          onClick={() => showModalInsert()}
+          className={styles.addProduct}
+        >
           <FontAwesomeIcon icon={faPlus} />
->>>>>>> eliecer
         </Button>
       </div>
       <Container className={styles.containerproducts2}>
@@ -246,7 +228,8 @@ const Products = () => {
                   <td>{new Intl.NumberFormat("en-EN").format(e.price)}</td>
                   <td>{e.available ? "Available" : "Not Available"}</td>
                   <td>
-                    <Button className={styles.variants}
+                    <Button
+                      className={styles.variants}
                       color="success"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
@@ -256,7 +239,8 @@ const Products = () => {
                       <FontAwesomeIcon icon={faBoxes} />
                     </Button>{" "}
                     {"  "}
-                    <Button className={styles.edit}
+                    <Button
+                      className={styles.edit}
                       color="primary"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
@@ -266,7 +250,8 @@ const Products = () => {
                       <FontAwesomeIcon icon={faEdit} />
                     </Button>{" "}
                     {"  "}
-                    <Button className={styles.available}
+                    <Button
+                      className={styles.available}
                       color="danger"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
@@ -291,11 +276,11 @@ const Products = () => {
       {/* -------------------------------------------- */}
       <Modal isOpen={modalInsert} className={styles.containerModal}>
         <ModalBody className={styles.modalBody}>
-        <ModalHeader className={styles.modalHeader}>
-          <div>
-            <h3 className={styles.modalTitle}>Add Product</h3>
-          </div>
-        </ModalHeader>
+          <ModalHeader className={styles.modalHeader}>
+            <div>
+              <h3 className={styles.modalTitle}>Add Product</h3>
+            </div>
+          </ModalHeader>
           <FormGroup className={styles.form}>
             <label>Id:</label>
             <input
@@ -411,14 +396,21 @@ const Products = () => {
             />
           </FormGroup>
           <ModalFooter>
-          <Button color="primary" onClick={() => insert()} className={styles.bmodal}>
-            Add
-          </Button>
-          <Button onClick={() => closeModalInsert()} className={styles.bmodal}>
-            Cancel
-          </Button>
-        </ModalFooter>
-      </ModalBody>
+            <Button
+              color="primary"
+              onClick={() => insert()}
+              className={styles.bmodal}
+            >
+              Add
+            </Button>
+            <Button
+              onClick={() => closeModalInsert()}
+              className={styles.bmodal}
+            >
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalBody>
       </Modal>
       {/* -------------------------------------------- */}
 
@@ -426,62 +418,37 @@ const Products = () => {
       {/* -------------------------------------------- */}
 
       <Modal isOpen={modalVariants} className={styles.containerModal}>
-      <ModalBody className={styles.modalVariant}>
-        <ModalHeader className={styles.modalHeader}>
-          <div>
-<<<<<<< HEAD
-            <h3 className={styles.modalTitle}>Add and edit variants</h3>
-          </div>
-        </ModalHeader>
+        <ModalBody className={styles.modalVariant}>
+          <ModalHeader className={styles.modalHeader}>
+            <div>
+              <h3 className={styles.modalTitle}>Variant Management</h3>
+            </div>
+          </ModalHeader>
 
-        <FormGroup className={styles.form}>
-          <label>Product code:</label>
-          <input
-            className="form-control"
-            name="productId"
-            type="text"
-            value={form.id}
-            readOnly
-          />
-        </FormGroup>
+          <ModalBody>
+            <ProductVariants
+              idproduct={form.id}
+              productName={form.masterName}
+            />
+          </ModalBody>
 
-        <FormGroup className={styles.form}>
-          <label>Name:</label>
-          <input
-            className="form-control"
-            name="masterName"
-            type="text"
-            value={form.masterName}
-            readOnly
-          />
-        </FormGroup>
-=======
-            <h3>Variant Management</h3>
-          </div>
-        </ModalHeader>
-
-        <ModalBody>
-          <ProductVariants idproduct={form.id} productName={form.masterName} />
+          <ModalFooter>
+            <Button color="secundary" onClick={() => closeModalVariants()}>
+              Close
+            </Button>
+          </ModalFooter>
         </ModalBody>
->>>>>>> eliecer
-
-        <ModalFooter>
-          <Button color="secundary" onClick={() => closeModalVariants()}>
-            Close
-          </Button>
-        </ModalFooter>
-      </ModalBody>
       </Modal>
 
       {/* ----------- update data -------------------- */}
       {/* -------------------------------------------- */}
       <Modal isOpen={modalUpdate} className={styles.containerModal}>
-      <ModalBody className={styles.modalBody}>
-        <ModalHeader className={styles.modalHeader}>
-          <div>
-            <h3 className={styles.modalTitle}>Update Product</h3>
-          </div>
-        </ModalHeader>
+        <ModalBody className={styles.modalBody}>
+          <ModalHeader className={styles.modalHeader}>
+            <div>
+              <h3 className={styles.modalTitle}>Update Product</h3>
+            </div>
+          </ModalHeader>
           <FormGroup className={styles.form}>
             <label>Id:</label>
 
@@ -604,13 +571,21 @@ const Products = () => {
             />
           </FormGroup>
           <ModalFooter>
-          <Button color="primary" onClick={() => update(form)} className={styles.bmodal}>
-            Update
-          </Button>
-          <Button color="danger" onClick={() => closeModalUpdate()} className={styles.bmodal}>
-            Cancel
-          </Button>
-        </ModalFooter>
+            <Button
+              color="primary"
+              onClick={() => update(form)}
+              className={styles.bmodal}
+            >
+              Update
+            </Button>
+            <Button
+              color="danger"
+              onClick={() => closeModalUpdate()}
+              className={styles.bmodal}
+            >
+              Cancel
+            </Button>
+          </ModalFooter>
         </ModalBody>
       </Modal>
     </>
