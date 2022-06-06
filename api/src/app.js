@@ -15,6 +15,7 @@ const customersRoutes = require("./routes/customers.routes");
 const ordersRoutes = require("./routes/orders.routes");
 const orderDetailsRoutes = require("./routes/orderDetails.routes");
 const authRoutes = require("./routes/auth.routes");
+const mailRouter = require("./routes/mail.routes");
 const { expressjwt: jwt } = require("express-jwt");
 const jwks = require("jwks-rsa");
 
@@ -68,6 +69,7 @@ app.use(customersRoutes);
 app.use(ordersRoutes);
 app.use(orderDetailsRoutes);
 app.use(authRoutes);
+app.use(mailRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
