@@ -16,10 +16,14 @@ root.render(
         domain='ivocfh.us.auth0.com'
         clientId='geDq1VgcaFAidcaejuAGEFyZxeF3qDuD'
         redirectUri='http://localhost:3000/Shop'
+        audience='https://ivocfh.us.auth0.com/api/v2/'
+        // audience='https://www.bluebirds.api.com'
       >
         <App />
       </Auth0Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
+
+
 

@@ -229,4 +229,106 @@ export const quantityCar = (id, quantity)=>{
     }       
 }
 
+// ---------------------------------------------------------------------------------------------------
 
+export const getUsers = ( apiToken ) => {
+  return new Promise( (resolve, reject) => {
+    let options = {
+      method: "GET",
+      url: `/users`,
+      headers: { 
+        "authorization": `Bearer ${apiToken}`
+      }
+    };
+  
+    axios.request(options)
+      .then( response => {
+        resolve(response)
+      })
+      .catch( err => {
+        reject(err)
+      })
+  })
+}
+
+// getUserRoles devuelve un array de objetos. Cada objeto es un ROL asignado al USER
+export const getUserRoles = async ( id, apiToken ) => {
+  try {
+    let options = {
+      method: "GET",
+      url: `/users/roles/${id}`,
+      headers: { 
+        "authorization": `Bearer ${apiToken}`
+      }
+    };
+
+    const { data } = await axios.request(options);
+    return data
+  }
+  catch (err) {
+    return err
+  }
+}
+
+
+export const deleteUser = async ( id, apiToken ) => {
+  // Se hace un delete a users, enviando un email y solicitando la ruta users/deleteUser, esto ejecutará del lado del BACK 
+  // la solicitud a la API Auth0 para la eliminación del usuario. La consulta devuelve el objeto de usuario.
+  try {
+    let options = {
+      method: "DELETE",
+      url: `/users/${id}`,
+      headers: { 
+        "authorization": `Bearer ${apiToken}`
+      }
+    };
+    const backResp = await axios.request(options);
+    return backResp
+  }
+  catch (error) {
+    return error
+  }
+}
+
+export const resetUserPass = async ( email, apiToken ) => {
+  // Se hace un post a users, enviando un email y solicitando la ruta users/resetPass, esto ejecutará del lado del BACK 
+  // la solicitud a la API Auth0 para el forzado de reset de constraseña. La consulta devuelve el objeto de usuario.
+  try {
+    let options = {
+      method: 'POST',
+      url: `/users/resetPass/${email}`,
+      headers: {
+        "authorization": `Bearer ${apiToken}`
+      }
+    }
+
+    const backRes = await axios.request(options)
+    return backRes.data
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
+
+export const getApiJWT = ( token ) => {
+  return new Promise( (resolve, reject) => {
+    try {
+      let options = {
+        method: "GET",
+        url: "/auth",
+        headers: { 
+            "authorization": `Bearer ${token}`
+        }
+      };
+  
+      axios.request(options)
+        .then( res => {
+          resolve(res.data)
+        })
+      }
+      catch (err) {
+        console.log('>> ERROR')
+        reject(err)
+      }
+  })
+}
