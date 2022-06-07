@@ -72,7 +72,7 @@ const {
   Sizes,
   Colors,
   Category,
-  Costumers,
+  Customers,
   Orders,
   Orderdetails,
   Favorites,
@@ -118,8 +118,8 @@ Stock.belongsTo(Colors, { foreignKey: "colorId", targetId: "id" });
 // -------------------------------------------------------------------------
 // Relationship of model 'Orders'
 // 'Costumers' has many 'Orders', 'Orders' belong to 'Costumers'
-Costumers.hasMany(Orders, { foreignKey: "customerId", sourceKey: "id" });
-Orders.belongsTo(Costumers, { foreignKey: "customerId", targetId: "id" });
+Customers.hasMany(Orders, { foreignKey: "customerId", sourceKey: "id" });
+Orders.belongsTo(Customers, { foreignKey: "customerId", targetId: "id" });
 
 // 'Orders' has many 'Orderdetails', 'Orderdetails' belong to 'Orders'
 Orders.hasMany(Orderdetails, { foreignKey: "ordersId", sourceKey: "id" });
