@@ -11,7 +11,7 @@ import {
 } from "../actions/actions";
 
 // import styles bootstrap and Font Awesome Icon
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBoxes,
