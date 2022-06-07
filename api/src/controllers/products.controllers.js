@@ -5,53 +5,60 @@
   date: 20-05-2022  
 -----------------------------------------------*/
 
-const { Product, Review, Stock, Category, Sizes, Colors, Op } = require("../db.js");
+const {
+  Product,
+  Review,
+  Stock,
+  Category,
+  Sizes,
+  Colors,
+  Op,
+} = require("../db.js");
 
 const queryAndLikeBuilder = (keys, col) => {
   let res = [];
-  keys.forEach( key => {
+  keys.forEach((key) => {
     let cond = {
       [col]: {
-        [Op.iLike]: key
-      }
-    }
-    res.push(cond)
-  })
-  console.log(res)
-  return res
-}
+        [Op.iLike]: key,
+      },
+    };
+    res.push(cond);
+  });
+  console.log(res);
+  return res;
+};
 
 const includeArr = [
-  { model: Category, attributes: ["name"] },
+  { model: Category },
   {
     model: Stock,
-    attributes: ["id", "quantity", "available"],
-    include: [
-      { model: Sizes, attributes: ["id", "size"] },
-      { model: Colors, attributes: ["id", "color"] },
-    ],
+    include: [{ model: Sizes }, { model: Colors }],
   },
-  { model: Review, attributes: ["description", "starsLevel"] },
+  { model: Review },
 ];
 
 const getProducts = async (req, res) => {
   try {
     if (!!req.query.search) {
-      let searchKeys = req.query.search.toLowerCase().split(' ').map( key => `%${key}%`)
+      let searchKeys = req.query.search
+        .toLowerCase()
+        .split(" ")
+        .map((key) => `%${key}%`);
       const foundProds = await Product.findAll({
         where: {
           [Op.or]: [
-            {[Op.and]: queryAndLikeBuilder(searchKeys, 'name')}, 
-            {[Op.and]: queryAndLikeBuilder(searchKeys, 'masterName')}
-          ] 
+            { [Op.and]: queryAndLikeBuilder(searchKeys, "name") },
+            { [Op.and]: queryAndLikeBuilder(searchKeys, "masterName") },
+          ],
         },
-        include: includeArr
-      })
-      res.json(foundProds)
-    }
-    else {
+        include: includeArr,
+      });
+      res.json(foundProds);
+    } else {
       const products = await Product.findAll({
-        include: includeArr
+        order: [["id", "ASC"]],
+        include: includeArr,
       });
       res.json(products);
     }
@@ -64,7 +71,8 @@ const getProduct = async (req, res) => {
   const { id } = req.params;
   try {
     const product = await Product.findByPk(id, {
-      include: includeArr
+      order: [["id", "ASC"]],
+      include: includeArr,
     });
 
     if (!product)
@@ -86,6 +94,7 @@ const createProduct = async (req, res) => {
     price,
     imagecover,
     imageurl,
+    available,
   } = req.body;
 
   try {
@@ -98,11 +107,12 @@ const createProduct = async (req, res) => {
       price,
       imagecover,
       imageurl,
+      available,
     });
 
     // las categorias asociadas deben venir en forma de array de números. Los números son los ID de categoria para asociar
     // en cada caso.
-    if (req.body.hasOwnProperty('categories')) {
+    if (req.body.hasOwnProperty("categories")) {
       await newProduct.setCategories(req.body.categories);
     }
 
@@ -121,23 +131,20 @@ const updateProduct = async (req, res) => {
 
     // las categorias asociadas deben venir en forma de array de números. Los números son los ID de categoria para asociar
     // en cada caso.
-    if (req.body.hasOwnProperty('categories')) {
+    if (req.body.hasOwnProperty("categories")) {
       await product.setCategories(req.body.categories);
     }
 
     // RELACIONES DE MUCHOS A MUCHOS
     // products - categories
-    
+
     // product = setCategories([id-cat,id-cat...])
     // product = getCategories() --> devuelve un [ ids catego ]
 
     // categories = setPoruducts([id-prod1, id-prod2, ...])
     // categories = getProducts() --> devuelve un [ ids prod ]
 
-
     res.json(product);
-
-
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

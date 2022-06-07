@@ -17,7 +17,12 @@ export const FILTER_BY_COLOR = "FILTER_BY_COLOR";
 export const FILTER_BY_GENDER = "FILTER_BY_GENDER";
 export const FAVORITES = "FAVORITES";
 export const SHOPCAR = "SHOPCAR";
-
+export const GET_STOCK_BY_PRODUCTID = "GET_STOCK_BY_PRODUCTID";
+export const POST_STOCK = "POST_STOCK";
+export const PUT_STOCK = "PUT_STOCK";
+export const DELETE_STOCK = "DELETE_STOCK";
+export const GET_SIZES = "GET_SIZES";
+export const GET_SIZES_BY_ID = "GET_SIZES_BY_ID";
 // export const getProducts = () => {
 //     return {
 //         type: 'GET_PRODUCTS',
@@ -53,8 +58,8 @@ export const favorites = () => {
 };
 export const ShopCar = () => {
   var array = [];
-  if (localStorage.getItem("favoritos") != null) {
-    array = localStorage.getItem("favoritos");
+  if (localStorage.getItem("carrito") != null) {
+    array = localStorage.getItem("carrito");
   }
   return {
     type: "SHOPCAR",
@@ -135,8 +140,7 @@ export function getColors() {
 export function getReviews() {
   return async function (dispatch) {
     try {
-      await axios.get(`/reviews`)
-        .then((yeison) => {
+      await axios.get(`/reviews`).then((yeison) => {
         // console.log(yeison.data)
         dispatch({
           type: "GET_REVIEWS",
@@ -148,13 +152,12 @@ export function getReviews() {
     }
   };
 }
-
-export function getReviewsById(id) {
+export function getReviewsById(payload) {
   return async function (dispatch) {
     try {
-      await axios.get(`/reviews/${id}`)
-        .then((yeison) => {
-        // console.log(yeison.data)
+      // await axios.get(`/reviews/${id}`).then((yeison) => {
+      //   // console.log(yeison.data)
+      await axios.get(`/reviews/product/${payload}`).then((yeison) => {
         dispatch({
           type: "GET_REVIEWS_BY_ID",
           payload: yeison.data,
@@ -165,13 +168,12 @@ export function getReviewsById(id) {
     }
   };
 }
-
-export function setReviews(id, review) {
+export function setReviews(payload) {
   return async function (dispatch) {
     try {
-      await axios.post(`/reviews/${id}`, review)
-        .then((yeison) => {
-        // console.log(yeison.data)
+      // await axios.post(`/reviews/${id}`, review).then((yeison) => {
+      //   // console.log(yeison.data)
+      await axios.post(`/reviews`, payload).then((yeison) => {
         dispatch({
           type: "POST_REVIEWS",
           payload: yeison.data,
@@ -195,7 +197,6 @@ export function postProduct(payload) {
   };
 }
 
-
 export function editProduct(payload) {
   return async function (dispatch) {
     try {
@@ -207,7 +208,6 @@ export function editProduct(payload) {
     }
   };
 }
-
 
 export function getDetail(id) {
   return async function (dispatch) {
@@ -223,14 +223,47 @@ export function getDetail(id) {
   };
 }
 
-export const quantityCar = (id, quantity)=>{
-    return  {
-        type: 'QUANTITY_CAR',
-    }       
+export const quantityCar = (id, quantity) => {
+  return {
+    type: "QUANTITY_CAR",
+  };
+};
+
+// ----------- ACTIONS FOR SIZES  -----------
+// Adding by ELIECER
+// DateTime: 2022-06-04 13:00
+// ------------------------------------------
+export function getSizes() {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/sizes`).then((sizes) => {
+        dispatch({ type: GET_SIZES, payload: sizes.data });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
-// ---------------------------------------------------------------------------------------------------
+export function getSizesById(id) {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/sizes/${id}`).then((size) => {
+        dispatch({
+          type: GET_SIZES_BY_ID,
+          payload: size.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
+// ----------- ACTIONS FOR AUTH0 MANAGEMENT API AUTHORIZATION  -----------
+// Adding by IVAN MONZON
+// DateTime: 2022-06-07
+// -----------------------------------------------------------------------
 export const getUsers = ( apiToken ) => {
   return new Promise( (resolve, reject) => {
     let options = {
@@ -334,3 +367,72 @@ export const getApiJWT = ( token ) => {
       }
   })
 }
+
+// -------------------------------------------------------------------------------------------
+
+
+
+// ----------- ACTIONS FOR PRODUCT STOCK  -----------
+// Adding by ELIECER
+// DateTime: 2022-06-04 13:00
+// --------------------------------------------------
+export function getStockByProductId(id) {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/stock/product/${id}`).then((stock) => {
+        dispatch({
+          type: GET_STOCK_BY_PRODUCTID,
+          payload: stock.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function postStock(payload) {
+  return async function (dispatch) {
+    try {
+      await axios.post(`/stock`, payload).then((stock) => {
+        dispatch({
+          type: POST_STOCK,
+          payload: stock.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function putStock(payload) {
+  return async function (dispatch) {
+    try {
+      await axios.put(`/stock/${payload.id}`, payload).then((stock) => {
+        dispatch({
+          type: PUT_STOCK,
+          payload: stock.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function deleteStock(id) {
+  return async function (dispatch) {
+    try {
+      await axios.delete(`/stock/${id}`).then((stock) => {
+        dispatch({
+          type: DELETE_STOCK,
+          payload: stock.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+  

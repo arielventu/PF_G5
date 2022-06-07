@@ -20,6 +20,10 @@ const orderDetailsRoutes = require("./routes/orderDetails.routes");
 const authRoutes = require("./routes/auth.routes");
 const usersRoutes = require("./routes/users.routes")
 
+const mailRouter = require("./routes/mail.routes");
+const favoritesRoutes = require("./routes/favorites.routes");
+const basketListRoutes = require("./routes/basketList.routes");
+
 // JSON Web Tokens (JWT) dependencies --------------------------------
 const { expressjwt: jwt } = require("express-jwt");
 const jwks = require("jwks-rsa");
@@ -70,6 +74,9 @@ app.use(stockRoutes);
 app.use(customersRoutes);
 app.use(ordersRoutes);
 app.use(orderDetailsRoutes);
+app.use(mailRouter);
+app.use(favoritesRoutes);
+app.use(basketListRoutes);
 
 
 // LA PARTE DE AUTORIZACION DEBE VENIR A LO ÚLTIMO 
