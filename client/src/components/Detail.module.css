@@ -41,7 +41,7 @@ h3 {
 
 .price {
   font-size: 2rem;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 .img {
@@ -181,4 +181,27 @@ select {
 .buttonCloseModal:hover {
   cursor: pointer;
   background-color:white;
+}
+
+.divStarsContainer {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: flex-end;
+ margin-right: 2rem;
+}
+
+.divStarsAvg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pStars {
+  margin: 0 0 0 0 ;
+}
+
+.starAvg {
+  width: 1.4rem;
+  margin: 0 0.1rem 0 0.1rem;
 }
