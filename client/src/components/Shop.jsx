@@ -39,7 +39,16 @@ const Shop = () => {
 
   let joint = []
   categories.map(e=> joint.push(e.masterName))
-  joint= [... new Set(joint)].sort()
+  joint = [... new Set(joint)].sort()
+  
+  let catColors =[] 
+  products.map ((e , i)  => {
+    if(e.masterName === "Women's Tree Runners"){
+      catColors.push( {color : Array.from(new Set (e.colors)),
+        /* name : e.masterName, */
+         id : e.id })
+    }
+  })
   
   useEffect(() => {
     dispatch(getCategories())
@@ -47,8 +56,6 @@ const Shop = () => {
     dispatch(getColors())
   }, [])
   
-
-
   const clearFilters = () => {
     dispatch(filterByBestFor('All'))
     dispatch(filterByCategories('All'))
@@ -65,6 +72,7 @@ const Shop = () => {
     name === 'gender' && dispatch(filterByGender(value))
     setCurrentPage(1)
   }
+    
   return (
     <div className={styles.container}>
       <div className={styles.flyer}>
