@@ -11,6 +11,7 @@ body {
   height: 4rem;
   /* border: 1px solid black; */
   font-family: Cabin;
+  border-bottom: 0.08rem solid rgb(190, 190, 190);
 }
 
 .leftContent {
@@ -66,7 +67,7 @@ ul {
   text-decoration: none;
 }
 
-.button {
+.buttonNavBar {
   font-family: Koulen;
   font-size: 1rem;
   color: black;
@@ -139,9 +140,13 @@ a {
   padding-right: 1.5rem;
 }
 
-span {
+.iconsCartFav {
   background-color: powderblue;
   border-radius: 50%;
-  padding: 0.1rem 0.7rem;
+  padding: 0.1rem 0.5rem;
   margin-top: -1.5rem;
+}
+
+.buttonNavBar {
+  cursor: pointer;
 }

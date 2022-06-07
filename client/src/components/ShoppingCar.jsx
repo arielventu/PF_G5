@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {  getProducts, ShopCar } from '../actions/actions'
@@ -13,28 +13,27 @@ const ShoppingCar = () => {
   const dispatch = useDispatch()
   const car = useSelector(state => state.shoppingCar)
   const products = useSelector(state => state.shoes)
+  const [valor, setValor] = useState("")
 
   if(products.length === 0){
     dispatch(getProducts())
   }
   if(localStorage.getItem('carrito') != null){
     array = JSON.parse(localStorage.getItem('carrito'))
-    const sum = array.map(item =>{return item.price})
-    var sumW = sum.reduce(
-      (previousValue, currentValue) => previousValue + currentValue, 0);
-    console.log(sumW)    
+    const sum = array.map(item =>{return (item.price*item.cantidad)})
+    var sumW = sum.reduce((previousValue, currentValue) => previousValue + currentValue, 0);   
   }
   useEffect(() => {
     if(localStorage.getItem('carrito') != null){
       array = JSON.parse(localStorage.getItem('carrito'))
-      const sum = array.map(item =>{return item.price})
-      var sumW = sum.reduce(
-        (previousValue, currentValue) => previousValue + currentValue, 0);
+      const sum = array.map(item =>{return item.price*item.cantidad})
+      var sumW = sum.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+      setValor(sumW)
       console.log(sumW)    
     }
     dispatch(ShopCar(array))
   }, [array])
-  
+  console.log(valor)
   if (localStorage.getItem('carrito') === null) {
     return navegation("/shop")
   }
@@ -46,7 +45,7 @@ const ShoppingCar = () => {
         <h1 className={styles.titulofav}>Shopping Cart</h1>
         <div className={styles.icontainercart}>
         {
-          !(array[0] === undefined)? array.map(item=> <Cardcart key={item.id} id={item.id} fullName={item.masterName} price={item.price} img={item.imagecover} component={"carrito"}/>):
+          !(array[0] === undefined)? array.map(item=> <Cardcart state={setValor} key={item.id} id={item.id} fullName={item.masterName} price={item.price} img={item.imagecover} component={"carrito"}/>):
           navegation("/shop")     
         }
         </div>

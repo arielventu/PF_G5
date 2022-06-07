@@ -59,6 +59,11 @@ module.exports = (sequelize) => {
         type: DataTypes.ARRAY(DataTypes.TEXT),
         allowNull: true,
       },
+      available: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+        defaultValue: true,
+      },
     },
     { timestamps: false }
   );
