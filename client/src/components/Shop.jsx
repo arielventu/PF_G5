@@ -41,15 +41,6 @@ const Shop = () => {
   categories.map(e=> joint.push(e.masterName))
   joint = [... new Set(joint)].sort()
   
-  let catColors =[] 
-  products.map ((e , i)  => {
-    if(e.masterName === "Women's Tree Runners"){
-      catColors.push( {color : Array.from(new Set (e.colors)),
-        /* name : e.masterName, */
-         id : e.id })
-    }
-  })
-  
   useEffect(() => {
     dispatch(getCategories())
     dispatch(getProducts())

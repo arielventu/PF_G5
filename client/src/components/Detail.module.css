@@ -134,6 +134,7 @@ select {
   border-bottom-right-radius: 100% 50%;
   border: 1px solid rgb(124, 124, 124);
   border-left: none;
+  margin-right: .3rem;
 }
 
 .containercolors {
