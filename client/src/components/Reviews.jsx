@@ -5,7 +5,7 @@ import { getReviews, getReviewsById, setReviews } from "../actions/actions";
 import starB from "../image/starb.svg";
 import starY from "../image/stary.svg";
 import styles from "./Reviews.module.css";
-import swal from "sweetalert";
+// import swal from "sweetalert";
 // import { FontAwesomeIcon } from "@htmlFortawesome/react-fontawesome";
 // import {
 //     faStar
@@ -35,15 +35,51 @@ const Reviews = ({productId, name}) => {
       <div className={styles.divReviews}>
         <div className={styles.divReviewsTitle}>
           <h2>Reviews of { name }</h2>
-
           {reviewsList?.map((review) => (
             <div key={productId} className={styles.divReviewsContent}>
               <div key={productId * 2} className={styles.divReviewsContentTitle}>
                 <h4 key={productId * 3}>{review.username === null || review.username === '' ? 'Anonymous' : review.username}</h4>
+                  {review.starsLevel === 1 &&
+                    <div className={styles.divStar}>
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                    </div>}
+                    {review.starsLevel === 2 &&
+                    <div className={styles.divStar}>
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                    </div>}
+                  {review.starsLevel === 3 &&
+                    <div className={styles.divStar}>
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                    </div>}
+                  {review.starsLevel === 4 &&
+                    <div className={styles.divStar}>
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starB} alt="star" />
+                    </div>}
+                  {review.starsLevel === 5 &&
+                    <div className={styles.divStar}>
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                      <img className={styles.star} src={starY} alt="star" />
+                    </div>}
                 <p key={productId * 4}>{review.description}</p>
-                <div key={productId * 5} className={styles.divReviewsContentStars}>
-                  <p key={productId * 6}>{review.starsLevel}</p>
-                </div>
               </div>
             </div>
           ))}
