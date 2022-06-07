@@ -12,7 +12,6 @@ export default function CardCart({img, fullName, price,component,id,state}){
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
     const [quantity, setQuantity] = useState(1)
-    console.log(state)
     useEffect(() => {
         const array1 = JSON.parse(localStorage.getItem('carrito'))
         const prueba1 = array1.find(item => item.id === id)
@@ -21,21 +20,20 @@ export default function CardCart({img, fullName, price,component,id,state}){
         }
         setQuantity(prevCount => prevCount = prueba1.cantidad)
     },[id])
-
-    useEffect(() => {
-        const array = JSON.parse(localStorage.getItem('carrito'))
-        console.log(array[0].cantidad)
-        if (array[0].cantidad === undefined) {
-         const prue = array.map((item)=>{
-                item.cantidad=quantity
-                return item
-            })
-            localStorage.setItem('carrito', JSON.stringify(prue))
-            console.log(prue)
-        }else{
-            const array = JSON.parse(localStorage.getItem('carrito'))
-        }
-    }, [array])
+    // useEffect(() => {
+    //     const array = JSON.parse(localStorage.getItem('carrito'))
+    //     console.log(array[0].cantidad)
+    //     if (array[0].cantidad === undefined) {
+    //      const prue = array.map((item)=>{
+    //             item.cantidad=quantity
+    //             return item
+    //         })
+    //         localStorage.setItem('carrito', JSON.stringify(prue))
+    //         console.log(prue)
+    //     }else{
+    //         const array = JSON.parse(localStorage.getItem('carrito'))
+    //     }
+    // }, [array])
        
     const counterCar = (incre) => {
         const array = JSON.parse(localStorage.getItem('carrito'))
@@ -58,22 +56,21 @@ export default function CardCart({img, fullName, price,component,id,state}){
         const incre = false
         if(quantity !== 1) {
             setQuantity(prevCount => prevCount - 1)
+            state(prevCount => prevCount - 1)
         }
         counterCar(incre)
     }
-
-    const handleIncrement = (e) => {
+    const handleIncrement = () => {
         console.log("inc",quantity)
         const incre = true
         setQuantity(prevCount => prevCount + 1)
+        state(prevCount => prevCount + 1)
         counterCar(incre)
     }
-    console.log(id)
     var array = []
     const quitarCar =  (e) =>{
         e.preventDefault()
         const {value} = e.target
-
         swal({
             title:"Are you sure?",
             text: "Once deleted, you will have to search again for this item!",
@@ -119,6 +116,7 @@ export default function CardCart({img, fullName, price,component,id,state}){
 
     const comprar = ()=>{
     }
+    
     return(
         <div className={styles.containercart}>
             <img className={styles.img}src= {img} alt='img'></img>  
