@@ -72,7 +72,7 @@ const {
   Sizes,
   Colors,
   Category,
-  Costumers,
+  Customers,
   Orders,
   Orderdetails,
   Favorites,
