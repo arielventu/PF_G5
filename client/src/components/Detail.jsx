@@ -49,10 +49,8 @@ export default function Detail(){
       arrayAdd.push(findAdd)
     }else{
       arrayAdd = await JSON.parse(localStorage.getItem('carrito'))
-      console.log("first",typeof value)
       const idMap = arrayAdd.find(item=>  item.id == value)
       if (idMap === undefined) {
-        console.log(detailstate)
         const find = detailstate.find(item => item.id == value )
         arrayAdd.push(find)
       }
