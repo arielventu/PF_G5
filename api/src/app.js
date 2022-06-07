@@ -16,6 +16,10 @@ const ordersRoutes = require("./routes/orders.routes");
 const orderDetailsRoutes = require("./routes/orderDetails.routes");
 const authRoutes = require("./routes/auth.routes");
 const mailRouter = require("./routes/mail.routes");
+const favoritesRoutes = require("./routes/favorites.routes");
+const basketListRoutes = require("./routes/basketList.routes");
+
+// requiere libraries JWT express
 const { expressjwt: jwt } = require("express-jwt");
 const jwks = require("jwks-rsa");
 
@@ -70,6 +74,8 @@ app.use(ordersRoutes);
 app.use(orderDetailsRoutes);
 app.use(authRoutes);
 app.use(mailRouter);
+app.use(favoritesRoutes);
+app.use(basketListRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -18,6 +18,9 @@ import {
   FAVORITES,
   SHOPCAR,
   GET_STOCK_BY_PRODUCTID,
+  POST_STOCK,
+  PUT_STOCK,
+  DELETE_STOCK,
   GET_SIZES,
   GET_SIZES_BY_ID,
 } from "../actions/actions.js";
@@ -32,6 +35,7 @@ const initialState = {
   shoppingCar: [],
   colors: [],
   allReviews: [],
+  reviewsById: [],
   stock: [],
   sizes: [],
 };
@@ -145,7 +149,7 @@ export default function rootReducer(state = initialState, { payload, type }) {
     case GET_REVIEWS_BY_ID:
       return {
         ...state,
-        allReviews: payload,
+        reviewsById: payload,
       };
     case POST_REVIEW:
       return {
@@ -153,17 +157,40 @@ export default function rootReducer(state = initialState, { payload, type }) {
         allReviews: [...state.allReviews, payload],
       };
 
-    // reducer for products stock
+    // ----------- REDUCER FOR STOCK  -----------
+    // Adding by ELIECER
+    // DateTime: 2022-06-04 13:30
+    // ------------------------------------------
     case GET_STOCK_BY_PRODUCTID:
       return { ...state, stock: payload };
 
-    // reducer for Sizes
+    case POST_STOCK:
+      return { ...state, stock: [...state.stock, payload] };
+
+    case PUT_STOCK:
+      let newUpdateData = state.stock.map((el) =>
+        el.id === payload.id ? payload : el
+      );
+      return { ...state, stock: [...state.stock, newUpdateData] };
+
+    case DELETE_STOCK:
+      let newDelData = state.stock.filter((el) => el.id !== payload.id);
+      return { ...state, stock: [...state.stock, newDelData] };
+
+    // ----------- REDUCER FOR SIZES  -----------
+    // Adding by ELIECER
+    // DateTime: 2022-06-04 13:30
+    // ------------------------------------------
     case GET_SIZES:
-      return { ...state, sizes: payload };
-
+      return {
+        ...state,
+        sizes: payload,
+      };
     case GET_SIZES_BY_ID:
-      return { ...state, sizes: payload };
-
+      return {
+        ...state,
+        sizes: payload,
+      };
     default:
       return state;
   }
