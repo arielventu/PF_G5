@@ -83,22 +83,15 @@ export default function Detail(){
   // Reviews -----------------------------------
   const reviewsById = useSelector((state) => state.reviewsById);
   const [showModal, setShowModal] = useState(false);
-  
+
   const handleModal = (e) => {
     setShowModal(!showModal);
   }
+  const starsLevels = [];
+  reviewsById.map((e) => {starsLevels.push(e.starsLevel)})
+  let starsAvg = Math.ceil(starsLevels.reduce((a, b) => a + b, 0) / starsLevels.length)
 
-  const starsAvg = () => {
-    const starsLevels = []
-    reviewsById.map((e) => {
-        starsLevels.push(e.starsLevel)
-      })
-    return Math.ceil(starsLevels.reduce((a, b) => a + b, 0) / starsLevels.length)
-  }
-
-  // console.log(starsAvg())
-
-
+  console.log(starsAvg);
   return(
     <div className={styles.details}>
     { detailstate.length > 0 ? 
@@ -120,49 +113,54 @@ export default function Detail(){
               <div className={styles.color2} style={{ backgroundColor: `${detailstate2.colors[1]}` }}></div>
             </div>
             <div className = {styles.innercontainer2}>
-                <h5 className = {styles.price}> ${detailstate2.price}</h5>
-            <img className={styles.rating} src={rating} alt='rating'/> 
-            {/* {sAvg === 1 &&
-              <div className={styles.divStar}>
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
+              <h5 className={styles.price}> ${detailstate2.price}</h5>
+            {/* <img className={styles.rating} src={rating} alt='rating'/>  */}
+            {starsAvg === 1 &&
+              <div className={styles.divStarsAvg}>
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
               </div>}
-            {sAvg === 2 &&
-              <div className={styles.divStar}>
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
+            {starsAvg === 2 &&
+              <div className={styles.divStarsAvg}>
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
               </div>}
-            {sAvg === 3 &&
-              <div className={styles.divStar}>
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
+            {starsAvg === 3 &&
+              <div className={styles.divStarsAvg}>
+                <p>{starsAvg}</p>
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
               </div>}
-            {sAvg === 4 &&
-              <div className={styles.divStar}>
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starB} alt="star" />
+            {starsAvg === 4 && 
+              <div className={styles.divStarsContainer}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                </div>
               </div>}
-            {sAvg === 5 &&
-              <div className={styles.divStar}>
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-                <img className={styles.star} src={starY} alt="star" />
-              </div>} */}
-            </div>
+            {starsAvg === 5 &&
+              <div className={styles.divStarsAvg}>
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+              </div>}
+              </div>
+
             <div className = {styles.innercontainer3}>
                 <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos'/> 

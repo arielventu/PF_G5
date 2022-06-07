@@ -12,8 +12,8 @@ import swal from "sweetalert";
 // } from "@htmlFortawesome/free-solid-svg-icons";
 
 const NewReview = ({ handleModal }) => {
-  // const { productId } = useParams();
-  const productId = 4;
+  const { id } = useParams();
+  const productId = id;
   const dispatch = useDispatch();
   const reviews = useSelector((state) => state.allReviews);
   const reviewsById = useSelector((state) => state.reviewsById);
@@ -60,6 +60,7 @@ const NewReview = ({ handleModal }) => {
         setNewReview(initialReview);
         reviews.push(newReview);
         reviewsById.push(newReview);
+      //  dispatch(getReviewsById(productId))
       }
       handleModal(); // Cierra modal en componente padre 'Detail'
   };
