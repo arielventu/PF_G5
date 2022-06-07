@@ -26,11 +26,12 @@ const getBasketListByUser = async (req, res) => {
 };
 
 const postBasketList = async (req, res) => {
-  const { user, quantity } = req.body;
+  const { user, quantity, productId } = req.body;
   try {
     const basketList = await BasketList.create({
       user,
       quantity,
+      productId,
     });
 
     res.json(basketList);

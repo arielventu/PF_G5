@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       quantity: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.INTEGER,
         defaultValue: 0,
         validate: { min: 0 },
       },
