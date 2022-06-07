@@ -7,42 +7,46 @@ import { favorites, ShopCar } from "../actions/actions";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-
-export default function CardCart({img, fullName, price,component,id}){
+export default function CardCart({img, fullName, price,component,id,state}){
    const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
     const [quantity, setQuantity] = useState(1)
-    const conteo = quantity
-    // console.log(conteo) 
-    // useEffect(() => {
-    //     const array1 = JSON.parse(localStorage.getItem('carrito'))
-    // const prueba1 = array1.find(item => item.id === id)
-    // setQuantity(prevCount => prevCount = prueba1.cantidad)
-    // })
+    console.log(state)
+    useEffect(() => {
+        const array1 = JSON.parse(localStorage.getItem('carrito'))
+        const prueba1 = array1.find(item => item.id === id)
+        if (prueba1.cantidad === undefined) {
+            prueba1.cantidad = 1
+        }
+        setQuantity(prevCount => prevCount = prueba1.cantidad)
+    },[id])
 
     useEffect(() => {
         const array = JSON.parse(localStorage.getItem('carrito'))
         console.log(array[0].cantidad)
         if (array[0].cantidad === undefined) {
          const prue = array.map((item)=>{
-                item.cantidad=conteo
+                item.cantidad=quantity
                 return item
             })
             localStorage.setItem('carrito', JSON.stringify(prue))
             console.log(prue)
         }else{
             const array = JSON.parse(localStorage.getItem('carrito'))
-
         }
-
-    }, [])
+    }, [array])
        
-
-    const counterCar = () => {
+    const counterCar = (incre) => {
         const array = JSON.parse(localStorage.getItem('carrito'))
         const findd = array.find(item => item.id === id)
-        findd.cantidad=conteo
+        if (incre) {
+            findd.cantidad= quantity + 1
+        }else{
+            if (quantity !== 1) {
+                findd.cantidad= quantity - 1
+            } 
+        }
         const filtro = array.filter(item => item.id !== id)
         filtro.push(findd)
         localStorage.setItem('carrito', JSON.stringify(filtro))
@@ -50,15 +54,19 @@ export default function CardCart({img, fullName, price,component,id}){
     }
 
     const handleDecrement = () => {
+        console.log("dec",quantity)
+        const incre = false
         if(quantity !== 1) {
             setQuantity(prevCount => prevCount - 1)
         }
-        counterCar(quantity)
+        counterCar(incre)
     }
 
     const handleIncrement = (e) => {
+        console.log("inc",quantity)
+        const incre = true
         setQuantity(prevCount => prevCount + 1)
-        counterCar(quantity)
+        counterCar(incre)
     }
     console.log(id)
     var array = []
