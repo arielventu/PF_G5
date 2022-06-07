@@ -44,6 +44,7 @@ export default function Detail(){
   const add = async (e)=>{
     var arrayAdd = []
     const {value} = e.target
+    console.log(value)
     if (localStorage.getItem('carrito') === null) {
       var findAdd = detailstate.find(item => item.id == value )
       arrayAdd.push(findAdd)
@@ -62,12 +63,13 @@ export default function Detail(){
   const favorite = async (e)=>{
     var array = []
     const {accessKey} = e.target
+    console.log(accessKey)
     if (localStorage.getItem('favoritos') === null) {
       var findKey = detailstate.find(item => item.id == accessKey )
       array.push(findKey)
     }else{
       array = await JSON.parse(localStorage.getItem('favoritos'))
-      console.log("first",typeof accessKey)
+      console.log("first", typeof accessKey)
       const idMap = array.find(item=>  item.id == accessKey)
       if (idMap === undefined) {
         console.log(detailstate)
