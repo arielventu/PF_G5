@@ -13,7 +13,7 @@ const ShoppingCar = () => {
   const dispatch = useDispatch()
   const car = useSelector(state => state.shoppingCar)
   const products = useSelector(state => state.shoes)
-  const [valor, setValor] = useState("")
+  const [valor, setValor] = useState(1)
 
   if(products.length === 0){
     dispatch(getProducts())
@@ -28,7 +28,7 @@ const ShoppingCar = () => {
       array = JSON.parse(localStorage.getItem('carrito'))
       const sum = array.map(item =>{return item.price*item.cantidad})
       var sumW = sum.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
-      setValor(sumW)
+     // setValor(sumW)
       console.log(sumW)    
     }
     dispatch(ShopCar(array))
@@ -38,7 +38,12 @@ const ShoppingCar = () => {
     return navegation("/shop")
   }
   
- console.log(array)
+ console.log(valor)
+ array && array.sort((a, b) => {
+  if (a.id > b.id) return 1
+  if (a.id < b.id) return -1
+  return 0
+  })
    if(localStorage.getItem('carrito') != null || !(Object.values(localStorage.getItem('carrito')).length === 0)){
     return (
       <div className={styles.containercart}>
