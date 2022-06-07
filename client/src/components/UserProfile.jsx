@@ -30,26 +30,36 @@ const UserProfile = () => {
   }
 
   const deleteUserHandle = id => {
-    getToken()
-      .then( apiToken => {
-        deleteUser(id, apiToken)
-          .then( res => {
-            console.log(res.data);
-            if (res.data === 'User deleted') {
-              logout();
-            }
-          })
-      })
+    let option = window.confirm(
+      user.name + ", are you sure you want to delete your user?"
+    );
+    if (option) {
+      getToken()
+        .then( async apiToken => {
+          let deleted = await deleteUser(id, apiToken)
+          if (deleted.status === 204) logout()
+          else {
+            let nok = window.alert(`${deleted.status}: ${deleted.data}`)
+          }
+        })
+        .catch( err => console.log(err) )
+    }
   }
 
   const resetPassHandle = ( email ) => {
-    getToken()
-      .then( apiToken => {
-        resetUserPass(email, apiToken)
-          .then( res => {
-            console.log(res)
-          })
-      })
+    let option = window.confirm(
+      "Are you sure you want to reset your password?"
+    );
+    if (option) {
+      getToken()
+        .then( apiToken => {
+          resetUserPass(email, apiToken)
+            .then( res => {
+              console.log(res)
+              window.alert(res)
+            })
+        })
+    }
   }
 
   const getRolesHandle = (id) => {
@@ -61,8 +71,6 @@ const UserProfile = () => {
           })
       })
   }
-
-
 
 
   if (isLoading) {
@@ -82,9 +90,9 @@ const UserProfile = () => {
           {/* <button className="btn btn-primary" onClick={ () => getToken() }> GET TOKEN </button>
           <button className="btn btn-primary" onClick={ () => getUsersHandle() }> GET USERS </button>
           <button className="btn btn-primary" onClick={ () => getRolesHandle(user.sub) }> GET ROLES </button> */}
-          <button className="btn btn-secondary" onClick={ () => logout() }> LOGOUT </button>
-          <button className="btn btn-danger" onClick={ () => resetPassHandle(user.email) }> RESET PASSWORD </button>
-          <button className="btn btn-danger" onClick={ () => deleteUserHandle(user.sub) }> DELETE USER </button>
+          <button className="userBtn btn btn-secondary" onClick={ () => logout() }> LOGOUT </button>
+          <button className="userBtn btn btn-danger" onClick={ () => resetPassHandle(user.email) }> RESET PASSWORD </button>
+          <button className="userBtn btn btn-danger" onClick={ () => deleteUserHandle(user.sub) }> DELETE USER </button>
         </div>
       </div>
     )

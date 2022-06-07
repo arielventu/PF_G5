@@ -1,5 +1,5 @@
 .userMasterContainer {
-    width: 90%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     margin: 1rem auto;
@@ -24,12 +24,9 @@
 }
 
 .userButtons {
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
     /* border: 1px solid black; */
-    justify-content: center;
-}
-
-button {
-    margin: 1rem 1rem 0;
+    justify-content: space-between;
 }

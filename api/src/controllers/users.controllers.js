@@ -34,10 +34,10 @@ const deleteUser = (req, res) => {
     axios.request(options)
         .then( response => {
             if (response.status === 204) {
-                res.send('User deleted')
+                res.status(204).send('User deleted')
             }
         })
-        .catch( err => console.log(err) )
+        .catch( err => res.status(403).send(err.response.statusText))
 
 };
 

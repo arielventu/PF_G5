@@ -283,10 +283,12 @@ export const deleteUser = async ( id, apiToken ) => {
       }
     };
     const backResp = await axios.request(options);
+    console.log(backResp)
     return backResp
   }
   catch (error) {
-    return error
+    // console.log(error.response)
+    return error.response
   }
 }
 

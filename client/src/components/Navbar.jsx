@@ -70,10 +70,18 @@ const Navbar = () => {
         .then( apiToken => getUserRoles(user.sub, apiToken) )
         .then( data => {
           console.log(data)
-          for ( let x=0; x < data.length; x++ ) {
-            if ( data[x].name === 'Admin' ) {
-              setAdmin(true);
-              break
+          if (data.length === 0) {
+            setAdmin(false)
+          }
+          else {
+            for ( let x=0; x < data.length; x++ ) {
+              if ( data[x].name === 'Admin' ) {
+                setAdmin(true);
+                break
+              }
+              else {
+                setAdmin(false)
+              }
             }
           }
           setDroppedMenu(true);
@@ -180,7 +188,7 @@ const Navbar = () => {
           >
             My Account
           </button>
-          { !!admin && (
+          { admin && (
             <button
               className={styles.customFont}
               onClick={() => {
