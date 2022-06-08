@@ -9,28 +9,16 @@ import fav from "../image/favorito.png"
 import swal from 'sweetalert';
 import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
-<<<<<<< HEAD
-import { useAuth0,withAuthenticationRequired} from '@auth0/auth0-react';
-=======
 import { useAuth0 } from '@auth0/auth0-react';
 import { getUserRoles, getApiJWT } from "../actions/actions"
-
->>>>>>> 4cff1e215ad39046de9fb8e720351ad5ece08191
 if (localStorage.getItem('carrito') === null ) {
   localStorage.setItem('carrito', JSON.stringify([]))
 }
 if (localStorage.getItem('favoritos') === null ) {
   localStorage.setItem('favoritos', JSON.stringify([]))
 }
-
 const Navbar = () => {
-<<<<<<< HEAD
-  
-  const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
-  console.log(user)
-=======
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
->>>>>>> 4cff1e215ad39046de9fb8e720351ad5ece08191
   const [ droppedMenu, setDroppedMenu ] = useState(false);
   const [ admin, setAdmin ] = useState(false);
   const favo = useSelector((state) => state.favorites)  
