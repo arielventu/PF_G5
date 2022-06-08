@@ -7,7 +7,8 @@ import { favorites, ShopCar } from "../actions/actions";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-export default function CardCart({img, fullName, price,component,id,state}){
+import avalible from "../image/no-disponible.jpg"
+export default function CardCart({img, fullName, price,component,id,state,available}){
    const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
@@ -119,7 +120,10 @@ export default function CardCart({img, fullName, price,component,id,state}){
     
     return(
         <div className={styles.containercart}>
-            <img className={styles.img}src= {img} alt='img'></img>  
+            {
+               available?<img className={styles.img}src= {img} alt='img'></img>:<img className={styles.img}src= {avalible} alt='img'></img>  
+            }
+            {/* <img className={styles.img}src= {img} alt='img'></img>   */}
             <h2 className={styles.h2}>{firstWordBye(fullName)}</h2>
             <p className={styles.price}>${price}</p>
             <img className={styles.rating} src={rating} alt='rating'/>

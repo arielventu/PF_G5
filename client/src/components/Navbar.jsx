@@ -9,8 +9,7 @@ import fav from "../image/favorito.png"
 import swal from 'sweetalert';
 import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
-import { useAuth0 } from '@auth0/auth0-react';
-
+import { useAuth0,withAuthenticationRequired} from '@auth0/auth0-react';
 if (localStorage.getItem('carrito') === null ) {
   localStorage.setItem('carrito', JSON.stringify([]))
 }
@@ -19,7 +18,9 @@ if (localStorage.getItem('favoritos') === null ) {
 }
 
 const Navbar = () => {
+  
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
+  console.log(user)
   const [ droppedMenu, setDroppedMenu ] = useState(false);
   const favo = useSelector((state) => state.favorites)  
   const car = useSelector((state) => state.shoppingCar)  
