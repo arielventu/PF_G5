@@ -28,7 +28,7 @@ const NewReview = ({ handleModal }) => {
   useEffect(() => {
     dispatch(getReviews());
     dispatch(getReviewsById(productId));
-    // console.log(reviews);
+    // console.log(reviews, []);
   }, []);
 
   const handleChange = (e) => {
