@@ -3,6 +3,13 @@ body {
   font-family: Koulen;
 }
 
+.divLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .containerp {
   font-family: Koulen;
   margin-bottom: 3rem;
