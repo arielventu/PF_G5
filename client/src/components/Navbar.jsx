@@ -9,7 +9,13 @@ import fav from "../image/favorito.png"
 import swal from 'sweetalert';
 import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
+<<<<<<< HEAD
 import { useAuth0,withAuthenticationRequired} from '@auth0/auth0-react';
+=======
+import { useAuth0 } from '@auth0/auth0-react';
+import { getUserRoles, getApiJWT } from "../actions/actions"
+
+>>>>>>> 4cff1e215ad39046de9fb8e720351ad5ece08191
 if (localStorage.getItem('carrito') === null ) {
   localStorage.setItem('carrito', JSON.stringify([]))
 }
@@ -18,22 +24,41 @@ if (localStorage.getItem('favoritos') === null ) {
 }
 
 const Navbar = () => {
+<<<<<<< HEAD
   
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
   console.log(user)
+=======
+  const { loginWithRedirect, logout, user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+>>>>>>> 4cff1e215ad39046de9fb8e720351ad5ece08191
   const [ droppedMenu, setDroppedMenu ] = useState(false);
+  const [ admin, setAdmin ] = useState(false);
   const favo = useSelector((state) => state.favorites)  
   const car = useSelector((state) => state.shoppingCar)  
   const dispatch = useDispatch() 
-  var valit = ""
   const navegation = useNavigate()
+  var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
 
-  
+
+  const getToken = () => {
+    return new Promise( (resolve, reject) => {
+      getAccessTokenSilently()
+        .then( async token => getApiJWT(token) )
+        .then( apiToken => {
+          resolve(apiToken);
+          console.log(apiToken)
+        })
+        .catch( error => {
+          reject(error)
+        })
+    })
+  };
  
   const validation = (valit)=>{  
     if (valit ==="favorites") {
+      console.log("favorito")
       if (localStorage.getItem('favoritos') === "[]") {
         return navegation(1)
       }else{
@@ -51,16 +76,39 @@ const Navbar = () => {
 
   const dropMenu = () => {
     if ( droppedMenu === false ) {
-      setDroppedMenu(true);
+      getToken()
+        .then( apiToken => getUserRoles(user.sub, apiToken) )
+        .then( data => {
+          console.log(data)
+          if (data.length === 0) {
+            setAdmin(false)
+          }
+          else {
+            for ( let x=0; x < data.length; x++ ) {
+              if ( data[x].name === 'Admin' ) {
+                setAdmin(true);
+                break
+              }
+              else {
+                setAdmin(false)
+              }
+            }
+          }
+          setDroppedMenu(true);
+        })
+        .catch( err => console.log(err) )
     }
     else {
       setDroppedMenu(false);
     }
-    console.log(droppedMenu)
   }
 
   const profileRedirect = () => {
     navegation("/user-profile")
+  }
+
+  const administrationRedirect = () => {
+    navegation("/administration")
   }
   
   console.log(user)
@@ -119,7 +167,7 @@ const Navbar = () => {
               <img
                 className={styles.icon}
                 src={cart}
-                alt="shop cart"
+                alt="shoppingCar"
                 onClick={() => validation((valit = "car"))}
               />
               {arrayCar.length ? <span className={styles.iconsCartFav}>{arrayCar.length}</span> : null}
@@ -148,8 +196,19 @@ const Navbar = () => {
               profileRedirect();
             }}
           >
-            Mi Cuenta
+            My Account
           </button>
+          { admin && (
+            <button
+              className={styles.customFont}
+              onClick={() => {
+                dropMenu();
+                administrationRedirect();
+              }}
+            >
+              Administration
+            </button>
+          )}
           <button
             className={styles.customFont}
             onClick={() => {
