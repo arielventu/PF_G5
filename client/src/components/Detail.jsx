@@ -205,7 +205,9 @@ export default function Detail(){
             </Modal>
             <Reviews productId={ id } name={ detailstate2.fullName }/>
       </div> : 
-      <div><h2> loading... </h2></div>
+          <div className={styles.divLoading}>
+            <img src="https://thumbs.gfycat.com/PepperyMediumBrahmancow-size_restricted.gif" />
+        </div>
     }
     </div>
         )

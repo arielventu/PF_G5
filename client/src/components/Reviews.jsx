@@ -11,9 +11,9 @@ import styles from "./Reviews.module.css";
 //     faStar
 // } from "@htmlFortawesome/free-solid-svg-icons";
 
-const Reviews = ({ name }) => {
-  const { id } = useParams();
-  const productId = id;
+const Reviews = ({ productId, name }) => {
+  // const { id } = useParams();
+  // const productId = id;
   const dispatch = useDispatch();
   const reviewsById = useSelector((state) => state.reviewsById);
   const [reviewsList, setReviewsList] = useState([]);
