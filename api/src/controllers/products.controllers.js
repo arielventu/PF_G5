@@ -94,6 +94,7 @@ const createProduct = async (req, res) => {
     price,
     imagecover,
     imageurl,
+    colors,
     available,
   } = req.body;
 
@@ -107,6 +108,7 @@ const createProduct = async (req, res) => {
       price,
       imagecover,
       imageurl,
+      colors,
       available,
     });
 
