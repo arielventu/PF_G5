@@ -8,8 +8,9 @@ import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
-export default function Card({img, fullName, price,component,id}){
-   const navegation = useNavigate()
+export default function Card({img, fullName, price,component,id , stock}){
+    console.log(stock)
+    const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
     var array = []
@@ -62,11 +63,14 @@ export default function Card({img, fullName, price,component,id}){
     const comprar = ()=>{
 
     }
+    
+    console.log(stock)
     return(
         <div className={styles.container}>
             <img className={styles.img}src= {img} alt='img'></img>  
             <h2 className={styles.h2}>{firstWordBye(fullName)}</h2>
             <p className={styles.price}>${price}</p>
+            <p >{stock}</p>
             <img className={styles.rating} src={rating} alt='rating'/> 
             {
                 component === "favorites"?<button className={styles.bfav} value={id} onClick={(e)=>comprar(e)}>Comprar</button>:null

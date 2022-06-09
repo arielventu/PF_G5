@@ -29,6 +29,7 @@ const initialState = {
   //hacer un estado para los filtros
   shoes: [],
   auxShoes: [],
+  shoes3 : [],
   categories: [],
   searchBar: [],
   favorites: [],
@@ -47,6 +48,7 @@ export default function rootReducer(state = initialState, { payload, type }) {
         ...state,
         shoes: payload,
         auxShoes: payload,
+        shoes3 : payload
       };
     case GET_CATEGORIES:
       // console.log(payload)

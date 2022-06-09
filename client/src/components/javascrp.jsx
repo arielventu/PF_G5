@@ -1,7 +1,7 @@
 // import libraries
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts  ,postProduct , getCategories} from "../actions/actions";
+import { getProducts } from "../actions/actions";
 import styles from "./Products.module.css";
 
 //import 'Product.variants (stock)', the auxiliar component.
@@ -33,12 +33,9 @@ import {
 // Build componnent
 const Products = () => {
   // initalize local states
-  const [all, setProducts] = useState();
-  const products = useSelector(state=>state.shoes3)
-/*   const [products, setProducts] = useState(
+  const [products, setProducts] = useState(
     useSelector((state) => state.auxShoes)
-  ); */
-  
+  );
 
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
@@ -66,9 +63,7 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-    
-    dispatch(getCategories());
-  }, []);
+  }, [products, categories, available]);
 
   // ----------------------------------------------------
 
@@ -83,13 +78,11 @@ const Products = () => {
 
   const showModalInsert = () => {
     setModalInsert(true);
-    form.categories = initial.categories
   };
 
   const closeModalInsert = () => {
     setModalInsert(false);
     setForm(initial);
-    /* form.categories = initial.categories */
   };
 
   const showModalVariants = (data) => {
@@ -141,29 +134,13 @@ const Products = () => {
     }
   };
 
-/*   const insert = () => { 
-    let newForm = { ...form };
-    newForm.id = products.length + 1;
-    let list = products;
-    list.push(newForm);
-    setModalInsert(false);
-    setProducts(list);
-  }; */
   const insert = () => {
     let newForm = { ...form };
-    delete newForm.id
-    console.log(newForm.categories)
-    console.log(newForm);
     newForm.id = products.length + 1;
-    /* console.log(newForm.id) */
     let list = products;
     list.push(newForm);
     setModalInsert(false);
     setProducts(list);
-    dispatch(postProduct(newForm))
-    console.log(form)
-    
-
   };
 
   const handleChange = (e) => {
@@ -179,7 +156,6 @@ const Products = () => {
       name === "detail" &&setForm({ ...form, [e.target.name]: e.target.value })
       name === "gender" &&setForm({ ...form, [e.target.name]: e.target.value })
       name === "categories"&&setForm({...form,categories: [...form.categories, Number(value)] });
-      console.log(form)
   };
 
   /* const handleClick = (e) => {
@@ -244,8 +220,8 @@ const Products = () => {
             {products?.map((e, i) => {
               return (
                 <tr key={i}>
+                  <td>{i + 1}</td>
                   <td>{e.id}</td>
-                  
                   <td>
                     <img
                       src={e.imagecover}
@@ -374,7 +350,7 @@ const Products = () => {
                       id={index}
                       type="checkbox"
                       name="categories"
-                      value={e.id}
+                      value={e.name}
                       onClick={(e) => handleChange(e)}
                     />
                     {` ${e.name}`}
@@ -546,8 +522,8 @@ const Products = () => {
                       type="checkbox"
                       name="categories"
                       value={e.name}
-                      /* checked={ *//* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
-                      /* onClick={(e) => handleChange(e)} */
+                      checked={findCheckSelected(form, e)}
+                      onClick={(e) => handleClick(e)}
                     />
                     {` ${e.name}`}
                   </label>

@@ -188,7 +188,7 @@ export function setReviews(payload) {
 export function postProduct(payload) {
   return async function (dispatch) {
     try {
-      var yeison = await axios.post("/product", payload);
+      var yeison = await axios.post("/products", payload);
       return yeison;
     } catch (error) {
       console.log(error);

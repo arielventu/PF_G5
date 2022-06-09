@@ -10,19 +10,24 @@ import {vix} from '../utils'
 
 const Shop = () => {
   const products = useSelector(state => state.shoes)
-  const auxProducts = useSelector(state => state.auxShoes)
+  const auxProducts = useSelector(state => state.shoes3)
   const bestFor = useSelector(state => state.categories)
   const categories = useSelector(state => state.auxShoes)
   const colors = useSelector(state => state.colors)
   const dispatch = useDispatch()
-
+  console.log (categories)
   // const [filterSelected, setFilterSelected] = useState('')
   console.log(products)
   const [currentPage, setCurrentPage] = useState(1);
   const [shoesPerPage, setShoesPerPage]= useState(16) //eslint-disable-line
   const indexOfLastShoe = currentPage * shoesPerPage; 
   const indexOfFirstShoe = indexOfLastShoe - shoesPerPage;
+
   const currentShoes = products.slice(indexOfFirstShoe, indexOfLastShoe);
+
+  /* const pangolin =products.filter(e=> e.stock !== undefined)
+  const currentShoes = pangolin.slice(indexOfFirstShoe, indexOfLastShoe); */
+/*   console.log(pangolin) */
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -36,18 +41,17 @@ const Shop = () => {
     const str2 = arr.join(" ");
     return str2;
   }
-
   let joint = []
   categories.map(e=> joint.push(e.masterName))
   joint= [... new Set(joint)].sort()
+
   
   useEffect(() => {
     dispatch(getCategories())
     dispatch(getProducts())
     dispatch(getColors())
+   
   }, [])
-  
-
 
   const clearFilters = () => {
     dispatch(filterByBestFor('All'))
@@ -55,7 +59,18 @@ const Shop = () => {
     dispatch(filterByGender('All'))
 
   }
-  
+/*   const fiols= []
+  products.map((e) => {
+   var quik =  e.stocks.map((e)=> {
+     return{
+       availbale : Object.values ([e.color.color]),
+       size: Object.values([e.size.size])    
+      }
+    })
+    delete e.id  
+    fiols.push(quik)
+  })
+  console.log(fiols) */
   const filterHandler = (e) => {
     e.preventDefault()
     const { value, name } = e.target
@@ -121,7 +136,7 @@ const Shop = () => {
         <div className = {styles.cards}>
           {currentShoes?.map(product => (
               <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
-                <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover}/>
+                <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover} stock = {product.available}/>
               </Link>
           ))}
         </div>
