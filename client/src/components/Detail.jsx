@@ -40,6 +40,7 @@ export default function Detail(){
   if(detailstate.length != 0){
     detailstate2 = detailstate.find(item => item.id == id )
   }
+
   
   const add = async (e)=>{
     var arrayAdd = []
@@ -81,7 +82,19 @@ export default function Detail(){
     dispatch(favorites())
   }
 
+    
+  let catColors =[] 
+  products.map ((e , i)  => {
+    if(e.masterName === detailstate2.masterName){
+      catColors.push( {color : Array.from(new Set (e.colors)),
+        /* name : e.masterName, */
+         id : e.id })
+    }
+  })
 
+  
+  // console.log(detailstate2.masterName)
+  console.log(catColors)
   // Reviews -----------------------------------
   const reviewsById = useSelector((state) => state.reviewsById);
   const [showModal, setShowModal] = useState(false);
@@ -89,11 +102,12 @@ export default function Detail(){
   const handleModal = (e) => {
     setShowModal(!showModal);
   }
+
   const starsLevels = [];
   reviewsById.map((e) => {starsLevels.push(e.starsLevel)})
   let starsAvg = Math.ceil(starsLevels.reduce((a, b) => a + b, 0) / starsLevels.length)
 
-  console.log(starsAvg);
+  // console.log(starsAvg);
   return(
     <div className={styles.details}>
     { detailstate.length > 0 ? 
@@ -109,11 +123,26 @@ export default function Detail(){
              }
             </select>
           </div>
-            <h3 className={styles.subtitles}>colors:</h3>
-            <div className={styles.containercolors}>
+          <h3 className={styles.subtitles}>colors:</h3>
+          <div className={styles.containercolors}>
+          {catColors.map((e, i) => {
+            return (
+              <Link to={`/shop/details/${e.id}`}>
+                <div className={styles.innercontainer}>
+                  <div className={styles.color1} style={{ backgroundColor: `${e.color[0]}` }}></div>
+                  {e.color.length > 1 ?
+                    <div className={styles.color2} style={{ backgroundColor: `${e.color[1]}` }}></div>
+                    : <div className={styles.color2} style={{ backgroundColor: `${e.color[0]}` }}></div>
+                  }
+                </div>
+              </Link>
+            )}
+            )}
+            </div>
+            {/* <div className={styles.containercolors}>
               <div className={styles.color1} style={{ backgroundColor: `${detailstate2.colors[0]}` }}></div>
               <div className={styles.color2} style={{ backgroundColor: `${detailstate2.colors[1]}` }}></div>
-            </div>
+            </div> */}
             <div className = {styles.innercontainer2}>
               <h5 className={styles.price}> ${detailstate2.price}</h5>
             {/* <img className={styles.rating} src={rating} alt='rating'/>  */}
@@ -176,7 +205,9 @@ export default function Detail(){
             </Modal>
             <Reviews productId={ id } name={ detailstate2.fullName }/>
       </div> : 
-      <div><h2> loading... </h2></div>
+          <div className={styles.divLoading}>
+            <img src="https://thumbs.gfycat.com/PepperyMediumBrahmancow-size_restricted.gif" />
+        </div>
     }
     </div>
         )
