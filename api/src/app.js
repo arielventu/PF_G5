@@ -19,6 +19,7 @@ const ordersRoutes = require("./routes/orders.routes");
 const orderDetailsRoutes = require("./routes/orderDetails.routes");
 const authRoutes = require("./routes/auth.routes");
 const usersRoutes = require("./routes/users.routes")
+const checkoutRoutes = require("./routes/checkout.routes")
 
 const mailRouter = require("./routes/mail.routes");
 const favoritesRoutes = require("./routes/favorites.routes");
@@ -82,7 +83,8 @@ app.use(basketListRoutes);
 // LA PARTE DE AUTORIZACION DEBE VENIR A LO ÚLTIMO 
 app.use(jwtCheck);  // Utiliza el jwtCheck para las siguientes rutas
 app.use(authRoutes); // Toma el API Token para utilizar en los request a Auth0 Management
-app.use(usersRoutes); // 
+app.use(usersRoutes); // Utiliza el token de la API Auth0 Management para hacer consultas a los endpoints de usuarios
+app.use(checkoutRoutes); // Integracion con mercadopago
 
 // catch 404 and forward to error handler ---------------------------------------
 app.use(function (req, res, next) {
