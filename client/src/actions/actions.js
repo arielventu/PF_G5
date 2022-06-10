@@ -412,7 +412,7 @@ export function postStock(payload) {
     }
   };
 }
-export function getSizes (){ 
+/* export function getSizes (){ 
     return async function (dispatch){
         try{
             await axios.get(`/sizes`)
@@ -426,7 +426,7 @@ export function getSizes (){
         }catch(error){
             console.log(error)}
     }
-}
+} */
 
 export function putStock(payload) {
   return async function (dispatch) {

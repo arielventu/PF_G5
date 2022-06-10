@@ -66,7 +66,6 @@ const Products = () => {
   console.log(categorie)
   useEffect(() => {
     dispatch(getProducts());
-    
     dispatch(getCategories());
   }, []);
 
@@ -141,6 +140,14 @@ const Products = () => {
     }
   };
 
+ 
+/*   const insert = () => {
+    let newForm = { ...form };
+    delete newForm.id
+    console.log(newForm.categories)
+    console.log(newForm); */
+    /* newForm.id = products.length + 1; */
+    /* console.log(newForm.id) */
 /*   const insert = () => { 
     let newForm = { ...form };
     newForm.id = products.length + 1;
@@ -148,6 +155,9 @@ const Products = () => {
     list.push(newForm);
     setModalInsert(false);
     setProducts(list);
+    dispatch(postProduct(newForm))
+    console.log(form)
+    
   }; */
   const insert = () => {
     let newForm = { ...form };
@@ -166,7 +176,7 @@ const Products = () => {
 
   };
 
-  };
+ /*  }; */
   /* form.categories=[] */
   const handleChange = (e) => {
   /*   e.target.name === "imageurl" &&
@@ -379,7 +389,7 @@ console.log(form)
 
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
-            {categories?.map((e, index) => {
+            {categorie?.map((e, index) => {
               return (
                 <div key={index} className="checkbox">
                   <label>
@@ -551,7 +561,7 @@ console.log(form)
 
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
-            {categories?.map((e, index) => {
+            {categorie?.map((e, index) => {
               return (
                 <div key={index} className="checkbox">
                   <label>

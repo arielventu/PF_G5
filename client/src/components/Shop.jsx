@@ -10,29 +10,15 @@ import {firstWordBye} from '../utils'
 import {vix} from '../utils'
 
 const Shop = () => {
-<<<<<<< HEAD
-  
-  const products= useSelector(state => state.shoes)
-  
-  
-  
-  const auxProducts = useSelector(state => state.auxShoes)
-=======
   const products = useSelector(state => state.shoes)
   const auxProducts = useSelector(state => state.shoes3)
->>>>>>> 8f2906cb7d5c88b668c5a9151711a247959ab9b8
   const bestFor = useSelector(state => state.categories)
   const categories = useSelector(state => state.auxShoes)
   const colors = useSelector(state => state.colors)
   const size = useSelector(state => state.sizes)
   console.log(size)
   const dispatch = useDispatch()
-<<<<<<< HEAD
- /*  const colors = useSelector(state => state.colors) */
-
-=======
   console.log (categories)
->>>>>>> 8f2906cb7d5c88b668c5a9151711a247959ab9b8
   // const [filterSelected, setFilterSelected] = useState('')
   console.log(products)
   const [currentPage, setCurrentPage] = useState(1);
@@ -41,15 +27,11 @@ const Shop = () => {
   const indexOfFirstShoe = indexOfLastShoe - shoesPerPage;
 
   const currentShoes = products.slice(indexOfFirstShoe, indexOfLastShoe);
-<<<<<<< HEAD
-  
-=======
 
   /* const pangolin =products.filter(e=> e.stock !== undefined)
   const currentShoes = pangolin.slice(indexOfFirstShoe, indexOfLastShoe); */
 /*   console.log(pangolin) */
 
->>>>>>> 8f2906cb7d5c88b668c5a9151711a247959ab9b8
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
@@ -62,29 +44,6 @@ const Shop = () => {
     const str2 = arr.join(" ");
     return str2;
   }
-<<<<<<< HEAD
-  /// traer del back la tabla sizes
-  
-  
-  const filterHandler = (e) => {
-
-    e.preventDefault()
-    const { value, name } = e.target
-    console.log(value)
-    name === 'categories' && dispatch(filterByCategories(value))
-    name === 'bestFor' && dispatch(filterByBestFor(value))
-    name === 'colors' && dispatch(filterByColor(value))
-    name === 'gender' && dispatch(filterByGender(value))
-    name === 'price' && dispatch(filterByPrice(value))
-    name === 'sizez'&& dispatch(otroFilterMas(value))
-    
-    setCurrentPage(1)
-   } /* dispatch(otroFilterMas(value)) */
-    
-  
- 
-=======
->>>>>>> 8f2906cb7d5c88b668c5a9151711a247959ab9b8
   let joint = []
   categories.map(e=> joint.push(e.masterName))
   joint= [... new Set(joint)].sort()
@@ -95,36 +54,14 @@ const Shop = () => {
     dispatch(getCategories())
     dispatch(getProducts())
     dispatch(getColors())
-<<<<<<< HEAD
-    dispatch(getSizes())
-    
-  }, [])
-  
-console.log(size)
-
-=======
    
   }, [])
->>>>>>> 8f2906cb7d5c88b668c5a9151711a247959ab9b8
   const clearFilters = () => {
     dispatch(filterByBestFor('All'))
     dispatch(filterByCategories('All'))
     dispatch(filterByGender('All'))
     dispatch(otroFilterMas('All'))
   }
-<<<<<<< HEAD
-  
- /*  const filterShoe =()=>{
-  console.log(sizeshoe)
-    const flea = []
-    products.map((e)=> {
-    let fino=  e.stocks.map((e) => {
-       return(e.size.size)})
-       return fino.includes(sizeshoe)?flea.push(e):null;
-      })
-     dispatch(otroFilterMas(flea)) 
-  } */
-=======
 /*   const fiols= []
   products.map((e) => {
    var quik =  e.stocks.map((e)=> {
@@ -147,7 +84,6 @@ console.log(size)
     setCurrentPage(1)
   }
     
->>>>>>> 8f2906cb7d5c88b668c5a9151711a247959ab9b8
   return (
     <div className={styles.container}>
       <div className={styles.flyer}>

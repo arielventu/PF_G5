@@ -33,7 +33,7 @@ function App() {
         <Route exact path="/shop/details/:id" element={<Detail/>}/>
         <Route exact path="/search/:keyword" element={<SearchResult/>}/>
         <Route exact path="/user-profile" element={<UserProfile/>}/>
-        <Route exact path="/edit" element={<EditProduct/>}/>
+      {/*   <Route exact path="/edit" element={<EditProduct/>}/> */}
         <Route path="/products" element={<Products />} />
         <Route exact path="/shop/details/:id" element={<Detail />} />
         <Route exact path="/search/:keyword" element={<SearchResult />} />
