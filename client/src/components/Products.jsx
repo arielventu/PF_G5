@@ -500,7 +500,7 @@ console.log(form)
       {/* ----------- update data -------------------- */}
       {/* -------------------------------------------- */}
       <Modal isOpen={modalUpdate} className={styles.containerModal}>
-        <ModalBody className={styles.modalBody}>
+        <ModalBody className={styles.modalVariant/* modalBody */}>
           <ModalHeader className={styles.modalHeader}>
             <div>
               <h3 className={styles.modalTitle}>Update Product</h3>
