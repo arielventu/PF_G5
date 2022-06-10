@@ -1,5 +1,6 @@
 // import libraries
 import React, { useEffect, useState } from "react";
+import styles from "./Products.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getColors,
@@ -9,6 +10,7 @@ import {
   putStock,
   deleteStock,
 } from "../actions/actions";
+
 
 // import styles bootstrap and Font Awesome Icon
 // import "bootstrap/dist/css/bootstrap.min.css";
@@ -32,6 +34,7 @@ import {
   ModalFooter,
   FormGroup,
 } from "reactstrap";
+
 
 const ProductVariants = ({ idproduct, productName }) => {
   // global redux states
@@ -145,7 +148,7 @@ const ProductVariants = ({ idproduct, productName }) => {
   //render
   return (
     <>
-      <Container>
+      <Container >
         <FormGroup>
           <label>Product:</label>
           <input
@@ -224,7 +227,7 @@ const ProductVariants = ({ idproduct, productName }) => {
       {/* ----------- create data -------------------- */}
       {/* -------------------------------------------- */}
 
-      <Modal isOpen={modalCreate}>
+      <Modal isOpen={modalCreate} className={styles.modal2}>
         <ModalHeader>
           <div>
             <h3>Add Variant</h3>
@@ -315,7 +318,7 @@ const ProductVariants = ({ idproduct, productName }) => {
 
       {/* ----------- update data -------------------- */}
       {/* -------------------------------------------- */}
-      <Modal isOpen={modalUpdate}>
+      <Modal isOpen={modalUpdate}  className={styles.modal2}>
         <ModalHeader>
           <div>
             <h3>Edit Variant</h3>
