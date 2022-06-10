@@ -28,14 +28,16 @@ const getStocks = async (req, res) => {
   try {
     const allStock = await Product.findAll({
       include: [
-        { model: Category, attributes: ["name"]},
-        { model: Stock, attributes: ["id", "quantity", "available"],
+        { model: Category, attributes: ["name"] },
+        {
+          model: Stock,
+          attributes: ["id", "quantity", "available"],
           include: [
-            { model: Sizes, attributes: ["id","size"] },
-            { model: Colors, attributes: ["id","color"] },  
-          ]
-          }
-        ],
+            { model: Sizes, attributes: ["id", "size"] },
+            { model: Colors, attributes: ["id", "color"] },
+          ],
+        },
+      ],
     });
     res.json(allStock);
   } catch (error) {
@@ -49,8 +51,8 @@ const getStock = async (req, res) => {
     const stock = await Stock.findByPk(id, {
       attributes: ["id", "quantity", "available"],
       include: [
-        { model: Sizes, attributes: ["id","size"] },
-        { model: Colors, attributes: ["id","color"] },
+        { model: Sizes, attributes: ["id", "size"] },
+        { model: Colors, attributes: ["id", "color"] },
       ],
     });
 
@@ -63,14 +65,38 @@ const getStock = async (req, res) => {
   }
 };
 
+const getStockByPruductId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const stock = await Stock.findAll({
+      where: { productId: id },
+
+      include: [
+        {
+          model: Sizes,
+          attributes: ["id", "size"],
+          order: [["size", "ASC"]],
+        },
+        { model: Colors, attributes: ["id", "color"] },
+      ],
+    });
+
+    if (!stock)
+      return res
+        .status(404)
+        .json({ message: "Stock does not exists by this productId" });
+
+    res.json(stock);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 const createStock = async (req, res) => {
-  const { quantity, cost, price, available, productId, sizeId, colorId } =
-    req.body;
+  const { quantity, available, productId, sizeId, colorId } = req.body;
   try {
     const newStock = await Stock.create({
       quantity,
-      cost,
-      price,
       available,
       productId,
       sizeId,
@@ -87,7 +113,7 @@ const updateStock = async (req, res) => {
   try {
     const { id } = req.params;
     const stock = await Stock.findByPk(id);
-    product.set(req.body);
+    stock.set(req.body);
     await stock.save();
 
     res.json(stock);
@@ -111,6 +137,7 @@ const deleteStock = async (req, res) => {
 module.exports = {
   getStocks,
   getStock,
+  getStockByPruductId,
   createStock,
   updateStock,
   deleteStock,

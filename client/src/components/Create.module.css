@@ -1,0 +1,9 @@
+.checkboxes {
+    display: flex;
+    flex-direction: row;
+}
+
+.stock {
+    display: grid;
+    grid-template-columns: repeat(2, 400px);   
+   }
