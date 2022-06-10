@@ -52,7 +52,6 @@ const Shop = () => {
     dispatch(getColors())
    
   }, [])
-
   const clearFilters = () => {
     dispatch(filterByBestFor('All'))
     dispatch(filterByCategories('All'))
@@ -80,6 +79,7 @@ const Shop = () => {
     name === 'gender' && dispatch(filterByGender(value))
     setCurrentPage(1)
   }
+    
   return (
     <div className={styles.container}>
       <div className={styles.flyer}>

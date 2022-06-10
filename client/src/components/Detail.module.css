@@ -3,6 +3,13 @@ body {
   font-family: Koulen;
 }
 
+.divLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .containerp {
   font-family: Koulen;
   margin-bottom: 3rem;
@@ -134,6 +141,7 @@ select {
   border-bottom-right-radius: 100% 50%;
   border: 1px solid rgb(124, 124, 124);
   border-left: none;
+  margin-right: .3rem;
 }
 
 .containercolors {
