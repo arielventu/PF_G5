@@ -344,6 +344,13 @@ export const resetUserPass = async ( email, apiToken ) => {
     console.log(error);
   }
 }
+export const otroFilterMas = (payload)=>{
+     console.log(payload)
+    return  {
+        type: 'OTRO_MAS',
+        payload 
+    }       
+}
 
 export const getApiJWT = ( token ) => {
   return new Promise( (resolve, reject) => {
@@ -405,6 +412,21 @@ export function postStock(payload) {
     }
   };
 }
+/* export function getSizes (){ 
+    return async function (dispatch){
+        try{
+            await axios.get(`/sizes`)
+                .then(yeison => {
+                    // console.log(yeison.data)
+                dispatch({
+                type: 'GET_SIZES',
+                payload :yeison.data
+                })
+            })
+        }catch(error){
+            console.log(error)}
+    }
+} */
 
 export function putStock(payload) {
   return async function (dispatch) {

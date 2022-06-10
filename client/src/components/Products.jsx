@@ -35,6 +35,7 @@ const Products = () => {
   // initalize local states
   const [all, setProducts] = useState();
   const products = useSelector(state=>state.shoes3)
+  console.log(products)
 /*   const [products, setProducts] = useState(
     useSelector((state) => state.auxShoes)
   ); */
@@ -59,14 +60,13 @@ const Products = () => {
     categories: [],
   };
   const [form, setForm] = useState(initial);
-
+ 
   // get 'redux store' of shoes / products
-  const categories = useSelector((state) => state.categories);
+  const categorie = useSelector((state) => state.categories);
   const dispatch = useDispatch();
-
+  console.log(categorie)
   useEffect(() => {
     dispatch(getProducts());
-    
     dispatch(getCategories());
   }, []);
 
@@ -83,7 +83,8 @@ const Products = () => {
 
   const showModalInsert = () => {
     setModalInsert(true);
-    form.categories = initial.categories
+    setForm(initial)
+
   };
 
   const closeModalInsert = () => {
@@ -141,6 +142,14 @@ const Products = () => {
     }
   };
 
+ 
+/*   const insert = () => {
+    let newForm = { ...form };
+    delete newForm.id
+    console.log(newForm.categories)
+    console.log(newForm); */
+    /* newForm.id = products.length + 1; */
+    /* console.log(newForm.id) */
 /*   const insert = () => { 
     let newForm = { ...form };
     newForm.id = products.length + 1;
@@ -148,6 +157,9 @@ const Products = () => {
     list.push(newForm);
     setModalInsert(false);
     setProducts(list);
+    dispatch(postProduct(newForm))
+    console.log(form)
+    
   }; */
   const insert = () => {
     let newForm = { ...form };
@@ -166,6 +178,8 @@ const Products = () => {
 
   };
 
+ /*  }; */
+  /* form.categories=[] */
   const handleChange = (e) => {
   /*   e.target.name === "imageurl" &&
       setForm({ ...form, [e.target.name]: [e.target.value] });
@@ -210,8 +224,9 @@ const Products = () => {
     return false;
   }; */
 
+    
   // ----------------------------------------------------
-
+console.log(form)
   //render
   return (
     <>
@@ -254,7 +269,7 @@ const Products = () => {
                       height="80"
                     ></img>
                   </td>
-                  <td>{e.masterName}</td>
+                  <td>{e.name}</td>
                   <td>{e.gender}</td>
                   <td>{e.categories.map((el) => el?.name?.concat(", "))}</td>
                   <td>{new Intl.NumberFormat("en-EN").format(e.price)}</td>
@@ -327,7 +342,17 @@ const Products = () => {
             <label>Name:</label>
             <input
               className="form-control"
-              name="masterName"
+              name="name"
+              type="text"
+              onChange={(e) => handleChange(e)}
+            />
+          </FormGroup>
+          <FormGroup>
+            <label>Detail:</label>
+            <input
+              className="form-control"
+              name="detail"
+              
               type="text"
               autoFocus
               onChange={(e) => handleChange(e)}
@@ -366,7 +391,7 @@ const Products = () => {
 
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
-            {categories?.map((e, index) => {
+            {categorie?.map((e, index) => {
               return (
                 <div key={index} className="checkbox">
                   <label>
@@ -403,7 +428,7 @@ const Products = () => {
             <input
               className="form-control"
               name="price"
-              type="numeric"
+              type="number"
               onChange={(e) => handleChange(e)}
             />
           </FormGroup>
@@ -496,7 +521,7 @@ const Products = () => {
             <label>Name:</label>
             <input
               className="form-control"
-              name="masterName"
+              name="name"
               type="text"
               value={form.masterName}
               onChange={(e) => handleChange(e)}
@@ -538,7 +563,7 @@ const Products = () => {
 
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
-            {categories?.map((e, index) => {
+            {categorie?.map((e, index) => {
               return (
                 <div key={index} className="checkbox">
                   <label>
@@ -623,5 +648,4 @@ const Products = () => {
     </>
   );
 };
-
 export default Products;

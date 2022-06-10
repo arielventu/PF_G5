@@ -30,6 +30,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/shoppingCar" element={<ShoppingCar />} />
+        <Route exact path="/shop/details/:id" element={<Detail/>}/>
+        <Route exact path="/search/:keyword" element={<SearchResult/>}/>
+        <Route exact path="/user-profile" element={<UserProfile/>}/>
+      {/*   <Route exact path="/edit" element={<EditProduct/>}/> */}
         <Route path="/products" element={<Products />} />
         <Route exact path="/shop/details/:id" element={<Detail />} />
         <Route exact path="/search/:keyword" element={<SearchResult />} />
