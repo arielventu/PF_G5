@@ -16,7 +16,6 @@ const NewReview = ({ handleModal }) => {
     const { id } = useParams();
     const productId = id;
     const dispatch = useDispatch();
-    const reviews = useSelector((state) => state.allReviews);
     const reviewsById = useSelector((state) => state.reviewsById);
     const { user } = useAuth0();
     const initialReview = {
@@ -27,11 +26,7 @@ const NewReview = ({ handleModal }) => {
     }
     const [newReview, setNewReview] = useState(initialReview);
 
-  useEffect(() => {
-    dispatch(getReviews());
-    dispatch(getReviewsById(productId));
-    // console.log(reviews);
-  }, []);
+
 
   const handleChange = (e) => {
     setNewReview({
@@ -60,9 +55,9 @@ const NewReview = ({ handleModal }) => {
         dispatch(setReviews(newReview));
         swal("Success!", "Your review has been added!", "success");
         setNewReview(initialReview);
-        reviews.push(newReview);
-        reviewsById.push(newReview);
-      //  dispatch(getReviewsById(productId))
+        dispatch(getReviewsById(productId))
+        // reviews.push(newReview);
+        // reviewsById.push(newReview);
       }
       handleModal(); // Cierra modal en componente padre 'Detail'
   };
