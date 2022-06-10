@@ -21,6 +21,10 @@ module.exports = (sequelize) => {
   sequelize.define(
     "review",
     {
+      username: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,

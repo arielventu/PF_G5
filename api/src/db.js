@@ -65,7 +65,19 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring:
-const { Product, Review, Stock, Sizes, Colors, Category, Costumers, Orders, Orderdetails } = sequelize.models;
+const {
+  Product,
+  Review,
+  Stock,
+  Sizes,
+  Colors,
+  Category,
+  Customers,
+  Orders,
+  Orderdetails,
+  Favorites,
+  BasketList,
+} = sequelize.models;
 
 // Aca vendrian las relaciones
 
@@ -83,6 +95,14 @@ Stock.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
 Product.belongsToMany(Category, { through: "productscategories" });
 Category.belongsToMany(Product, { through: "productscategories" });
 
+// 'Product' has many 'favorites', 'favorites' belong to 'Product'
+Product.hasMany(Favorites, { foreignKey: "productId", sourceKey: "id" });
+Favorites.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
+
+// 'Product' has many 'basketList', 'basketList' belong to 'Product'
+Product.hasMany(BasketList, { foreignKey: "productId", sourceKey: "id" });
+BasketList.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
+
 // -------------------------------------------------------------------------
 // Relationship of model 'Sizes'
 // 'Sizes' has many 'Stock', 'Stock' belong to 'Sizes'
@@ -98,8 +118,8 @@ Stock.belongsTo(Colors, { foreignKey: "colorId", targetId: "id" });
 // -------------------------------------------------------------------------
 // Relationship of model 'Orders'
 // 'Costumers' has many 'Orders', 'Orders' belong to 'Costumers'
-Costumers.hasMany(Orders, { foreignKey: "customerId", sourceKey: "id" });
-Orders.belongsTo(Costumers, { foreignKey: "customerId", targetId: "id" });
+Customers.hasMany(Orders, { foreignKey: "customerId", sourceKey: "id" });
+Orders.belongsTo(Customers, { foreignKey: "customerId", targetId: "id" });
 
 // 'Orders' has many 'Orderdetails', 'Orderdetails' belong to 'Orders'
 Orders.hasMany(Orderdetails, { foreignKey: "ordersId", sourceKey: "id" });
@@ -112,5 +132,5 @@ Orderdetails.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
-  Op
+  Op,
 };

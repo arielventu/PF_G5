@@ -22,10 +22,11 @@ const getReviewByProductId = async (req, res) => {
 
 
 const postReviews = async (req, res) => {
-  const { description, starsLevel, productId } = req.body;
+  const { username, description, starsLevel, productId } = req.body;
   console.log(description);
   try {
     const reviewCreated = await Review.create({
+      username: username,
       description: description,
       starsLevel: starsLevel,
       productId: productId,
