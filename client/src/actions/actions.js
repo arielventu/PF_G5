@@ -436,3 +436,25 @@ export function deleteStock(id) {
   };
 }
   
+// ------------------------------------------------------
+// CHECKOUT
+// ------------------------------------------------------
+
+export async function postCheckoutOrder( order, apiToken ) {
+  try {
+    let options = {
+      method: 'POST',
+      url: `/checkout/postOrder`,
+      headers: {
+        "authorization": `Bearer ${apiToken}`
+      },
+      data: order,
+    }
+
+    const preferenceSandBox = await axios.request(options)
+    return preferenceSandBox
+  }
+  catch (error) {
+    console.log(error);
+  }
+}

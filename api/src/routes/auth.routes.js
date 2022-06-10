@@ -9,7 +9,6 @@
 
 const express = require('express');
 const router = express.Router();
-const guard = require('express-jwt-permissions');
 const request = require("request");
 const axios = require('axios')
 

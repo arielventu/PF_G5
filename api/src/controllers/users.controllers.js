@@ -14,32 +14,11 @@ const getUsers = (req, res) => {
         .catch( err => console.log(err) )
 };
 
+
 const updateUser = (req, res) => {
     
 };
 
-const deleteUser = (req, res) => {
-    // console.log('>> DELETE USER');
-    // console.log(req.params.id);
-    // console.log(req.headers.authorization)
-    let options = {
-        method: 'DELETE',
-        url: `https://ivocfh.us.auth0.com/api/v2/users/${req.params.id}`,
-        headers: {
-            authorization: req.headers.authorization,
-            "content-type": "application/json"
-        }
-    }
-
-    axios.request(options)
-        .then( response => {
-            if (response.status === 204) {
-                res.status(204).send('User deleted')
-            }
-        })
-        .catch( err => res.status(403).send(err.response.statusText))
-
-};
 
 const getUserRoles = (req, res) => {
     var options = {
@@ -80,6 +59,29 @@ const resetPass = (req, res) => {
       }).catch(function (error) {
         console.error(error);
       });
+
+};
+
+const deleteUser = (req, res) => {
+  // console.log('>> DELETE USER');
+  // console.log(req.params.id);
+  // console.log(req.headers.authorization)
+  let options = {
+      method: 'DELETE',
+      url: `https://ivocfh.us.auth0.com/api/v2/users/${req.params.id}`,
+      headers: {
+          authorization: req.headers.authorization,
+          "content-type": "application/json"
+      }
+  }
+
+  axios.request(options)
+      .then( response => {
+          if (response.status === 204) {
+              res.status(204).send('User deleted')
+          }
+      })
+      .catch( err => res.status(403).send(err.response.statusText))
 
 };
 

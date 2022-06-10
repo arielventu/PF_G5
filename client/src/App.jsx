@@ -15,6 +15,7 @@ import ShoppingCar from "./components/ShoppingCar";
 import Footer from "./components/Footer";
 import UserProfile from "./components/UserProfile";
 import Products from "./components/Products";
+import Checkout from "./components/Checkout";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route exact path="/user-profile" element={<UserProfile />} />
         <Route exact path="/newreview" element={<NewReview />} />
         <Route exact path="/reviews" element={<Reviews />} />
+        <Route exact path="/checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </Provider>
