@@ -35,6 +35,7 @@ const Products = () => {
   // initalize local states
   const [all, setProducts] = useState();
   const products = useSelector(state=>state.shoes3)
+  console.log(products)
 /*   const [products, setProducts] = useState(
     useSelector((state) => state.auxShoes)
   ); */
@@ -82,7 +83,8 @@ const Products = () => {
 
   const showModalInsert = () => {
     setModalInsert(true);
-    form.categories = initial.categories
+    setForm(initial)
+
   };
 
   const closeModalInsert = () => {
