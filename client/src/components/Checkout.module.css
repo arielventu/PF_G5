@@ -6,3 +6,13 @@
     align-items: center;
 }
 
+.mpButton {
+    padding: 0 1.7142857142857142em;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.875em;
+    line-height: 2.7142857142857144;
+    background: #d2d2d2;
+    border-radius: 0.2857142857142857em;
+    color: #fff;
+    border: 0;
+}

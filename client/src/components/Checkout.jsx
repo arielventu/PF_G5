@@ -55,20 +55,27 @@ const Checkout = () => {
       // con el preferenceId en mano, inyectamos el script de mercadoPago
       const script = document.createElement('script');
       script.type = 'text/javascript';
-      script.src =
-        'https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js';
+      script.src = 'https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js';
       script.setAttribute('data-preference-id', preferenceId);
       const form = document.getElementById(FORM_ID);
       form.appendChild(script);
     }
   }, [preferenceId]);
 
+  // const buttonMP = document.querySelector(".mercadopago-button")
+  // if (buttonMP) {
+  //   buttonMP.addEventListener("click", sendData);
+  // }
+
   return (
       <div className={styles.checkContainer}>
-        {/* hay que poner una logica para que solo se pueda enviar la solicitud una vez */}
-        <button onClick={ () => sendData() }> Enviar informacion </button><br /><br />
+        {/* Solo permite enviar la info una vez. Si existe preferenceId no permite hacerlo nuevamente */}
+      {preferenceId === '' && <button onClick={() => sendData()}> Enviar informacion </button>}
+      
         {/* { preferenceId && `${preferenceId}` }<br /><br /> */}
-        <form id={FORM_ID} method="GET" />
+      <form id={FORM_ID} method="GET">
+        {preferenceId === '' && <button disabled className={styles.mpButton} > Pagar </button>} {/*boton de mercadoPago deshabilitado*/}
+      </form>
       </div>
   )
 }
