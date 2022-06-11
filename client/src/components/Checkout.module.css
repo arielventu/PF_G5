@@ -16,3 +16,43 @@
     color: #fff;
     border: 0;
 }
+
+.container {
+    background-color: rgba(223, 221, 221, 0.993);
+    height: 12rem;
+    width: 50rem;
+    color: black;
+    /* align-items: center; */
+    font-family: Koulen;
+    /* padding: 1rem; */
+    margin-bottom: 2rem;
+    border: solid 0.5rem rgba(223, 221, 221, 0.993);
+  }
+  
+  /* .container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 0px 10px rgba(69, 167, 212, 0.829);
+  } */
+  
+  .h2 {
+    margin-left: 0.2rem;
+    font-size: 1.5rem;
+  }
+  
+  .img {
+    float: left;
+    height: 10.8rem;
+    width: 10.8rem;
+    margin-right: 1.5rem;
+    background-color: white;
+    border: 0.05rem solid rgba(240, 240, 240, 0.993);
+  }
+  
+  .pch {
+    /* margin-top: 1.5rem; */
+    margin-left: 0.2rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    /* margin-bottom: 0.01rem; */
+    font-family: Koulen;
+  }

@@ -8,6 +8,8 @@
 }
 
 .icontainercart {
+  display: flex;
+  flex-wrap: wrap;
   margin-left: 3rem;
   margin-top: 2rem;
 }
@@ -17,4 +19,9 @@
   margin-right: 3rem;
   color: black;
   font-size: 2rem;
+}
+
+.divButtoncart {
+  margin: 2rem 3rem;
+  text-align: right;
 }
