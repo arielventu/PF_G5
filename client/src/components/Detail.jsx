@@ -71,7 +71,7 @@ export default function Detail(){
       }
     }
     localStorage.setItem('carrito', JSON.stringify(arrayAdd))
-    dispatch(ShopCar( ))
+    dispatch(ShopCar())
   }
 
   const favorite = async (e)=>{

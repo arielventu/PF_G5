@@ -33,7 +33,14 @@ const Favorites = () => {
         <h1 className={styles.titulofav}>Favorites</h1>
         <div className={styles.icontainerfav}>
         {
-          !(array[0] === undefined )? array.map(item=> <Card className={styles.cardfav} key={item.id} id={item.id} fullName={item.masterName} price={item.price}  img={item.imagecover} component={"favorites"}/>):
+            !(array[0] === undefined) ? array.map(item =>
+              <Card className={styles.cardfav}
+                key={item.id}
+                id={item.id}
+                fullName={item.masterName}
+                price={item.price}
+                img={item.imagecover}
+                component={"favorites"} />) :
           navegation("/shop") 
         }
         </div>
