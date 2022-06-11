@@ -311,7 +311,7 @@ const promisifiedPostOrders = () => {
     if (count === 0) {
       try {
         const newType = await Orders.bulkCreate(newData, { returning: true });
-        resolve(newType);
+        resolve("Orders table created");
       } catch (error) {
         reject(error);
       }
@@ -343,7 +343,7 @@ const promisifiedPostOrderDetails = () => {
         const newType = await Orderdetails.bulkCreate(newData, {
           returning: true,
         });
-        resolve(newType);
+        resolve("Order Details table created");
       } catch (error) {
         reject(error);
       }
@@ -364,19 +364,8 @@ const postDBData = async (req, res) => {
   let sizes = promisifiedPostSizes();
   let reviews = promisifiedPostReviews();
   let customers = promisifiedPostCustomers();
-  //let orders = promisifiedPostOrders();
-  //let orderDetails = promisifiedPostOrderDetails();
 
-  Promise.all([
-    products,
-    categories,
-    colors,
-    sizes,
-    reviews,
-    customers,
-    // orders,
-    // orderDetails,
-  ])
+  Promise.all([products, categories, colors, sizes, reviews, customers])
     .then((data) => {
       promisifiedRelCatProd()
         .then((data) => console.log(data))
@@ -384,6 +373,16 @@ const postDBData = async (req, res) => {
     })
     .then((data) => {
       promisifiedPostStock()
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+    })
+    .then((data) => {
+      promisifiedPostOrders()
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+    })
+    .then((data) => {
+      promisifiedPostOrderDetails()
         .then((data) => {
           console.log("Database information has been successfully uploaded!");
           console.log("Server is ready to work");

@@ -2,7 +2,8 @@
   file: Custommers.controllers.js
   create by: evillalba510@gmail.com
   github: evillalba510
-  date: 30-05-2022  
+  date: 30-05-2022
+  last edition: 10/06/2022  
 -----------------------------------------------*/
 
 const { Customers, Op } = require("../db.js");
@@ -40,28 +41,24 @@ const getCustomer = async (req, res) => {
 
 const createCustomer = async (req, res) => {
   const {
-    nickName,
-    email,
-    password,
+    id,
+    fullName,
     billingAddress,
     defaultShippingAddress,
     country,
     phone,
     userType,
-    status,
   } = req.body;
 
   try {
     const newCustomer = await Customers.create({
-      nickName,
-      email,
-      password,
+      id,
+      fullName,
       billingAddress,
       defaultShippingAddress,
       country,
       phone,
       userType,
-      status,
     });
 
     res.json(newCustomer);

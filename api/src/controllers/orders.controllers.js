@@ -9,7 +9,7 @@ const { Orders, Op } = require("../db.js");
 
 const getOrders = async (req, res) => {
   try {
-    const orders = await Customers.findAll();
+    const orders = await Orders.findAll();
     res.json(orders);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -22,7 +22,7 @@ const getOrder = async (req, res) => {
     const orders = await Orders.findByPk(id);
 
     if (!orders)
-      return res.status(404).json({ message: "Product does not exists" });
+      return res.status(404).json({ message: "Orders does not exists" });
 
     res.json(orders);
   } catch (error) {
@@ -31,16 +31,23 @@ const getOrder = async (req, res) => {
 };
 
 const createOrder = async (req, res) => {
-  const { amount, shippingAddress, orderEmail, orderDate, orderStatus } =
-    req.body;
+  const {
+    orderDate,
+    amount,
+    shippingAddress,
+    orderEmail,
+    orderStatus,
+    customerId,
+  } = req.body;
 
   try {
     const newOrder = await Orders.create({
+      orderDate,
       amount,
       shippingAddress,
       orderEmail,
-      orderDate,
       orderStatus,
+      customerId,
     });
 
     res.json(newOrder);
