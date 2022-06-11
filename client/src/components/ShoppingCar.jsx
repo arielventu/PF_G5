@@ -23,6 +23,7 @@ const ShoppingCar = () => {
     const sum = array.map(item =>{return (item.price*item.cantidad)})
     var sumW = sum.reduce((previousValue, currentValue) => previousValue + currentValue, 0);   
   }
+  
   useEffect(() => {
     if(localStorage.getItem('carrito') != null){
       array = JSON.parse(localStorage.getItem('carrito'))
@@ -55,7 +56,7 @@ const ShoppingCar = () => {
         }
         </div>
       <div >
-      <h3 className={styles.pricecart}>Precio total: {sumW}</h3>
+      <h3 className={styles.pricecart}>Total: {sumW}</h3>
       </div>
       </div>
     )
