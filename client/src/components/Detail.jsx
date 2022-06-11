@@ -147,7 +147,8 @@ export default function Detail(){
               <h5 className={styles.price}> ${detailstate2.price}</h5>
             {/* <img className={styles.rating} src={rating} alt='rating'/>  */}
             {starsAvg === 1 &&
-              <div className={styles.divStarsAvg}>
+            <div className={styles.divStarsAvg}>
+              <p className={styles.pStars}>{starsAvg}/5</p>
                 <img className={styles.starAvg} src={starY} alt="star" />
                 <img className={styles.starAvg} src={starB} alt="star" />
                 <img className={styles.starAvg} src={starB} alt="star" />
@@ -156,6 +157,7 @@ export default function Detail(){
               </div>}
             {starsAvg === 2 &&
               <div className={styles.divStarsAvg}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
                 <img className={styles.starAvg} src={starY} alt="star" />
                 <img className={styles.starAvg} src={starY} alt="star" />
                 <img className={styles.starAvg} src={starB} alt="star" />
@@ -164,7 +166,7 @@ export default function Detail(){
               </div>}
             {starsAvg === 3 &&
               <div className={styles.divStarsAvg}>
-                <p>{starsAvg}</p>
+                <p className={styles.pStars}>{starsAvg}/5</p>
                 <img className={styles.starAvg} src={starY} alt="star" />
                 <img className={styles.starAvg} src={starY} alt="star" />
                 <img className={styles.starAvg} src={starY} alt="star" />
@@ -184,6 +186,7 @@ export default function Detail(){
               </div>}
             {starsAvg === 5 &&
               <div className={styles.divStarsAvg}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
                 <img className={styles.starAvg} src={starY} alt="star" />
                 <img className={styles.starAvg} src={starY} alt="star" />
                 <img className={styles.starAvg} src={starY} alt="star" />

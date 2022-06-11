@@ -68,7 +68,21 @@ const Checkout = () => {
   // }
 
   return (
-      <div className={styles.checkContainer}>
+    <div className={styles.divCheckoutContainer}>
+      <div className={styles.divCheckout}>
+        <div className={styles.divCheckoutHeader}>
+          <h1 className={styles.h1CheckoutHeader}>Checkout</h1>
+        </div>
+        <div className={styles.divCheckoutBody}>
+          <form>
+         
+
+          </form>
+        </div>
+      </div>
+      
+
+                
         {/* Solo permite enviar la info una vez. Si existe preferenceId no permite hacerlo nuevamente */}
       {preferenceId === '' && <button onClick={() => sendData()}> Enviar informacion </button>}
       
