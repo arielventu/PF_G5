@@ -83,8 +83,14 @@ export default function CardCart({img, fullName, price,component,id,state}){
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("The item was deleted", {
+              // swal("The item was deleted", {
+              //   icon: "success",
+              // });
+              swal({
+                text: "The item was deleted",
                 icon: "success",
+                buttons: false,
+                timer: 1300,
               });
               console.log(sampleLocation.pathname.includes("/favorites"))
         if (sampleLocation.pathname.includes("/favorites")) {      

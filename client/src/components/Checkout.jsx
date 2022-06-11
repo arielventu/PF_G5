@@ -66,6 +66,8 @@ const Checkout = () => {
   // if (buttonMP) {
   //   buttonMP.addEventListener("click", sendData);
   // }
+  const lStorage = JSON.parse(localStorage.getItem('carrito'))
+  console.log(lStorage)
 
   return (
     <div className={styles.divCheckoutContainer}>

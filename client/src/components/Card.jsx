@@ -29,8 +29,14 @@ export default function Card({img, fullName, price,component,id , stock}){
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("The item was deleted", {
+              // swal("The item was deleted", {
+              //   icon: "success",
+              // });
+              swal({
+                text: "The item was deleted",
                 icon: "success",
+                buttons: false,
+                timer: 1300,
               });
               if (sampleLocation.pathname.includes("/favorites")) {      
                 if(localStorage.getItem('favoritos') != null){
@@ -133,7 +139,7 @@ export default function Card({img, fullName, price,component,id , stock}){
               </div>}
               </div>
             {
-                component === "favorites"?<button className={styles.bfav} value={id} onClick={(e)=>comprar(e)}>Buy</button>:null
+                component === "favorites"?<button className={styles.bfav} value={id} onClick={(e)=>comprar(e)}>Add to cart</button>:null
             } 
             {
                 component === "favorites" || component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitar(e)}>Delete</button>:null
