@@ -15,6 +15,7 @@ const {
   createOrderDetail,
   updateOrderDetail,
   deleteOrderDetail,
+  getOrderDetailByOrderId,
 } = require("../controllers/orderDetails.controllers.js");
 
 // C.R.U.D.
@@ -23,4 +24,5 @@ router.post("/orderDetails", createOrderDetail); // create orderDetail
 router.put("/orderDetails/:id", updateOrderDetail); // update orderDetail by id
 router.delete("/orderDetails/:id", deleteOrderDetail); // delete orderDetail by id
 router.get("/orderDetails/:id", getOrderDetail); // get orderDetail by id
+router.get("/orderDetails/order/:id", getOrderDetailByOrderId);
 module.exports = router;

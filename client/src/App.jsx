@@ -16,7 +16,7 @@ import Footer from "./components/Footer";
 import UserProfile from "./components/UserProfile";
 import Products from "./components/Products";
 import Checkout from "./components/Checkout";
-
+import Orders from "./components/Orders";
 
 function App() {
   const store = generateStore();
@@ -30,10 +30,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/shoppingCar" element={<ShoppingCar />} />
-        <Route exact path="/shop/details/:id" element={<Detail/>}/>
-        <Route exact path="/search/:keyword" element={<SearchResult/>}/>
-        <Route exact path="/user-profile" element={<UserProfile/>}/>
-      {/*   <Route exact path="/edit" element={<EditProduct/>}/> */}
+        <Route exact path="/shop/details/:id" element={<Detail />} />
+        <Route exact path="/search/:keyword" element={<SearchResult />} />
+        <Route exact path="/user-profile" element={<UserProfile />} />
+        {/*   <Route exact path="/edit" element={<EditProduct/>}/> */}
         <Route path="/products" element={<Products />} />
         <Route exact path="/shop/details/:id" element={<Detail />} />
         <Route exact path="/search/:keyword" element={<SearchResult />} />
@@ -41,6 +41,7 @@ function App() {
         <Route exact path="/newreview" element={<NewReview />} />
         <Route exact path="/reviews" element={<Reviews />} />
         <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/orders" element={<Orders />} />
       </Routes>
       <Footer />
     </Provider>
