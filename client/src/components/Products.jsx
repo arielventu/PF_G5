@@ -471,19 +471,17 @@ const Products = () => {
       {/* -------------------------------------------- */}
 
       <Modal isOpen={modalVariants} className={styles.containerModal}>
-        <ModalBody className={styles.modalVariant}>
+        <ModalBody className={styles.modalVariants}>
           <ModalHeader className={styles.modalHeader}>
             <div>
               <h3 className={styles.modalTitle}>Variant Management</h3>
             </div>
           </ModalHeader>
 
-          <ModalBody>
             <ProductVariants
               idproduct={form.id}
               productName={form.masterName}
             />
-          </ModalBody>
 
           <ModalFooter>
             <Button color="secundary" onClick={() => closeModalVariants()}>
