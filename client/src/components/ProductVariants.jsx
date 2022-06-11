@@ -1,6 +1,6 @@
 // import libraries
 import React, { useEffect, useState } from "react";
-import styles from "./Products.module.css";
+import styles from "./ProductVariants.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getColors,
@@ -228,15 +228,15 @@ const ProductVariants = ({ idproduct, productName }) => {
       {/* -------------------------------------------- */}
 
       <Modal isOpen={modalCreate} className={styles.modal2}>
+      <ModalBody className={styles.bc}>
         <ModalHeader>
-          <div>
-            <h3>Add Variant</h3>
+          <div className={styles.hv}>
+            <h3 className={styles.vt}>Add Variant</h3>
           </div>
         </ModalHeader>
 
-        <ModalBody>
           <FormGroup>
-            <label>Id Product:</label>
+            <label className={styles.ls}>Id Product:</label>
             <input
               className="form-control"
               readOnly
@@ -246,7 +246,7 @@ const ProductVariants = ({ idproduct, productName }) => {
             />
           </FormGroup>
           <FormGroup>
-            <label>Name:</label>
+            <label className={styles.ls}>Name:</label>
             <input
               className="form-control"
               readOnly
@@ -255,9 +255,9 @@ const ProductVariants = ({ idproduct, productName }) => {
             />
           </FormGroup>
           <FormGroup>
-            <label>
+            <label className={styles.ls}>
               {`Size: `}
-              <select name="sizeId" onChange={(e) => handleChange(e)}>
+              <select name="sizeId" onChange={(e) => handleChange(e)} className={styles.ss}>
                 {sizes.map((el) => {
                   return (
                     <option key={el.id} value={el.id}>
@@ -269,9 +269,9 @@ const ProductVariants = ({ idproduct, productName }) => {
             </label>
           </FormGroup>
           <FormGroup>
-            <label>
+            <label className={styles.ls}>
               {`Color: `}
-              <select name="colorId" onChange={(e) => handleChange(e)}>
+              <select name="colorId" onChange={(e) => handleChange(e)} className={styles.ss}>
                 {colors.map((el) => {
                   return (
                     <option key={el.id} value={el.id}>
@@ -284,7 +284,7 @@ const ProductVariants = ({ idproduct, productName }) => {
           </FormGroup>
 
           <FormGroup>
-            <label>Quantity:</label>
+            <label className={styles.ls}>Quantity:</label>
             <input
               className="form-control"
               name="quantity"
@@ -293,26 +293,26 @@ const ProductVariants = ({ idproduct, productName }) => {
             />
           </FormGroup>
           <FormGroup>
-            <label>
+            <label className={styles.ls}>
               {`Status: `}
-              <select name="available" onChange={(e) => handleChange(e)}>
-                <option selected value={true}>
+              <select name="available" onChange={(e) => handleChange(e)} className={styles.ss}>
+                <option selected value={true} className={styles.ss}>
                   {"Available"}
                 </option>
                 <option value={false}>{"Not Avalilable"}</option>
               </select>
             </label>
           </FormGroup>
-        </ModalBody>
 
-        <ModalFooter>
-          <Button color="primary" onClick={handleCreate}>
+        <ModalFooter className={styles.fs}>
+          <Button color="primary" onClick={handleCreate} className={styles.bs}>
             Add
           </Button>
           <Button className="btn btn-danger" onClick={hideModalCreate}>
             Cancel
           </Button>
         </ModalFooter>
+        </ModalBody>
       </Modal>
       {/* -------------------------------------------- */}
 
@@ -400,7 +400,7 @@ const ProductVariants = ({ idproduct, productName }) => {
                 value={current.available}
                 onChange={(e) => handleChange(e)}
               >
-                <option selected value={true}>
+                <option selected value={true} className={styles.ss}>
                   {"Available"}
                 </option>
                 <option value={false}>{"Not Avalilable"}</option>
