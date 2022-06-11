@@ -42,7 +42,7 @@ const Favorites = () => {
       }else{
         return (
           <div>
-            <h1>NO HAY NADA</h1>
+            <h1>nothing to show here</h1>
           </div>
         )
       }

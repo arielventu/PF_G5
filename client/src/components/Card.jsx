@@ -133,10 +133,10 @@ export default function Card({img, fullName, price,component,id , stock}){
               </div>}
               </div>
             {
-                component === "favorites"?<button className={styles.bfav} value={id} onClick={(e)=>comprar(e)}>Comprar</button>:null
+                component === "favorites"?<button className={styles.bfav} value={id} onClick={(e)=>comprar(e)}>Buy</button>:null
             } 
             {
-                component === "favorites" || component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitar(e)}>Quitar</button>:null
+                component === "favorites" || component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitar(e)}>Delete</button>:null
             }                    
         </div>
     );
