@@ -7,7 +7,7 @@ module.exports = (sequelize) => {
     "orders",
     {
       orderDate: {
-        type: DataTypes.TEXT,
+        type: DataTypes.DATE,
         allowNull: false,
       },
       amount: {
@@ -22,8 +22,8 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         validate: {
           isEmail: true,
-          allowNull: false,
         },
+        allowNull: false,
       },
       orderStatus: {
         type: DataTypes.ENUM(
