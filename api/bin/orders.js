@@ -5,7 +5,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "rodrigo_alcino@hotmail.com",
     orderStatus: "completed",
-    customerId: 1,
+    customerId: "1",
   },
   {
     orderDate: "2022-06-01T04:33:12.000Z",
@@ -13,7 +13,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "rodrigo_alcino@hotmail.com",
     orderStatus: "completed",
-    customerId: 1,
+    customerId: "1",
   },
   {
     orderDate: "2022-06-02T04:33:12.000Z",
@@ -21,7 +21,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "dianacorts@gmail.com",
     orderStatus: "completed",
-    customerId: 2,
+    customerId: "2",
   },
   {
     orderDate: "2022-06-03T04:33:12.000Z",
@@ -29,7 +29,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "arielventu@gmail.com",
     orderStatus: "completed",
-    customerId: 3,
+    customerId: "3",
   },
   {
     orderDate: "2022-06-04T04:33:12.000Z",
@@ -37,7 +37,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "arielventu@gmail.com",
     orderStatus: "completed",
-    customerId: 3,
+    customerId: "3",
   },
   {
     orderDate: "2022-06-05T04:33:12.000Z",
@@ -45,7 +45,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "arielventu@gmail.com",
     orderStatus: "completed",
-    customerId: 3,
+    customerId: "3",
   },
   {
     orderDate: "2022-06-06T04:33:12.000Z",
@@ -53,7 +53,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "lesta4444@hotmail.com",
     orderStatus: "completed",
-    customerId: 4,
+    customerId: "4",
   },
   {
     orderDate: "2022-06-07T04:33:12.000Z",
@@ -61,7 +61,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "cristianflobo@hotmail.com",
     orderStatus: "completed",
-    customerId: 5,
+    customerId: "5",
   },
   {
     orderDate: "2022-06-08T04:33:12.000Z",
@@ -69,7 +69,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "javierferrarimezher@gmail.com",
     orderStatus: "completed",
-    customerId: 6,
+    customerId: "6",
   },
   {
     orderDate: "2022-06-09T04:33:12.000Z",
@@ -77,7 +77,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "ivo.monzon.im@gmail.com",
     orderStatus: "completed",
-    customerId: 7,
+    customerId: "7",
   },
   {
     orderDate: "2022-06-10T04:33:12.000Z",
@@ -85,7 +85,7 @@ const orders = [
     shippingAddress: "CL XX XX XX",
     orderEmail: "evillalba510@gmail.com",
     orderStatus: "completed",
-    customerId: 8,
+    customerId: "8",
   },
 ];
 
