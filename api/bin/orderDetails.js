@@ -7,6 +7,13 @@ const orderDetails = [
     productId: 1,
   },
   {
+    price: 12500,
+    quantity: 1,
+    productUrl: "http://localhost:3000/Shop/details/2",
+    ordersId: 1,
+    productId: 2,
+  },
+  {
     price: 11500,
     quantity: 1,
     productUrl: "http://localhost:3000/Shop/details/2",

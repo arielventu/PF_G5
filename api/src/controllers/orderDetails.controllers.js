@@ -5,9 +5,10 @@
   date: 30-05-2022  
 -----------------------------------------------*/
 
-const { Orderdetails } = require("../db.js");
+const { Orderdetails, Product } = require("../db.js");
 
 const getOrderDetails = async (req, res) => {
+  console.log(Product);
   try {
     const orderDetails = await Orderdetails.findAll();
     res.json(orderDetails);
@@ -72,10 +73,29 @@ const deleteOrderDetail = async (req, res) => {
   }
 };
 
+const getOrderDetailByOrderId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const orderDetail = await Orderdetails.findAll({
+      attributes: { exclude: ["productId"] },
+      where: [{ ordersId: id }],
+      include: [{ model: Product, attributes: ["id", "masterName"] }],
+    });
+
+    if (!orderDetail)
+      return res.status(404).json({ message: "Order Details does not exists" });
+
+    res.json(orderDetail);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getOrderDetails,
   getOrderDetail,
   createOrderDetail,
   updateOrderDetail,
   deleteOrderDetail,
+  getOrderDetailByOrderId,
 };
