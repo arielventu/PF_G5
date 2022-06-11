@@ -58,3 +58,25 @@
   background-color: rgb(75, 74, 74);
   color: white;
 }
+
+.starsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.divStarsAvg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pStars {
+  margin: 0 0 0 0 ;
+  font-size: .9rem;
+}
+
+.starAvg {
+  width: 1rem;
+  margin: 0 0.1rem 0 0.1rem;
+}
