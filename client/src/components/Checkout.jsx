@@ -4,6 +4,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { postCheckoutOrder, getApiJWT } from '../actions/actions'
 // import styles from './CheckoutTest.module.css';
 import styles from './Checkout.module.css';
+import {firstWordBye} from '../utils';
+
 
 
 const Checkout = () => {
@@ -62,12 +64,8 @@ const Checkout = () => {
     }
   }, [preferenceId]);
 
-  // const buttonMP = document.querySelector(".mercadopago-button")
-  // if (buttonMP) {
-  //   buttonMP.addEventListener("click", sendData);
-  // }
-  const lStorage = JSON.parse(localStorage.getItem('carrito'))
-  console.log(lStorage)
+  // console.log(JSON.parse(localStorage.getItem('carrito')))
+  const lStorage = JSON.parse(localStorage.getItem('carrito'));
 
   return (
     <div className={styles.divCheckoutContainer}>
@@ -76,8 +74,22 @@ const Checkout = () => {
           <h1 className={styles.h1CheckoutHeader}>Checkout</h1>
         </div>
         <div className={styles.divCheckoutBody}>
+          {lStorage.map(item => (
+            <div className={styles.container}>
+              <div className={styles.divCheckoutItemImg}>
+                <img className={styles.img} src={item.imagecover} alt={item.name} />
+              </div>
+              <div className={styles.divCheckoutItemInfo}>
+                <h2 className={styles.h3CheckoutItemInfo}>{firstWordBye(item.fullName)}</h2>
+                {/* <h2 className={styles.h2}>{firstWordBye(fullName)}</h2> */}
+                <p className={styles.pch}>Price by unit: ${item.price}</p>
+                <p className={styles.pch}>Quantity: {item.cantidad} unit</p>
+                <p className={styles.pch}>Total: ${item.price * item.cantidad}</p>
+              </div>
+            </div>
+          ))}
           <form>
-         
+
 
           </form>
         </div>

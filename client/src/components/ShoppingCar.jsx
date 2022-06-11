@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import {  getProducts, ShopCar } from '../actions/actions'
 import Card from './Card'
 import Cardcart from './CardCart'
@@ -55,9 +55,14 @@ const ShoppingCar = () => {
           navegation("/shop")     
         }
         </div>
-      <div >
-      <h3 className={styles.pricecart}>Total: {sumW}</h3>
-      </div>
+        <div >
+          <h3 className={styles.pricecart}>Total: {sumW}</h3>
+        </div>
+        <div className={styles.divButtoncart}>
+          <Link to="/checkout">
+            <button className={styles.buttoncart}>Proceed to Checkout</button>
+          </Link>
+        </div>
       </div>
     )
       }else{
