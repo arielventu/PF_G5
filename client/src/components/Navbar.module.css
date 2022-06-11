@@ -141,10 +141,13 @@ a {
 }
 
 .iconsCartFav {
-  background-color: powderblue;
+  background-color: #6acbe9;
   border-radius: 50%;
-  padding: 0.1rem 0.5rem;
+  padding: 0.1rem 0.4rem;
+  font-size: .8rem;
   margin-top: -1.5rem;
+  margin-left: -.3rem;
+  color: white;
 }
 
 .buttonNavBar {

@@ -9,7 +9,7 @@ import styles from "./Detail.module.css"
 import starB from "../image/starb.svg";
 import starY from "../image/stary.svg";
 import rating from '../image/rating.png'
-import fav from '../image/favorito.png'
+import fav from '../image/fav.svg'
 import {Modal} from "reactstrap";
 
 var detailstate2 = []
@@ -147,31 +147,37 @@ export default function Detail(){
               <h5 className={styles.price}> ${detailstate2.price}</h5>
             {/* <img className={styles.rating} src={rating} alt='rating'/>  */}
             {starsAvg === 1 &&
-            <div className={styles.divStarsAvg}>
-              <p className={styles.pStars}>{starsAvg}/5</p>
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
+              <div className={styles.divStarsContainer}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                </div>
               </div>}
             {starsAvg === 2 &&
-              <div className={styles.divStarsAvg}>
+              <div className={styles.divStarsContainer}>
                 <p className={styles.pStars}>{starsAvg}/5</p>
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                </div>
               </div>}
             {starsAvg === 3 &&
-              <div className={styles.divStarsAvg}>
+              <div className={styles.divStarsContainer}>
                 <p className={styles.pStars}>{starsAvg}/5</p>
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                </div>
               </div>}
             {starsAvg === 4 && 
               <div className={styles.divStarsContainer}>
@@ -185,19 +191,21 @@ export default function Detail(){
                 </div>
               </div>}
             {starsAvg === 5 &&
-              <div className={styles.divStarsAvg}>
+              <div className={styles.divStarsContainer}>
                 <p className={styles.pStars}>{starsAvg}/5</p>
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                </div>
               </div>}
               </div>
 
             <div className = {styles.innercontainer3}>
                 <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
-                <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos'/> 
+                <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
             </div>
             <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>
             <Modal isOpen={showModal} className={styles.containerModal}>
