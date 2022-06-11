@@ -10,7 +10,8 @@ import starB from "../image/starb.svg";
 import starY from "../image/stary.svg";
 import rating from '../image/rating.png'
 import fav from '../image/fav.svg'
-import {Modal} from "reactstrap";
+import { Modal } from "reactstrap";
+import swal from "sweetalert";
 
 var detailstate2 = []
 var size = []
@@ -51,10 +52,22 @@ export default function Detail(){
       arrayAdd.push(findAdd)
     }else{
       arrayAdd = await JSON.parse(localStorage.getItem('carrito'))
-      const idMap = arrayAdd.find(item=>  item.id == value)
+      const idMap = arrayAdd.find(item => item.id == value)
+      swal({
+        text: "existing item in cart",
+        icon: "warning",
+        buttons: false,
+        timer: 1000,
+      });
       if (idMap === undefined) {
         const find = detailstate.find(item => item.id == value )
         arrayAdd.push(find)
+        swal({
+          text: "Item added to cart",
+          icon: "success",
+          buttons: false,
+          timer: 1200,
+        });
       }
     }
     localStorage.setItem('carrito', JSON.stringify(arrayAdd))
@@ -71,15 +84,28 @@ export default function Detail(){
     }else{
       array = await JSON.parse(localStorage.getItem('favoritos'))
       console.log("first", typeof accessKey)
-      const idMap = array.find(item=>  item.id == accessKey)
+      const idMap = array.find(item => item.id == accessKey)
+      swal({
+        text: "existing item in favorites",
+        icon: "warning",
+        buttons: false,
+        timer: 1000,
+      });
       if (idMap === undefined) {
         console.log(detailstate)
         const find = detailstate.find(item => item.id == accessKey )
         array.push(find)
+        swal({
+          text: "Item added to favorites",
+          icon: "success",
+          buttons: false,
+          timer: 1200,
+        });
       }
     }
     localStorage.setItem('favoritos', JSON.stringify(array))
     dispatch(favorites())
+    
   }
 
     
