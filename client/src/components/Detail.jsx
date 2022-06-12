@@ -133,6 +133,14 @@ export default function Detail(){
   reviewsById.map((e) => {starsLevels.push(e.starsLevel)})
   let starsAvg = Math.ceil(starsLevels.reduce((a, b) => a + b, 0) / starsLevels.length)
 
+  const findProductImages = () => {
+    let product = products.find(product => product.id === Number(id))
+    if (product === undefined) {
+      return []
+    }
+    return product.imageurl
+  }
+
   // console.log(starsAvg);
   return(
     <div className={styles.details}>
@@ -230,9 +238,15 @@ export default function Detail(){
               </div>
 
             <div className = {styles.innercontainer3}>
+            {findProductImages().map((e) => {
+              return (
+                <img src={e} alt = 'Shoes Image' className = {styles.otherimg}/>
+              )
+            })}
                 <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
             </div>
+            <div>
             <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>
             <Modal isOpen={showModal} className={styles.containerModal}>
               <div className={styles.divModal}>
@@ -241,8 +255,9 @@ export default function Detail(){
               </div>
             </Modal>
             <Reviews productId={ id } name={ detailstate2.fullName }/>
+            </div>
       </div> : 
-          <div className={styles.divLoading}>
+        <div className={styles.divLoading}>
             <img src="https://thumbs.gfycat.com/PepperyMediumBrahmancow-size_restricted.gif" />
         </div>
     }
