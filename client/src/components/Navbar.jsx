@@ -139,9 +139,9 @@ const Navbar = () => {
           <Link to="/Shop">
             <button className={styles.buttonNavBar}>Shop</button>
           </Link>
-          <Link to="/products">
+          {/* <Link to="/products">
             <button className={styles.buttonNavBar}>Products</button>
-          </Link>
+          </Link> */}
           {/* <Link to="/about">
             <button className={styles.buttonNavBar}>About Us</button>
           </Link> */}

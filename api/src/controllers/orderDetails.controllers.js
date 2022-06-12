@@ -5,11 +5,12 @@
   date: 30-05-2022  
 -----------------------------------------------*/
 
-const { OrderDetails } = require("../db.js");
+const { Orderdetails, Product } = require("../db.js");
 
 const getOrderDetails = async (req, res) => {
+  console.log(Product);
   try {
-    const orderDetails = await OrderDetails.findAll();
+    const orderDetails = await Orderdetails.findAll();
     res.json(orderDetails);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -19,7 +20,7 @@ const getOrderDetails = async (req, res) => {
 const getOrderDetail = async (req, res) => {
   const { id } = req.params;
   try {
-    const orderDetail = await OrderDetails.findByPk(id);
+    const orderDetail = await Orderdetails.findByPk(id);
 
     if (!orderDetail)
       return res.status(404).json({ message: "Order Details does not exists" });
@@ -31,12 +32,15 @@ const getOrderDetail = async (req, res) => {
 };
 
 const createOrderDetail = async (req, res) => {
-  const { price, quantity } = req.body;
+  const { price, quantity, productUrl, ordersId, productId } = req.body;
 
   try {
-    const newOrder = await Orders.create({
+    const newOrder = await Orderdetails.create({
       price,
       quantity,
+      productUrl,
+      ordersId,
+      productId,
     });
 
     res.json(newOrder);
@@ -48,7 +52,7 @@ const createOrderDetail = async (req, res) => {
 const updateOrderDetail = async (req, res) => {
   try {
     const { id } = req.params;
-    const orderDetail = await OrderDetails.findByPk(id);
+    const orderDetail = await Orderdetails.findByPk(id);
     orderDetail.set(req.body);
     await orderDetail.save();
     res.json(orderDetail);
@@ -60,10 +64,28 @@ const updateOrderDetail = async (req, res) => {
 const deleteOrderDetail = async (req, res) => {
   try {
     const { id } = req.params;
-    await OrderDetails.destroy({ where: { id } });
+    await Orderdetails.destroy({ where: { id } });
 
     // return message "No content"
     res.sendStatus(204);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+const getOrderDetailByOrderId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const orderDetail = await Orderdetails.findAll({
+      attributes: { exclude: ["productId"] },
+      where: [{ ordersId: id }],
+      include: [{ model: Product, attributes: ["id", "masterName"] }],
+    });
+
+    if (!orderDetail)
+      return res.status(404).json({ message: "Order Details does not exists" });
+
+    res.json(orderDetail);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -75,4 +97,5 @@ module.exports = {
   createOrderDetail,
   updateOrderDetail,
   deleteOrderDetail,
+  getOrderDetailByOrderId,
 };

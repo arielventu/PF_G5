@@ -9,8 +9,9 @@ import styles from "./Detail.module.css"
 import starB from "../image/starb.svg";
 import starY from "../image/stary.svg";
 import rating from '../image/rating.png'
-import fav from '../image/favorito.png'
-import {Modal} from "reactstrap";
+import fav from '../image/fav.svg'
+import { Modal } from "reactstrap";
+import swal from "sweetalert";
 
 var detailstate2 = []
 var size = []
@@ -51,14 +52,26 @@ export default function Detail(){
       arrayAdd.push(findAdd)
     }else{
       arrayAdd = await JSON.parse(localStorage.getItem('carrito'))
-      const idMap = arrayAdd.find(item=>  item.id == value)
+      const idMap = arrayAdd.find(item => item.id == value)
+      swal({
+        text: "existing item in cart",
+        icon: "warning",
+        buttons: false,
+        timer: 1000,
+      });
       if (idMap === undefined) {
         const find = detailstate.find(item => item.id == value )
         arrayAdd.push(find)
+        swal({
+          text: "Item added to cart",
+          icon: "success",
+          buttons: false,
+          timer: 1200,
+        });
       }
     }
     localStorage.setItem('carrito', JSON.stringify(arrayAdd))
-    dispatch(ShopCar( ))
+    dispatch(ShopCar())
   }
 
   const favorite = async (e)=>{
@@ -71,15 +84,28 @@ export default function Detail(){
     }else{
       array = await JSON.parse(localStorage.getItem('favoritos'))
       console.log("first", typeof accessKey)
-      const idMap = array.find(item=>  item.id == accessKey)
+      const idMap = array.find(item => item.id == accessKey)
+      swal({
+        text: "existing item in favorites",
+        icon: "warning",
+        buttons: false,
+        timer: 1000,
+      });
       if (idMap === undefined) {
         console.log(detailstate)
         const find = detailstate.find(item => item.id == accessKey )
         array.push(find)
+        swal({
+          text: "Item added to favorites",
+          icon: "success",
+          buttons: false,
+          timer: 1200,
+        });
       }
     }
     localStorage.setItem('favoritos', JSON.stringify(array))
     dispatch(favorites())
+    
   }
 
     
@@ -106,6 +132,14 @@ export default function Detail(){
   const starsLevels = [];
   reviewsById.map((e) => {starsLevels.push(e.starsLevel)})
   let starsAvg = Math.ceil(starsLevels.reduce((a, b) => a + b, 0) / starsLevels.length)
+
+  const findProductImages = () => {
+    let product = products.find(product => product.id === Number(id))
+    if (product === undefined) {
+      return []
+    }
+    return product.imageurl
+  }
 
   // console.log(starsAvg);
   return(
@@ -147,29 +181,37 @@ export default function Detail(){
               <h5 className={styles.price}> ${detailstate2.price}</h5>
             {/* <img className={styles.rating} src={rating} alt='rating'/>  */}
             {starsAvg === 1 &&
-              <div className={styles.divStarsAvg}>
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
+              <div className={styles.divStarsContainer}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                </div>
               </div>}
             {starsAvg === 2 &&
-              <div className={styles.divStarsAvg}>
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
+              <div className={styles.divStarsContainer}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                </div>
               </div>}
             {starsAvg === 3 &&
-              <div className={styles.divStarsAvg}>
-                <p>{starsAvg}</p>
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
-                <img className={styles.starAvg} src={starB} alt="star" />
+              <div className={styles.divStarsContainer}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                </div>
               </div>}
             {starsAvg === 4 && 
               <div className={styles.divStarsContainer}>
@@ -183,19 +225,28 @@ export default function Detail(){
                 </div>
               </div>}
             {starsAvg === 5 &&
-              <div className={styles.divStarsAvg}>
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
-                <img className={styles.starAvg} src={starY} alt="star" />
+              <div className={styles.divStarsContainer}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                </div>
               </div>}
               </div>
 
             <div className = {styles.innercontainer3}>
+            {findProductImages().map((e) => {
+              return (
+                <img src={e} alt = 'Shoes Image' className = {styles.otherimg}/>
+              )
+            })}
                 <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
-                <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos'/> 
+                <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
             </div>
+            <div>
             <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>
             <Modal isOpen={showModal} className={styles.containerModal}>
               <div className={styles.divModal}>
@@ -204,8 +255,9 @@ export default function Detail(){
               </div>
             </Modal>
             <Reviews productId={ id } name={ detailstate2.fullName }/>
+            </div>
       </div> : 
-          <div className={styles.divLoading}>
+        <div className={styles.divLoading}>
             <img src="https://thumbs.gfycat.com/PepperyMediumBrahmancow-size_restricted.gif" />
         </div>
     }

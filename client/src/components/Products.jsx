@@ -1,7 +1,7 @@
 // import libraries
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts  ,postProduct , getCategories} from "../actions/actions";
+import { getProducts, postProduct, getCategories } from "../actions/actions";
 import styles from "./Products.module.css";
 
 //import 'Product.variants (stock)', the auxiliar component.
@@ -34,12 +34,11 @@ import {
 const Products = () => {
   // initalize local states
   const [all, setProducts] = useState();
-  const products = useSelector(state=>state.shoes3)
-  console.log(products)
-/*   const [products, setProducts] = useState(
+  const products = useSelector((state) => state.shoes3);
+  console.log(products);
+  /*   const [products, setProducts] = useState(
     useSelector((state) => state.auxShoes)
   ); */
-  
 
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalInsert, setModalInsert] = useState(false);
@@ -60,11 +59,11 @@ const Products = () => {
     categories: [],
   };
   const [form, setForm] = useState(initial);
- 
+
   // get 'redux store' of shoes / products
   const categorie = useSelector((state) => state.categories);
   const dispatch = useDispatch();
-  console.log(categorie)
+  console.log(categorie);
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getCategories());
@@ -83,8 +82,7 @@ const Products = () => {
 
   const showModalInsert = () => {
     setModalInsert(true);
-    setForm(initial)
-
+    setForm(initial);
   };
 
   const closeModalInsert = () => {
@@ -142,15 +140,14 @@ const Products = () => {
     }
   };
 
- 
-/*   const insert = () => {
+  /*   const insert = () => {
     let newForm = { ...form };
     delete newForm.id
     console.log(newForm.categories)
     console.log(newForm); */
-    /* newForm.id = products.length + 1; */
-    /* console.log(newForm.id) */
-/*   const insert = () => { 
+  /* newForm.id = products.length + 1; */
+  /* console.log(newForm.id) */
+  /*   const insert = () => { 
     let newForm = { ...form };
     newForm.id = products.length + 1;
     let list = products;
@@ -163,8 +160,8 @@ const Products = () => {
   }; */
   const insert = () => {
     let newForm = { ...form };
-    delete newForm.id
-    console.log(newForm.categories)
+    delete newForm.id;
+    console.log(newForm.categories);
     console.log(newForm);
     newForm.id = products.length + 1;
     /* console.log(newForm.id) */
@@ -172,28 +169,30 @@ const Products = () => {
     list.push(newForm);
     setModalInsert(false);
     setProducts(list);
-    dispatch(postProduct(newForm))
-    console.log(form)
-    
-
+    dispatch(postProduct(newForm));
+    console.log(form);
   };
 
- /*  }; */
+  /*  }; */
   /* form.categories=[] */
   const handleChange = (e) => {
-  /*   e.target.name === "imageurl" &&
+    /*   e.target.name === "imageurl" &&
       setForm({ ...form, [e.target.name]: [e.target.value] });
     e.target.name !== "categories" &&
       setForm({ ...form, [e.target.name]: e.target.value }); */
-      const { value, name } = e.target
-      name === "imageurl" && setForm({ ...form, [e.target.name]: [e.target.value] })
-      name === "imagecover" && setForm({ ...form, [e.target.name]: e.target.value })
-      name === "name" &&setForm({ ...form, [e.target.name]: e.target.value })
-      name === "price" &&setForm({ ...form, [e.target.name]: parseInt(e.target.value) });
-      name === "detail" &&setForm({ ...form, [e.target.name]: e.target.value })
-      name === "gender" &&setForm({ ...form, [e.target.name]: e.target.value })
-      name === "categories"&&setForm({...form,categories: [...form.categories, Number(value)] });
-      console.log(form)
+    const { value, name } = e.target;
+    name === "imageurl" &&
+      setForm({ ...form, [e.target.name]: [e.target.value] });
+    name === "imagecover" &&
+      setForm({ ...form, [e.target.name]: e.target.value });
+    name === "name" && setForm({ ...form, [e.target.name]: e.target.value });
+    name === "price" &&
+      setForm({ ...form, [e.target.name]: parseInt(e.target.value) });
+    name === "detail" && setForm({ ...form, [e.target.name]: e.target.value });
+    name === "gender" && setForm({ ...form, [e.target.name]: e.target.value });
+    name === "categories" &&
+      setForm({ ...form, categories: [...form.categories, Number(value)] });
+    console.log(form);
   };
 
   /* const handleClick = (e) => {
@@ -224,9 +223,8 @@ const Products = () => {
     return false;
   }; */
 
-    
   // ----------------------------------------------------
-console.log(form)
+  console.log(form);
   //render
   return (
     <>
@@ -244,7 +242,6 @@ console.log(form)
         <Table hover>
           <thead>
             <tr>
-              <th>Item</th>
               <th>Id</th>
               <th>Image</th>
               <th>Name</th>
@@ -260,7 +257,7 @@ console.log(form)
               return (
                 <tr key={i}>
                   <td>{e.id}</td>
-                  
+
                   <td>
                     <img
                       src={e.imagecover}
@@ -352,7 +349,6 @@ console.log(form)
             <input
               className="form-control"
               name="detail"
-              
               type="text"
               autoFocus
               onChange={(e) => handleChange(e)}
@@ -475,19 +471,17 @@ console.log(form)
       {/* -------------------------------------------- */}
 
       <Modal isOpen={modalVariants} className={styles.containerModal}>
-        <ModalBody className={styles.modalVariant}>
+        <ModalBody className={styles.modalVariants}>
           <ModalHeader className={styles.modalHeader}>
             <div>
               <h3 className={styles.modalTitle}>Variant Management</h3>
             </div>
           </ModalHeader>
 
-          <ModalBody>
             <ProductVariants
               idproduct={form.id}
               productName={form.masterName}
             />
-          </ModalBody>
 
           <ModalFooter>
             <Button color="secundary" onClick={() => closeModalVariants()}>
@@ -570,8 +564,10 @@ console.log(form)
                     <input
                       type="checkbox"
                       name="categories"
-                      value={e.name}
-                      /* checked={ *//* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
+                      value={
+                        e.name
+                      } /* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
+                      /* checked={ */
                       /* onClick={(e) => handleChange(e)} */
                     />
                     {` ${e.name}`}
