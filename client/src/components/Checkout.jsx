@@ -4,7 +4,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { postCheckoutOrder, getApiJWT } from '../actions/actions'
 // import styles from './CheckoutTest.module.css';
 import styles from './Checkout.module.css';
-import {firstWordBye} from '../utils';
+import { firstWordBye } from '../utils';
+import { Link } from 'react-router-dom';
 
 
 
@@ -27,6 +28,12 @@ const Checkout = () => {
           })
       })
     };
+
+  // console.log(user.name);
+  // const newOrder = {
+  //   user_id: user.sub,
+  //   userMail: user.email,
+  // }
 
   const sendData = () => {
       getToken()
@@ -66,12 +73,13 @@ const Checkout = () => {
 
   // console.log(JSON.parse(localStorage.getItem('carrito')))
   const lStorage = JSON.parse(localStorage.getItem('carrito'));
-
+  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * item.cantidad, 0);
+    
   return (
     <div className={styles.divCheckoutContainer}>
       <div className={styles.divCheckout}>
         <div className={styles.divCheckoutHeader}>
-          <h1 className={styles.h1CheckoutHeader}>Checkout</h1>
+          <h1 className={styles.checkoutTitle}>Checkout</h1>
         </div>
         <div className={styles.divCheckoutBody}>
           {lStorage.map(item => (
@@ -83,16 +91,57 @@ const Checkout = () => {
                 <h2 className={styles.h3CheckoutItemInfo}>{firstWordBye(item.fullName)}</h2>
                 {/* <h2 className={styles.h2}>{firstWordBye(fullName)}</h2> */}
                 <p className={styles.pch}>Price by unit: ${item.price}</p>
-                <p className={styles.pch}>Quantity: {item.cantidad} unit</p>
+                {item.cantidad === 1 ?
+                  <p className={styles.pch}>Qty: {item.cantidad} unit</p>
+                  : <p className={styles.pch}>Qty: {item.cantidad} units</p>
+                }
                 <p className={styles.pch}>Total: ${item.price * item.cantidad}</p>
               </div>
             </div>
           ))}
+          <div className={styles.divTotal}>
+            <h2 className={styles.total}>Total: ${totalOrder}</h2>
+          </div>
+          
           <form>
-
-
+            <div className={styles.divCheckoutForm}>
+              <div className={styles.divCheckoutFormHeader}>
+                <h2 className={styles.h2CheckoutFormHeader}>complete your personal data</h2>
+              </div>
+              <div className={styles.divCheckoutFormBody}>
+                <div className={styles.divCheckoutFormBodyRow}>
+                  <label className={styles.labelCheckoutFormBodyRow}>
+                    <span className={styles.spanCheckoutFormBodyRow}>Address</span>
+                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="address" />
+                  </label>
+                </div>
+                <div className={styles.divCheckoutFormBodyRow}>
+                  <label className={styles.labelCheckoutFormBodyRow}>
+                    <span className={styles.spanCheckoutFormBodyRow}>Country</span>
+                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="country" />
+                  </label>
+                </div>
+                <div className={styles.divCheckoutFormBodyRow}>
+                  <label className={styles.labelCheckoutFormBodyRow}>
+                    <span className={styles.spanCheckoutFormBodyRow}>Phone</span>
+                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="phone" />
+                  </label>
+                </div>
+                <div className={styles.divCheckoutFormBodyRow}>
+                  <label className={styles.labelCheckoutFormBodyRow}>
+                    <span className={styles.spanCheckoutFormBodyRow}>Email</span>
+                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="email" />
+                  </label>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
+      </div>
+      <div className={styles.divBack}>
+        <Link to={`/shoppingCar`}>
+          <button className={styles.buttonBack}>Back to Shopping Cart</button>
+        </Link>
       </div>
       
 
