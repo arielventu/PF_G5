@@ -6,7 +6,7 @@
   align-items: center;
   font-family: Koulen;
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin: 1rem 1rem 1rem 1rem;
 }
 
 .container:hover {
@@ -30,11 +30,11 @@
   width: 10.8rem;
   margin-right: 1rem;
   background-color: white;
-  /* border: 0.05rem solid rgba(240, 240, 240, 0.993); */
+  border: 0.05rem solid rgba(240, 240, 240, 0.993);
 }
 
 .price {
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
   margin-left: 0.2rem;
   text-decoration: none;
   font-size: 1.3rem;
@@ -42,11 +42,11 @@
   font-family: Koulen;
 }
 
-.rating {
+/* .rating {
   margin-left: 0.2rem;
   height: 5rem;
   width: auto;
-}
+} */
 
 .bfav {
   border-radius: 0.2rem;
@@ -66,7 +66,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -0.5rem;
+  margin-top: .5rem;
   background-color: white;
   height: 1.4rem;
   font-family: Cabin;
@@ -82,4 +82,26 @@
 .bquantity {
   height: 1.5rem;
   border: 0.1rem solid rgb(190, 190, 190);
+}
+
+.starsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: .6rem;
+}
+
+.divStarsAvg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pStars {
+  margin: 0 0 0 0 ;
+  font-size: .9rem;
+}
+
+.starAvg {
+  width: 1rem;
+  margin: 0 0.1rem 0 0.1rem;
 }

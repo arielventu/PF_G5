@@ -1,0 +1,48 @@
+.pv {
+  display: flex;
+  flex-direction: column;
+}
+
+.bc {
+  display: flex;
+  flex-direction: column;
+  margin-top: -2rem;
+}
+
+.vt {
+  color: black;
+}
+
+.modal2 {
+  background: white;
+
+  /* background-color: #3545f5cd; */
+  position: fixed;
+  height: 20rem;
+  width: 20rem;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  /* transform: translate(-50%, -50%); */
+}
+
+.ls {
+  margin-right: 1rem;
+}
+
+.fs {
+  margin-top: 1rem;
+}
+
+.bs {
+  margin-right: 0.5rem;
+}
+
+.ss {
+  width: 4rem;
+}

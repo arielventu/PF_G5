@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import {  getProducts, ShopCar } from '../actions/actions'
 import Card from './Card'
 import Cardcart from './CardCart'
@@ -25,6 +25,20 @@ const ShoppingCar = () => {
     var sumW = sum.reduce((previousValue, currentValue) => previousValue + currentValue, 0); 
     console.log("11",sum)     
   }
+<<<<<<< HEAD
+=======
+  
+  useEffect(() => {
+    if(localStorage.getItem('carrito') != null){
+      array = JSON.parse(localStorage.getItem('carrito'))
+      const sum = array.map(item =>{return item.price*item.cantidad})
+      var sumW = sum.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+     // setValor(sumW)
+      console.log(sumW)    
+    }
+    dispatch(ShopCar(array))
+  }, [array])
+>>>>>>> f7df18705f72d1e7d80626df187ed6a5dc861970
   console.log(valor)
   if (localStorage.getItem('carrito') === null) {
     return navegation("/shop")
@@ -47,7 +61,16 @@ const ShoppingCar = () => {
         }
         </div>
         <div >
+<<<<<<< HEAD
           <h3 className={styles.pricecart}>Precio total: {sumW}</h3>
+=======
+          <h3 className={styles.pricecart}>Total: {sumW}</h3>
+        </div>
+        <div className={styles.divButtoncart}>
+          <Link to="/checkout">
+            <button className={styles.buttoncart}>Proceed to Checkout</button>
+          </Link>
+>>>>>>> f7df18705f72d1e7d80626df187ed6a5dc861970
         </div>
       </div>
     )

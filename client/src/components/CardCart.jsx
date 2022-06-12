@@ -1,14 +1,21 @@
 import React, { useEffect, useState }  from "react";
 import { firstWordBye } from '../utils';
 import styles from './CardCart.module.css'
-import rating from '../image/rating.png'
+// import rating from '../image/rating.png'
 import Favorites from "./Favorites";
-import { favorites, ShopCar } from "../actions/actions";
-import { useDispatch } from "react-redux";
+import { favorites, ShopCar, getReviewsById } from "../actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+<<<<<<< HEAD
 import avalible from "../image/no-disponible.jpg"
 export default function CardCart({img, fullName, price,component,id,state,available}){
+=======
+import starB from "../image/starb.svg";
+import starY from "../image/stary.svg";
+
+export default function CardCart({img, fullName, price,component,id,state}){
+>>>>>>> f7df18705f72d1e7d80626df187ed6a5dc861970
    const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
@@ -81,8 +88,14 @@ export default function CardCart({img, fullName, price,component,id,state,availa
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("The item was deleted", {
+              // swal("The item was deleted", {
+              //   icon: "success",
+              // });
+              swal({
+                text: "The item was deleted",
                 icon: "success",
+                buttons: false,
+                timer: 1300,
               });
               console.log(sampleLocation.pathname.includes("/favorites"))
         if (sampleLocation.pathname.includes("/favorites")) {      
@@ -115,9 +128,18 @@ export default function CardCart({img, fullName, price,component,id,state,availa
           });
     }
 
-    const comprar = ()=>{
-    }
+    // const comprar = ()=>{
+    // }
     
+    // Reviews -----------------------------------
+    useEffect(() => {
+        dispatch(getReviewsById(id))
+    }, [])
+    const reviewsById = useSelector((state) => state.reviewsById);
+    const starsLevels = [];
+    reviewsById.map((e) => {starsLevels.push(e.starsLevel)})
+    let starsAvg = Math.ceil(starsLevels.reduce((a, b) => a + b, 0) / starsLevels.length)
+
     return(
         <div className={styles.containercart}>
             {
@@ -125,8 +147,58 @@ export default function CardCart({img, fullName, price,component,id,state,availa
             }
             {/* <img className={styles.img}src= {img} alt='img'></img>   */}
             <h2 className={styles.h2}>{firstWordBye(fullName)}</h2>
-            <p className={styles.price}>${price}</p>
-            <img className={styles.rating} src={rating} alt='rating'/>
+            
+            {/* <img className={styles.rating} src={rating} alt='rating'/> */}
+            <div className = {styles.starsContainer}>
+            {starsAvg === 1 &&
+            <div className={styles.divStarsAvg}>
+              <p className={styles.pStars}>{starsAvg}/5</p>
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+              </div>}
+            {starsAvg === 2 &&
+              <div className={styles.divStarsAvg}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+              </div>}
+            {starsAvg === 3 &&
+              <div className={styles.divStarsAvg}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+                <img className={styles.starAvg} src={starB} alt="star" />
+              </div>}
+            {starsAvg === 4 && 
+              <div className={styles.divStarsContainer}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <div className={styles.divStarsAvg}>
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starY} alt="star" />
+                  <img className={styles.starAvg} src={starB} alt="star" />
+                </div>
+              </div>}
+            {starsAvg === 5 &&
+              <div className={styles.divStarsAvg}>
+                <p className={styles.pStars}>{starsAvg}/5</p>
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+                <img className={styles.starAvg} src={starY} alt="star" />
+              </div>}
+              </div>
+              <p className={styles.price}>${price}</p>
             <div className={styles.icontainer}>
                 <div className={styles.counter}>
                     <button onClick={handleDecrement} id={id} className={styles.bquantity}>-</button>
@@ -134,7 +206,7 @@ export default function CardCart({img, fullName, price,component,id,state,availa
                     <button onClick={handleIncrement} id={id} className={styles.bquantity}>+</button>
                 </div>
                 {
-                    component === "carrito" ? <button className={styles.bfav} value={id} onClick={(e)=>quitarCar(e)}>Quitar</button>:null
+                    component === "carrito" ? <button className={styles.bfav} value={id} onClick={(e)=>quitarCar(e)}>Delete</button>:null
                 }
             </div>
                                   

@@ -23,12 +23,21 @@ import {
   DELETE_STOCK,
   GET_SIZES,
   GET_SIZES_BY_ID,
+  GET_ORDERS,
+  GET_ORDERS_BY_ID,
+  POST_ORDERS,
+  PUT_ORDERS,
+  GET_ORDER_DETAILS,
+  GET_ORDER_DETAILS_BY_ID,
+  POST_ORDER_DETAILS,
+  GET_ORDER_DETAILS_BY_ORDER_ID,
 } from "../actions/actions.js";
 
 const initialState = {
   //hacer un estado para los filtros
   shoes: [],
   auxShoes: [],
+  shoes3: [],
   categories: [],
   searchBar: [],
   favorites: [],
@@ -38,6 +47,8 @@ const initialState = {
   reviewsById: [],
   stock: [],
   sizes: [],
+  orders: [],
+  orderDetails: [],
 };
 
 export default function rootReducer(state = initialState, { payload, type }) {
@@ -47,6 +58,7 @@ export default function rootReducer(state = initialState, { payload, type }) {
         ...state,
         shoes: payload,
         auxShoes: payload,
+        shoes3: payload,
       };
     case GET_CATEGORIES:
       // console.log(payload)
@@ -182,15 +194,46 @@ export default function rootReducer(state = initialState, { payload, type }) {
     // DateTime: 2022-06-04 13:30
     // ------------------------------------------
     case GET_SIZES:
-      return {
-        ...state,
-        sizes: payload,
-      };
+      return { ...state, sizes: payload };
+
     case GET_SIZES_BY_ID:
-      return {
-        ...state,
-        sizes: payload,
-      };
+      return { ...state, sizes: payload };
+
+    // ----------- REDUCER FOR ORDERS  -----------
+    // Adding by ELIECER
+    // DateTime: 2022-06-11 00:40:00
+    // ------------------------------------------
+    case GET_ORDERS:
+      return { ...state, orders: payload };
+
+    case GET_ORDERS_BY_ID:
+      return { ...state, orders: payload };
+
+    case POST_ORDERS:
+      return { ...state, orders: [...state.orders, payload] };
+
+    case PUT_ORDERS:
+      let newOrders = state.orders.map((el) =>
+        el.id === payload.id ? payload : el
+      );
+      return { ...state, orders: [...state.orders, newOrders] };
+
+    // ----------- REDUCER FOR ORDER DETAILS  -----------
+    // Adding by ELIECER
+    // DateTime: 2022-06-11 02:20:00
+    // ------------------------------------------
+    case GET_ORDER_DETAILS:
+      return { ...state, orderDetails: payload };
+
+    case GET_ORDER_DETAILS_BY_ID:
+      return { ...state, orderDetails: payload };
+
+    case POST_ORDER_DETAILS:
+      return { ...state, orderDetails: [...state.orderDetails, payload] };
+
+    case GET_ORDER_DETAILS_BY_ORDER_ID:
+      return { ...state, orderDetails: payload };
+
     default:
       return state;
   }

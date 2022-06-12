@@ -24,10 +24,30 @@
     margin: 2rem auto;
 }
 
-.userButtons {
+.buttonsContainer {
     margin-top: 1rem;
     display: flex;
     flex-direction: row;
     /* border: 1px solid black; */
     justify-content: space-between;
+}
+
+.userButton {
+    /* border: 1px solid black; */
+    border-radius: 0.5rem;
+    height: 3rem;
+    width: 6rem;
+    margin: 0 1rem;
+}
+
+.danger {
+    background-color: rgb(224, 40, 40);
+    border: 2px solid rgb(199, 1, 1);
+    color: white;
+}
+
+.medium {
+    background-color: rgb(114, 114, 114);
+    border: 2px solid rgb(70, 70, 70);
+    color: white;
 }

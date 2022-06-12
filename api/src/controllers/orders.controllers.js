@@ -5,11 +5,24 @@
   date: 30-05-2022  
 -----------------------------------------------*/
 
-const { Orders, Op } = require("../db.js");
+const { Orders, Orderdetails, Customers, Product } = require("../db.js");
 
 const getOrders = async (req, res) => {
   try {
-    const orders = await Customers.findAll();
+    const orders = await Orders.findAll({
+      attributes: { exclude: ["customerId"] },
+      include: [
+        {
+          model: Customers,
+          attributes: ["id", "fullName", "country", "phone"],
+        },
+        {
+          model: Orderdetails,
+          attributes: { exclude: ["ordersId", "productId"] },
+          include: [{ model: Product, attributes: ["id", "masterName"] }],
+        },
+      ],
+    });
     res.json(orders);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -19,10 +32,18 @@ const getOrders = async (req, res) => {
 const getOrder = async (req, res) => {
   const { id } = req.params;
   try {
-    const orders = await Orders.findByPk(id);
+    const orders = await Orders.findByPk(id, {
+      include: [
+        { model: Customers, attributes: ["fullName"] },
+        {
+          model: Orderdetails,
+          include: [{ model: Product, attributes: ["id", "masterName"] }],
+        },
+      ],
+    });
 
     if (!orders)
-      return res.status(404).json({ message: "Product does not exists" });
+      return res.status(404).json({ message: "Orders does not exists" });
 
     res.json(orders);
   } catch (error) {
@@ -31,16 +52,23 @@ const getOrder = async (req, res) => {
 };
 
 const createOrder = async (req, res) => {
-  const { amount, shippingAddress, orderEmail, orderDate, orderStatus } =
-    req.body;
+  const {
+    orderDate,
+    amount,
+    shippingAddress,
+    orderEmail,
+    orderStatus,
+    customerId,
+  } = req.body;
 
   try {
     const newOrder = await Orders.create({
+      orderDate,
       amount,
       shippingAddress,
       orderEmail,
-      orderDate,
       orderStatus,
+      customerId,
     });
 
     res.json(newOrder);

@@ -85,14 +85,17 @@ button:hover {
 }
 
 .modalBody {
+  position: center;
   display: flex;
+  overflow: auto;
   flex-direction: column;
   background-color: white;
-  width: 10rem;
-  height: 46rem;
-  padding: 1rem 2rem;
+  width: 11rem;
+  height: 40rem;
+  padding: 1.5rem 2rem;
   z-index: 10;
   border-radius: 0.5rem;
+  display: block;
 }
 
 .modalVariant {
@@ -100,10 +103,25 @@ button:hover {
   flex-direction: column;
   background-color: white;
   width: 10rem;
-  height: 12rem;
-  padding: 1rem 2rem;
+  height: 40rem;
+  padding: 1.5rem 3rem;
   z-index: 10;
   border-radius: 0.5rem;
+  display: flex;
+  overflow: auto;
+}
+
+.modalVariants {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 18rem;
+  height: 20rem;
+  padding: 1.5rem 3rem;
+  z-index: 10;
+  border-radius: 0.5rem;
+  text-align: center;
+  overflow: auto;
 }
 
 .modalTitle {
