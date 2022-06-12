@@ -18,14 +18,14 @@ const Checkout = () => {
   const totalOrder = lStorage.reduce((acc, item) => acc + item.price * item.cantidad, 0);
 
   const [newOrder, setNewOrder] = useState({
-        user_id: '',
+        userId: '',
         userMail: '',
         purchaseItems: [],
         totalPrice: '',
         billingAddress: '',
         shippingAddress: '',
         country: '',
-        phone: '',
+        phone: ''
       })
 
   const getToken = () => {
@@ -52,63 +52,45 @@ const Checkout = () => {
         }
       })
   
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-  //   const { name, value } = e.target;
-  //   const testOrder = {
-  //     user_id: user.sub,
-  //     userMail: user.email,
-  //     purchaseItems: lStorage.map(item => {
-  //       return {
-  //         productId: item.id,
-  //         quantity: item.cantidad,
-  //         price: item.price
-  //       }
-  //     }),
-  //     totalPrice: totalOrder,
-  //     billingAddress: value,
-  //     shippingAddress: this.billingAddress.value,
-  //     country: value,
-  //     phone: value,
-  //   }
-  //   console.log(testOrder);
-  // }
-  
-    // const testOrder = {
-    //   user_id: user.sub,
-    //   userMail: user.email,
-    //   purchaseItems: lStorage.map(item => {
-    //     return {
-    //       productId: item.id,
-    //       quantity: item.cantidad,
-    //       price: item.price
-    //     }
-    //   }),
-    //   totalPrice: totalOrder,
-    //   // billingAddress: value,
-    //   // shippingAddress: value,
-    //   // country: value,
-    //   // phone: value,
-    // }
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    // console.log(e.target)
+    setNewOrder({
+      ...newOrder,
+      userId: `${user?.sub}`,
+      userMail: `${user?.email}`,
+      purchaseItems: lStorage.map(item => {
+        return {
+          productId: item.id,
+          quantity: item.cantidad,
+          price: item.price
+        }
+      }),
+      totalPrice: totalOrder,
+      [name]: value,
+      shippingAddress: newOrder.billingAddress,
+    });
     // console.log(testOrder);
-
-  console.log(user.sub)
-  const sendData = () => {
+  }
+  
+  // console.log(user.sub)
+  const sendData = (e) => {
       getToken()
           .then( apiToken => postCheckoutOrder(
-              {
-                  userId: `${user.sub}`,
-                  userMail: "mail@mail.com",
-                  purchaseItems: [
-                      { productId: 1, price: 12000, quantity: 5 },
-                      { productId: 3, price: 15000, quantity: 3 }
-                  ],
-                  totalPrice: 60000,
-                  billingAddress: "Carlos Casares 3001",
-                  shippingAddress: "Carlos Casares 3001",
-                  country: "ARG",
-                  phone: "1157351408"
-              }, 
+              // {
+              //     userId: `${user.sub}`,
+              //     userMail: "mail@mail.com",
+              //     purchaseItems: [
+              //         { productId: 1, price: 12000, quantity: 5 }
+              //     ],
+              //     totalPrice: 60000,
+              //     billingAddress: "Carlos Casares 3001",
+              //     shippingAddress: "Carlos Casares 3001",
+              //     country: "Argentina",
+              //     phone: "1157351408"
+              // }, 
+              newOrder,
               apiToken
           ))
           .then( response => {
@@ -164,58 +146,90 @@ const Checkout = () => {
           <form>
             <div className={styles.divCheckoutForm}>
               <div className={styles.divCheckoutFormHeader}>
-                <h2 className={styles.h2CheckoutFormHeader}>complete your personal data</h2>
+                <h2 className={styles.h2CheckoutFormHeader}>{user?.name} complete your personal data</h2>
               </div>
               <div className={styles.divCheckoutFormBody}>
+                {/* <div className={styles.divInfoUser}>
+                  <div className={styles.divInfoUserName}>
+                    <p className={styles.pInfoUser}>Name: {user?.name}</p>
+                    <p className={styles.pInfoUser}>Email: {user?.email}</p>
+                  </div>
+                  </div> */}
+                
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
                     <span className={styles.spanCheckoutFormBodyRow}>Address</span>
                     <input className={styles.inputCheckoutFormBodyRow}
                       type="text"
                       name="billingAddress" 
-                      // value={testOrder.billingAddress}
-                      // onChange={handleChange} />
+                      value={newOrder.billingAddress}
+                      onChange={handleChange}
                     />
                   </label>
                 </div>
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
                     <span className={styles.spanCheckoutFormBodyRow}>Country</span>
-                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="country" />
+                    <input className={styles.inputCheckoutFormBodyRow}
+                      type="text"
+                      name="country"
+                      value={newOrder.country}
+                      onChange={handleChange}
+                    />
                   </label>
                 </div>
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
                     <span className={styles.spanCheckoutFormBodyRow}>Phone</span>
-                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="phone" />
+                    <input className={styles.inputCheckoutFormBodyRow}
+                      type="text"
+                      name="phone" 
+                      value={newOrder.phone}
+                      onChange={handleChange}
+                    />
                   </label>
                 </div>
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
                     <span className={styles.spanCheckoutFormBodyRow}>Email</span>
-                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="email" />
+                    <input className={styles.inputCheckoutFormBodyRow}
+                      type="text"
+                      name="userMail" 
+                      value="ppp"
+                      onChange={handleChange}
+                    />
                   </label>
                 </div>
+                {/* <div className={styles.divCheckoutFormBodyRow}>
+                  <label className={styles.labelCheckoutFormBodyRow}>
+                    <span className={styles.spanCheckoutFormBodyRow}>Email</span>
+                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="email" />
+                  </label>
+                </div> */}
               </div>
             </div>
           </form>
         </div>
       </div>
-      <div className={styles.divBack}>
-        <Link to={`/shoppingCar`}>
-          <button className={styles.buttonBack}>Back to Shopping Cart</button>
-        </Link>
+      <div className={styles.divCheckoutFooter}>
+          {/* Solo permite enviar la info una vez. Si existe preferenceId no permite hacerlo nuevamente */}
+        {preferenceId === '' ?
+          <button className={styles.buttonSend} onClick={() => sendData()}> Confirm data </button>
+        : <button disabled className={styles.buttonSenddis} onClick={() => sendData()}> Confirm data </button>}
+      <div className={styles.divMPButton}>
+          <form id={FORM_ID} method="GET">
+            {preferenceId === '' && <button disabled className={styles.mpButton} > Pagar </button>} {/*boton de mercadoPago deshabilitado*/}
+        </form>
       </div>
-      
-
+        {/* <div className={styles.divConfirm}> */}
+          {/* <Link to={`/shoppingCar`}>
+            <button className={styles.buttonBack}>Back to Shopping Cart</button>
+          </Link> */}
+        {/* </div> */}
+      </div>
                 
-        {/* Solo permite enviar la info una vez. Si existe preferenceId no permite hacerlo nuevamente */}
-      {preferenceId === '' && <button onClick={() => sendData()}> Enviar informacion </button>}
       
         {/* { preferenceId && `${preferenceId}` }<br /><br /> */}
-      <form id={FORM_ID} method="GET">
-        {preferenceId === '' && <button disabled className={styles.mpButton} > Pagar </button>} {/*boton de mercadoPago deshabilitado*/}
-      </form>
       </div>
   )
 }

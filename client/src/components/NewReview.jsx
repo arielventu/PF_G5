@@ -19,7 +19,7 @@ const NewReview = ({ handleModal }) => {
     const reviewsById = useSelector((state) => state.reviewsById);
     const { user } = useAuth0();
     const initialReview = {
-        username: user.name,
+        username: user?.name ? user.name : '',
         description: "",
         starsLevel: 0,
         productId: productId,
