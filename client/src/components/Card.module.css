@@ -52,6 +52,7 @@
   border: 0.1rem solid rgb(190, 190, 190);
   cursor: pointer;
   position: left;
+  margin-right: 0.5rem;
 }
 
 .bfav:hover {
@@ -72,8 +73,8 @@
 }
 
 .pStars {
-  margin: 0 0 0 0 ;
-  font-size: .9rem;
+  margin: 0 0 0 0;
+  font-size: 0.9rem;
 }
 
 .starAvg {
