@@ -31,6 +31,8 @@ const Navbar = () => {
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
 
+  console.log(user)
+
 
   const getToken = () => {
     return new Promise( (resolve, reject) => {
@@ -115,6 +117,7 @@ const Navbar = () => {
               />
             </div>
           </Link>
+          {isAuthenticated ? <img className={styles.pictureprofile} src={user.picture}/> : null }
           {isLoading ? (
             <button className={styles.loginButton}> Loading </button>
           ) : isAuthenticated ? (

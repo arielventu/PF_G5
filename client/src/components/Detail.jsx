@@ -24,6 +24,7 @@ export default function Detail(){
   const detailstate = useSelector((state) => state.shoes)
   const products = useSelector(state => state.shoes)
   const auxProducts = useSelector(state => state.auxShoes)
+  const [otrasFotos, setotrasFotos] = useState('')
 
   let sizes = []
   let lala = products.map((e) => {
@@ -36,6 +37,7 @@ export default function Detail(){
  
   useEffect(() => {
     dispatch(getProducts())
+    setotrasFotos(detailstate2.imagecover)
   }, [])
   
   if(detailstate.length != 0){
@@ -108,6 +110,14 @@ export default function Detail(){
     
   }
 
+  var imagenOriginal = detailstate2.imagecover
+  console.log(imagenOriginal)
+
+  const producFotos = (e) => {
+    // imagenOriginal = e.target.accessKey;
+    setotrasFotos(e.target.accessKey)
+  }
+
     
   let catColors =[] 
   products.map ((e , i)  => {
@@ -140,6 +150,7 @@ export default function Detail(){
     }
     return product.imageurl
   }
+  // console.log(findProductImages())
 
   // console.log(starsAvg);
   return(
@@ -147,7 +158,7 @@ export default function Detail(){
     { detailstate.length > 0 ? 
       <div className = {styles.containerp}>
           <h1 className = {styles.title}> {detailstate2.fullName} </h1>
-          <img src={detailstate2.imagecover} alt = 'Shoe Image' className = {styles.img}/>
+          <img src={otrasFotos} alt = 'Shoe Image' className = {styles.img}/>
           <p className={styles.description}>{detailstate2.detail}</p>
           <div className = {styles.innercontainer}>
             <h3 className={styles.subtitles}>Sizes:</h3>
@@ -240,7 +251,7 @@ export default function Detail(){
             <div className = {styles.innercontainer3}>
             {findProductImages().map((e) => {
               return (
-                <img src={e} alt = 'Shoes Image' className = {styles.otherimg}/>
+                <img accessKey={e} src={e} alt = 'Shoes Image' className = {styles.otherimg} onClick={(e)=>producFotos(e)}/>
               )
             })}
                 <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
