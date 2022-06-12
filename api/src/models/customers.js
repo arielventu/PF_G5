@@ -32,7 +32,7 @@ module.exports = (sequelize) => {
       },
       fullName: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        // allowNull: false,
       },
       billingAddress: {
         type: DataTypes.TEXT,

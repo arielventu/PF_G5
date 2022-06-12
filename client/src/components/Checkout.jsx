@@ -54,7 +54,7 @@ const Checkout = () => {
   
   const handleChange = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
+    const { defaultValue, name, value } = e.target;
     // console.log(e.target)
     setNewOrder({
       ...newOrder,
@@ -195,7 +195,7 @@ const Checkout = () => {
                     <input className={styles.inputCheckoutFormBodyRow}
                       type="text"
                       name="userMail" 
-                      value="ppp"
+                      defaultValue={user?.email}
                       onChange={handleChange}
                     />
                   </label>
