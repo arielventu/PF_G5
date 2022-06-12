@@ -531,7 +531,7 @@ export function postOrders(payload) {
 export function putOrders(payload) {
   return async function (dispatch) {
     try {
-      await axios.post(`/orders/${payload.id}`, payload).then((orders) => {
+      await axios.put(`/orders/${payload.id}`, payload).then((orders) => {
         dispatch({
           type: PUT_ORDERS,
           payload: orders.data,
