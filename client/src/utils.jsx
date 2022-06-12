@@ -4,7 +4,6 @@ export const firstWordBye = (str) => {
     let resto = str.split(firstWord)[1]
     return resto
 }
-
 export const vix = [
     "rgb(59, 59, 59)",
     "rgb(245, 244, 240)", 

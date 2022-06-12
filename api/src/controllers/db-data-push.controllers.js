@@ -1,6 +1,19 @@
-const { Product, Category, Colors, Sizes, Stock, Review } = require("../db");
+const {
+  Product,
+  Category,
+  Colors,
+  Sizes,
+  Stock,
+  Review,
+  Customers,
+  Orders,
+  Orderdetails,
+} = require("../db");
 const items = require("../../bin/products");
 const reviews = require("../../bin/reviews");
+const customers = require("../../bin/customers");
+const orders = require("../../bin/orders");
+const orderDetails = require("../../bin/orderDetails");
 
 // funcion para hacer querys: por id busca por PK y por name busca por findOne
 const getFromDB = async (table, param, value) => {
@@ -246,6 +259,101 @@ const promisifiedPostReviews = () => {
 };
 
 // ----------------------------------------------------------------------------------
+// PROMESA: Upload de CUSTOMERS a la base de datos
+// ----------------------------------------------------------------------------------
+const promisifiedPostCustomers = () => {
+  return new Promise(async (resolve, reject) => {
+    const newData = [];
+    customers.forEach((element) => {
+      const data = {
+        id: element.id,
+        fullName: element.fullName,
+        billingAddress: element.billingAddress,
+        defaultShippingAddress: element.defaultShippingAddress,
+        country: element.country,
+        phone: element.phone,
+        userType: element.userType,
+      };
+      newData.push(data);
+    });
+    const count = await Customers.count();
+    if (count === 0) {
+      try {
+        const newType = await Customers.bulkCreate(newData);
+        resolve(newType);
+      } catch (error) {
+        reject(error);
+      }
+    } else {
+      resolve(null);
+    }
+  });
+};
+
+// ----------------------------------------------------------------------------------
+// PROMESA: Upload de ORDERS a la base de datos
+// ----------------------------------------------------------------------------------
+const promisifiedPostOrders = () => {
+  return new Promise(async (resolve, reject) => {
+    const newData = [];
+    orders.forEach((element) => {
+      const data = {
+        orderDate: element.orderDate,
+        amount: element.amount,
+        shippingAddress: element.shippingAddress,
+        orderEmail: element.orderEmail,
+        orderStatus: element.orderStatus,
+        customerId: element.customerId,
+      };
+      newData.push(data);
+    });
+    const count = await Orders.count();
+    if (count === 0) {
+      try {
+        const newType = await Orders.bulkCreate(newData, { returning: true });
+        resolve("Orders table created");
+      } catch (error) {
+        reject(error);
+      }
+    } else {
+      resolve(null);
+    }
+  });
+};
+
+// ----------------------------------------------------------------------------------
+// PROMESA: Upload de ORDERDETAILS a la base de datos
+// ----------------------------------------------------------------------------------
+const promisifiedPostOrderDetails = () => {
+  return new Promise(async (resolve, reject) => {
+    const newData = [];
+    orderDetails.forEach((element) => {
+      const data = {
+        price: element.price,
+        quantity: element.quantity,
+        productUrl: element.productUrl,
+        ordersId: element.ordersId,
+        productId: element.productId,
+      };
+      newData.push(data);
+    });
+    const count = await Orderdetails.count();
+    if (count === 0) {
+      try {
+        const newType = await Orderdetails.bulkCreate(newData, {
+          returning: true,
+        });
+        resolve("Order Details table created");
+      } catch (error) {
+        reject(error);
+      }
+    } else {
+      resolve(null);
+    }
+  });
+};
+
+// ----------------------------------------------------------------------------------
 // CONTROLADOR: Ejecuta las promesas de carga de products, categories, colors,
 // sizes y reviews a las base de datos.
 // ----------------------------------------------------------------------------------
@@ -255,8 +363,9 @@ const postDBData = async (req, res) => {
   let colors = promisifiedPostColors();
   let sizes = promisifiedPostSizes();
   let reviews = promisifiedPostReviews();
+  let customers = promisifiedPostCustomers();
 
-  Promise.all([products, categories, colors, sizes, reviews])
+  Promise.all([products, categories, colors, sizes, reviews, customers])
     .then((data) => {
       promisifiedRelCatProd()
         .then((data) => console.log(data))
@@ -264,6 +373,16 @@ const postDBData = async (req, res) => {
     })
     .then((data) => {
       promisifiedPostStock()
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+    })
+    .then((data) => {
+      promisifiedPostOrders()
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+    })
+    .then((data) => {
+      promisifiedPostOrderDetails()
         .then((data) => {
           console.log("Database information has been successfully uploaded!");
           console.log("Server is ready to work");

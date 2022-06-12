@@ -23,6 +23,15 @@ export const PUT_STOCK = "PUT_STOCK";
 export const DELETE_STOCK = "DELETE_STOCK";
 export const GET_SIZES = "GET_SIZES";
 export const GET_SIZES_BY_ID = "GET_SIZES_BY_ID";
+export const GET_ORDERS = "GET_ORDERS";
+export const GET_ORDERS_BY_ID = "GET_ORDERS_BY_ID";
+export const POST_ORDERS = "POST_ORDERS";
+export const PUT_ORDERS = "PUT_ORDERS";
+export const GET_ORDER_DETAILS = "GET_ORDER_DETAILS";
+export const GET_ORDER_DETAILS_BY_ID = "GET_ORDER_DETAILS_BY_ID";
+export const GET_ORDER_DETAILS_BY_ORDER_ID = "GET_ORDER_DETAILS_BY_ORDER_ID";
+export const POST_ORDER_DETAILS = "POST_ORDER_DETAILS";
+
 // export const getProducts = () => {
 //     return {
 //         type: 'GET_PRODUCTS',
@@ -264,25 +273,48 @@ export function getSizesById(id) {
 // Adding by IVAN MONZON
 // DateTime: 2022-06-07
 // -----------------------------------------------------------------------
-export const getUsers = ( apiToken ) => {
-  return new Promise( (resolve, reject) => {
+
+export const getApiJWT = (token) => {
+  return new Promise((resolve, reject) => {
+    try {
+      let options = {
+        method: "GET",
+        url: "/auth",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      };
+
+      axios.request(options).then((res) => {
+        resolve(res.data);
+      });
+    } catch (err) {
+      console.log(">> ERROR");
+      reject(err);
+    }
+  });
+};
+
+export const getUsers = (apiToken) => {
+  return new Promise((resolve, reject) => {
     let options = {
       method: "GET",
       url: `/users`,
-      headers: { 
-        "authorization": `Bearer ${apiToken}`
-      }
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
     };
-  
-    axios.request(options)
-      .then( response => {
-        resolve(response)
+
+    axios
+      .request(options)
+      .then((response) => {
+        resolve(response);
       })
-      .catch( err => {
-        reject(err)
-      })
-  })
-}
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
 
 export const getUser = ( userId, apiToken ) => {
   return new Promise( (resolve, reject) => {
@@ -305,22 +337,22 @@ export const getUser = ( userId, apiToken ) => {
 }
 
 // getUserRoles devuelve un array de objetos. Cada objeto es un ROL asignado al USER
-export const getUserRoles = async ( id, apiToken ) => {
+export const getUserRoles = async (id, apiToken) => {
   try {
     let options = {
       method: "GET",
       url: `/users/roles/${id}`,
-      headers: { 
-        "authorization": `Bearer ${apiToken}`
-      }
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
     };
 
     const { data } = await axios.request(options);
-    return data
+    return data;
   }
   catch (err) {
     console.log(err);
-    throw new Error(err)
+    throw new Error(err);
   }
 }
 
@@ -363,76 +395,61 @@ export const revokeAdmin = async ( userId, roles, apiToken ) => {
   catch (err) {
     console.log(err);
     throw new Error(err);
-  }
-}
+  };
+};
 
-export const resetUserPass = async ( email, apiToken ) => {
-  // Se hace un post a users, enviando un email y solicitando la ruta users/resetPass, esto ejecutará del lado del BACK 
-  // la solicitud a la API Auth0 para el forzado de reset de constraseña. La consulta devuelve el objeto de usuario.
-  try {
-    let options = {
-      method: 'POST',
-      url: `/users/resetPass/${email}`,
-      headers: {
-        "authorization": `Bearer ${apiToken}`
-      }
-    }
-
-    const backRes = await axios.request(options)
-    return backRes.data
-  }
-  catch (error) {
-    console.log(error);
-  }
-}
-
-export const deleteUser = async ( id, apiToken ) => {
-  // Se hace un delete a users, enviando un email y solicitando la ruta users/deleteUser, esto ejecutará del lado del BACK 
+export const deleteUser = async (id, apiToken) => {
+  // Se hace un delete a users, enviando un email y solicitando la ruta users/deleteUser, esto ejecutará del lado del BACK
   // la solicitud a la API Auth0 para la eliminación del usuario. La consulta devuelve el objeto de usuario.
   try {
     let options = {
       method: "DELETE",
       url: `/users/${id}`,
-      headers: { 
-        "authorization": `Bearer ${apiToken}`
-      }
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
     };
-    const backResp = await axios.request(options);
-    console.log(backResp)
-    return backResp
+    const { data } = await axios.request(options);
+    console.log(data);
+    return data;
+  } 
+  catch (err) {
+    console.log(err)
+    throw new Error(err)
   }
-  catch (error) {
-    // console.log(error.response)
-    return error.response
-  }
-}
+};
 
-export const getApiJWT = ( token ) => {
-  return new Promise( (resolve, reject) => {
-    try {
-      let options = {
-        method: "GET",
-        url: "/auth",
-        headers: { 
-            "authorization": `Bearer ${token}`
-        }
-      };
-  
-      axios.request(options)
-        .then( res => {
-          resolve(res.data)
-        })
-      }
-      catch (err) {
-        console.log('>> ERROR')
-        reject(err)
-      }
-  })
-}
+export const resetUserPass = async (email, apiToken) => {
+  // Se hace un post a users, enviando un email y solicitando la ruta users/resetPass, esto ejecutará del lado del BACK
+  // la solicitud a la API Auth0 para el forzado de reset de constraseña. La consulta devuelve el objeto de usuario.
+  try {
+    let options = {
+      method: "POST",
+      url: `/users/resetPass/${email}`,
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
+    };
+
+    const backRes = await axios.request(options);
+    return backRes.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// ------------------------------------------------------------------------------------------
+
+export const otroFilterMas = (payload) => {
+  console.log(payload);
+  return {
+    type: "OTRO_MAS",
+    payload,
+  };
+};
+
 
 // -------------------------------------------------------------------------------------------
-
-
 
 // ----------- ACTIONS FOR PRODUCT STOCK  -----------
 // Adding by ELIECER
@@ -467,6 +484,21 @@ export function postStock(payload) {
     }
   };
 }
+/* export function getSizes (){ 
+    return async function (dispatch){
+        try{
+            await axios.get(`/sizes`)
+                .then(yeison => {
+                    // console.log(yeison.data)
+                dispatch({
+                type: 'GET_SIZES',
+                payload :yeison.data
+                })
+            })
+        }catch(error){
+            console.log(error)}
+    }
+} */
 
 export function putStock(payload) {
   return async function (dispatch) {
@@ -497,26 +529,149 @@ export function deleteStock(id) {
     }
   };
 }
-  
+
 // ------------------------------------------------------
 // CHECKOUT
 // ------------------------------------------------------
 
-export async function postCheckoutOrder( order, apiToken ) {
+export async function postCheckoutOrder(order, apiToken) {
   try {
     let options = {
-      method: 'POST',
+      method: "POST",
       url: `/checkout/postOrder`,
       headers: {
-        "authorization": `Bearer ${apiToken}`
+        authorization: `Bearer ${apiToken}`,
       },
       data: order,
-    }
+    };
 
-    const preferenceSandBox = await axios.request(options)
-    return preferenceSandBox
-  }
-  catch (error) {
+    const preferenceSandBox = await axios.request(options);
+    return preferenceSandBox;
+  } catch (error) {
     console.log(error);
   }
+}
+
+// ----------- ACTIONS FOR ORDERS  -----------
+// Adding by ELIECER
+// DateTime: 2022-06-11 00:22:00
+// ------------------------------------------
+export function getOrders() {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/orders`).then((orders) => {
+        dispatch({ type: GET_ORDERS, payload: orders.data });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getOrdersById(id) {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/orders/${id}`).then((orders) => {
+        dispatch({
+          type: GET_ORDERS_BY_ID,
+          payload: orders.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function postOrders(payload) {
+  return async function (dispatch) {
+    try {
+      await axios.post(`/orders`, payload).then((orders) => {
+        dispatch({
+          type: POST_ORDERS,
+          payload: orders.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function putOrders(payload) {
+  return async function (dispatch) {
+    try {
+      await axios.post(`/orders/${payload.id}`, payload).then((orders) => {
+        dispatch({
+          type: PUT_ORDERS,
+          payload: orders.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+// ----------- ACTIONS FOR ORDERDETAILS  -----------
+// Adding by ELIECER
+// DateTime: 2022-06-11 02:11:00
+// ------------------------------------------
+export function getOrderDetails() {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/orderDetails`).then((orderDetails) => {
+        dispatch({ type: GET_ORDER_DETAILS, payload: orderDetails.data });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getOrderDetailsById(id) {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/orderDetails/${id}`).then((orderDetails) => {
+        dispatch({
+          type: GET_ORDER_DETAILS_BY_ID,
+          payload: orderDetails.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getOrderDetailsByOrderId(id) {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/orderDetails/order/${id}`).then((orderDetails) => {
+        dispatch({
+          type: GET_ORDER_DETAILS_BY_ORDER_ID,
+          payload: orderDetails.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function postOrderDetails(payload) {
+  return async function (dispatch) {
+    try {
+      await axios.post(`/orderDetails`, payload)
+      .then((orderDetails) => {
+        dispatch({
+          type: POST_ORDER_DETAILS,
+          payload: orderDetails.data,
+        });
+      });
+    } 
+    catch (error) {
+      console.log(error);
+    }
+  };
 }

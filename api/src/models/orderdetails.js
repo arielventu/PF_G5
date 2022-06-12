@@ -15,6 +15,10 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      productUrl: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
     },
     { timestamps: false }
   );
