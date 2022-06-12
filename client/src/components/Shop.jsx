@@ -25,9 +25,11 @@ const Shop = () => {
   const [shoesPerPage, setShoesPerPage]= useState(16) //eslint-disable-line
   const indexOfLastShoe = currentPage * shoesPerPage; 
   const indexOfFirstShoe = indexOfLastShoe - shoesPerPage;
-
-  const currentShoes = products.slice(indexOfFirstShoe, indexOfLastShoe);
-
+  
+  const currentShoes =products.slice(indexOfFirstShoe, indexOfLastShoe);
+  // q current shoes haga el slice con pangolin ordenado
+  
+  /* console.log(pangolin) */
   /* const pangolin =products.filter(e=> e.stock !== undefined)
   const currentShoes = pangolin.slice(indexOfFirstShoe, indexOfLastShoe); */
 /*   console.log(pangolin) */
@@ -35,7 +37,18 @@ const Shop = () => {
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-  console.log(products)
+  
+ /* const fly = products.sort(function(a,b){
+      if(a.price > b.price){
+          return 1;
+      }
+      if(b.price > a.price){
+          return -1
+      }
+      return 0
+  })
+  console.log(fly) */
+
   const firstCharUpperBestFor = (str) => {
     const arr = str.split("-");
     for (let i = 0; i < arr.length; i++) {
@@ -50,10 +63,11 @@ const Shop = () => {
 
   
   useEffect(() => {
-  
+    
     dispatch(getCategories())
     dispatch(getProducts())
     dispatch(getColors())
+    
    
   }, [])
   const clearFilters = () => {
@@ -81,9 +95,12 @@ const Shop = () => {
     name === 'bestFor' && dispatch(filterByBestFor(value))
     name === 'colors' && dispatch(filterByColor(value))
     name === 'gender' && dispatch(filterByGender(value))
+   /*  name === "sort" &&  dispatch(set) */
     setCurrentPage(1)
-  }
     
+  }
+  console.log(currentShoes.map( e =>e.price))
+   
   return (
     <div className={styles.container}>
       <div className={styles.flyer}>
@@ -98,6 +115,17 @@ const Shop = () => {
                   <button className={styles.buttonClearFilters} onClick={e => clearFilters()}>x</button>
                 </div>}
             </div>
+            <div className={styles.divFiltersBestFor}>
+                <h2 className={styles.filtersSubtitle}>sorder</h2>
+                <div>
+                  <input className={styles.input} type="radio"  name= 'xpensive' value='womens'onChange={filterHandler} />
+                  <label className={styles.radioLabel} >xpensive</label>
+                </div>
+                <div>
+                  <input className={styles.input} type="radio"  name= 'cheap' value='mens'onChange={filterHandler} />
+                  <label className={styles.radioLabel} >cheap</label>
+                </div>
+              </div>
             <div className={styles.divFiltersBestFor}>
               <h2 className={styles.filtersSubtitle}>Best For</h2>
               {bestFor.map(e => (
