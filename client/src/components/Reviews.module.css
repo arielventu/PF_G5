@@ -1,11 +1,23 @@
 .divStarsContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.divReviewsContent {
+  margin-bottom: 2rem;
 }
 
 .star {
-    width: 1rem;
-    margin: 0 0.1rem 0 0.1rem;
-  }
+  width: 1rem;
+  margin: 0 0.1rem 0 0.1rem;
+}
+
+.divReviewsTitle {
+  font-size: 0.8rem;
+}
+
+.reviewp {
+  color: rgb(75, 75, 75);
+}

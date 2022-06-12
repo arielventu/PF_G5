@@ -19,7 +19,9 @@ const getOrders = async (req, res) => {
         {
           model: Orderdetails,
           attributes: { exclude: ["ordersId", "productId"] },
-          include: [{ model: Product, attributes: ["id", "masterName"] }],
+          include: [
+            { model: Product, attributes: ["id", "fullName", "imagecover"] },
+          ],
         },
       ],
     });
@@ -37,7 +39,9 @@ const getOrder = async (req, res) => {
         { model: Customers, attributes: ["fullName"] },
         {
           model: Orderdetails,
-          include: [{ model: Product, attributes: ["id", "masterName"] }],
+          include: [
+            { model: Product, attributes: ["id", "fullName", "imagecover"] },
+          ],
         },
       ],
     });
@@ -81,6 +85,7 @@ const updateOrder = async (req, res) => {
   try {
     const { id } = req.params;
     const orders = await Orders.findByPk(id);
+    console.log(orders);
     orders.set(req.body);
     await orders.save();
     res.json(orders);

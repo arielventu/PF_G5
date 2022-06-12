@@ -37,7 +37,7 @@ const Reviews = ({ productId, name }) => {
     <div className={styles.divContainer}>
       <div className={styles.divReviews}>
         <div className={styles.divReviewsTitle}>
-          <h2>Reviews of { name }</h2>
+          <h2>Reviews of { name }:</h2>
           {reviewsList?.map((review, i) => (
             <div key={i} className={styles.divReviewsContent}>
               <div key={`b${productId}`} className={styles.divReviewsContentTitle}>
@@ -82,7 +82,7 @@ const Reviews = ({ productId, name }) => {
                       <img className={styles.star} src={starY} alt="star" />
                       <img className={styles.star} src={starY} alt="star" />
                     </div>}
-                <p key={`p${productId}`}>{review.description}</p>
+                <p key={`p${productId}`} className={styles.reviewp}>{review.description}</p>
               </div>
             </div>
           ))}
