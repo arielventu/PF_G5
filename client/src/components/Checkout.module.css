@@ -70,25 +70,11 @@
     margin-top: 1rem;
   }
 
-  .buttonBack {
-    background-color: rgb(106, 203, 233);
-    border: 0.1rem solid rgb(106, 203, 233);
-    color: rgb(255, 255, 255);
-    padding: 0.3rem;
-    text-align: center;
-    text-decoration: none;
-    font-family: Koulen;
-    font-size: 1.2rem;
-    border-radius: 0.5rem;
-    width: 12rem;
-    height: 2.5rem;
-  }
-
   .divTotal {
     display: flex;
     padding: 0 1rem;
     margin: .5rem 0;
-    background-color:rgba(189, 189, 189, 0.993);
+    background-color:rgb(23, 74, 105);
     border-radius: 0.3rem;
   }
 
@@ -96,13 +82,13 @@
     text-decoration: none;
     font-size: 2rem;
     font-family: Koulen;
-    color: rgb(23, 74, 105);
+    color: rgb(255, 255, 255);
     font-weight: 100;
   }
 
   .divCheckoutForm {
     background-color: rgba(223, 221, 221, 0.993);
-    height: 10rem;
+    height: 8.5rem;
     width: 80vw;
     color: black;
     font-family: Koulen;
@@ -113,6 +99,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 0.13rem solid rgb(255, 255, 255);
+    height: 3rem;
   }
 
   .divCheckoutFormBody {
@@ -135,4 +123,59 @@
     padding: 0.1rem;
   }
 
+  .divCheckoutFooter {
+    display: flex;
+    justify-content: space-around;
+    width: 80vw;
+    height: auto;
+    margin: .5rem .5rem;
+    padding: 2rem;
+  }
 
+    /* .buttonBack {
+    background-color: rgb(207, 196, 93);
+    border: 0.1rem solid rgb(207, 196, 93);
+    color: rgb(255, 255, 255);
+    padding: 0.3rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: Koulen;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    width: 12rem;
+  } */
+  
+  .buttonSend {
+    background-color: rgb(64, 177, 74);
+    border: 0.1rem solid rgb(64, 177, 74);
+    color: rgb(255, 255, 255);
+    padding: 0.3rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: Koulen;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    width: 12rem;
+    height: 2.5rem;
+  }
+
+  .buttonSenddis {
+    background-color: rgb(219, 219, 219);
+    border: 0.1rem solid rgb(219, 219, 219);
+    color: rgb(255, 255, 255);
+    padding: 0.3rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: Koulen;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    width: 12rem;
+    height: 2.5rem;
+  }
+
+  .divMPButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0rem .5rem 2rem .5rem; */
+  }
