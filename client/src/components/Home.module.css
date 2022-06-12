@@ -144,3 +144,10 @@ figure {
     margin-left: -300%;
   }
 }
+
+@media (max-width: 360px) {
+  .innercontainer {
+    margin-top: 2rem;
+    color: rgb(145, 143, 143);
+  }
+}
