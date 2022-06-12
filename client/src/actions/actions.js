@@ -273,90 +273,6 @@ export function getSizesById(id) {
 // Adding by IVAN MONZON
 // DateTime: 2022-06-07
 // -----------------------------------------------------------------------
-export const getUsers = (apiToken) => {
-  return new Promise((resolve, reject) => {
-    let options = {
-      method: "GET",
-      url: `/users`,
-      headers: {
-        authorization: `Bearer ${apiToken}`,
-      },
-    };
-
-    axios
-      .request(options)
-      .then((response) => {
-        resolve(response);
-      })
-      .catch((err) => {
-        reject(err);
-      });
-  });
-};
-
-// getUserRoles devuelve un array de objetos. Cada objeto es un ROL asignado al USER
-export const getUserRoles = async (id, apiToken) => {
-  try {
-    let options = {
-      method: "GET",
-      url: `/users/roles/${id}`,
-      headers: {
-        authorization: `Bearer ${apiToken}`,
-      },
-    };
-
-    const { data } = await axios.request(options);
-    return data;
-  } catch (err) {
-    return err;
-  }
-};
-
-export const deleteUser = async (id, apiToken) => {
-  // Se hace un delete a users, enviando un email y solicitando la ruta users/deleteUser, esto ejecutará del lado del BACK
-  // la solicitud a la API Auth0 para la eliminación del usuario. La consulta devuelve el objeto de usuario.
-  try {
-    let options = {
-      method: "DELETE",
-      url: `/users/${id}`,
-      headers: {
-        authorization: `Bearer ${apiToken}`,
-      },
-    };
-    const backResp = await axios.request(options);
-    console.log(backResp);
-    return backResp;
-  } catch (error) {
-    // console.log(error.response)
-    return error.response;
-  }
-};
-
-export const resetUserPass = async (email, apiToken) => {
-  // Se hace un post a users, enviando un email y solicitando la ruta users/resetPass, esto ejecutará del lado del BACK
-  // la solicitud a la API Auth0 para el forzado de reset de constraseña. La consulta devuelve el objeto de usuario.
-  try {
-    let options = {
-      method: "POST",
-      url: `/users/resetPass/${email}`,
-      headers: {
-        authorization: `Bearer ${apiToken}`,
-      },
-    };
-
-    const backRes = await axios.request(options);
-    return backRes.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-export const otroFilterMas = (payload) => {
-  console.log(payload);
-  return {
-    type: "OTRO_MAS",
-    payload,
-  };
-};
 
 export const getApiJWT = (token) => {
   return new Promise((resolve, reject) => {
@@ -378,6 +294,160 @@ export const getApiJWT = (token) => {
     }
   });
 };
+
+export const getUsers = (apiToken) => {
+  return new Promise((resolve, reject) => {
+    let options = {
+      method: "GET",
+      url: `/users`,
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
+    };
+
+    axios
+      .request(options)
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export const getUser = ( userId, apiToken ) => {
+  return new Promise( (resolve, reject) => {
+    let options = {
+      method: "GET",
+      url: `/users/${userId}`,
+      headers: { 
+        "authorization": `Bearer ${apiToken}`
+      }
+    };
+  
+    axios.request(options)
+      .then( response => {
+        resolve(response)
+      })
+      .catch( err => {
+        reject(err)
+      })
+  })
+}
+
+// getUserRoles devuelve un array de objetos. Cada objeto es un ROL asignado al USER
+export const getUserRoles = async (id, apiToken) => {
+  try {
+    let options = {
+      method: "GET",
+      url: `/users/roles/${id}`,
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
+    };
+
+    const { data } = await axios.request(options);
+    return data;
+  }
+  catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+}
+
+export const setAdmin = async ( userId, roles, apiToken ) => {
+  console.log(roles)
+  try {
+    let options = {
+      method: 'POST',
+      url: `/users/setAdmin/${userId}`,
+      headers: {
+        "authorization": `Bearer ${apiToken}`
+      },
+      data: roles
+    }
+
+    const { data } = await axios.request(options)
+    return data
+  }
+  catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+}
+
+export const revokeAdmin = async ( userId, roles, apiToken ) => {
+  console.log(roles)
+  try {
+    let options = {
+      method: 'DELETE',
+      url: `/users/revokeAdmin/${userId}`,
+      headers: {
+        "authorization": `Bearer ${apiToken}`
+      },
+      data: roles
+    }
+
+    const { data } = await axios.request(options)
+    return data
+  }
+  catch (err) {
+    console.log(err);
+    throw new Error(err);
+  };
+};
+
+export const deleteUser = async (id, apiToken) => {
+  // Se hace un delete a users, enviando un email y solicitando la ruta users/deleteUser, esto ejecutará del lado del BACK
+  // la solicitud a la API Auth0 para la eliminación del usuario. La consulta devuelve el objeto de usuario.
+  try {
+    let options = {
+      method: "DELETE",
+      url: `/users/${id}`,
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
+    };
+    const { data } = await axios.request(options);
+    console.log(data);
+    return data;
+  } 
+  catch (err) {
+    console.log(err)
+    throw new Error(err)
+  }
+};
+
+export const resetUserPass = async (email, apiToken) => {
+  // Se hace un post a users, enviando un email y solicitando la ruta users/resetPass, esto ejecutará del lado del BACK
+  // la solicitud a la API Auth0 para el forzado de reset de constraseña. La consulta devuelve el objeto de usuario.
+  try {
+    let options = {
+      method: "POST",
+      url: `/users/resetPass/${email}`,
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
+    };
+
+    const backRes = await axios.request(options);
+    return backRes.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// ------------------------------------------------------------------------------------------
+
+export const otroFilterMas = (payload) => {
+  console.log(payload);
+  return {
+    type: "OTRO_MAS",
+    payload,
+  };
+};
+
 
 // -------------------------------------------------------------------------------------------
 
@@ -592,13 +662,15 @@ export function getOrderDetailsByOrderId(id) {
 export function postOrderDetails(payload) {
   return async function (dispatch) {
     try {
-      await axios.post(`/orderDetails`, payload).then((orderDetails) => {
+      await axios.post(`/orderDetails`, payload)
+      .then((orderDetails) => {
         dispatch({
           type: POST_ORDER_DETAILS,
           payload: orderDetails.data,
         });
       });
-    } catch (error) {
+    } 
+    catch (error) {
       console.log(error);
     }
   };

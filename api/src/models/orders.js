@@ -20,9 +20,13 @@ module.exports = (sequelize) => {
       },
       orderEmail: {
         type: DataTypes.TEXT,
+        allowNull: false,
         validate: {
-          isEmail: true,
-        },
+            isEmail: true,
+        }
+      },
+      orderDate: {
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       orderStatus: {
