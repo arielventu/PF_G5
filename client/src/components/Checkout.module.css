@@ -58,8 +58,8 @@
     /* margin-top: 1.5rem; */
     margin-left: 0.2rem;
     text-decoration: none;
-    font-size: 1.3rem;
-    /* margin-bottom: 0.01rem; */
+    font-size: 1.2rem;
+    color: rgb(23, 74, 105);
     font-family: Koulen;
   }
 
@@ -96,11 +96,13 @@
     text-decoration: none;
     font-size: 2rem;
     font-family: Koulen;
+    color: rgb(23, 74, 105);
+    font-weight: 100;
   }
 
   .divCheckoutForm {
     background-color: rgba(223, 221, 221, 0.993);
-    height: 12rem;
+    height: 10rem;
     width: 80vw;
     color: black;
     font-family: Koulen;
@@ -117,6 +119,20 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* margin: .5rem 0; */
+    margin: .5rem .5rem;
   }
+
+  .labelCheckoutFormBodyRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    font-family: Koulen;
+    color: rgb(23, 74, 105);
+    font-weight: 100;
+    padding: 0.1rem;
+  }
+
 
