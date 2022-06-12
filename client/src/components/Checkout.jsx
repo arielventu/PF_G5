@@ -11,30 +11,88 @@ import { Link } from 'react-router-dom';
 
 const Checkout = () => {
   const { user, getAccessTokenSilently } = useAuth0();
-  const [ preferenceId, setpreferenceId ] = useState('')
+  const [preferenceId, setpreferenceId] = useState('')
   const FORM_ID = 'checkoutForm';
 
+  const lStorage = JSON.parse(localStorage.getItem('carrito'));
+  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * item.cantidad, 0);
+
+  const [newOrder, setNewOrder] = useState({
+        user_id: '',
+        userMail: '',
+        purchaseItems: [],
+        totalPrice: '',
+        billingAddress: '',
+        shippingAddress: '',
+        country: '',
+        phone: '',
+      })
 
   const getToken = () => {
-      return new Promise( (resolve, reject) => {
-        getAccessTokenSilently()
-          .then( async token => getApiJWT(token) )
-          .then( apiToken => {
-            resolve(apiToken);
-            console.log(apiToken)
-          })
-          .catch( error => {
-            reject(error)
-          })
-      })
-    };
+    return new Promise((resolve, reject) => {
+      getAccessTokenSilently()
+        .then(async token => getApiJWT(token))
+        .then(apiToken => {
+          resolve(apiToken);
+          console.log(apiToken)
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
+  };
 
   // console.log(user.name);
-  // const newOrder = {
-  //   user_id: user.sub,
-  //   userMail: user.email,
-  // }
 
+  const products = lStorage.map(item => {
+        return {
+          productId: item.id,
+          quantity: item.cantidad,
+          price: item.price
+        }
+      })
+  
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   const { name, value } = e.target;
+  //   const testOrder = {
+  //     user_id: user.sub,
+  //     userMail: user.email,
+  //     purchaseItems: lStorage.map(item => {
+  //       return {
+  //         productId: item.id,
+  //         quantity: item.cantidad,
+  //         price: item.price
+  //       }
+  //     }),
+  //     totalPrice: totalOrder,
+  //     billingAddress: value,
+  //     shippingAddress: this.billingAddress.value,
+  //     country: value,
+  //     phone: value,
+  //   }
+  //   console.log(testOrder);
+  // }
+  
+    // const testOrder = {
+    //   user_id: user.sub,
+    //   userMail: user.email,
+    //   purchaseItems: lStorage.map(item => {
+    //     return {
+    //       productId: item.id,
+    //       quantity: item.cantidad,
+    //       price: item.price
+    //     }
+    //   }),
+    //   totalPrice: totalOrder,
+    //   // billingAddress: value,
+    //   // shippingAddress: value,
+    //   // country: value,
+    //   // phone: value,
+    // }
+    // console.log(testOrder);
+
+  console.log(user.sub)
   const sendData = () => {
       getToken()
           .then( apiToken => postCheckoutOrder(
@@ -71,9 +129,8 @@ const Checkout = () => {
     }
   }, [preferenceId]);
 
-  // console.log(JSON.parse(localStorage.getItem('carrito')))
-  const lStorage = JSON.parse(localStorage.getItem('carrito'));
-  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * item.cantidad, 0);
+  // console.log(lStorage);
+  
     
   return (
     <div className={styles.divCheckoutContainer}>
@@ -112,7 +169,12 @@ const Checkout = () => {
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
                     <span className={styles.spanCheckoutFormBodyRow}>Address</span>
-                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="address" />
+                    <input className={styles.inputCheckoutFormBodyRow}
+                      type="text"
+                      name="billingAddress" 
+                      // value={testOrder.billingAddress}
+                      // onChange={handleChange} />
+                    />
                   </label>
                 </div>
                 <div className={styles.divCheckoutFormBodyRow}>
