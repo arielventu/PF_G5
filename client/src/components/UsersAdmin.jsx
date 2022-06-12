@@ -7,7 +7,7 @@ import UsersCard from './UsersCard';
 
 const UsersAdmin = () => {
 
-    const { user, getAccessTokenSilently } = useAuth0()
+    const { getAccessTokenSilently } = useAuth0()
     const [usersList, setUsersList] = useState([]);
 
 
@@ -26,10 +26,12 @@ const UsersAdmin = () => {
     };
     
     const refreshList = () => {
+        // console.log('refresh')
+        setUsersList([]);
         getToken()
         .then( apiToken => getUsers(apiToken) )
         .then( users => {
-            // console.log(users.data);
+            console.log(users.data);
             setUsersList(users.data)
         })
     };
@@ -39,16 +41,23 @@ const UsersAdmin = () => {
 
     return (
         <>
-        {usersList.map( (u, i) => (
-            <UsersCard 
-                key={i}
-                id={`${u.user_id}`} 
-                name={`${u.name}`} 
-                email={`${u.email}`}
-                picture={`${u.picture}`}
-                refresh = { refreshList }
-            />
-        ))}
+
+        { usersList.length === 0 ?
+            <h2 className={styles.usersTitle}> LOADING ... </h2> :
+            <div id={styles.userAdminContainer}>
+                <h1 className={styles.usersTitle}> Users Management </h1>
+                {usersList.map( (u, i) => (
+                    <UsersCard 
+                        key={i}
+                        id={`${u.user_id}`} 
+                        name={`${u.name}`} 
+                        email={`${u.email}`}
+                        picture={`${u.picture}`}
+                        refresh = { refreshList }
+                    />
+                ))}
+            </div>
+        }
         </>
     )
 };

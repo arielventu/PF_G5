@@ -1,9 +1,8 @@
 import React, { useState } from 'react' ;  
 import styles from './Administration.module.css';
-import { useAuth0 } from '@auth0/auth0-react';
-import { postCheckoutOrder, getApiJWT } from '../actions/actions';
 import UsersAdmin from './UsersAdmin';
 import Products from './Products';
+import Orders from './Orders'
 
 
 const Administration = () => {
@@ -18,13 +17,13 @@ const Administration = () => {
     return (
         <div className={styles.mainAdminContainer}>
             <div className={styles.sectionButtonsContainer}>
-                <button name='stock' onClick={ (e) => handleButton(e) }> Stock </button>
-                <button name='orders' onClick={ (e) => handleButton(e) }> Orders </button>
-                <button name='users' onClick={ (e) => handleButton(e) }> Users </button>
+                <button name='stock' className={`${styles.adminBtn} ${sectionActive === 'stock' && styles.active}`} onClick={ (e) => handleButton(e) }> Products </button>
+                <button name='orders' className={`${styles.adminBtn} ${sectionActive === 'orders' && styles.active}`} onClick={ (e) => handleButton(e) }> Orders </button>
+                <button name='users' className={`${styles.adminBtn} ${sectionActive === 'users' && styles.active}`} onClick={ (e) => handleButton(e) }> Users </button>
             </div>
             <div className={styles.sectionContentContainer}>
                 { sectionActive === 'stock' && <Products /> }
-                { sectionActive === 'orders' && <p> ORDERS </p> }
+                { sectionActive === 'orders' && <Orders /> }
                 { sectionActive === 'users' && <UsersAdmin /> }
             </div>
         </div>

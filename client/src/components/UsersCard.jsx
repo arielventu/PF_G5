@@ -43,7 +43,7 @@ const UsersCard = ({ id, name, email, picture, refresh }) => {
                 setAdmin( id, { roles: [ "rol_ssYAS839QjRHk2GX" ]}, apiToken)
                 .then( res => {
                     console.log(res);
-                    setAdminUser( true )
+                    refresh();
                 })
                 .catch( err => {
                     console.log(err);
@@ -53,7 +53,7 @@ const UsersCard = ({ id, name, email, picture, refresh }) => {
                 revokeAdmin( id, { roles: ["rol_ssYAS839QjRHk2GX"]}, apiToken)
                 .then( res => {
                     console.log(res);
-                    setAdminUser( false )
+                    refresh();
                 })
                 .catch( err => {
                     console.log(err);
@@ -74,26 +74,26 @@ const UsersCard = ({ id, name, email, picture, refresh }) => {
         <>
             <div className={styles.cardContainer}>
                     <img src={picture} alt="User Image" className={styles.userImg} />
-                <p id={styles.nameText}>Name: {name}</p>
-                <p id={styles.mailText}>E-mail: {email}</p>
+                <p id={styles.nameText}><span className={styles.label}>Name:</span><br /> {name}</p>
+                <p id={styles.mailText}><span className={styles.label}>E-mail:</span><br /> {email}</p>
                 <div className={styles.buttonsContainer}>
                     { adminUser ? <button 
                         name='revoke-admin' 
-                        className={styles.userCardBtn}
+                        className={`${styles.userButton} ${styles.alert}`}
                         onClick={ (e) => handleButton(e) }
                     > 
                         Revoke Admin 
                     </button> :
                     <button 
                         name='set-admin' 
-                        className={styles.userCardBtn}
+                        className={`${styles.userButton} ${styles.medium}`}
                         onClick={ (e) => handleButton(e) }
                     > 
                         Set Admin 
                     </button>}
                     <button 
                         name='delete' 
-                        className={styles.userCardBtn}
+                        className={`${styles.userButton} ${styles.danger}`}
                         onClick={ (e) => handleButton(e) }
                     > 
                         Delete 

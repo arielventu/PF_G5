@@ -12,7 +12,7 @@
 }
 
 .userImg {
-    margin: auto 1rem;
+    margin: auto 2rem;
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 1.75rem;
@@ -30,7 +30,7 @@
 }
 
 .buttonsContainer {
-    width: 25%;
+    width: 30%;
     /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
@@ -38,6 +38,32 @@
     align-items: center;
 }
 
-.userCardBtn {
-    margin: 0 1.5rem;
+.danger {
+    background-color: rgb(224, 40, 40);
+    border: 2px solid rgb(199, 1, 1);
+    color: white;
+}
+
+.medium {
+    background-color: rgb(114, 114, 114);
+    border: 2px solid rgb(70, 70, 70);
+    color: white;
+}
+
+.alert {
+    background-color: rgb(255, 110, 27);
+    border: 2px solid rgb(216, 94, 23);
+    color: white;
+}
+
+.userButton {
+    /* border: 1px solid black; */
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 8rem;
+    margin: 0 1rem;
+}
+
+.label {
+    color: rgb(114, 114, 114);
 }
