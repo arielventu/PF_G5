@@ -284,6 +284,26 @@ export const getUsers = ( apiToken ) => {
   })
 }
 
+export const getUser = ( userId, apiToken ) => {
+  return new Promise( (resolve, reject) => {
+    let options = {
+      method: "GET",
+      url: `/users/${userId}`,
+      headers: { 
+        "authorization": `Bearer ${apiToken}`
+      }
+    };
+  
+    axios.request(options)
+      .then( response => {
+        resolve(response)
+      })
+      .catch( err => {
+        reject(err)
+      })
+  })
+}
+
 // getUserRoles devuelve un array de objetos. Cada objeto es un ROL asignado al USER
 export const getUserRoles = async ( id, apiToken ) => {
   try {
@@ -299,29 +319,50 @@ export const getUserRoles = async ( id, apiToken ) => {
     return data
   }
   catch (err) {
-    return err
+    console.log(err);
+    throw new Error(err)
   }
 }
 
-
-export const deleteUser = async ( id, apiToken ) => {
-  // Se hace un delete a users, enviando un email y solicitando la ruta users/deleteUser, esto ejecutará del lado del BACK 
-  // la solicitud a la API Auth0 para la eliminación del usuario. La consulta devuelve el objeto de usuario.
+export const setAdmin = async ( userId, roles, apiToken ) => {
+  console.log(roles)
   try {
     let options = {
-      method: "DELETE",
-      url: `/users/${id}`,
-      headers: { 
+      method: 'POST',
+      url: `/users/setAdmin/${userId}`,
+      headers: {
         "authorization": `Bearer ${apiToken}`
-      }
-    };
-    const backResp = await axios.request(options);
-    console.log(backResp)
-    return backResp
+      },
+      data: roles
+    }
+
+    const { data } = await axios.request(options)
+    return data
   }
-  catch (error) {
-    // console.log(error.response)
-    return error.response
+  catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+}
+
+export const revokeAdmin = async ( userId, roles, apiToken ) => {
+  console.log(roles)
+  try {
+    let options = {
+      method: 'DELETE',
+      url: `/users/revokeAdmin/${userId}`,
+      headers: {
+        "authorization": `Bearer ${apiToken}`
+      },
+      data: roles
+    }
+
+    const { data } = await axios.request(options)
+    return data
+  }
+  catch (err) {
+    console.log(err);
+    throw new Error(err);
   }
 }
 
@@ -342,6 +383,27 @@ export const resetUserPass = async ( email, apiToken ) => {
   }
   catch (error) {
     console.log(error);
+  }
+}
+
+export const deleteUser = async ( id, apiToken ) => {
+  // Se hace un delete a users, enviando un email y solicitando la ruta users/deleteUser, esto ejecutará del lado del BACK 
+  // la solicitud a la API Auth0 para la eliminación del usuario. La consulta devuelve el objeto de usuario.
+  try {
+    let options = {
+      method: "DELETE",
+      url: `/users/${id}`,
+      headers: { 
+        "authorization": `Bearer ${apiToken}`
+      }
+    };
+    const backResp = await axios.request(options);
+    console.log(backResp)
+    return backResp
+  }
+  catch (error) {
+    // console.log(error.response)
+    return error.response
   }
 }
 

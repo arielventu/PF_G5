@@ -33,12 +33,13 @@ const Checkout = () => {
                   userId: `${user.sub}`,
                   userMail: "mail@mail.com",
                   purchaseItems: [
-                      { productId: 1, price: 12000, quantity: 5 }
+                      { productId: 1, price: 12000, quantity: 5 },
+                      { productId: 3, price: 15000, quantity: 3 }
                   ],
                   totalPrice: 60000,
                   billingAddress: "Carlos Casares 3001",
                   shippingAddress: "Carlos Casares 3001",
-                  country: "Argentina",
+                  country: "ARG",
                   phone: "1157351408"
               }, 
               apiToken

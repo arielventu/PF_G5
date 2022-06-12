@@ -14,9 +14,9 @@ module.exports = (sequelize) => {
     },
     orderEmail: {
         type: DataTypes.TEXT,
+        allowNull: false,
         validate: {
             isEmail: true,
-            allowNull: false,
         }
     },
     orderDate: {

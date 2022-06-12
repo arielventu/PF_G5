@@ -1,0 +1,43 @@
+.cardContainer {
+    margin: 1rem auto;
+    border: 1px solid rgb(121, 121, 121);
+    border-radius: 15px;
+    width: 80%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.10);
+}
+
+.userImg {
+    margin: auto 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1.75rem;
+    /* border: 1px solid black; */
+}
+
+#nameText {
+    width: 25%;
+    /* border: 1px solid black; */
+}
+
+#mailText {
+    width: 35%;
+    /* border: 1px solid black; */
+}
+
+.buttonsContainer {
+    width: 25%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.userCardBtn {
+    margin: 0 1.5rem;
+}
