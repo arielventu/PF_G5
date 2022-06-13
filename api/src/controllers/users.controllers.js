@@ -1,17 +1,52 @@
 const axios = require('axios')
+const adminRoleCte = 'rol_ssYAS839QjRHk2GX';
 
 const getUsers = (req, res) => {
-    let options = {
-        method: 'GET',
-        url: `https://ivocfh.us.auth0.com/api/v2/users`,
-        headers: {
-            'authorization': req.headers.authorization,
-            "content-type": "application/json"
-        }
+    let finalUsersArray = [];
+    let usersReq = {
+      method: 'GET',
+      url: `https://ivocfh.us.auth0.com/api/v2/users`,
+      headers: {
+          'authorization': req.headers.authorization,
+          "content-type": "application/json"
+      }
+    };
+    let adminsReq = {
+      method: 'GET',
+      url: `http://localhost:3001/users/admins`,
+      headers: {
+          'authorization': req.headers.authorization,
+          "content-type": "application/json"
+      }
     }
-    axios.request(options)
-        .then( response => res.status(200).json(response.data))
-        .catch( err => console.log(err) )
+
+    Promise.all([
+      axios.request(usersReq),
+      axios.request(adminsReq)
+    ])
+    .then( result => {
+      // console.log(res[0].data);
+      // console.log(res[1].data);
+
+      finalUsersArray = result[0].data.map( user => {
+        let adminRole = result[1].data.filter( role =>  user.user_id === role.user_id);
+        if ( adminRole.length > 0 ) {
+          return {
+            ...user,
+            admin: true
+          }
+        }
+        else {
+          return {
+            ...user,
+            admin: false
+          }
+        }
+      })
+      // console.log(users)
+      res.status(200).json(finalUsersArray)
+    })
+    .catch( err => console.log(err) )
 };
 
 const getUser = (req, res) => {
@@ -84,6 +119,21 @@ const revokeAdmin = (req, res) => {
   .catch( err => console.log(err) )
 };
 
+const getAdminUsers = ( req, res ) => {
+  let options = {
+    method: 'GET',
+    url: `https://ivocfh.us.auth0.com/api/v2/roles/${adminRoleCte}/users`,
+    headers: {
+        'authorization': req.headers.authorization,
+        "content-type": "application/json"
+    }
+  }
+
+  axios.request(options)
+  .then( response => res.status(200).json(response.data))
+  .catch( err => console.log(err) )
+};
+
 const resetPass = (req, res) => {
     // console.log('>> RESET USER PASSWORD');
     // console.log(req.params.email);
@@ -140,5 +190,6 @@ module.exports = {
     resetPass,
     getUserRoles,
     setAdmin,
-    revokeAdmin
+    revokeAdmin,
+    getAdminUsers
 }

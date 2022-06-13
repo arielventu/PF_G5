@@ -20,6 +20,7 @@ const Checkout = () => {
   const [newOrder, setNewOrder] = useState({
         userId: '',
         userMail: '',
+        userFullName: '',
         purchaseItems: [],
         totalPrice: '',
         billingAddress: '',
@@ -54,12 +55,13 @@ const Checkout = () => {
   
   const handleChange = (e) => {
     e.preventDefault();
-    const { defaultValue, name, value } = e.target;
+    const { name, value } = e.target;
     // console.log(e.target)
     setNewOrder({
       ...newOrder,
       userId: `${user?.sub}`,
       userMail: `${user?.email}`,
+      userFullName: `${user?.name}`,
       purchaseItems: lStorage.map(item => {
         return {
           productId: item.id,
@@ -77,19 +79,7 @@ const Checkout = () => {
   // console.log(user.sub)
   const sendData = (e) => {
       getToken()
-          .then( apiToken => postCheckoutOrder(
-              // {
-              //     userId: `${user.sub}`,
-              //     userMail: "mail@mail.com",
-              //     purchaseItems: [
-              //         { productId: 1, price: 12000, quantity: 5 }
-              //     ],
-              //     totalPrice: 60000,
-              //     billingAddress: "Carlos Casares 3001",
-              //     shippingAddress: "Carlos Casares 3001",
-              //     country: "Argentina",
-              //     phone: "1157351408"
-              // }, 
+          .then( apiToken => postCheckoutOrder( 
               newOrder,
               apiToken
           ))
@@ -170,7 +160,7 @@ const Checkout = () => {
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
                     <span className={styles.spanCheckoutFormBodyRow}>Country</span>
-                    <input className={styles.inputCheckoutFormBodyRow}
+                    <input className={`${styles.inputCheckoutFormBodyRow} ${styles.toUpperCase}`}
                       type="text"
                       name="country"
                       value={newOrder.country}

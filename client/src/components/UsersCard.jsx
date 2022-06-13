@@ -3,10 +3,10 @@ import styles from './UsersCard.module.css';
 import { setAdmin, revokeAdmin, deleteUser, getApiJWT, getUserRoles } from '../actions/actions'
 import { useAuth0 } from '@auth0/auth0-react';
 
-const UsersCard = ({ id, name, email, picture, refresh }) => {
+const UsersCard = ({ id, admin, name, email, picture, refresh }) => {
     
     const { getAccessTokenSilently } = useAuth0()
-    const [ adminUser, setAdminUser ] = useState(false);
+    // // const [ adminUser, setAdminUser ] = useState(false);
 
     const getToken = () => {
         return new Promise( (resolve, reject) => {
@@ -22,19 +22,19 @@ const UsersCard = ({ id, name, email, picture, refresh }) => {
         })
     };
 
-    const getUserRole = () => {
-        getToken()
-        .then( apiToken => getUserRoles(id, apiToken) )
-        .then( roles => {
-            console.log(roles)
-            let adminRole = roles.filter( role => role.name === 'Admin' );
-            if ( adminRole.length > 0 ) {
-                setAdminUser( true )
-            }
-        })
-    }
+    // const getUserRole = () => {
+    //     getToken()
+    //     .then( apiToken => getUserRoles(id, apiToken) )
+    //     .then( roles => {
+    //         console.log(roles)
+    //         let adminRole = roles.filter( role => role.name === 'Admin' );
+    //         if ( adminRole.length > 0 ) {
+    //             setAdminUser( true )
+    //         }
+    //     })
+    // }
 
-    useEffect( () => getUserRole() ,[]);
+    // useEffect( () => getUserRole() ,[]);
 
     const handleButton = (e) => {
         getToken()
@@ -77,7 +77,7 @@ const UsersCard = ({ id, name, email, picture, refresh }) => {
                 <p id={styles.nameText}><span className={styles.label}>Name:</span><br /> {name}</p>
                 <p id={styles.mailText}><span className={styles.label}>E-mail:</span><br /> {email}</p>
                 <div className={styles.buttonsContainer}>
-                    { adminUser ? <button 
+                    { admin ? <button 
                         name='revoke-admin' 
                         className={`${styles.userButton} ${styles.alert}`}
                         onClick={ (e) => handleButton(e) }

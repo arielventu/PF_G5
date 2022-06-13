@@ -13,6 +13,7 @@ const postOrder = async (req, res) => {
     const { 
         userId,
         userMail,
+        userFullName,
         purchaseItems,
         totalPrice,
         billingAddress,
@@ -20,7 +21,7 @@ const postOrder = async (req, res) => {
         country,
         phone
     } = req.body;
-    console.log(req.body)
+    // console.log(req.body)
 
     let options = {
         method: 'GET',
@@ -47,6 +48,7 @@ const postOrder = async (req, res) => {
         if( !responses[0] ) {
             return Customers.create({
                 id: userId,
+                fullName: userFullName,
                 billingAddress,
                 defaultShippingAddress: shippingAddress,
                 country,
@@ -96,6 +98,7 @@ const postOrder = async (req, res) => {
         // console.log(products);
         // Seteamos la moneda
         let currency = '';
+        // console.log(country)
         if ( country === 'ARG' ) currency = 'ARS';
         if ( country === 'COL' ) currency = 'COP';
         if ( country === 'EEUU' ) currency = 'USD';
