@@ -7,6 +7,7 @@ import { favorites, ShopCar, getReviewsById } from "../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import avalible from "../image/no-disponible.jpg"
 import starB from "../image/starb.svg";
 import starY from "../image/stary.svg";
 
@@ -23,20 +24,6 @@ export default function CardCart({img, fullName, price,component,id,state}){
         }
         setQuantity(prevCount => prevCount = prueba1.cantidad)
     },[id])
-    // useEffect(() => {
-    //     const array = JSON.parse(localStorage.getItem('carrito'))
-    //     console.log(array[0].cantidad)
-    //     if (array[0].cantidad === undefined) {
-    //      const prue = array.map((item)=>{
-    //             item.cantidad=quantity
-    //             return item
-    //         })
-    //         localStorage.setItem('carrito', JSON.stringify(prue))
-    //         console.log(prue)
-    //     }else{
-    //         const array = JSON.parse(localStorage.getItem('carrito'))
-    //     }
-    // }, [array])
        
     const counterCar = (incre) => {
         const array = JSON.parse(localStorage.getItem('carrito'))
@@ -137,6 +124,9 @@ export default function CardCart({img, fullName, price,component,id,state}){
 
     return(
         <div className={styles.containercart}>
+            {/* {
+               available?<img className={styles.img}src= {img} alt='img'></img>:<img className={styles.img}src= {avalible} alt='img'></img>  
+            } */}
             <img className={styles.img}src= {img} alt='img'></img>  
             <h2 className={styles.h2}>{firstWordBye(fullName)}</h2>
             
