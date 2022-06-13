@@ -27,28 +27,28 @@ export default function Card({img, fullName, price,component,id , stock}){
             buttons: true,
             dangerMode: true,
           })
-          .then((willDelete) => {
-            if (willDelete) {
-              // swal("The item was deleted", {
-              //   icon: "success",
-              // });
-              swal({
-                text: "The item was deleted",
-                icon: "success",
-                buttons: false,
-                timer: 1300,
-              });
-              if (sampleLocation.pathname.includes("/favorites")) {      
-                if(localStorage.getItem('favoritos') != null){
-                    array = JSON.parse(localStorage.getItem('favoritos'))
-                }
-                const filterA = array.filter(item=>{ 
-                    if (item.id != value) {
-                        return item
-                    }
-                })
-                localStorage.setItem('favoritos', JSON.stringify(filterA));
-                dispatch(favorites( JSON.parse(localStorage.getItem('favoritos'))))
+        .then((willDelete) => { 
+          if (willDelete) {
+            // swal("The item was deleted", {
+            //   icon: "success",
+            // });
+            swal({
+              text: "The item was deleted",
+              icon: "success",
+              buttons: false,
+              timer: 1300,
+            });
+            if (sampleLocation.pathname.includes("/favorites")) {      
+              if(localStorage.getItem('favoritos') != null){
+                  array = JSON.parse(localStorage.getItem('favoritos'))
+              }
+              const filterA = array.filter(item=>{ 
+                  if (item.id != value) {
+                      return item
+                  }
+              })
+              localStorage.setItem('favoritos', JSON.stringify(filterA));
+              dispatch(favorites( JSON.parse(localStorage.getItem('favoritos'))))
             }
             if (sampleLocation.pathname.includes("/shoppingCar")) {      
                 if(localStorage.getItem('carrito') != null){
@@ -65,10 +65,10 @@ export default function Card({img, fullName, price,component,id , stock}){
             } else {
               swal("Your item is safe!");
             }
-          });
+        });
     }
  
-    const comprar = ()=>{
+    const addToCart = ()=>{
 
     }
     
@@ -139,7 +139,7 @@ export default function Card({img, fullName, price,component,id , stock}){
               </div>}
               </div>
             {
-                component === "favorites"?<button className={styles.bfav} value={id} onClick={(e)=>comprar(e)}>Add to cart</button>:null
+                component === "favorites"?<button className={styles.bfav} value={id} onClick={(e)=>addToCart(e,"addToCart")}>Add to cart</button>:null
             } 
             {
                 component === "favorites" || component === "carrito"?<button className={styles.bfav} value={id} onClick={(e)=>quitar(e)}>Delete</button>:null
