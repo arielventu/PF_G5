@@ -35,7 +35,7 @@ const Products = () => {
   // initalize local states
   const [all, setProducts] = useState();
   const products = useSelector((state) => state.shoes3);
-  console.log(products);
+  // console.log(products);
   /*   const [products, setProducts] = useState(
     useSelector((state) => state.auxShoes)
   ); */
@@ -63,9 +63,9 @@ const Products = () => {
 
   // get 'redux store' of shoes / products
   const categorie = useSelector((state) => state.categories);
-  console.log(categorie, "categoriesssss");
+  // console.log(categorie, "categoriesssss");
   const dispatch = useDispatch();
-  console.log(categorie);
+  // console.log(categorie);
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getCategories());
@@ -74,9 +74,9 @@ const Products = () => {
   // ----------------------------------------------------
 
   const showModalUpdate = (data) => {
-    console.log(form, "updatinggggg");
+    // console.log(form, "updatinggggg");
     setForm(data);
-    console.log(form, "updatinggggg");
+    // console.log(form, "updatinggggg");
     setModalUpdate(true);
   };
 
@@ -147,10 +147,10 @@ const Products = () => {
   /*   const insert = () => {
     let newForm = { ...form };
     delete newForm.id
-    console.log(newForm.categories)
-    console.log(newForm); */
+    // console.log(newForm.categories)
+    // console.log(newForm); */
   /* newForm.id = products.length + 1; */
-  /* console.log(newForm.id) */
+  /* // console.log(newForm.id) */
   /*   const insert = () => { 
     let newForm = { ...form };
     newForm.id = products.length + 1;
@@ -159,22 +159,22 @@ const Products = () => {
     setModalInsert(false);
     setProducts(list);
     dispatch(postProduct(newForm))
-    console.log(form)
+    // console.log(form)
     
   }; */
   const insert = () => {
     let newForm = { ...form };
     delete newForm.id;
-    console.log(newForm.categories);
-    console.log(newForm);
+    // console.log(newForm.categories);
+    // console.log(newForm);
     newForm.id = products.length + 1;
-    /* console.log(newForm.id) */
+    /* // console.log(newForm.id) */
     let list = products;
     list.push(newForm);
     setModalInsert(false);
     setProducts(list);
     dispatch(postProduct(newForm));
-    console.log(form);
+    // console.log(form);
   };
 
   /*  }; */
@@ -199,7 +199,7 @@ const Products = () => {
     name === "categories" &&
       setForm({ ...form, categories: [...form.categories, Number(value)] });
     name === "newCategory" && setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(form);
+    // console.log(form);
   };
 
   const handleChangeCategories = (e) => {
@@ -208,23 +208,23 @@ const Products = () => {
     //   setForm({ ...form, categories: [...form.categories, newData] });
 
     let newData = parseInt(e.target.value);
-    console.log(newData, "nuewData");
+    // console.log(newData, "nuewData");
     let categoriesArray = [];
     if (form.categories.length > 0) {
       categoriesArray = [...form.categories];
     }
     if (e.target.checked) {
-      console.log("entro al if");
+      // console.log("entro al if");
       categoriesArray.push(newData);
     } else {
-      console.log("entro al else");
+      // console.log("entro al else");
       if (categoriesArray) {
         categoriesArray = categoriesArray.filter(
           (element) => element !== parseInt(e.target.value)
         );
       }
     }
-    console.log(categoriesArray, "categoriesArray");
+    // console.log(categoriesArray, "categoriesArray");
 
     setForm({ ...form, categories: categoriesArray });
   };
@@ -236,7 +236,7 @@ const Products = () => {
   }; */
 
   // ----------------------------------------------------
-  console.log(form);
+  // console.log(form);
   //render
   return (
     <>
@@ -572,7 +572,7 @@ const Products = () => {
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
             {categorie?.map((e, index) => {
-              if (form.categories.includes(parseInt(e.id))) {
+              if (form.categories.some(e => categorie.some(u => u.id === e.id))) {
 
                 return (
                   <div key={index} className="checkbox">
