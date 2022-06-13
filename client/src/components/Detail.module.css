@@ -66,6 +66,10 @@ h3 {
   border: 0.05rem solid rgba(240, 240, 240, 0.993);
 }
 
+.otherimg:hover {
+  cursor: pointer;
+}
+
 .description {
   margin-top: 0;
   margin-bottom: 2rem;

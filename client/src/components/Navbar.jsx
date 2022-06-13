@@ -11,14 +11,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getUserRoles, getApiJWT } from "../actions/actions"
-
 if (localStorage.getItem('carrito') === null ) {
   localStorage.setItem('carrito', JSON.stringify([]))
 }
 if (localStorage.getItem('favoritos') === null ) {
   localStorage.setItem('favoritos', JSON.stringify([]))
 }
-
 const Navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
   const [ droppedMenu, setDroppedMenu ] = useState(false);
@@ -30,6 +28,8 @@ const Navbar = () => {
   var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+
+  console.log(user)
 
 
   const getToken = () => {
@@ -115,6 +115,7 @@ const Navbar = () => {
               />
             </div>
           </Link>
+          {isAuthenticated ? <img className={styles.pictureprofile} src={user.picture}/> : null }
           {isLoading ? (
             <button className={styles.loginButton}> Loading </button>
           ) : isAuthenticated ? (

@@ -15,7 +15,7 @@ const Checkout = () => {
   const FORM_ID = 'checkoutForm';
 
   const lStorage = JSON.parse(localStorage.getItem('carrito'));
-  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * item.cantidad, 0);
+  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * (item.cantidad === undefined ? 1 : item.cantidad ), 0);
 
   const [newOrder, setNewOrder] = useState({
         userId: '',
@@ -131,11 +131,11 @@ const Checkout = () => {
                 <h2 className={styles.h3CheckoutItemInfo}>{firstWordBye(item.fullName)}</h2>
                 {/* <h2 className={styles.h2}>{firstWordBye(fullName)}</h2> */}
                 <p className={styles.pch}>Price by unit: ${item.price}</p>
-                {item.cantidad === 1 ?
-                  <p className={styles.pch}>Qty: {item.cantidad} unit</p>
+                {item.cantidad === 1 || item.cantidad === undefined?
+                  <p className={styles.pch}>Qty: {item.cantidad === undefined ? item.cantidad = 1 : item.cantidad} unit</p>
                   : <p className={styles.pch}>Qty: {item.cantidad} units</p>
                 }
-                <p className={styles.pch}>Total: ${item.price * item.cantidad}</p>
+                <p className={styles.pch}>Total: ${item.price * (item.cantidad === undefined ? item.cantidad = 1 : item.cantidad )}</p>
               </div>
             </div>
           ))}

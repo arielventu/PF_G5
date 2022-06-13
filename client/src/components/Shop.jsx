@@ -18,9 +18,15 @@ const Shop = () => {
   const size = useSelector(state => state.sizes)
   /* console.log(size) */
   const dispatch = useDispatch()
+<<<<<<< HEAD
   /* console.log (categories) */
   //const [filterSelected, setFilterSelected] = useState('')
   /* console.log(products) */
+=======
+  console.log (categories)
+  // const [filterSelected, setFilterSelected] = useState('')
+
+>>>>>>> 52b122dc4283b88143c17662e3f844381e19f495
   const [currentPage, setCurrentPage] = useState(1);
   const [shoesPerPage, setShoesPerPage]= useState(16) //eslint-disable-line
   const indexOfLastShoe = currentPage * shoesPerPage; 
