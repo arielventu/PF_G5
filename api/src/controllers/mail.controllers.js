@@ -21,7 +21,7 @@ const sendEmail = async (req, res) => {
     if(orderStatus === "completed") {
         
         const contentHTML = `
-        <h1>Thank you for your Purchase</h1>
+        <h1 style="color:blue;font-size:46px;">Thank you for your Purchase</h1>
         <p>Detail:</p>
         <img width="200px" height="200px" src=${image} alt='not found'><img>
         <ul>

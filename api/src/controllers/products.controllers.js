@@ -95,7 +95,10 @@ const createProduct = async (req, res) => {
     imagecover,
     imageurl,
     available,
+    newCategory,
   } = req.body;
+
+
 
   try {
     const newProduct = await Product.create({
@@ -109,6 +112,20 @@ const createProduct = async (req, res) => {
       imageurl,
       available,
     });
+
+    if (newCategory) {
+      const newCat = await Category.create({ name: newCategory })
+    }
+
+    //mejorar est
+    const findNewCategory = await Category.findAll({attributes: ['id'], where: {name: newCategory}})
+    console.log(findNewCategory[0].dataValues.id);
+    const categoryToObj = findNewCategory[0].dataValues.id;
+    req.body.categories.push(categoryToObj);
+    // console.log(categoryToObj);
+    // await newProduct.setCategories(findNewCategory);
+
+
 
     // las categorias asociadas deben venir en forma de array de números. Los números son los ID de categoria para asociar
     // en cada caso.
