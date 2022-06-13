@@ -448,31 +448,27 @@ const items = [
       "isShoprunnerEnabled": true,
       "images": [
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_7efe8b0c-ebbf-4667-b691-50360021e024.png?v=1650646373",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_fee2304a-0961-4238-8a48-e0017d5d603a.png?v=1653491357",
           "alt": "Men's Tree Dasher Relay - Blizzard (Natural Black Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/Grid_On-Body_TDRelay_M_83ce00d4-8296-4d77-8b08-0293a3e4fccb.png?v=1650646373",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/Grid_On-Body_TDRelay_M_6faa6756-fcad-4ae4-9624-a7ff49f971eb.png?v=1653491357",
           "alt": "Men's Tree Dasher Relay - Blizzard (Natural Black Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_LEFT_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_d77ef51a-da11-4d93-bb6d-49dcfaa101a6.png?v=1650646373",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_LEFT_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_f8a3f0b2-68bb-4ddb-a94b-a69e5e898710.png?v=1653491357",
           "alt": "Men's Tree Dasher Relay - Blizzard (Natural Black Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_TOP_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_14023e6b-ef02-44e4-9dfb-9ca3b6c8fc6f.png?v=1650646373",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_TOP_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_0b8b143f-7c55-4909-92a2-aefe75b05da1.png?v=1653491357",
           "alt": "Men's Tree Dasher Relay - Blizzard (Natural Black Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_BACK_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_eda57d7b-c8aa-4976-b36f-186df0caedc3.png?v=1650646373",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_BACK_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_b840f23c-11ad-41e0-8df0-7369c294d453.png?v=1653491357",
           "alt": "Men's Tree Dasher Relay - Blizzard (Natural Black Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_BOTTOM_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_320e5958-a86e-4ffe-9e63-edb8e03a0f44.png?v=1650646373",
-          "alt": "Men's Tree Dasher Relay - Blizzard (Natural Black Sole)"
-        },
-        {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_PAIR_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_0a0e687a-5858-4130-9af2-25f6d1c5a26c.png?v=1650646373",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001LM_SHOE_PAIR_GLOBAL_MENS_TREE_DASHER_RELAY_BLIZZARD_NATURAL_BLACK_69f32dec-b8f3-4773-888d-2ef56c3f2d5b.png?v=1653491357",
           "alt": "Men's Tree Dasher Relay - Blizzard (Natural Black Sole)"
         }
       ],
@@ -780,31 +776,27 @@ const items = [
       "isShoprunnerEnabled": true,
       "images": [
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_2ce6ec1e-8fe2-472c-8570-79e7f80ec467.png?v=1650646435",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_045f006d-3153-42d6-84c5-66ba245faa1a.png?v=1653491259",
           "alt": "Men's Tree Dasher Relay - Buoyant Orange (Blizzard Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/Grid_On-Body_TDRelay_M_39c385c4-959f-4a8e-84c7-8df0725dbca4.png?v=1650646435",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/Grid_On-Body_TDRelay_M_3a692631-87aa-4ee6-a898-98e94a0a62f6.png?v=1653491259",
           "alt": "Men's Tree Dasher Relay - Buoyant Orange (Blizzard Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_LEFT_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_b1e66bea-1ba0-4608-9c5d-02838f67f400.png?v=1650646435",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_LEFT_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_c6c67f6d-8e14-4aa0-b4a0-ddbdedce7f29.png?v=1653491259",
           "alt": "Men's Tree Dasher Relay - Buoyant Orange (Blizzard Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_TOP_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_64b8c913-188c-4794-92a5-fac4eb5d4ed8.png?v=1650646435",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_TOP_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_73dad007-59bb-43b7-b1a4-aa49467d4e46.png?v=1653491259",
           "alt": "Men's Tree Dasher Relay - Buoyant Orange (Blizzard Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_BACK_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_4ec32296-41f2-4e86-b32f-7303d1081814.png?v=1650646435",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_BACK_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_9cad57ea-e45f-4f02-a7a1-d225937a4bc6.png?v=1653491259",
           "alt": "Men's Tree Dasher Relay - Buoyant Orange (Blizzard Sole)"
         },
         {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_BOTTOM_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_7d25ac12-3418-4ac0-a8db-71e7a8c9b78a.png?v=1650646435",
-          "alt": "Men's Tree Dasher Relay - Buoyant Orange (Blizzard Sole)"
-        },
-        {
-          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_PAIR_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_bfcb0ea9-853d-465e-b8a7-2256fbbbe1f0.png?v=1650646435",
+          "src": "//cdn.shopify.com/s/files/1/0074/1307/1990/products/AA001KM_SHOE_PAIR_GLOBAL_MENS_TREE_DASHER_RELAY_BUOYANT_ORANGE_BLIZZARD_532c6681-0733-4708-817c-cdbcd94b1a61.png?v=1653491259",
           "alt": "Men's Tree Dasher Relay - Buoyant Orange (Blizzard Sole)"
         }
       ],

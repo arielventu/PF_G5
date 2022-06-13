@@ -37,9 +37,15 @@ export default function Detail(){
  
   useEffect(() => {
     dispatch(getProducts())
-    setotrasFotos(detailstate2.imagecover)
+    // setotrasFotos(detailstate2?.imagecover)
   }, [])
   
+  useEffect(() => {
+    setotrasFotos(detailstate2.imagecover)
+  }, [id, detailstate])
+  
+  console.log(detailstate2);
+
   if(detailstate.length != 0){
     detailstate2 = detailstate.find(item => item.id == id )
   }
@@ -143,6 +149,8 @@ export default function Detail(){
   reviewsById.map((e) => {starsLevels.push(e.starsLevel)})
   let starsAvg = Math.ceil(starsLevels.reduce((a, b) => a + b, 0) / starsLevels.length)
 
+
+
   const findProductImages = () => {
     let product = products.find(product => product.id === Number(id))
     if (product === undefined) {
@@ -162,11 +170,7 @@ export default function Detail(){
           <p className={styles.description}>{detailstate2.detail}</p>
           <div className = {styles.innercontainer}>
             <h3 className={styles.subtitles}>Sizes:</h3>
-            <select>
-             {
-             lala.map(item => <option value={item}>{item}</option>)
-             }
-            </select>
+            <select>{lala.map(item => <option value={item}>{item}</option>)}</select>
           </div>
           <h3 className={styles.subtitles}>colors:</h3>
           <div className={styles.containercolors}>

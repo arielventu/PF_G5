@@ -57,11 +57,13 @@ const Products = () => {
     imageurl: [],
     available: true,
     categories: [],
+    newCategory: "",
   };
   const [form, setForm] = useState(initial);
 
   // get 'redux store' of shoes / products
   const categorie = useSelector((state) => state.categories);
+  console.log(categorie, "categoriesssss");
   const dispatch = useDispatch();
   console.log(categorie);
   useEffect(() => {
@@ -72,7 +74,9 @@ const Products = () => {
   // ----------------------------------------------------
 
   const showModalUpdate = (data) => {
+    console.log(form, "updatinggggg");
     setForm(data);
+    console.log(form, "updatinggggg");
     setModalUpdate(true);
   };
 
@@ -186,36 +190,44 @@ const Products = () => {
     name === "imagecover" &&
       setForm({ ...form, [e.target.name]: e.target.value });
     name === "name" && setForm({ ...form, [e.target.name]: e.target.value });
+    name === "fullName" && setForm({ ...form, [e.target.name]: e.target.value });
+    name === "masterName" && setForm({ ...form, [e.target.name]: e.target.value });
     name === "price" &&
       setForm({ ...form, [e.target.name]: parseInt(e.target.value) });
     name === "detail" && setForm({ ...form, [e.target.name]: e.target.value });
     name === "gender" && setForm({ ...form, [e.target.name]: e.target.value });
     name === "categories" &&
       setForm({ ...form, categories: [...form.categories, Number(value)] });
+    name === "newCategory" && setForm({ ...form, [e.target.name]: e.target.value });
     console.log(form);
   };
 
-  /* const handleClick = (e) => {
+  const handleChangeCategories = (e) => {
     // let newData = { id: parseInt(e.target.id), name: e.target.value };
     // e.target.name === "categories" &&
     //   setForm({ ...form, categories: [...form.categories, newData] });
 
-    let newData = { id: parseInt(e.target.id), name: e.target.value };
+    let newData = parseInt(e.target.value);
+    console.log(newData, "nuewData");
     let categoriesArray = [];
     if (form.categories.length > 0) {
       categoriesArray = [...form.categories];
     }
     if (e.target.checked) {
+      console.log("entro al if");
       categoriesArray.push(newData);
     } else {
+      console.log("entro al else");
       if (categoriesArray) {
         categoriesArray = categoriesArray.filter(
-          (element) => element.name !== e.target.value
+          (element) => element !== parseInt(e.target.value)
         );
       }
     }
+    console.log(categoriesArray, "categoriesArray");
+
     setForm({ ...form, categories: categoriesArray });
-  }; */
+  };
 
   /* const findCheckSelected = (dataform, categoryElement) => {
     const arrNameCategories = dataform.categories.map((el) => el.name);
@@ -345,10 +357,10 @@ const Products = () => {
             />
           </FormGroup>
           <FormGroup>
-            <label>Detail:</label>
+            <label>Master name:</label>
             <input
               className="form-control"
-              name="detail"
+              name="masterName"
               type="text"
               autoFocus
               onChange={(e) => handleChange(e)}
@@ -376,10 +388,10 @@ const Products = () => {
           </FormGroup>
 
           <FormGroup className={styles.form}>
-            <label>Categorie:</label>
+            <label>Category:</label>
             <input
               className="form-control"
-              name="name"
+              name="newCategory"
               type="text"
               onChange={(e) => handleChange(e)}
             />
@@ -396,7 +408,7 @@ const Products = () => {
                       type="checkbox"
                       name="categories"
                       value={e.id}
-                      onClick={(e) => handleChange(e)}
+                      onClick={(e) => handleChangeCategories(e)}
                     />
                     {` ${e.name}`}
                   </label>
@@ -413,8 +425,9 @@ const Products = () => {
                 name="gender"
                 onChange={(e) => handleChange(e)}
               >
-                <option>mens</option>
-                <option>womens</option>
+                <option value=''>...</option>
+                <option value='mens'>mens</option>
+                <option value='womens'>womens</option>
               </select>
             </label>
           </FormGroup>
@@ -447,6 +460,7 @@ const Products = () => {
               type="text"
               onChange={(e) => handleChange(e)}
             />
+            
           </FormGroup>
           <ModalFooter>
             <Button
@@ -545,12 +559,12 @@ const Products = () => {
           </FormGroup>
 
           <FormGroup className={styles.form}>
-            <label>Categorie:</label>
+            <label>New Category:</label>
             <input
               className="form-control"
               name="name"
               type="text"
-              value={form.name}
+              value=""
               onChange={(e) => handleChange(e)}
             />
           </FormGroup>
@@ -558,22 +572,46 @@ const Products = () => {
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
             {categorie?.map((e, index) => {
-              return (
-                <div key={index} className="checkbox">
-                  <label>
-                    <input
-                      type="checkbox"
-                      name="categories"
-                      value={
-                        e.name
-                      } /* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
-                      /* checked={ */
-                      /* onClick={(e) => handleChange(e)} */
-                    />
-                    {` ${e.name}`}
-                  </label>
-                </div>
-              );
+              if (form.categories.includes(parseInt(e.id))) {
+
+                return (
+                  <div key={index} className="checkbox">
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="categories"
+                        checked
+                        value={
+                          e.id
+                        } /* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
+                        /* checked={ */
+                        /* onClick={(e) => handleChange(e)} */
+                      onClick={(e) => handleChangeCategories(e)}
+                      />
+                      {` ${e.name}`}
+                    </label>
+                  </div>
+                );
+
+              } else {
+                return (
+                  <div key={index} className="checkbox">
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="categories"
+                        value={
+                          e.id
+                        } /* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
+                        /* checked={ */
+                        /* onClick={(e) => handleChange(e)} */
+                        onClick={(e) => handleChangeCategories(e)}
+                      />
+                      {` ${e.name}`}
+                    </label>
+                  </div>
+                );
+              }
             })}
           </FormGroup>
 
