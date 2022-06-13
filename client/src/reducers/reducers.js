@@ -31,6 +31,7 @@ import {
   GET_ORDER_DETAILS_BY_ID,
   POST_ORDER_DETAILS,
   GET_ORDER_DETAILS_BY_ORDER_ID,
+  FILTER_BY_PRICE
 } from "../actions/actions.js";
 
 const initialState = {
@@ -49,6 +50,7 @@ const initialState = {
   sizes: [],
   orders: [],
   orderDetails: [],
+  otherCat : []
 };
 
 export default function rootReducer(state = initialState, { payload, type }) {
@@ -65,6 +67,7 @@ export default function rootReducer(state = initialState, { payload, type }) {
       return {
         ...state,
         categories: payload,
+        otherCat : payload
       };
     case GET_COLORS:
       // console.log(payload)
@@ -88,14 +91,14 @@ export default function rootReducer(state = initialState, { payload, type }) {
         ...state,
         searchBar: payload,
       };
-    case FILTER_BY_BEST:
-      const best = state.auxShoes;
+      case FILTER_BY_BEST:
+        const best = state.auxShoes;
       const fix = [];
 
       payload === "All"
         ? fix.push(...best)
         : best.map((e) => {
-            let sol = e.categories.map((e) => {
+          let sol = e.categories.map((e) => {
               if (typeof e === "object") return e.name;
               else {
                 return e;
@@ -108,22 +111,50 @@ export default function rootReducer(state = initialState, { payload, type }) {
         ...state,
         shoes: fix,
       };
-    case FILTER_BY_CATEGORIES:
-      const categories = state.auxShoes;
-      const cat = [];
-
-      payload === "All"
+      case FILTER_BY_CATEGORIES:
+        const categories = state.auxShoes;
+        const cat = [];
+        
+        payload === "All"
         ? cat.push(...categories)
         : categories.map((e) => {
-            if (e.masterName === payload) {
-              cat.push(e);
-            }
-          });
-      // console.log(cat)
-      return {
-        ...state,
-        shoes: cat,
-      };
+          if (e.masterName === payload) {
+            cat.push(e);
+          }
+        });
+        // console.log(cat)
+        return {
+          ...state,
+          shoes: cat,
+        };
+        case FILTER_BY_PRICE:
+          const click= state.auxShoes
+         const puntaje = payload === 'xpensive' ?
+          payload === 'All'? puntaje.push(click):
+        click.sort(function(a,b){
+              if(a.price> b.price){
+                  return -1;
+              }
+              if(b.price>a.price){
+                  return 1;
+              }
+              return 0;
+          }) : 
+          click.sort(function(a,b){
+              if(a.price>b.price){
+                  return -1;
+              }
+              if(b.price> a.price){
+                  return 1;
+              }
+              return 0;
+          }) 
+    
+          
+              return{    
+                  ...state,
+                 shoes :puntaje
+                  }
     case FILTER_BY_COLOR:
       const allColors = state.auxShoes;
       const col = [];

@@ -12,6 +12,7 @@ export const GET_REVIEWS_BY_ID = "GET_REVIEWS_BY_ID";
 export const POST_REVIEW = "POST_REVIEW";
 export const GET_COLORS = "GET_COLORS";
 export const FILTER_BY_BEST = "FILTER_BY_BEST";
+export const FILTER_BY_PRICE = "FILTER_BY_PRICE";
 export const FILTER_BY_CATEGORIES = "FILTER_BY_CATEGORIES";
 export const FILTER_BY_COLOR = "FILTER_BY_COLOR";
 export const FILTER_BY_GENDER = "FILTER_BY_GENDER";
@@ -87,6 +88,15 @@ export const filterByCategories = (payload) => {
 export const filterByColor = (payload) => {
   return {
     type: "FILTER_BY_COLOR",
+    payload,
+  };
+};
+export const filterByPrice = (payload) => {
+  console.log(payload)
+  console.log(payload)
+  console.log(payload)
+  return {
+    type: "FILTER_BY_PRICE",
     payload,
   };
 };
@@ -440,13 +450,13 @@ export const resetUserPass = async (email, apiToken) => {
 
 // ------------------------------------------------------------------------------------------
 
-export const otroFilterMas = (payload) => {
+/* export const otroFilterMas = (payload) => {
   console.log(payload);
   return {
     type: "OTRO_MAS",
     payload,
   };
-};
+}; */
 
 
 // -------------------------------------------------------------------------------------------

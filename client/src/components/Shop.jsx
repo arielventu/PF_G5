@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getProducts, getCategories,filterByPrice, getSizes, otroFilterMas,filterByBestFor, filterByCategories, getColors, filterByColor, filterByGender} from '../actions/actions'
+import {getProducts, getCategories,filterByPrice, getSizes, otroFilterMas,filterByBestFor, filterByCategories, getColors, filterByColor, filterByGender } from '../actions/actions'
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import  EditProduct  from './EditProduct';
@@ -11,43 +11,28 @@ import {vix} from '../utils'
 
 const Shop = () => {
   const products = useSelector(state => state.shoes)
-  const auxProducts = useSelector(state => state.shoes3)
-  const bestFor = useSelector(state => state.categories)
+  const auxProducts = useSelector(state => state.auxShoes)
+  const bestFor = useSelector(state => state.otherCat)
   const categories = useSelector(state => state.auxShoes)
   const colors = useSelector(state => state.colors)
   const size = useSelector(state => state.sizes)
-  console.log(size)
+  /* console.log(size) */
   const dispatch = useDispatch()
-  console.log (categories)
-  // const [filterSelected, setFilterSelected] = useState('')
-  console.log(products)
+  /* console.log (categories) */
+  //const [filterSelected, setFilterSelected] = useState('')
+  /* console.log(products) */
   const [currentPage, setCurrentPage] = useState(1);
   const [shoesPerPage, setShoesPerPage]= useState(16) //eslint-disable-line
   const indexOfLastShoe = currentPage * shoesPerPage; 
   const indexOfFirstShoe = indexOfLastShoe - shoesPerPage;
-  
   const currentShoes =products.slice(indexOfFirstShoe, indexOfLastShoe);
-  // q current shoes haga el slice con pangolin ordenado
   
-  /* console.log(pangolin) */
-  /* const pangolin =products.filter(e=> e.stock !== undefined)
-  const currentShoes = pangolin.slice(indexOfFirstShoe, indexOfLastShoe); */
-/*   console.log(pangolin) */
+ 
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
   
- /* const fly = products.sort(function(a,b){
-      if(a.price > b.price){
-          return 1;
-      }
-      if(b.price > a.price){
-          return -1
-      }
-      return 0
-  })
-  console.log(fly) */
 
   const firstCharUpperBestFor = (str) => {
     const arr = str.split("-");
@@ -67,16 +52,17 @@ const Shop = () => {
     dispatch(getCategories())
     dispatch(getProducts())
     dispatch(getColors())
-    
+   
    
   }, [])
   const clearFilters = () => {
     dispatch(filterByBestFor('All'))
     dispatch(filterByCategories('All'))
     dispatch(filterByGender('All'))
-    dispatch(otroFilterMas('All'))
+    dispatch(filterByPrice('All'))
+    
   }
-/*   const fiols= []
+  /* const fiols= []
   products.map((e) => {
    var quik =  e.stocks.map((e)=> {
      return{
@@ -84,7 +70,7 @@ const Shop = () => {
        size: Object.values([e.size.size])    
       }
     })
-    delete e.id  
+    delete e.id   
     fiols.push(quik)
   })
   console.log(fiols) */
@@ -95,11 +81,11 @@ const Shop = () => {
     name === 'bestFor' && dispatch(filterByBestFor(value))
     name === 'colors' && dispatch(filterByColor(value))
     name === 'gender' && dispatch(filterByGender(value))
-   /*  name === "sort" &&  dispatch(set) */
+    name === "sort" &&  dispatch(filterByPrice(value))
+   
     setCurrentPage(1)
-    
   }
-  console.log(currentShoes.map( e =>e.price))
+  /* console.log(currentShoes.map( e =>e.price)) */
    
   return (
     <div className={styles.container}>
@@ -110,22 +96,12 @@ const Shop = () => {
         { products.length > 0 && <div className={styles.filtersContainer}>
             <div className={styles.divFiltersTitle}>
               <h1 className={styles.filtersTitle}>Filter By:</h1>
-              {auxProducts.length !== products.length &&
+              {auxProducts.length !== products.length && 
                 <div className={styles.divButtonClearFilters}>Clear filters
                   <button className={styles.buttonClearFilters} onClick={e => clearFilters()}>x</button>
                 </div>}
             </div>
-            <div className={styles.divFiltersBestFor}>
-                <h2 className={styles.filtersSubtitle}>sorder</h2>
-                <div>
-                  <input className={styles.input} type="radio"  name= 'xpensive' value='womens'onChange={filterHandler} />
-                  <label className={styles.radioLabel} >xpensive</label>
-                </div>
-                <div>
-                  <input className={styles.input} type="radio"  name= 'cheap' value='mens'onChange={filterHandler} />
-                  <label className={styles.radioLabel} >cheap</label>
-                </div>
-              </div>
+          
             <div className={styles.divFiltersBestFor}>
               <h2 className={styles.filtersSubtitle}>Best For</h2>
               {bestFor.map(e => (
@@ -135,8 +111,19 @@ const Shop = () => {
                 </div>
               ))}
             </div>
+                  <div className={styles.divFiltersBestFor}>
+                      <h2 className={styles.filtersSubtitle}>order</h2>
+                      <div>
+                        <input className={styles.input}  /* key = {"3"} */type="radio"  name= 'sort' value='xpensive'onChange={filterHandler} />
+                        <label className={styles.radioLabel} >xpensive</label>
+                      </div>
+                      <div>
+                        <input className={styles.input} /* key = {"2"} */type="radio"  name= 'sort' value='cheap'onChange={filterHandler} />
+                        <label className={styles.radioLabel} >cheap</label>
+                      </div>
+              </div>
             <div className = {styles.divFiltersCategories}>
-            <h3 className={styles.filtersSubtitle}>Sizes:</h3>
+            <h2 className={styles.filtersSubtitle}>Sizes:</h2>
             <select className={styles.selectCategories} onChange={filterHandler} name="sizez">
             <option className={styles.input} value='All'>All</option>
              {

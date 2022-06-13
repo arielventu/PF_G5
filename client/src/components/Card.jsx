@@ -11,7 +11,7 @@ import starY from "../image/stary.svg";
 import swal from "sweetalert";
 
 export default function Card({img, fullName, price,component,id , stock}){
-    console.log(stock)
+    /* console.log(stock) */
     const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
