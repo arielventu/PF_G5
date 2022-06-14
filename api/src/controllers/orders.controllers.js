@@ -35,10 +35,45 @@ const getOrder = async (req, res) => {
   const { id } = req.params;
   try {
     const orders = await Orders.findByPk(id, {
+      attributes: { exclude: ["customerId"] },
       include: [
-        { model: Customers, attributes: ["fullName"] },
+        {
+          model: Customers,
+          attributes: ["id", "fullName", "country", "phone"],
+        },
         {
           model: Orderdetails,
+          attributes: { exclude: ["ordersId", "productId"] },
+          include: [
+            { model: Product, attributes: ["id", "fullName", "imagecover"] },
+          ],
+        },
+      ],
+    });
+
+    if (!orders)
+      return res.status(404).json({ message: "Orders does not exists" });
+
+    res.json(orders);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+const getOrderByCustomerId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const orders = await Orders.findAll({
+      where: { customerId: id },
+      attributes: { exclude: ["customerId"] },
+      include: [
+        {
+          model: Customers,
+          attributes: ["id", "fullName", "country", "phone"],
+        },
+        {
+          model: Orderdetails,
+          attributes: { exclude: ["ordersId", "productId"] },
           include: [
             { model: Product, attributes: ["id", "fullName", "imagecover"] },
           ],
@@ -109,6 +144,7 @@ const deleteOrder = async (req, res) => {
 module.exports = {
   getOrders,
   getOrder,
+  getOrderByCustomerId,
   createOrder,
   updateOrder,
   deleteOrder,
