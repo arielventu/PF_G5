@@ -78,7 +78,7 @@ const Checkout = () => {
     setNewOrder({
       ...newOrder,
       userId: `${user?.sub}`,
-      // userMail: `${user?.email}`,
+      fullName: `${user?.name}`,
       purchaseItems: lStorage.map(item => {
         return {
           productId: item.id,
