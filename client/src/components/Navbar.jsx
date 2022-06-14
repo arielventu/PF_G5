@@ -104,6 +104,10 @@ const Navbar = () => {
   const administrationRedirect = () => {
     navegation("/administration")
   }
+
+  const myOrdersRedirect = () => {
+    navegation("/my-orders")
+  }
   
   console.log(user)
   return (
@@ -187,6 +191,15 @@ const Navbar = () => {
                 >
                   My Account
                 </button>
+                <button
+                  className={styles.customFont}
+                  onClick={() => {
+                    dropMenu();
+                    myOrdersRedirect();
+                  }}
+                >
+                  My Orders
+                </button>
                 { admin && (
                   <button
                     className={styles.customFont}
@@ -209,42 +222,6 @@ const Navbar = () => {
                 </button>
               </>
             )}
-            
-            
-            {/* { !loadingInfo ? 
-              ((<button
-                className={styles.customFont}
-                onClick={() => {
-                  dropMenu();
-                  profileRedirect();
-                }}
-              >
-                My Account
-              </button>)
-              { admin && (
-                <button
-                  className={styles.customFont}
-                  onClick={() => {
-                    dropMenu();
-                    administrationRedirect();
-                  }}
-                >
-                  Administration
-                </button>
-              )}
-              (<button
-                className={styles.customFont}
-                onClick={() => {
-                  dropMenu();
-                  logout();
-                }}
-              >
-                Logout
-              </button>))
-             : 
-            (
-              <div></div>
-            )} */}
           </div>
         }
       </div>

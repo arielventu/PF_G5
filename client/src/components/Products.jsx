@@ -35,7 +35,7 @@ const Products = () => {
   // initalize local states
   const [all, setProducts] = useState();
   const products = useSelector((state) => state.shoes3);
-  console.log(products);
+  // console.log(products);
   /*   const [products, setProducts] = useState(
     useSelector((state) => state.auxShoes)
   ); */
@@ -63,9 +63,9 @@ const Products = () => {
 
   // get 'redux store' of shoes / products
   const categorie = useSelector((state) => state.categories);
-  console.log(categorie, "categoriesssss");
+  // console.log(categorie, "categoriesssss");
   const dispatch = useDispatch();
-  console.log(categorie);
+  // console.log(categorie);
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getCategories());
@@ -76,7 +76,8 @@ const Products = () => {
   const showModalUpdate = (data) => {
     console.log(form, "updatinggggg");
     setForm(data);
-    console.log(form, "updatinggggg");
+    console.log(form.categories);
+    console.log(categorie);
     setModalUpdate(true);
   };
 
@@ -236,7 +237,7 @@ const Products = () => {
   }; */
 
   // ----------------------------------------------------
-  console.log(form);
+  // console.log(form);
   //render
   return (
     <>
@@ -572,45 +573,25 @@ const Products = () => {
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
             {categorie?.map((e, index) => {
-              if (form.categories.includes(parseInt(e.id))) {
-
+              if ( form.categories.some(u => u.id === e.id) ) {
                 return (
-                  <div key={index} className="checkbox">
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="categories"
-                        checked
-                        value={
-                          e.id
-                        } /* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
-                        /* checked={ */
-                        /* onClick={(e) => handleChange(e)} */
-                      onClick={(e) => handleChangeCategories(e)}
-                      />
+                  <div key={index} className='checkbox'>
+                    <input className={styles.input} type="checkbox" defaultChecked id={index} name="categories" value={e.id} onClick={(e) => handleChangeCategories(e)} />
+                    <label htmlFor={index}>
                       {` ${e.name}`}
                     </label>
                   </div>
-                );
-
-              } else {
+                )
+              }
+              else {
                 return (
-                  <div key={index} className="checkbox">
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="categories"
-                        value={
-                          e.id
-                        } /* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
-                        /* checked={ */
-                        /* onClick={(e) => handleChange(e)} */
-                        onClick={(e) => handleChangeCategories(e)}
-                      />
+                  <div key={index} className='checkbox'>
+                    <input className={styles.input} type="checkbox" id={index} name="categories" value={e.id} onClick={(e) => handleChangeCategories(e)} />
+                    <label htmlFor={index}>
                       {` ${e.name}`}
                     </label>
                   </div>
-                );
+                )
               }
             })}
           </FormGroup>

@@ -70,7 +70,7 @@ body {
 .divLogin:hover {
   cursor: pointer;
   /* border-bottom: 0.1rem solid rgb(226, 226, 226); */
-  background-color: rgb(102, 215, 243);
+  background-color: rgb(106, 203, 233);
 }
 
 .menu {
@@ -149,7 +149,7 @@ a {
   background-color: #F1F2F3;
   /* border-end-end-radius: 10px;
   border-end-start-radius: 10px; */
-  border: 1px solid rgb(97, 202, 231);
+  border: 1px solid rgb(106, 203, 233);
   border-top: none;
   width: 17.1%;
   /* height: 100px; */

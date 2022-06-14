@@ -1,0 +1,36 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 90%;
+    /* border: 1px solid black; */
+    margin: 1rem auto;
+}
+
+.title {
+    text-align: center;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-direction: row;
+    margin-right: 1rem;
+
+}
+
+.divTotal {
+    display: flex;
+    padding: 0 1rem;
+    margin: .5rem 0;
+    background-color:rgb(23, 74, 105);
+    border-radius: 0.3rem;
+}
+
+.total {
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: Koulen;
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    margin: 1.5rem auto;
+}
