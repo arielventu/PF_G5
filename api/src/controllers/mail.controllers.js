@@ -12,6 +12,7 @@ var transporter = nodemailer.createTransport({
 const sendEmail = async (req, res) => {
     const { amount, shippingAddress, orderEmail, orderDate, orderStatus, image } =
     req.body;
+        
     if(orderStatus !== "completed" && orderStatus !== "dispatched") {
 
         res.send("orderStatus no esta completada o despachada");
@@ -30,8 +31,6 @@ const sendEmail = async (req, res) => {
         </ul>
         `;
 
-       
-    
         var mailOptions = {
             from: 'bluebirdcommerce@gmail.com',
             to: orderEmail,

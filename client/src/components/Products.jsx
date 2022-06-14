@@ -76,7 +76,9 @@ const Products = () => {
   const showModalUpdate = (data) => {
     // console.log(form, "updatinggggg");
     setForm(data);
-    // console.log(form, "updatinggggg");
+    console.log(form.categories, "updatinggggg");
+    console.log(categorie, "updatinggggg22222");
+
     setModalUpdate(true);
   };
 
@@ -105,6 +107,7 @@ const Products = () => {
   };
 
   const update = (data) => {
+    console.log(data, "buttonupdate");
     let i = 0;
     let arrPoducts = products;
     arrPoducts.map((e) => {
@@ -572,7 +575,7 @@ const Products = () => {
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
             {categorie?.map((e, index) => {
-              if (form.categories.some(e => categorie.some(u => u.id === e.id))) {
+              if (form.categories.some(u => u.id === e.id)) {
 
                 return (
                   <div key={index} className="checkbox">
@@ -580,7 +583,7 @@ const Products = () => {
                       <input
                         type="checkbox"
                         name="categories"
-                        checked
+                        defaultChecked
                         value={
                           e.id
                         } /* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
