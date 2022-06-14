@@ -31,6 +31,7 @@ import {
   PUT_ORDERS,
   GET_ORDER_DETAILS,
   GET_ORDER_DETAILS_BY_ID,
+  GET_ORDERS_BY_CUSTOMER_ID,
   POST_ORDER_DETAILS,
   GET_ORDER_DETAILS_BY_ORDER_ID,
   FILTER_BY_PRICE
@@ -258,10 +259,7 @@ export default function rootReducer(state = initialState, { payload, type }) {
     // Adding by ELIECER
     // DateTime: 2022-06-11 00:40:00
     // ------------------------------------------
-    case GET_ORDERS:
-      return { ...state, orders: payload };
-
-    case GET_ORDERS_BY_ID:
+    case GET_ORDERS || GET_ORDERS_BY_ID || GET_ORDERS_BY_CUSTOMER_ID:
       return { ...state, orders: payload };
 
     case POST_ORDERS:

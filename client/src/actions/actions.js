@@ -32,6 +32,7 @@ export const POST_ORDERS = "POST_ORDERS";
 export const PUT_ORDERS = "PUT_ORDERS";
 export const GET_ORDER_DETAILS = "GET_ORDER_DETAILS";
 export const GET_ORDER_DETAILS_BY_ID = "GET_ORDER_DETAILS_BY_ID";
+export const GET_ORDERS_BY_CUSTOMER_ID = "GET_ORDERS_BY_CUSTOMER_ID";
 export const GET_ORDER_DETAILS_BY_ORDER_ID = "GET_ORDER_DETAILS_BY_ORDER_ID";
 export const POST_ORDER_DETAILS = "POST_ORDER_DETAILS";
 
@@ -344,25 +345,26 @@ export const getUsers = (apiToken) => {
   });
 };
 
-export const getUser = ( userId, apiToken ) => {
-  return new Promise( (resolve, reject) => {
+export const getUser = (userId, apiToken) => {
+  return new Promise((resolve, reject) => {
     let options = {
       method: "GET",
       url: `/users/${userId}`,
-      headers: { 
-        "authorization": `Bearer ${apiToken}`
-      }
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
     };
-  
-    axios.request(options)
-      .then( response => {
-        resolve(response)
+
+    axios
+      .request(options)
+      .then((response) => {
+        resolve(response);
       })
-      .catch( err => {
-        reject(err)
-      })
-  })
-}
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
 
 // getUserRoles devuelve un array de objetos. Cada objeto es un ROL asignado al USER
 export const getUserRoles = async (id, apiToken) => {
@@ -377,53 +379,50 @@ export const getUserRoles = async (id, apiToken) => {
 
     const { data } = await axios.request(options);
     return data;
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
     throw new Error(err);
   }
-}
+};
 
-export const setAdmin = async ( userId, roles, apiToken ) => {
-  console.log(roles)
+export const setAdmin = async (userId, roles, apiToken) => {
+  console.log(roles);
   try {
     let options = {
-      method: 'POST',
+      method: "POST",
       url: `/users/setAdmin/${userId}`,
       headers: {
-        "authorization": `Bearer ${apiToken}`
+        authorization: `Bearer ${apiToken}`,
       },
-      data: roles
-    }
+      data: roles,
+    };
 
-    const { data } = await axios.request(options)
-    return data
-  }
-  catch (err) {
+    const { data } = await axios.request(options);
+    return data;
+  } catch (err) {
     console.log(err);
     throw new Error(err);
   }
-}
+};
 
-export const revokeAdmin = async ( userId, roles, apiToken ) => {
-  console.log(roles)
+export const revokeAdmin = async (userId, roles, apiToken) => {
+  console.log(roles);
   try {
     let options = {
-      method: 'DELETE',
+      method: "DELETE",
       url: `/users/revokeAdmin/${userId}`,
       headers: {
-        "authorization": `Bearer ${apiToken}`
+        authorization: `Bearer ${apiToken}`,
       },
-      data: roles
-    }
+      data: roles,
+    };
 
-    const { data } = await axios.request(options)
-    return data
-  }
-  catch (err) {
+    const { data } = await axios.request(options);
+    return data;
+  } catch (err) {
     console.log(err);
     throw new Error(err);
-  };
+  }
 };
 
 export const deleteUser = async (id, apiToken) => {
@@ -440,10 +439,9 @@ export const deleteUser = async (id, apiToken) => {
     const { data } = await axios.request(options);
     console.log(data);
     return data;
-  } 
-  catch (err) {
-    console.log(err)
-    throw new Error(err)
+  } catch (err) {
+    console.log(err);
+    throw new Error(err);
   }
 };
 
@@ -475,7 +473,6 @@ export const resetUserPass = async (email, apiToken) => {
     payload,
   };
 }; */
-
 
 // -------------------------------------------------------------------------------------------
 
@@ -611,6 +608,21 @@ export function getOrdersById(id) {
   };
 }
 
+export function getOrdersByCustomerId(id) {
+  return async function (dispatch) {
+    try {
+      await axios.get(`/orders/customer/${id}`).then((orders) => {
+        dispatch({
+          type: GET_ORDERS_BY_CUSTOMER_ID,
+          payload: orders.data,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 export function postOrders(payload) {
   return async function (dispatch) {
     try {
@@ -690,15 +702,13 @@ export function getOrderDetailsByOrderId(id) {
 export function postOrderDetails(payload) {
   return async function (dispatch) {
     try {
-      await axios.post(`/orderDetails`, payload)
-      .then((orderDetails) => {
+      await axios.post(`/orderDetails`, payload).then((orderDetails) => {
         dispatch({
           type: POST_ORDER_DETAILS,
           payload: orderDetails.data,
         });
       });
-    } 
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };

@@ -42,7 +42,7 @@ const ShoppingCar = () => {
         <h1 className={styles.titulofav}>Shopping Cart</h1>
         <div className={styles.icontainercart}>
         {
-          !(array[0] === undefined)? array.map(item=> <Cardcart available={item.available} state={setValor} key={item.id} id={item.id} fullName={item.masterName} price={item.price} img={item.imagecover} component={"carrito"}/>):
+          !(array[0] === undefined)? array.map(item=> <Cardcart selecSize={item.selecSize} available={item.available} state={setValor} key={item.id} id={item.id} fullName={item.masterName} price={item.price} img={item.imagecover} component={"carrito"}/>):
           navegation("/shop")     
         }
         </div>
