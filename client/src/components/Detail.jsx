@@ -58,7 +58,7 @@ export default function Detail(){
     const findedProduct = findedOrders.find(order => order.orderdetails.find(product => product.id === Number(id)))
     // console.log("FINDED PRODUCTS", findedProduct)
     findedProduct ? setShowAddReview(true) : setShowAddReview(false)
-  }, [isAuthenticated])
+  }, [isAuthenticated, id])
 
   useEffect(() => {
     setotrasFotos(detailstate2.imagecover)
@@ -282,9 +282,7 @@ export default function Detail(){
                 </div>
               </div>}
             </div>
-            <div className={styles.divButtonAddReview}>
-              {showAddReview && <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>}
-            </div>
+           
 
             <div className = {styles.innercontainer3}>
             {findProductImages().map((e) => {
@@ -296,7 +294,9 @@ export default function Detail(){
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
             </div>
           <div>
-            
+            <div className={styles.divButtonAddReview}>
+              {showAddReview && <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>}
+            </div>
             <Modal isOpen={showModal} className={styles.containerModal}>
               <div className={styles.divModal}>
                 <button onClick={handleModal} className={styles.buttonCloseModal}>x</button>
@@ -304,7 +304,7 @@ export default function Detail(){
               </div>
             </Modal>
             <Reviews productId={ id } name={ detailstate2.fullName }/>
-            </div>
+          </div>
       </div> : 
         <div className={styles.divLoading}>
             <img src="https://thumbs.gfycat.com/PepperyMediumBrahmancow-size_restricted.gif" />
