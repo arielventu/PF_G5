@@ -11,7 +11,7 @@ import avalible from "../image/no-disponible.jpg"
 import starB from "../image/starb.svg";
 import starY from "../image/stary.svg";
 
-export default function CardCart({img, fullName, price,component,id,state}){
+export default function CardCart({img, fullName, price,component,id,state,selecSize}){
    const navegation = useNavigate()
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
@@ -181,6 +181,7 @@ export default function CardCart({img, fullName, price,component,id,state}){
               </div>}
               </div>
               <p className={styles.price}>${price}</p>
+              <p className={styles.price}>size {selecSize}</p>
             <div className={styles.icontainer}>
                 <div className={styles.counter}>
                     <button onClick={handleDecrement} id={id} className={styles.bquantity}>-</button>
