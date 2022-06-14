@@ -79,16 +79,16 @@ const Checkout = () => {
       userId: `${user?.sub}`,
       userMail: `${user?.email}`,
       fullName: `${user?.name}`,
+      totalPrice: totalOrder,
+      shippingAddress: newOrder.billingAddress,
       purchaseItems: lStorage.map(item => {
-        return {
+      return {
           productId: item.id,
           quantity: item.cantidad,
           price: item.price
         }
       }),
-      totalPrice: totalOrder,
       [name]: value,
-      shippingAddress: newOrder.billingAddress,
     });
     setErrors(validate({
       ...newOrder,
@@ -96,7 +96,6 @@ const Checkout = () => {
     }));
     setErrorFlag(Object.keys(errors).length === 0 ? false : true);
   }
-  
   
   const handleSubmit = (e) => {
     e.preventDefault();

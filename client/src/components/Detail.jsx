@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { favorites, getDetail, getProducts, ShopCar, getReviewsById} from "../actions/actions";
+import { favorites, getDetail, getProducts, ShopCar, getReviewsById, getOrdersByCustomerId} from "../actions/actions";
 import { useEffect } from "react";
 import Reviews from "./Reviews";
 import NewReview from "./NewReview";
@@ -12,18 +12,20 @@ import rating from '../image/rating.png'
 import fav from '../image/fav.svg'
 import { Modal } from "reactstrap";
 import swal from "sweetalert";
+import { useAuth0 } from "@auth0/auth0-react";
 
 var detailstate2 = []
 var size = []
 
 export default function Detail(){
-
+  const { isAuthenticated, user } = useAuth0();
   const {id} = useParams()
   const dispatch = useDispatch() 
   useEffect (() => {dispatch(getDetail(id))} ,[]) // eslint-disable-line
   const detailstate = useSelector((state) => state.shoes)
   const products = useSelector(state => state.shoes)
   const auxProducts = useSelector(state => state.auxShoes)
+  const orders = useSelector(state => state.orders)
   const [otrasFotos, setotrasFotos] = useState('')
   
 
@@ -40,6 +42,7 @@ export default function Detail(){
 
   useEffect( () => {
     dispatch(getProducts())
+    
     let arraySizeUnit = []
     
     arraySizeUnit =  JSON.parse(localStorage.getItem('favoritos'))
@@ -48,6 +51,12 @@ export default function Detail(){
   }, [])
   
   useEffect(() => {
+    console.log("USER.SUB", user?.sub)
+    user?.sub && dispatch(getOrdersByCustomerId(user?.sub))
+
+  }, [])
+
+  useEffect(() => {
     setotrasFotos(detailstate2.imagecover)
   }, [id, detailstate])
   
@@ -55,7 +64,9 @@ export default function Detail(){
     detailstate2 = detailstate.find(item => item.id == id )
     detailstate2.selecSize = lala[0]
   }
-console.log(lala2)
+
+  console.log(lala2)
+  
   const add = async (e)=>{
     var arrayAdd = []
     const {value} = e.target
@@ -132,7 +143,6 @@ console.log(lala2)
     // imagenOriginal = e.target.accessKey;
     setotrasFotos(e.target.accessKey)
   }
-
     
   let catColors =[] 
   products.map ((e , i)  => {
@@ -142,10 +152,10 @@ console.log(lala2)
          id : e.id })
     }
   })
-
   
   // console.log(detailstate2.masterName)
   console.log(catColors)
+
   // Reviews -----------------------------------
   const reviewsById = useSelector((state) => state.reviewsById);
   const [showModal, setShowModal] = useState(false);
@@ -157,7 +167,7 @@ console.log(lala2)
   const starsLevels = [];
   reviewsById.map((e) => {starsLevels.push(e.starsLevel)})
   let starsAvg = Math.ceil(starsLevels.reduce((a, b) => a + b, 0) / starsLevels.length)
-
+  //---------------------------------------------
 
 
   const findProductImages = () => {
@@ -176,6 +186,11 @@ console.log(lala2)
     console.log(detailstate2)
   }
   console.log(detailstate2)
+
+  console.log(orders)
+  const arrOrders = []
+  const findedOrders = orders.find(order => order.customer.id === user?.sub)
+
   return(
     <div className={styles.details}>
     { detailstate.length > 0 ? 
@@ -276,7 +291,9 @@ console.log(lala2)
                 <button  className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
             </div>
-            <div>
+          <div>
+            {/* {isAuthenticated &&} */}
+            {/* <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button> */}
             <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>
             <Modal isOpen={showModal} className={styles.containerModal}>
               <div className={styles.divModal}>
