@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getProducts, getCategories,filterByPrice, getSizes, otroFilterMas,filterByBestFor, filterByCategories, getColors, filterByColor, filterByGender } from '../actions/actions'
+import {getProducts, getCategories,filterByPrice, orderByFn, filterBySize,filterByBestFor, filterByCategories, getColors, filterByColor, filterByGender } from '../actions/actions'
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import  EditProduct  from './EditProduct';
@@ -12,26 +12,22 @@ import {vix} from '../utils'
 const Shop = () => {
   const products = useSelector(state => state.shoes)
   const auxProducts = useSelector(state => state.auxShoes)
-  const bestFor = useSelector(state => state.otherCat)
-  const categories = useSelector(state => state.auxShoes)
+  const bestFor = useSelector(state => state.categories)
+  const categories = useSelector(state => state.shoes3)
   const colors = useSelector(state => state.colors)
   const size = useSelector(state => state.sizes)
   /* console.log(size) */
   const dispatch = useDispatch()
-<<<<<<< HEAD
   /* console.log (categories) */
-  //const [filterSelected, setFilterSelected] = useState('')
-  /* console.log(products) */
-=======
-  console.log (categories)
-  // const [filterSelected, setFilterSelected] = useState('')
+  const [filterSelected, setFilterSelected] = useState('')
 
->>>>>>> 52b122dc4283b88143c17662e3f844381e19f495
   const [currentPage, setCurrentPage] = useState(1);
   const [shoesPerPage, setShoesPerPage]= useState(16) //eslint-disable-line
   const indexOfLastShoe = currentPage * shoesPerPage; 
   const indexOfFirstShoe = indexOfLastShoe - shoesPerPage;
-  const currentShoes =products.slice(indexOfFirstShoe, indexOfLastShoe);
+  console.log(products)
+
+  const currentShoes =products.slice(indexOfFirstShoe, indexOfLastShoe)
   
  
 
@@ -52,7 +48,15 @@ const Shop = () => {
   categories.map(e=> joint.push(e.masterName))
   joint= [... new Set(joint)].sort()
 
-  
+  let sizes = []
+  let lala = products.map((e) => {
+    e.stocks.map((e) => {
+        sizes.push(e.size.size)
+    })
+   
+  })
+    sizes= [... new Set(sizes)].sort()
+    console.log(sizes)
   useEffect(() => {
     
     dispatch(getCategories())
@@ -66,8 +70,9 @@ const Shop = () => {
     dispatch(filterByCategories('All'))
     dispatch(filterByGender('All'))
     dispatch(filterByPrice('All'))
-    
+    setFilterSelected('')
   }
+  
   /* const fiols= []
   products.map((e) => {
    var quik =  e.stocks.map((e)=> {
@@ -87,25 +92,48 @@ const Shop = () => {
     name === 'bestFor' && dispatch(filterByBestFor(value))
     name === 'colors' && dispatch(filterByColor(value))
     name === 'gender' && dispatch(filterByGender(value))
-    name === "sort" &&  dispatch(filterByPrice(value))
+    name === 'sizes' && dispatch(filterBySize(value))
+    
    
     setCurrentPage(1)
   }
   /* console.log(currentShoes.map( e =>e.price)) */
-   
+   const handleSort = (e) =>{
+    e.preventDefault(e)
+      dispatch(filterByPrice(e.target.value))
+      setFilterSelected(e.target.value)
+      setCurrentPage(1)
+    
+   }
+   const handle = (e) =>{
+    e.preventDefault(e)
+      dispatch(orderByFn(e.target.value))
+      setFilterSelected(e.target.value)
+      setCurrentPage(1)
+    
+   }
+  
   return (
     <div className={styles.container}>
       <div className={styles.flyer}>
         <h1 className={styles.titulo}>Shop</h1>
       </div>
       <div className={styles.body}>
-        { products.length > 0 && <div className={styles.filtersContainer}>
+        { products.length > 0  &&<div className={styles.filtersContainer}>
             <div className={styles.divFiltersTitle}>
               <h1 className={styles.filtersTitle}>Filter By:</h1>
-              {auxProducts.length !== products.length && 
+              {/* { filterSelected.length >0  && 
                 <div className={styles.divButtonClearFilters}>Clear filters
                   <button className={styles.buttonClearFilters} onClick={e => clearFilters()}>x</button>
-                </div>}
+                </div> } */}
+              {auxProducts.length !== products.length  && 
+                <div className={styles.divButtonClearFilters}>Clear filters
+                  <button className={styles.buttonClearFilters} onClick={e => clearFilters()}>x</button>
+                </div>
+                
+                 }
+                
+            
             </div>
           
             <div className={styles.divFiltersBestFor}>
@@ -117,23 +145,12 @@ const Shop = () => {
                 </div>
               ))}
             </div>
-                  <div className={styles.divFiltersBestFor}>
-                      <h2 className={styles.filtersSubtitle}>order</h2>
-                      <div>
-                        <input className={styles.input}  /* key = {"3"} */type="radio"  name= 'sort' value='xpensive'onChange={filterHandler} />
-                        <label className={styles.radioLabel} >xpensive</label>
-                      </div>
-                      <div>
-                        <input className={styles.input} /* key = {"2"} */type="radio"  name= 'sort' value='cheap'onChange={filterHandler} />
-                        <label className={styles.radioLabel} >cheap</label>
-                      </div>
-              </div>
             <div className = {styles.divFiltersCategories}>
             <h2 className={styles.filtersSubtitle}>Sizes:</h2>
-            <select className={styles.selectCategories} onChange={filterHandler} name="sizez">
+            <select className={styles.selectCategories} onChange={filterHandler} name="sizes">
             <option className={styles.input} value='All'>All</option>
              {
-             size.map(item => <option value={item.size}>{item.size}</option>)
+             sizes.map(item => <option value={item}>{item}</option>)
              }
             </select>
           </div>
@@ -145,6 +162,28 @@ const Shop = () => {
                   <option className={styles.input} id={e} value={e}>{e}</option>
                 ))}
               </select>
+            </div>
+            <div className={styles.divFiltersBestFor}>
+                <h2 className={styles.filtersSubtitle}>Price </h2>
+                <div>
+                  <input className={styles.input}  /* key = {"3"} */type="radio"  name= 'sort' value='xpensive'onClick={e =>handleSort(e)}  />
+                  <label className={styles.radioLabel} >xpensive</label>
+                </div>
+                <div>
+                  <input className={styles.input} /* key = {"2"} */type="radio"  name= 'sort' value='cheap'onClick={e=> handleSort(e)} />
+                  <label className={styles.radioLabel} >cheap</label>
+           </div>
+            </div>
+            <div className={styles.divFiltersBestFor}>
+                <h2 className={styles.filtersSubtitle}>Alphabetic</h2>
+                <div>
+                  <input className={styles.input}  type="radio"  name= 'sort2' value='A to Z'onClick={e =>handle(e)}  />
+                  <label className={styles.radioLabel} >A to Z</label>
+                </div>
+                <div>
+                  <input className={styles.input} type="radio"  name= 'sort2' value='Z to A'onClick={e=> handle(e)} />
+                  <label className={styles.radioLabel} >Z to A</label>
+           </div>
             </div>
               <div className={styles.divFiltersBestFor}>
                 <h2 className={styles.filtersSubtitle}>Genre</h2>
@@ -170,9 +209,12 @@ const Shop = () => {
         <div className = {styles.cards}>
           
           {currentShoes?.map(product => (
+            product.available  &&
+              
               <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
                 <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover} stock = {product.available}/>
-              </Link>
+              </Link> 
+            
           ))}
         </div>
       </div>

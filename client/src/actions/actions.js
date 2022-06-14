@@ -13,9 +13,11 @@ export const POST_REVIEW = "POST_REVIEW";
 export const GET_COLORS = "GET_COLORS";
 export const FILTER_BY_BEST = "FILTER_BY_BEST";
 export const FILTER_BY_PRICE = "FILTER_BY_PRICE";
+export const ORDER_BY_FN = "ORDER_BY_FN";
 export const FILTER_BY_CATEGORIES = "FILTER_BY_CATEGORIES";
 export const FILTER_BY_COLOR = "FILTER_BY_COLOR";
 export const FILTER_BY_GENDER = "FILTER_BY_GENDER";
+export const FILTER_BY_SIZE = "FILTER_BY_SIZE";
 export const FAVORITES = "FAVORITES";
 export const SHOPCAR = "SHOPCAR";
 export const GET_STOCK_BY_PRODUCTID = "GET_STOCK_BY_PRODUCTID";
@@ -107,6 +109,21 @@ export const filterByGender = (payload) => {
     payload,
   };
 };
+export const filterBySize = (payload) => {
+  console.log(payload)
+  return {
+    type: "FILTER_BY_SIZE",
+    payload,
+  };
+};
+export const orderByFn = (payload) => {
+  console.log(payload)
+  return {
+    type: "ORDER_BY_FN",
+    payload,
+  };
+};
+
 
 export function searchBar(keyword) {
   return async function (dispatch) {

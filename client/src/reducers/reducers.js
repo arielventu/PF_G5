@@ -14,6 +14,8 @@ import {
   FILTER_BY_CATEGORIES,
   FILTER_BY_COLOR,
   FILTER_BY_GENDER,
+  FILTER_BY_SIZE,
+  ORDER_BY_FN,
   SEARCH_BAR,
   FAVORITES,
   SHOPCAR,
@@ -33,7 +35,7 @@ import {
   GET_ORDER_DETAILS_BY_ORDER_ID,
   FILTER_BY_PRICE
 } from "../actions/actions.js";
-
+import { firstWordBye } from '../utils';
 const initialState = {
   //hacer un estado para los filtros
   shoes: [],
@@ -127,34 +129,56 @@ export default function rootReducer(state = initialState, { payload, type }) {
           ...state,
           shoes: cat,
         };
+      case FILTER_BY_SIZE:
+        const all = state.auxShoes;
+        const size = [];
+        console.log(payload)
+        payload === "All"
+          ? size.push(...allColors)
+          : all.map((e) => {
+              var six = e.stocks.map((e) => {
+               return e.size.size
+              });
+              return six.includes(payload) ? size.push(e) : null;
+             
+            });
+         console.log(size)
+        return {
+          ...state,
+          shoes:size
+        };
         case FILTER_BY_PRICE:
-          const click= state.auxShoes
-         const puntaje = payload === 'xpensive' ?
-          payload === 'All'? puntaje.push(click):
-        click.sort(function(a,b){
-              if(a.price> b.price){
-                  return -1;
-              }
-              if(b.price>a.price){
-                  return 1;
-              }
-              return 0;
-          }) : 
-          click.sort(function(a,b){
-              if(a.price>b.price){
-                  return -1;
-              }
-              if(b.price> a.price){
-                  return 1;
-              }
-              return 0;
-          }) 
-    
           
-              return{    
-                  ...state,
-                 shoes :puntaje
-                  }
+			const pokemonsSorted = state.shoes;
+			let orderBy;
+      
+			if (payload === 'All') orderBy = pokemonsSorted
+			if (payload === 'xpensive') orderBy = pokemonsSorted.sort((a, b) => a.price < b.price ? 1 : -1);
+			if (payload === 'cheap') orderBy = pokemonsSorted.sort((a, b) => a.price > b.price ? 1 : -1);
+			 console.log(orderBy);
+			return {
+				...state,
+				shoes: orderBy,
+			};
+     case ORDER_BY_FN:
+          
+			const billyBond = state.shoes;
+     let jugo = billyBond.map((e) => 
+      {firstWordBye(e.masterName)
+        return e
+           })
+     console.log(jugo)
+		  let tomate;
+      
+			if (payload === 'All') tomate = billyBond;
+			if (payload === 'A to Z') tomate = jugo.sort((a, b) => a.fullName > b.fullName ? 1 : -1);
+			if (payload === 'Z to A') tomate = jugo.sort((a, b) => a.fullName < b.fullName ? 1 : -1);
+			 console.log(tomate);
+			return {
+				...state,
+				shoes: tomate,
+			};
+         
     case FILTER_BY_COLOR:
       const allColors = state.auxShoes;
       const col = [];
