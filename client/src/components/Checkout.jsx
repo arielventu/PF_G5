@@ -10,6 +10,7 @@ import swal from 'sweetalert';
 
 
 
+
 const validate = ({ billingAddress, country, userMail, phone }) => {
   const errors = {};
   // const regExNum = /^\d+$/;
@@ -24,10 +25,12 @@ const validate = ({ billingAddress, country, userMail, phone }) => {
   return errors;
 };
 
+
 const Checkout = () => {
-  const { user, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
   const [preferenceId, setpreferenceId] = useState('')
   const [errors, setErrors] = useState({});
+  const [errorFlag, setErrorFlag] = useState(true);
   const FORM_ID = 'checkoutForm';
 
   const lStorage = JSON.parse(localStorage.getItem('carrito'));
@@ -91,55 +94,65 @@ const Checkout = () => {
       ...newOrder,
       [name]: value
     }));
-    console.log(errors)
+    setErrorFlag(Object.keys(errors).length === 0 ? false : true);
   }
   
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (errors.address || errors.country || errors.phone || errors.email) {
+    if (!isAuthenticated) {
       swal({
-        title: "Error",
-        text: "Please fill out all required fields",
-        icon: "error",
+        // title: "Error",
+        text: "Please login to continue",
+        icon: "warning",
         buttons: false,
         timer: 2000,
       });
-      return;
-    }
-    getToken()
-      .then(apiToken => {
-        postCheckoutOrder(newOrder, apiToken)
-          .then(res => {
-            console.log(res)
-            setpreferenceId(res.data)
-            swal({
-              title: "Success",
-              text: "Your order has went generated. Please proceed to payment",
-              icon: "success",
-              button: "Ok",
-            });
-          })
-          .catch(err => {
-            console.log(err)
-            swal({
-              title: "Error",
-              text: "Something went wrong",
-              icon: "error",
-              button: "Ok",
-            });
-          })
-      })
-      .catch(err => {
-        console.log(err)
+    } else {
+      if (errors.address || errors.country || errors.phone || errors.email || errorFlag) {
         swal({
           title: "Error",
-          text: "Something went wrong",
+          text: "Please fill out all required fields",
           icon: "error",
-          button: "Ok",
+          buttons: false,
+          timer: 2000,
         });
+        return;
       }
-    )
+      getToken()
+        .then(apiToken => {
+          postCheckoutOrder(newOrder, apiToken)
+            .then(res => {
+              console.log(res)
+              setpreferenceId(res.data)
+              swal({
+                title: "Success",
+                text: "Your order has went generated. Please proceed to payment",
+                icon: "success",
+                button: "Ok",
+              });
+            })
+            .catch(err => {
+              console.log(err)
+              swal({
+                title: "Error",
+                text: "Something went wrong",
+                icon: "error",
+                button: "Ok",
+              });
+            })
+        })
+        .catch(err => {
+          console.log(err)
+          swal({
+            title: "Error",
+            text: "Something went wrong",
+            icon: "error",
+            button: "Ok",
+          });
+        }
+        )
+    }
   }
   
   // console.log(user.sub)
