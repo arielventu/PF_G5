@@ -11,9 +11,9 @@ const getUsers = (req, res) => {
           "content-type": "application/json"
       }
     };
-    let adminsReq = {
+    let adminsReq = { 
       method: 'GET',
-      url: `http://localhost:3001/users/admins`,
+      url: `/users/admins`,
       headers: {
           'authorization': req.headers.authorization,
           "content-type": "application/json"
