@@ -39,6 +39,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
+  height: 7rem;
 }
 
 .innercontainer3 {
@@ -211,9 +212,9 @@ select {
 
 .divStarsContainer {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   margin-right: 2rem;
 }
 
@@ -232,8 +233,19 @@ select {
   margin: 0 0.1rem 0 0.1rem;
 }
 
+.divButtonAddReview {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  
+}
+
 .buttonAddReview {
-  margin-top: 4rem;
-  border-radius: 0.2rem;
+  height: 2.5rem;
+  width: 10rem;
   border: 0.1rem solid rgb(190, 190, 190);
+  background: linear-gradient(180deg, #79f7ff 0%, #6584d5 66.67%);
+  color: white;
+  border-radius: 0.3rem;
+  margin-right: 1.5rem;
 }

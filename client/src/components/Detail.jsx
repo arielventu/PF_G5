@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { favorites, getDetail, getProducts, ShopCar, getReviewsById, getOrdersByCustomerId} from "../actions/actions";
+import { favorites, getDetail, getProducts, ShopCar, getReviewsById, getOrders} from "../actions/actions";
 import { useEffect } from "react";
 import Reviews from "./Reviews";
 import NewReview from "./NewReview";
@@ -26,6 +26,7 @@ export default function Detail(){
   const products = useSelector(state => state.shoes)
   const auxProducts = useSelector(state => state.auxShoes)
   const orders = useSelector(state => state.orders)
+  const [showAddReview, setShowAddReview] = useState(false)
   const [otrasFotos, setotrasFotos] = useState('')
   
 
@@ -42,19 +43,22 @@ export default function Detail(){
 
   useEffect( () => {
     dispatch(getProducts())
-    
     let arraySizeUnit = []
     
     arraySizeUnit =  JSON.parse(localStorage.getItem('favoritos'))
     const idMap = arraySizeUnit.find(item => item.id === id)
-    console.log(idMap)
+    // console.log(idMap)
   }, [])
   
   useEffect(() => {
-    console.log("USER.SUB", user?.sub)
-    user?.sub && dispatch(getOrdersByCustomerId(user?.sub))
-
-  }, [])
+    dispatch(getOrders());
+    // console.log(orders)
+    const findedOrders = orders.filter(order => order.customer.id === user?.sub)
+    // console.log("FINDED", findedOrders)
+    const findedProduct = findedOrders.find(order => order.orderdetails.find(product => product.id === Number(id)))
+    // console.log("FINDED PRODUCTS", findedProduct)
+    findedProduct ? setShowAddReview(true) : setShowAddReview(false)
+  }, [isAuthenticated])
 
   useEffect(() => {
     setotrasFotos(detailstate2.imagecover)
@@ -65,7 +69,7 @@ export default function Detail(){
     detailstate2.selecSize = lala[0]
   }
 
-  console.log(lala2)
+  // console.log(lala2)
   
   const add = async (e)=>{
     var arrayAdd = []
@@ -73,7 +77,7 @@ export default function Detail(){
     if (localStorage.getItem('carrito') === null) {
       var findAdd = detailstate.find(item => item.id == value )
       findAdd.selecSize = lala2
-      console.log("oooo",lala2)
+      // console.log("oooo",lala2)
       arrayAdd.push(findAdd)
     }else{
       arrayAdd = await JSON.parse(localStorage.getItem('carrito'))
@@ -87,7 +91,7 @@ export default function Detail(){
       if (idMap === undefined) {
         const find = detailstate.find(item => item.id == value )
         find.selecSize = lala2
-        console.log("gggg",lala2)
+        // console.log("gggg",lala2)
         arrayAdd.push(find)
         swal({
           text: "Item added to cart",
@@ -104,13 +108,13 @@ export default function Detail(){
   const favorite = async (e)=>{
     var array = []
     const {accessKey} = e.target
-    console.log(accessKey)
+    // console.log(accessKey)
     if (localStorage.getItem('favoritos') === null) {
       var findKey = detailstate.find(item => item.id == accessKey )
       array.push(findKey)
     }else{
       array = await JSON.parse(localStorage.getItem('favoritos'))
-      console.log("first", typeof accessKey)
+      // console.log("first", typeof accessKey)
       const idMap = array.find(item => item.id == accessKey)
       swal({
         text: "existing item in favorites",
@@ -119,7 +123,7 @@ export default function Detail(){
         timer: 1000,
       });
       if (idMap === undefined) {
-        console.log(detailstate)
+        // console.log(detailstate)
         const find = detailstate.find(item => item.id == accessKey )
         find.selecSize = lala2
         array.push(find)
@@ -137,7 +141,7 @@ export default function Detail(){
   }
 
   var imagenOriginal = detailstate2.imagecover
-  console.log(imagenOriginal)
+  // console.log(imagenOriginal)
 
   const producFotos = (e) => {
     // imagenOriginal = e.target.accessKey;
@@ -154,7 +158,7 @@ export default function Detail(){
   })
   
   // console.log(detailstate2.masterName)
-  console.log(catColors)
+  // console.log(catColors)
 
   // Reviews -----------------------------------
   const reviewsById = useSelector((state) => state.reviewsById);
@@ -183,14 +187,11 @@ export default function Detail(){
   const select = (e)=>{
     detailstate2.selecSize = e.target.value
     lala2 = e.target.value
-    console.log(detailstate2)
+    // console.log(detailstate2)
   }
-  console.log(detailstate2)
+  // console.log(detailstate2)
 
-  console.log(orders)
-  const arrOrders = []
-  const findedOrders = orders.find(order => order.customer.id === user?.sub)
-
+  
   return(
     <div className={styles.details}>
     { detailstate.length > 0 ? 
@@ -280,7 +281,10 @@ export default function Detail(){
                   <img className={styles.starAvg} src={starY} alt="star" />
                 </div>
               </div>}
-              </div>
+            </div>
+            <div className={styles.divButtonAddReview}>
+              {showAddReview && <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>}
+            </div>
 
             <div className = {styles.innercontainer3}>
             {findProductImages().map((e) => {
@@ -292,9 +296,7 @@ export default function Detail(){
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
             </div>
           <div>
-            {/* {isAuthenticated &&} */}
-            {/* <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button> */}
-            <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>
+            
             <Modal isOpen={showModal} className={styles.containerModal}>
               <div className={styles.divModal}>
                 <button onClick={handleModal} className={styles.buttonCloseModal}>x</button>
