@@ -3,7 +3,11 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DataTable from "react-data-table-component";
 import { getOrders, putOrders } from "../actions/actions";
-import styled from "styled-components";
+//import styled from "styled-components";
+import styles from "./Orders.module.css";
+import axios from "axios";
+
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 // import fontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -90,29 +94,7 @@ function Orders() {
   //----------------- BUILD COMPONENT: ORDERS -----------------
   //-----------------------------------------------------------
 
-  // ----- HANDLE BUTTONS CANCEL & DISPATCH
-  const handleButtonClickCancel = () => {
-    if (current !== null) {
-      if (
-        window.confirm(
-          `Do you really you want cancel the order # ${current.id} ?`
-        )
-      ) {
-        let newCurrent = current;
-        newCurrent.orderStatus = "cancelled";
-        dispatch(putOrders(newCurrent));
-        setCurrent(null);
-        // -------------------------------------------------------------------
-        // Embeber aquí componente para enviar emails si la order es cancelada
-        // -------------------------------------------------------------------
-      } else return;
-    } else {
-      alert(
-        "First select the row of the order you want to cancel and try again."
-      );
-    }
-  };
-
+  // ----- HANDLE BUTTON DISPATCH
   const handleButtonClickDispatch = () => {
     if (current !== null) {
       if (
@@ -126,11 +108,44 @@ function Orders() {
         setCurrent(null);
         // -------------------------------------------------------------------
         // Embeber aquí componente para enviar emails si la order es cancelada
+        axios
+          .post("/sendemail", newCurrent)
+          .then((resp) => console.log(resp))
+          .catch((error) => console.log(error));
+
         // -------------------------------------------------------------------
       } else return;
     } else {
       alert(
         "First select the row of the order you want to dispatch and try again."
+      );
+    }
+  };
+
+  // ----- HANDLE BUTTON CANCEL
+  const handleButtonClickCancel = () => {
+    if (current !== null) {
+      if (
+        window.confirm(
+          `Do you really you want cancel the order # ${current.id} ?`
+        )
+      ) {
+        let newCurrent = current;
+        newCurrent.orderStatus = "cancelled";
+        dispatch(putOrders(newCurrent));
+        setCurrent(null);
+        // -------------------------------------------------------------------
+        // Embeber aquí componente para enviar emails si la order es cancelada
+        axios
+          .post("/sendemail", newCurrent)
+          .then((resp) => console.log(resp))
+          .catch((error) => console.log(error));
+
+        // -------------------------------------------------------------------
+      } else return;
+    } else {
+      alert(
+        "First select the row of the order you want to cancel and try again."
       );
     }
   };
@@ -179,8 +194,11 @@ function Orders() {
     },
     {
       cell: () => (
-        <button title="Cancel order" onClick={handleButtonClickCancel}>
-          <FontAwesomeIcon icon={faCancel} />
+        <button
+          title="Dispatch order"
+          onClick={(e) => handleButtonClickDispatch(e)}
+        >
+          <FontAwesomeIcon icon={faCheck} />
         </button>
       ),
       ignoreRowClick: true,
@@ -189,11 +207,8 @@ function Orders() {
     },
     {
       cell: () => (
-        <button
-          title="Dispatch order"
-          onClick={(e) => handleButtonClickDispatch(e)}
-        >
-          <FontAwesomeIcon icon={faCheck} />
+        <button title="Cancel order" onClick={handleButtonClickCancel}>
+          <FontAwesomeIcon icon={faCancel} />
         </button>
       ),
       ignoreRowClick: true,
@@ -226,58 +241,6 @@ function Orders() {
     },
   ];
 
-  // ----- HANDLE ROW CLICKED
-  const handleRowClicked = (row) => {
-    setCurrent(row);
-  };
-
-  // filto -------------------------------------------
-
-  const TextField = styled.input`
-    height: 32px;
-    width: 200px;
-    border-radius: 3px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border: 1px solid #e5e5e5;
-    padding: 0 32px 0 16px;
-
-    &:hover {
-      cursor: pointer;
-    }
-  `;
-
-  const ClearButton = styled.button`
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    height: 34px;
-    width: 32px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `;
-
-  const filterSelect = styled.select`
-    height: 32px;
-    width: 200px;
-    border-radius: 3px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border: 1px solid #e5e5e5;
-    padding: 0 32px 0 16px;
-
-    &:hover {
-      cursor: pointer;
-    }
-  `;
-
   // ---- Build Filter component
   const FilterComponent = ({ filterText, onFilter, onClear }) => {
     const handleOnclick = (e) =>
@@ -291,6 +254,7 @@ function Orders() {
           id="1"
           value={filterText}
           onChange={onFilter}
+          className={styles.filterStatus}
         >
           <option value="select">-- Select --</option>
           <option value="created" id="created">
@@ -299,28 +263,25 @@ function Orders() {
           <option value="in_progress" id="in_progress">
             In progress
           </option>
-          <option value="cancelled" id="cancelled">
-            Cancelled
-          </option>
           <option value="completed" id="completed">
             Completed
           </option>
           <option value="dispatched" id="dispatched">
             Dispatched
           </option>
+          <option value="cancelled" id="cancelled">
+            Cancelled
+          </option>
         </select>
       </>
     );
   };
 
-  const [filterText, setFilterText] = React.useState("");
-  const [resetPaginationToggle, setResetPaginationToggle] =
-    React.useState(false);
+  const [filterText, setFilterText] = useState("");
+  const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
 
   const filteredItems = fakeUsers.filter(
     (item) =>
-      // item.customer.fullName &&
-      // item.customer.fullName.toLowerCase().includes(filterText.toLowerCase())
       item.orderStatus &&
       item.orderStatus.toLowerCase().includes(filterText.toLowerCase())
   );
@@ -341,6 +302,11 @@ function Orders() {
       />
     );
   }, [filterText, resetPaginationToggle]);
+
+  // ----- HANDLE ROW CLICKED
+  const handleRowClicked = (row) => {
+    setCurrent(row);
+  };
 
   //----------------------------------------------------
 
