@@ -215,7 +215,7 @@ const updateProductavailable = async (req, res) => {
     }
     )
 
-    res.json("llegue");
+    res.json(product);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

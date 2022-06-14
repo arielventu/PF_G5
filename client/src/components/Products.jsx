@@ -532,7 +532,7 @@ const Products = () => {
             <Button color="secundary" onClick={() => closeModalVariants()}>
               Close
             </Button>
-          </ModalFooter>
+          </ModalFooter>  
         </ModalBody>
       </Modal>
 
