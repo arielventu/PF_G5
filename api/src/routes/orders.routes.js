@@ -15,6 +15,7 @@ const {
   createOrder,
   updateOrder,
   deleteOrder,
+  getOrderByCustomerId,
 } = require("../controllers/orders.controllers.js");
 
 // C.R.U.D.
@@ -23,4 +24,5 @@ router.post("/orders", createOrder); // create order
 router.put("/orders/:id", updateOrder); // update order by id
 router.delete("/orders/:id", deleteOrder); // delete order by id
 router.get("/orders/:id", getOrder); // get order by id
+router.get("/orders/customer/:id", getOrderByCustomerId); // get order by customer id
 module.exports = router;

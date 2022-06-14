@@ -15,6 +15,7 @@ const {
   createProduct,
   updateProduct,
   deleteProduct,
+  updateProductavailable,
 } = require("../controllers/products.controllers.js");
 
 /* GET home page. */
@@ -25,7 +26,8 @@ const {
 // C.R.U.D.
 router.get("/products", getProducts); // get all products
 router.post("/products", createProduct);
-router.put("/products/:id", updateProduct);
+router.put("/products", updateProduct);
 router.delete("/products/:id", deleteProduct);
 router.get("/products/:id", getProduct); // get product by id
+router.put("/products/available", updateProductavailable);
 module.exports = router;

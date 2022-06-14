@@ -16,7 +16,7 @@ const postOrder = async (req, res) => {
     const { 
         userId,
         userMail,
-        userFullName,
+        fullName,
         purchaseItems,
         totalPrice,
         billingAddress,
@@ -51,7 +51,7 @@ const postOrder = async (req, res) => {
         if( !responses[0] ) {
             return Customers.create({
                 id: userId,
-                fullName: userFullName,
+                fullName: fullName,
                 billingAddress,
                 defaultShippingAddress: shippingAddress,
                 country,
@@ -178,7 +178,7 @@ const completeOrder = async ( req, res ) => {
         }
         // axios.request(mailOptions)
         // .then( response => res.json(updatedOrder))
-        
+
         res.json(updatedOrder)
     })
     .catch( function (error) {

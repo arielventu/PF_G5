@@ -4,12 +4,31 @@ import { postCheckoutOrder, getApiJWT } from '../actions/actions'
 import styles from './Checkout.module.css';
 import { firstWordBye } from '../utils';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
+
+
+
+const validate = ({ billingAddress, country, userMail, phone }) => {
+  const errors = {};
+  // const regExNum = /^\d+$/;
+  const regExMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  // let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+  
+  if (!billingAddress) errors.address = 'Address is required';
+  if (!country) errors.country = 'Country is required';
+  if (!phone) errors.phone = 'Phone is required';
+  if (!userMail || userMail.search(regExMail) === -1) errors.email = 'Email is required and must be a valid email address';
+  
+  return errors;
+};
 
 
 const Checkout = () => {
-  const { user, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
   const [preferenceId, setpreferenceId] = useState('')
+  const [errors, setErrors] = useState({});
+  const [errorFlag, setErrorFlag] = useState(true);
   const FORM_ID = 'checkoutForm';
 
   const lStorage = JSON.parse(localStorage.getItem('carrito'));
@@ -59,7 +78,7 @@ const Checkout = () => {
       ...newOrder,
       userId: `${user?.sub}`,
       userMail: `${user?.email}`,
-      userFullName: `${user?.name}`,
+      fullName: `${user?.name}`,
       purchaseItems: lStorage.map(item => {
         return {
           productId: item.id,
@@ -71,7 +90,69 @@ const Checkout = () => {
       [name]: value,
       shippingAddress: newOrder.billingAddress,
     });
-    // console.log(testOrder);
+    setErrors(validate({
+      ...newOrder,
+      [name]: value
+    }));
+    setErrorFlag(Object.keys(errors).length === 0 ? false : true);
+  }
+  
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!isAuthenticated) {
+      swal({
+        // title: "Error",
+        text: "Please login to continue",
+        icon: "warning",
+        buttons: false,
+        timer: 2000,
+      });
+    } else {
+      if (errors.address || errors.country || errors.phone || errors.email || errorFlag) {
+        swal({
+          title: "Error",
+          text: "Please fill out all required fields",
+          icon: "error",
+          buttons: false,
+          timer: 2000,
+        });
+        return;
+      }
+      getToken()
+        .then(apiToken => {
+          postCheckoutOrder(newOrder, apiToken)
+            .then(res => {
+              console.log(res)
+              setpreferenceId(res.data)
+              swal({
+                title: "Success",
+                text: "Your order has went generated. Please proceed to payment",
+                icon: "success",
+                button: "Ok",
+              });
+            })
+            .catch(err => {
+              console.log(err)
+              swal({
+                title: "Error",
+                text: "Something went wrong",
+                icon: "error",
+                button: "Ok",
+              });
+            })
+        })
+        .catch(err => {
+          console.log(err)
+          swal({
+            title: "Error",
+            text: "Something went wrong",
+            icon: "error",
+            button: "Ok",
+          });
+        }
+        )
+    }
   }
   
   // console.log(user.sub)
@@ -146,7 +227,7 @@ const Checkout = () => {
                 
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
-                    <span className={styles.spanCheckoutFormBodyRow}>Address</span>
+                    <span className={styles.spanCheckoutFormBodyRow}>Address *</span>
                     <input className={styles.inputCheckoutFormBodyRow}
                       type="text"
                       name="billingAddress" 
@@ -157,8 +238,8 @@ const Checkout = () => {
                 </div>
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
-                    <span className={styles.spanCheckoutFormBodyRow}>Country</span>
-                    <input className={`${styles.inputCheckoutFormBodyRow} ${styles.toUpperCase}`}
+                    <span className={styles.spanCheckoutFormBodyRow}>Country *</span>
+                    <input className={styles.inputCheckoutFormBodyRow}
                       type="text"
                       name="country"
                       value={newOrder.country}
@@ -168,9 +249,9 @@ const Checkout = () => {
                 </div>
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
-                    <span className={styles.spanCheckoutFormBodyRow}>Phone</span>
+                    <span className={styles.spanCheckoutFormBodyRow}>Phone *</span>
                     <input className={styles.inputCheckoutFormBodyRow}
-                      type="text"
+                      type="number"
                       name="phone" 
                       value={newOrder.phone}
                       onChange={handleChange}
@@ -179,11 +260,13 @@ const Checkout = () => {
                 </div>
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
-                    <span className={styles.spanCheckoutFormBodyRow}>Email</span>
+                    <span className={styles.spanCheckoutFormBodyRow}>Email *</span>
                     <input className={styles.inputCheckoutFormBodyRow}
-                      type="text"
+                      type="email"
+                      placeholder="me@example.com"
                       name="userMail" 
-                      defaultValue={user?.email}
+                      // defaultValue={user?.email}
+                      value={newOrder.userMail}
                       onChange={handleChange}
                     />
                   </label>
@@ -202,11 +285,11 @@ const Checkout = () => {
       <div className={styles.divCheckoutFooter}>
           {/* Solo permite enviar la info una vez. Si existe preferenceId no permite hacerlo nuevamente */}
         {preferenceId === '' ?
-          <button className={styles.buttonSend} onClick={() => sendData()}> Confirm data </button>
-        : <button disabled className={styles.buttonSenddis} onClick={() => sendData()}> Confirm data </button>}
+          <button className={styles.buttonSend} onClick={ handleSubmit}> Confirm data </button>
+        : <button disabled className={styles.buttonSenddis}> Confirm data </button>}
       <div className={styles.divMPButton}>
           <form id={FORM_ID} method="GET">
-            {preferenceId === '' && <button disabled className={styles.mpButton} > Pagar </button>} {/*boton de mercadoPago deshabilitado*/}
+          {preferenceId === '' && <button disabled className={styles.mpButton} > Pagar </button>} {/*boton de mercadoPago deshabilitado*/}
         </form>
       </div>
         {/* <div className={styles.divConfirm}> */}

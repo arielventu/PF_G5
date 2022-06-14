@@ -182,3 +182,10 @@ a {
 .buttonNavBar {
   cursor: pointer;
 }
+
+
+@media (max-width: 600px) {
+  .container {
+    display: none;
+  }
+}
