@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams, useParams } from 'react-router-dom';
+import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import { completeCheckoutOrder, getApiJWT } from '../actions/actions'
+import { completeCheckoutOrder, getApiJWT, ShopCar } from '../actions/actions'
 import Card from './Card'
 import styles from './CheckoutHandler.module.css';
+import { useDispatch } from 'react-redux';
 
 const CheckoutHandler = () => {
 
@@ -13,6 +14,8 @@ const CheckoutHandler = () => {
     const [ completedOrder, setCompletedOrder ] = useState(null);
     const [ searchParams, setSearchParams ] = useSearchParams();
     const { getAccessTokenSilently } = useAuth0();
+    const navegation = useNavigate();
+    const dispatch = useDispatch();
 
     // Necesario para la obtencion del API token en el BACK.
     const getToken = () => {
@@ -47,11 +50,15 @@ const CheckoutHandler = () => {
         .then( apiToken => completeCheckoutOrder( orderId, apiToken ))
         .then( order => {
             setCompletedOrder(order);
+            localStorage.setItem('carrito', JSON.stringify([]));
+            dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
         })
         .catch( err => console.log(err) )
     },[])
         
-    // }
+    const continueShopping = () => {
+        navegation('/Shop');
+    };
     
 
     return (
@@ -82,6 +89,7 @@ const CheckoutHandler = () => {
                         <div className={styles.divTotal}>
                             <h2 className={styles.total}>Total: ${completedOrder.data.amount}</h2>
                         </div>
+                        <button className={`${styles.contShopBtn} ${styles.medium}`} onClick={ () => continueShopping() }> CONTINUE SHOPPING </button>
                     </>
                 ) :
                 (

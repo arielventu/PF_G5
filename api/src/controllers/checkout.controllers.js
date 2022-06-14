@@ -146,6 +146,7 @@ const postOrder = async (req, res) => {
 const completeOrder = async ( req, res ) => {
     // debemos poner la orden con estado COMPLETADA en la base de datos
     const { orderId } = req.body;
+    // const orderId = 10 ---> TEST
 
     Orders.findByPk(orderId, {
         include: [
@@ -165,6 +166,8 @@ const completeOrder = async ( req, res ) => {
         return order.save()
     })
     .then( updatedOrder => {
+        console.log(updatedOrder.datavalues)
+        
         let mailOptions = {
             method: "POST",
             url: "/sendemail",
@@ -173,14 +176,16 @@ const completeOrder = async ( req, res ) => {
                 shippingAddress: updatedOrder.shippingAddress,
                 orderEmail: updatedOrder.orderEmail,
                 orderStatus: 'completed',
-                image: updatedOrder.dataValues.orderdetails[0].product.imagecover
+                image: updatedOrder.dataValues.orderdetails[0].product.imagecover,
+                customer: 'test name'
             }
         }
-        // axios.request(mailOptions)
+        // return axios.request(mailOptions)
         // .then( response => res.json(updatedOrder))
 
         res.json(updatedOrder)
     })
+    // .then( res => console.log(res) )
     .catch( function (error) {
         console.error(error);
         res.status(500).send(error)

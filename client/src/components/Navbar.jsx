@@ -123,22 +123,26 @@ const Navbar = () => {
               />
             </div>
           </Link>
-          { isAuthenticated ? (
-            <div className={styles.divLogin} onClick={() => dropMenu()}>
-              <img className={styles.pictureprofile} src={user.picture}/>
-              <button className={styles.loginText}>
+          { !isLoading ? (
+              isAuthenticated ? (
+              <div className={styles.divLogin} onClick={() => dropMenu()}>
+                <img className={styles.pictureprofile} src={user?.picture}/>
+                <button className={styles.loginText}>
+                  {" "}
+                  {user.name}{" "}
+                </button>
+              </div>
+            ) : (
+              <button
+                className={styles.loginText}
+                onClick={() => loginWithRedirect()}
+              >
                 {" "}
-                {user.name}{" "}
+                Login{" "}
               </button>
-            </div>
+            )
           ) : (
-            <button
-              className={styles.loginText}
-              onClick={() => loginWithRedirect()}
-            >
-              {" "}
-              Login{" "}
-            </button>
+            <></>
           )}
         </div>
         <ul className={styles.menu}>
