@@ -48,6 +48,20 @@ const orderDetails = [
     ordersId: 6,
     productId: 6,
   },
+  {
+    price: 11500,
+    quantity: 1,
+    productUrl: "http://localhost:3000/Shop/details/5",
+    ordersId: 9,
+    productId: 5,
+  },
+  {
+    price: 11500,
+    quantity: 1,
+    productUrl: "http://localhost:3000/Shop/details/6",
+    ordersId: 9,
+    productId: 6,
+  },
 ];
 
 module.exports = orderDetails;
