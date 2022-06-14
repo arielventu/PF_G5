@@ -231,34 +231,6 @@ const promisifiedPostStock = async () => {
 };
 
 // ----------------------------------------------------------------------------------
-// PROMESA: Upload de REVIEWS a la base de datos
-// ----------------------------------------------------------------------------------
-const promisifiedPostReviews = () => {
-  return new Promise(async (resolve, reject) => {
-    const newData = [];
-    reviews.forEach((element) => {
-      const data = {
-        description: element.description,
-        starsLevel: element.starsLevel,
-        productId: element.productId,
-      };
-      newData.push(data);
-    });
-    const count = await Review.count();
-    if (count === 0) {
-      try {
-        const newType = await Review.bulkCreate(newData);
-        resolve(newType);
-      } catch (error) {
-        reject(error);
-      }
-    } else {
-      resolve(null);
-    }
-  });
-};
-
-// ----------------------------------------------------------------------------------
 // PROMESA: Upload de CUSTOMERS a la base de datos
 // ----------------------------------------------------------------------------------
 const promisifiedPostCustomers = () => {
@@ -281,6 +253,35 @@ const promisifiedPostCustomers = () => {
       try {
         const newType = await Customers.bulkCreate(newData);
         resolve(newType);
+      } catch (error) {
+        reject(error);
+      }
+    } else {
+      resolve(null);
+    }
+  });
+};
+
+// ----------------------------------------------------------------------------------
+// PROMESA: Upload de REVIEWS a la base de datos
+// ----------------------------------------------------------------------------------
+const promisifiedPostReviews = () => {
+  return new Promise(async (resolve, reject) => {
+    const newData = [];
+    reviews.forEach((element) => {
+      const data = {
+        description: element.description,
+        starsLevel: element.starsLevel,
+        productId: element.productId,
+      };
+      newData.push(data);
+    });
+    const count = await Review.count();
+    if (count === 0) {
+      try {
+        const newType = await Review.bulkCreate(newData);
+        //resolve(newType);
+        resolve("Review table created");
       } catch (error) {
         reject(error);
       }
@@ -362,10 +363,14 @@ const postDBData = async (req, res) => {
   let categories = promisifiedPostCategories();
   let colors = promisifiedPostColors();
   let sizes = promisifiedPostSizes();
-  let reviews = promisifiedPostReviews();
   let customers = promisifiedPostCustomers();
 
-  Promise.all([products, categories, colors, sizes, reviews, customers])
+  Promise.all([products, categories, colors, sizes, customers])
+    .then((data) => {
+      promisifiedPostReviews()
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+    })
     .then((data) => {
       promisifiedRelCatProd()
         .then((data) => console.log(data))
