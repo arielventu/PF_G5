@@ -25,6 +25,7 @@ export default function Detail(){
   const products = useSelector(state => state.shoes)
   const auxProducts = useSelector(state => state.auxShoes)
   const [otrasFotos, setotrasFotos] = useState('')
+  
 
   let sizes = []
   let lala = products.map((e) => {
@@ -33,30 +34,35 @@ export default function Detail(){
     })
     return sizes
   })
-    lala= [... new Set(lala)].sort()
- 
-  useEffect(() => {
+  lala= [... new Set(lala)].sort()
+  let lala2 = lala[0]
+    
+
+  useEffect( () => {
     dispatch(getProducts())
-    // setotrasFotos(detailstate2?.imagecover)
+    let arraySizeUnit = []
+    
+    arraySizeUnit =  JSON.parse(localStorage.getItem('favoritos'))
+    const idMap = arraySizeUnit.find(item => item.id === id)
+    console.log(idMap)
   }, [])
   
   useEffect(() => {
     setotrasFotos(detailstate2.imagecover)
   }, [id, detailstate])
   
-  console.log(detailstate2);
-
   if(detailstate.length != 0){
     detailstate2 = detailstate.find(item => item.id == id )
+    detailstate2.selecSize = lala[0]
   }
-
-  
+console.log(lala2)
   const add = async (e)=>{
     var arrayAdd = []
     const {value} = e.target
-    console.log(value)
     if (localStorage.getItem('carrito') === null) {
       var findAdd = detailstate.find(item => item.id == value )
+      findAdd.selecSize = lala2
+      console.log("oooo",lala2)
       arrayAdd.push(findAdd)
     }else{
       arrayAdd = await JSON.parse(localStorage.getItem('carrito'))
@@ -69,6 +75,8 @@ export default function Detail(){
       });
       if (idMap === undefined) {
         const find = detailstate.find(item => item.id == value )
+        find.selecSize = lala2
+        console.log("gggg",lala2)
         arrayAdd.push(find)
         swal({
           text: "Item added to cart",
@@ -102,6 +110,7 @@ export default function Detail(){
       if (idMap === undefined) {
         console.log(detailstate)
         const find = detailstate.find(item => item.id == accessKey )
+        find.selecSize = lala2
         array.push(find)
         swal({
           text: "Item added to favorites",
@@ -161,6 +170,12 @@ export default function Detail(){
   // console.log(findProductImages())
 
   // console.log(starsAvg);
+  const select = (e)=>{
+    detailstate2.selecSize = e.target.value
+    lala2 = e.target.value
+    console.log(detailstate2)
+  }
+  console.log(detailstate2)
   return(
     <div className={styles.details}>
     { detailstate.length > 0 ? 
@@ -170,7 +185,7 @@ export default function Detail(){
           <p className={styles.description}>{detailstate2.detail}</p>
           <div className = {styles.innercontainer}>
             <h3 className={styles.subtitles}>Sizes:</h3>
-            <select>{lala.map(item => <option value={item}>{item}</option>)}</select>
+            <select onChange={(e)=>select(e)}>{lala.map(item => <option value={item}>{item}</option>)}</select>
           </div>
           <h3 className={styles.subtitles}>colors:</h3>
           <div className={styles.containercolors}>
@@ -258,7 +273,7 @@ export default function Detail(){
                 <img accessKey={e} src={e} alt = 'Shoes Image' className = {styles.otherimg} onClick={(e)=>producFotos(e)}/>
               )
             })}
-                <button className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
+                <button  className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
             </div>
             <div>

@@ -13,6 +13,7 @@ const postOrder = async (req, res) => {
     const { 
         userId,
         userMail,
+        fullName,
         purchaseItems,
         totalPrice,
         billingAddress,
@@ -47,6 +48,7 @@ const postOrder = async (req, res) => {
         if( !responses[0] ) {
             return Customers.create({
                 id: userId,
+                fullName: fullName,
                 billingAddress,
                 defaultShippingAddress: shippingAddress,
                 country,
