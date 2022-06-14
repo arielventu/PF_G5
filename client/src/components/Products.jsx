@@ -1,8 +1,9 @@
 // import libraries
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts, postProduct, getCategories } from "../actions/actions";
+import { getProducts, postProduct, getCategories, editProduct } from "../actions/actions";
 import styles from "./Products.module.css";
+import axios from 'axios';
 
 //import 'Product.variants (stock)', the auxiliar component.
 import ProductVariants from "./ProductVariants";
@@ -74,9 +75,23 @@ const Products = () => {
   // ----------------------------------------------------
 
   const showModalUpdate = (data) => {
-    // console.log(form, "updatinggggg");
-    setForm(data);
-    console.log(form.categories, "updatinggggg");
+    console.log(data, "updatingggggdata");
+    const categoriesMap = data.categories.map(e => e.id);
+    setForm({
+    id: data.id,
+    name: data.name,
+    masterName: data.masterName,
+    fullName: data.fullName,
+    gender: data.gender,
+    detail: data.detail,
+    price: data.price,
+    imagecover: data.imagecover,
+    imageurl: data.imageurl,
+    available: data.available,
+    categories: categoriesMap,
+    newCategory: "",
+    });
+    console.log(form, "updatinggggg");
     console.log(categorie, "updatinggggg22222");
 
     setModalUpdate(true);
@@ -126,6 +141,7 @@ const Products = () => {
       i++;
     });
     setProducts(arrPoducts);
+    dispatch(editProduct(data));
     setModalUpdate(false);
   };
 
@@ -133,6 +149,7 @@ const Products = () => {
     let option = window.confirm(
       "Are you sure you want to change the status? " + data.masterName
     );
+    console.log(data, "not available");
     if (option) {
       let i = 0;
       let arrPoducts = products;
@@ -143,6 +160,17 @@ const Products = () => {
         i++;
       });
       setProducts(arrPoducts);
+      async function editAvailable(data) {
+        try {
+          console.log(data, "ante del put");
+          var yeison = await axios.put("/products/available", data);
+          return yeison;
+        } catch (error) {
+          console.log(error);
+          console.log(yeison);
+        }
+      };
+      editAvailable(data);
       setAvailable((prevStatus) => ({ ...prevStatus, available: !!available }));
     }
   };
@@ -211,8 +239,8 @@ const Products = () => {
     //   setForm({ ...form, categories: [...form.categories, newData] });
 
     let newData = parseInt(e.target.value);
-    // console.log(newData, "nuewData");
-    let categoriesArray = [];
+    console.log(newData, "nuewData");
+    let categoriesArray = []; 
     if (form.categories.length > 0) {
       categoriesArray = [...form.categories];
     }
@@ -534,7 +562,7 @@ const Products = () => {
               className="form-control"
               name="name"
               type="text"
-              value={form.masterName}
+              value={form.name}
               onChange={(e) => handleChange(e)}
             />
           </FormGroup>
@@ -565,9 +593,9 @@ const Products = () => {
             <label>New Category:</label>
             <input
               className="form-control"
-              name="name"
+              name="newCategory"
               type="text"
-              value=""
+              value={form.newCategory}
               onChange={(e) => handleChange(e)}
             />
           </FormGroup>
@@ -575,7 +603,7 @@ const Products = () => {
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
             {categorie?.map((e, index) => {
-              if (form.categories.some(u => u.id === e.id)) {
+              if (form.categories.some(u => u === e.id)) {
 
                 return (
                   <div key={index} className="checkbox">

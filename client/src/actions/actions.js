@@ -211,7 +211,8 @@ export function postProduct(payload) {
 export function editProduct(payload) {
   return async function (dispatch) {
     try {
-      var yeison = await axios.put("/product", payload);
+      console.log(payload, "ante del put");
+      var yeison = await axios.put("/products", payload);
       return yeison;
     } catch (error) {
       console.log(error);
