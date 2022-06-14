@@ -115,13 +115,13 @@ const Navbar = () => {
               />
             </div>
           </Link>
-          {isAuthenticated ? <img className={styles.pictureprofile} src={user.picture}/> : null }
+          {isAuthenticated ? <img className={styles.pictureprofile} src={user?.picture}/> : null }
           {isLoading ? (
             <button className={styles.loginButton}> Loading </button>
           ) : isAuthenticated ? (
             <button className={styles.loginButton} onClick={() => dropMenu()}>
               {" "}
-              {user.name}{" "}
+              {user?.name}{" "}
             </button>
           ) : (
             <button
