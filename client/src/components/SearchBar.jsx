@@ -11,7 +11,7 @@ const SearchBar = () => {
   const data = useSelector((state) => state.shoes3);
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [data.length]);
   
   const dataMap = data.map(e => e.name);
   console.log(dataMap, "data data data");
