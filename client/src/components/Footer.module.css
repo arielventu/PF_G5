@@ -81,6 +81,69 @@ li {
   cursor: pointer;
 }
 
+.botClosed{
+  position: absolute;
+  bottom: 9rem;
+  left: 1.5rem;
+  /* margin-top: 45vh; */
+  visibility: hidden;
+}
+
+.botOpen{
+  position: fixed;
+  /* position: relative; */
+  /* margin-top: 15rem; */
+  bottom: 9rem;
+  left: 2rem;
+  z-index: 999;
+  visibility: visible;
+  transition: ease-in-out 2s;
+}
+
+.closeBotHidden{
+  display: none;
+}
+
+.closeBot{
+  position: fixed;
+  border: 0.17rem solid white;
+  border-radius: 50%;
+  bottom: 5rem;
+  left: 1rem;
+  z-index: 999;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  background-image: url("../image/close.svg");
+  background-color: rgb(106, 203, 233);
+  background-size: 3rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.bubbleClosed{
+  display: none;
+}
+
+.bubbleOpen{
+  position: fixed;
+  border: 0.17rem solid white;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  z-index: 999;
+  bottom: 5rem;
+  left: 1rem;
+  cursor: pointer;
+  background-image: url("../image/BlueBird.svg");
+  background-color: rgb(106, 203, 233);
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 360px) {
   .innercontainer {
     margin-top: 2rem;

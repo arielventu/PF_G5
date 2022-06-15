@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
+import ChatBotBB from './Chatbot'
 import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
 import fb from '../image/facebook.png'
@@ -8,8 +9,35 @@ import inst from '../image/instagram.png'
 import email from '../image/email.png'
 
 export default function Footer() {
+    let [bot, setBot] = useState("botClosed");
+    let [bubble, setBubble] = useState("bubbleOpen");
+    let [closeBot, setCloseBot] = useState("closeBotHidden");
+
+    const handleCloseBot =() => {
+        setBot("botClosed");
+        setBubble("bubbleOpen");
+        setCloseBot("closeBotHidden");
+    }
+
+    const handleBotClick = () => {
+        if (bot === 'botClosed'){
+            setBot('botOpen')
+            setBubble('bubbleClosed')
+            setCloseBot('closeBot')
+        } 
+        if (bot === 'botOpen'){
+            setBot('botClosed')
+            setBubble('bubbleOpen')
+            setCloseBot('closeBotHidden')
+        }
+    }
+    
     return (
       <div className={styles.container}>
+        {/* {<div className={bot === "botClosed" ? `${styles.botClosed}` : `${styles.botOpen}`}><ChatBotBB /></div>}
+        {<div className={bubble === "bubbleOpen" ? `${styles.bubbleOpen}` : `${styles.bubbleClosed}`} onClick={() => handleBotClick()}></div>}
+        {<div className={closeBot === "closeBot" ? `${styles.closeBot}` : `${styles.closeBotHidden}`} onClick={() => handleCloseBot()}></div>} */}
+            <ChatBotBB />
         <div className={styles.innercontainer}>
             <div className={styles.innercontainer2}>
                 <h3 className={styles.bluetitle}>BlueBird Store</h3>
