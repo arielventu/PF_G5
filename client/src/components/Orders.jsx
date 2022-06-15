@@ -6,6 +6,7 @@ import { getOrders, putOrders } from "../actions/actions";
 //import styled from "styled-components";
 import styles from "./Orders.module.css";
 import axios from "axios";
+import swal from "sweetalert";
 
 //import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -98,27 +99,56 @@ function Orders() {
   const handleButtonClickDispatch = () => {
     if (current !== null) {
       if (
-        window.confirm(
-          `Do you really you want dispatch the order # ${current.id}?`
-        )
+        current.orderStatus === "dispatched" ||
+        current.orderStatus === "cancelled"
       ) {
-        let newCurrent = current;
-        newCurrent.orderStatus = "dispatched";
-        dispatch(putOrders(newCurrent));
-        setCurrent(null);
-        // -------------------------------------------------------------------
-        // Embeber aquí componente para enviar emails si la order es cancelada
-        axios
-          .post("/sendemail", newCurrent)
-          .then((resp) => console.log(resp))
-          .catch((error) => console.log(error));
+        swal({
+          text: `Unable to reship or cancel order # ${current.id}`,
+          icon: "warning",
+          buttons: false,
+          timer: 2000,
+        });
+      } else {
+        swal({
+          title: "Are you sure?",
+          text: `Do you really you want dispatch the order # ${current.id} ?`,
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            let newCurrent = current;
+            newCurrent.orderStatus = "dispatched";
+            dispatch(putOrders(newCurrent));
+            setCurrent(null);
 
-        // -------------------------------------------------------------------
-      } else return;
+            swal({
+              text: "The order was dispatched",
+              icon: "success",
+              buttons: false,
+              timer: 1300,
+            });
+
+            // -------------------------------------------------------------------
+            // Embeber aquí endpoint para enviar emails si la order es cancelada
+            // axios
+            //   .post("/sendemail", newCurrent)
+            //   .then((resp) => console.log(resp))
+            //   .catch((error) => console.log(error));
+            // -------------------------------------------------------------------
+          } else return;
+        });
+      }
     } else {
-      alert(
-        "First select the row of the order you want to dispatch and try again."
-      );
+      // alert(
+      //   "First select the row of the order you want to dispatch and try again."
+      // );
+      swal({
+        text: "First select the row of the order you want to dispatch and try again.",
+        icon: "warning",
+        buttons: false,
+        timer: 3000,
+      });
     }
   };
 
@@ -126,27 +156,54 @@ function Orders() {
   const handleButtonClickCancel = () => {
     if (current !== null) {
       if (
-        window.confirm(
-          `Do you really you want cancel the order # ${current.id} ?`
-        )
+        current.orderStatus === "dispatched" ||
+        current.orderStatus === "cancelled"
       ) {
-        let newCurrent = current;
-        newCurrent.orderStatus = "cancelled";
-        dispatch(putOrders(newCurrent));
-        setCurrent(null);
-        // -------------------------------------------------------------------
-        // Embeber aquí componente para enviar emails si la order es cancelada
-        axios
-          .post("/sendemail", newCurrent)
-          .then((resp) => console.log(resp))
-          .catch((error) => console.log(error));
+        swal({
+          text: `Unable to reship or cancel order # ${current.id}`,
+          icon: "warning",
+          buttons: false,
+          timer: 2000,
+        });
+      } else {
+        swal({
+          title: "Are you sure?",
+          text: `Do you really you want cancel the order # ${current.id} ?`,
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            let newCurrent = current;
+            newCurrent.orderStatus = "cancelled";
+            dispatch(putOrders(newCurrent));
+            setCurrent(null);
 
-        // -------------------------------------------------------------------
-      } else return;
+            swal({
+              text: "The order was cancelled",
+              icon: "success",
+              buttons: false,
+              timer: 1300,
+            });
+
+            // -------------------------------------------------------------------
+            // Embeber aquí componente para enviar emails si la order es cancelada
+            // axios
+            //   .post("/sendemail", newCurrent)
+            //   .then((resp) => console.log(resp))
+            //   .catch((error) => console.log(error));
+
+            // -------------------------------------------------------------------
+          } else return;
+        });
+      }
     } else {
-      alert(
-        "First select the row of the order you want to cancel and try again."
-      );
+      swal({
+        text: "First select the row of the order you want to cancel and try again.",
+        icon: "warning",
+        buttons: false,
+        timer: 3000,
+      });
     }
   };
 
