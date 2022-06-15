@@ -209,7 +209,7 @@ const Shop = () => {
         <div className = {styles.cards}>
           
           {currentShoes?.map(product => (
-            product.available  &&
+            product.available !== false &&
               
               <Link to={'details/' + product.id} key={'p' + product.id} style={{ textDecoration: 'none' }}>
                 <Card key={product.id} id={product.id} fullName={product.masterName} price={product.price} img={product.imagecover} stock = {product.available}/>
