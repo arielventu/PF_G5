@@ -32,7 +32,8 @@ const Checkout = () => {
   const FORM_ID = 'checkoutForm';
 
   const lStorage = JSON.parse(localStorage.getItem('carrito'));
-  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * (item.cantidad === undefined ? 1 : item.cantidad ), 0);
+  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * (item.cantidad === undefined ? 1 : item.cantidad), 0);
+  const selectedSize = lStorage.reduce((acc, item) => item.selecSize, 0);
 
   const [newOrder, setNewOrder] = useState({
         userId: '',
@@ -62,13 +63,25 @@ const Checkout = () => {
 
   // console.log(user.name);
 
-  const products = lStorage.map(item => {
-        return {
-          productId: item.id,
-          quantity: item.cantidad,
-          price: item.price
-        }
-      })
+
+  const sizeId = lStorage.map(item =>
+    item.stocks.filter(stock => stock.size.size === selectedSize).map(stock => stock.sizeId)
+  );
+  // sizeId = new Set(sizeId);
+    
+  
+
+  // console.log(JSON.parse(localStorage.getItem('carrito')));
+  // console.log("selectedSize", selectedSize);
+  // console.log("sizeId", sizeId[0][0])
+
+  // const products = lStorage.map(item => {
+  //       return {
+  //         productId: item.id,
+  //         quantity: item.cantidad,
+  //         price: item.price,
+  //       }
+  //     })
   
   const handleChange = (e) => {
     e.preventDefault();
@@ -85,7 +98,8 @@ const Checkout = () => {
       return {
           productId: item.id,
           quantity: item.cantidad,
-          price: item.price
+          price: item.price,
+          sizeId:sizeId[0][0]
         }
       }),
       [name]: value,
@@ -123,6 +137,7 @@ const Checkout = () => {
           postCheckoutOrder(newOrder, apiToken)
             .then(res => {
               console.log(res)
+              console.log(newOrder)
               setpreferenceId(res.data)
               swal({
                 title: "Success",
