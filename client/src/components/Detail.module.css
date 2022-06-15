@@ -35,6 +35,10 @@ h3 {
   display: flex;
 }
 
+.innercontainer:hover {
+  transform: translateY(-1.2px);
+}
+
 .innercontainer2 {
   display: flex;
   justify-content: space-between;
