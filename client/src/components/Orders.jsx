@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DataTable from "react-data-table-component";
-import { getOrders, putOrders } from "../actions/actions";
+import { getOrders, getOrdersByCustomerId, putOrders } from "../actions/actions";
 //import styled from "styled-components";
 import styles from "./Orders.module.css";
 import axios from "axios";
@@ -14,7 +14,7 @@ import swal from "sweetalert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCancel, faCheck } from "@fortawesome/free-solid-svg-icons";
 
-function Orders() {
+function Orders({ user }) {
   // calling global state
   const orders = useSelector((state) => state.orders);
   const dispatch = useDispatch();
@@ -24,11 +24,18 @@ function Orders() {
 
   // set component lifecycle
   useEffect(() => {
-    dispatch(getOrders());
+    if (user === 'all') {
+      console.log('all users')
+      dispatch(getOrders())
+    }
+    else {
+      console.log('user ' + user)
+      dispatch(getOrdersByCustomerId( user ))
+    }
   }, [dispatch, current]);
 
   const fakeUsers = orders;
-  console.log("fakeusers : ", fakeUsers);
+  console.log(orders)
 
   //-----------------------------------------------------------
   //------------- BUILD COMPONENT: ORDERS DETAIL --------------
@@ -207,8 +214,8 @@ function Orders() {
     }
   };
 
-  // ----- BUILD HEADER COLUMNS
-  const columnsHeader = [
+  // ----- BUILD ADMIN HEADER COLUMNS
+  const adminColumnsHeader = [
     {
       name: "Order #",
       selector: (row) => row.id,
@@ -271,6 +278,50 @@ function Orders() {
       ignoreRowClick: true,
       allowOverflow: true,
       button: true,
+    },
+  ];
+
+  // ----- BUILD USER HEADER COLUMNS
+  const userColumnsHeader = [
+    {
+      name: "Order #",
+      selector: (row) => row.id,
+      sortable: true,
+    },
+    {
+      name: "Date",
+      selector: (row) => row.orderDate,
+      sortable: true,
+    },
+    {
+      name: "Customer",
+      selector: (row) => row.customer.fullName,
+      sortable: true,
+    },
+    {
+      name: "Shipping Adress",
+      selector: (row) => row.shippingAddress,
+      sortable: true,
+    },
+    {
+      name: "Country",
+      selector: (row) => row.customer.country,
+      sortable: true,
+    },
+    {
+      name: "Phone",
+      selector: (row) => row.customer.phone,
+      sortable: true,
+    },
+    {
+      name: "Amount",
+      selector: (row) => new Intl.NumberFormat("en-EN").format(row.amount),
+      sortable: true,
+    },
+    {
+      name: "Status",
+      selector: (row) => row.orderStatus,
+      sortable: true,
     },
   ];
 
@@ -371,8 +422,8 @@ function Orders() {
   return (
     <div>
       <DataTable
-        title="Order Management"
-        columns={columnsHeader}
+        // title="Orders Management"
+        columns={ user === 'all' ? adminColumnsHeader : userColumnsHeader}
         data={filteredItems}
         highlightOnHover
         pointerOnHover

@@ -31,7 +31,7 @@ const Navbar = () => {
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
 
-  console.log(user)
+  // console.log(user)
 
 
   const getToken = () => {
@@ -73,7 +73,7 @@ const Navbar = () => {
       getToken()
         .then( apiToken => getUserRoles(user.sub, apiToken) )
         .then( data => {
-          console.log(data)
+          // console.log(data)
           if (data.length === 0) {
             setAdmin(false)
           }
@@ -106,10 +106,10 @@ const Navbar = () => {
   }
 
   const myOrdersRedirect = () => {
-    navigation("/my-orders")
+    navigation("/orders")
   }
   
-  console.log(user)
+  // console.log(user)
   return (
     <>
       <div className={styles.container}>
@@ -144,7 +144,9 @@ const Navbar = () => {
               </div>
             )
           ) : (
-            <></>
+            <div className={styles.divLogin}>
+              <button className={styles.loginText}>Loading...</button>
+            </div>
           )}
         </div>
         <ul className={styles.menu}>

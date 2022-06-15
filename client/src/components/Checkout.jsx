@@ -33,7 +33,7 @@ const Checkout = () => {
 
   const lStorage = JSON.parse(localStorage.getItem('carrito'));
   const totalOrder = lStorage.reduce((acc, item) => acc + item.price * (item.cantidad === undefined ? 1 : item.cantidad), 0);
-  // const selectedSize = lStorage.reduce((acc, item) => item.selecSize, 0);
+  const selectedSize = lStorage.reduce((acc, item) => item.selecSize, 0);
 
   const [newOrder, setNewOrder] = useState({
         userId: '',
@@ -64,16 +64,16 @@ const Checkout = () => {
   // console.log(user.name);
 
 
-  // const sizeId = lStorage.map(item =>
-  //   item.stocks.filter(stock => stock.size.size === selectedSize).map(stock => stock.sizeId)
-  // );
-  // // sizeId = new Set(sizeId);
+  const sizeId = lStorage.map(item =>
+    item.stocks.filter(stock => stock.size.size === selectedSize).map(stock => stock.sizeId)
+  );
+  // sizeId = new Set(sizeId);
     
   
 
-  // console.log(JSON.parse(localStorage.getItem('carrito')));
-  // console.log("selectedSize", selectedSize);
-  // console.log("sizeId", sizeId[0][0])
+  console.log(JSON.parse(localStorage.getItem('carrito')));
+  console.log("selectedSize", selectedSize);
+  console.log("sizeId", sizeId[0][0])
 
   // const products = lStorage.map(item => {
   //       return {
@@ -102,6 +102,7 @@ const Checkout = () => {
           // sizeId:sizeId[0][0]
         }
       }),
+      sizes: lStorage.map(item => sizeId[0][0]),
       [name]: value,
     });
     setErrors(validate({
