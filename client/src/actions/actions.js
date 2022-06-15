@@ -637,6 +637,7 @@ export function getOrdersByCustomerId(id) {
   return async function (dispatch) {
     try {
       await axios.get(`/orders/customer/${id}`).then((orders) => {
+        // console.log(orders)
         dispatch({
           type: GET_ORDERS_BY_CUSTOMER_ID,
           payload: orders.data,

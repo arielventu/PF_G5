@@ -60,8 +60,10 @@ const getOrder = async (req, res) => {
   }
 };
 
+
 const getOrderByCustomerId = async (req, res) => {
   const { id } = req.params;
+  console.log(id);
   try {
     const orders = await Orders.findAll({
       where: { customerId: id },
@@ -80,9 +82,9 @@ const getOrderByCustomerId = async (req, res) => {
         },
       ],
     });
+    console.log(orders)
 
-    if (!orders)
-      return res.status(404).json({ message: "Orders does not exists" });
+    if (!orders) res.status(404).json({ message: "Orders does not exists" });
 
     res.json(orders);
   } catch (error) {

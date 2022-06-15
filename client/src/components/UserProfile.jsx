@@ -105,7 +105,7 @@ const UserProfile = () => {
           <button className="btn btn-primary" onClick={ () => getUsersHandle() }> GET USERS </button>
           <button className="btn btn-primary" onClick={ () => getRolesHandle(user.sub) }> GET ROLES </button> */}
           <button className={`${styles.userButton} ${styles.medium}`} onClick={ () => logout() }> LOGOUT </button>
-          <button className={`${styles.userButton} ${styles.danger}`} onClick={ () => resetPassHandle(user.email) }> RESET PASSWORD </button>
+          <button className={`${styles.userButton} ${styles.alert}`} onClick={ () => resetPassHandle(user.email) }> RESET PASSWORD </button>
           <button className={`${styles.userButton} ${styles.danger}`} onClick={ () => deleteUserHandle(user.sub) }> DELETE USER </button>
         </div>
       </div>

@@ -14,10 +14,7 @@ const SearchBar = () => {
   }, [data.length]);
   
   const dataMap = data.map(e => e.name);
-  console.log(dataMap, "data data data");
-
-
-
+  
   // const [keyword, setKeyword] = useState('')
   // const dispatch = useDispatch();
   

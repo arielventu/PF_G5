@@ -1,5 +1,5 @@
 const mercadopago = require('mercadopago');
-const { MP_ACCESS_TOKEN } = process.env;
+const { MP_ACCESS_TOKEN, REACT_HOST } = process.env;
 const { Customers, Orders, Orderdetails, Product } = require('../db');
 const axios = require('axios');
 
@@ -111,6 +111,7 @@ const postOrder = async (req, res) => {
         if ( country === 'EEUU' ) currency = 'USD';
         // etc...
         
+        // NOTA: No modificar newPurchaseItems ni las preferencias que se envían a MP
         let newPurchaseItems = purchaseItems.map( item => {
             let prod = products.filter( product => product.id === item.productId )
             return {
@@ -125,9 +126,9 @@ const postOrder = async (req, res) => {
         let preference = {
             items: newPurchaseItems,
             back_urls: {
-                success: "http://localhost:3000/checkout-handler/success",
-                failure: "http://localhost:3000/checkout-handler/failure",
-                pending: "http://localhost:3000/checkout-handler/pending"
+                success: `${REACT_HOST}/checkout-handler/success`,
+                failure: `${REACT_HOST}/checkout-handler/failure`,
+                pending: `${REACT_HOST}/checkout-handler/pending`
             },
             external_reference: `${orderId}`,
         }
