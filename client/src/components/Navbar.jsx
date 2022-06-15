@@ -9,6 +9,7 @@ import fav from "../image/favorito.png"
 import swal from 'sweetalert';
 import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
+import index from '../favoriteAndCar'
 import { useAuth0 } from '@auth0/auth0-react';
 import { getUserRoles, getApiJWT } from "../actions/actions"
 if (localStorage.getItem('carrito') === null ) {
@@ -28,9 +29,11 @@ const Navbar = () => {
   var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+  if (user === undefined) localStorage.setItem('authenticated', 'false');
+  if (isAuthenticated) localStorage.setItem('authenticated', 'true');
 
-  console.log(user)
 
+  index(user)
 
   const getToken = () => {
     return new Promise( (resolve, reject) => {
