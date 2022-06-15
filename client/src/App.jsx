@@ -3,7 +3,7 @@ import generateStore from "./store";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Login from "./components/Login";
+// import Login from "./components/Login";
 import Shop from "./components/Shop";
 import Detail from "./components/Detail";
 import Favorites from "./components/Favorites";
@@ -30,7 +30,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/shoppingCar" element={<ShoppingCar />} />
         <Route exact path="/shop/details/:id" element={<Detail />} />
         <Route exact path="/search/:keyword" element={<SearchResult />} />
