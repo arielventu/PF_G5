@@ -94,8 +94,8 @@ const createProduct = async (req, res) => {
     price,
     imagecover,
     imageurl,
+    colors,
     available,
-    newCategory,
   } = req.body;
 
 
@@ -110,18 +110,19 @@ const createProduct = async (req, res) => {
       price,
       imagecover,
       imageurl,
+      colors,
       available,
     });
 
-    if (newCategory) {
-      const newCat = await Category.create({ name: newCategory })
+    if (req.body.newCategory) {
+      const newCat = await Category.create({ name: req.body.newCategory })
+      const findNewCategory = await Category.findAll({attributes: ['id'], where: {name: req.body.newCategory}})
+      console.log(findNewCategory[0].dataValues.id);
+      const categoryToObj = findNewCategory[0].dataValues.id;
+      req.body.categories.push(categoryToObj);
     }
 
     //mejorar est
-    const findNewCategory = await Category.findAll({attributes: ['id'], where: {name: newCategory}})
-    console.log(findNewCategory[0].dataValues.id);
-    const categoryToObj = findNewCategory[0].dataValues.id;
-    req.body.categories.push(categoryToObj);
     // console.log(categoryToObj);
     // await newProduct.setCategories(findNewCategory);
 
@@ -141,25 +142,48 @@ const createProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   try {
-    const { id } = req.params;
-    const product = await Product.findByPk(id);
-    product.set(req.body);
-    await product.save();
+    let {categories, newCategory, ...newbody } = req.body;
+    let product = await Product.findByPk(newbody.id);
+    // console.log(req.body, "back body edit");
 
-    // las categorias asociadas deben venir en forma de array de números. Los números son los ID de categoria para asociar
-    // en cada caso.
-    if (req.body.hasOwnProperty("categories")) {
-      await product.setCategories(req.body.categories);
+    newbody.colors = product.colors;
+    // console.log(newbody, "back newbody to edit");
+    product.set(newbody);
+    product = await product.save();
+    console.log(product, "back prodcut edited1");
+    console.log(categories, "back prodcut edited2");
+    console.log(newCategory, "back prodcut edited3");
+    // await product.update({
+    //   name: name,
+    //   masterName: masterName,
+    //   fullName: fullName,
+    //   gender: gender,
+    //   detail: detail,
+    //   price: price,
+    //   imagecover: imagecover ,
+    //   imageurl: imageurl,
+    //   available: available,
+    // },
+    // {
+    //   where: { id: id },
+    // }
+    // )
+
+    if (newCategory) {
+      const newCat = await Category.create({ name: newCategory })
+      const findNewCategory = await Category.findAll({attributes: ['id'], where: {name: newCategory}})
+      console.log(findNewCategory);
+      const categoryToObj = findNewCategory[0].dataValues.id;
+      categories.push(categoryToObj);
     }
 
-    // RELACIONES DE MUCHOS A MUCHOS
-    // products - categories
 
-    // product = setCategories([id-cat,id-cat...])
-    // product = getCategories() --> devuelve un [ ids catego ]
+    // // las categorias asociadas deben venir en forma de array de números. Los números son los ID de categoria para asociar
+    // // en cada caso.
+    if (categories) {
+      await product.setCategories(categories);
+    }
 
-    // categories = setPoruducts([id-prod1, id-prod2, ...])
-    // categories = getProducts() --> devuelve un [ ids prod ]
 
     res.json(product);
   } catch (error) {
@@ -179,10 +203,30 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+const updateProductavailable = async (req, res) => {
+  try {
+    let {id, available } = req.body;
+    let product = await Product.findByPk(id);
+
+    await product.update({
+      available: available,
+    },
+    {
+      where: { available: !available },
+    }
+    )
+
+    res.json(product);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getProducts,
   getProduct,
   createProduct,
   updateProduct,
   deleteProduct,
+  updateProductavailable,
 };

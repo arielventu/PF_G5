@@ -12,9 +12,12 @@ export const GET_REVIEWS_BY_ID = "GET_REVIEWS_BY_ID";
 export const POST_REVIEW = "POST_REVIEW";
 export const GET_COLORS = "GET_COLORS";
 export const FILTER_BY_BEST = "FILTER_BY_BEST";
+export const FILTER_BY_PRICE = "FILTER_BY_PRICE";
+export const ORDER_BY_FN = "ORDER_BY_FN";
 export const FILTER_BY_CATEGORIES = "FILTER_BY_CATEGORIES";
 export const FILTER_BY_COLOR = "FILTER_BY_COLOR";
 export const FILTER_BY_GENDER = "FILTER_BY_GENDER";
+export const FILTER_BY_SIZE = "FILTER_BY_SIZE";
 export const FAVORITES = "FAVORITES";
 export const SHOPCAR = "SHOPCAR";
 export const GET_STOCK_BY_PRODUCTID = "GET_STOCK_BY_PRODUCTID";
@@ -91,6 +94,15 @@ export const filterByColor = (payload) => {
     payload,
   };
 };
+export const filterByPrice = (payload) => {
+  console.log(payload)
+  console.log(payload)
+  console.log(payload)
+  return {
+    type: "FILTER_BY_PRICE",
+    payload,
+  };
+};
 
 export const filterByGender = (payload) => {
   return {
@@ -98,6 +110,21 @@ export const filterByGender = (payload) => {
     payload,
   };
 };
+export const filterBySize = (payload) => {
+  console.log(payload)
+  return {
+    type: "FILTER_BY_SIZE",
+    payload,
+  };
+};
+export const orderByFn = (payload) => {
+  console.log(payload)
+  return {
+    type: "ORDER_BY_FN",
+    payload,
+  };
+};
+
 
 export function searchBar(keyword) {
   return async function (dispatch) {
@@ -211,7 +238,8 @@ export function postProduct(payload) {
 export function editProduct(payload) {
   return async function (dispatch) {
     try {
-      var yeison = await axios.put("/product", payload);
+      console.log(payload, "ante del put");
+      var yeison = await axios.put("/products", payload);
       return yeison;
     } catch (error) {
       console.log(error);
@@ -432,20 +460,22 @@ export const resetUserPass = async (email, apiToken) => {
 
     const backRes = await axios.request(options);
     return backRes.data;
-  } catch (error) {
-    console.log(error);
+  } 
+  catch (err) {
+    console.log(err)
+    throw new Error(err)
   }
 };
 
 // ------------------------------------------------------------------------------------------
 
-export const otroFilterMas = (payload) => {
+/* export const otroFilterMas = (payload) => {
   console.log(payload);
   return {
     type: "OTRO_MAS",
     payload,
   };
-};
+}; */
 
 // -------------------------------------------------------------------------------------------
 
@@ -545,10 +575,32 @@ export async function postCheckoutOrder(order, apiToken) {
 
     const preferenceSandBox = await axios.request(options);
     return preferenceSandBox;
-  } catch (error) {
-    console.log(error);
+  }
+  catch (err) {
+    console.log(err)
+    throw new Error(err)
   }
 }
+
+export async function completeCheckoutOrder( orderId, apiToken ) {
+  try {
+    let options = {
+      method: "POST",
+      url: `/checkout/completeOrder`,
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
+      data: { orderId: orderId },
+    };
+
+    const orderCompleted = await axios.request(options);
+    return orderCompleted;
+  }
+  catch (err) {
+    console.log(err)
+    throw new Error(err)
+  }
+};
 
 // ----------- ACTIONS FOR ORDERS  -----------
 // Adding by ELIECER

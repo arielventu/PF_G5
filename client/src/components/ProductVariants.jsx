@@ -40,6 +40,7 @@ const ProductVariants = ({ idproduct, productName }) => {
   // global redux states
   const state = useSelector((state) => state);
   const colors = state.colors;
+  console.log(colors, "colores produc variant");
   const sizes = state.sizes;
   const stock = state.stock;
   const dispatch = useDispatch();
@@ -55,11 +56,11 @@ const ProductVariants = ({ idproduct, productName }) => {
     size: {},
     color: {},
   };
-
   // local react states
   const [current, setCurrent] = useState(initialState);
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalCreate, setModalCreate] = useState(false);
+  console.log(current)
 
   // get all data stock by productId
   useEffect(() => {

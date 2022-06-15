@@ -1,7 +1,8 @@
 const mercadopago = require('mercadopago');
 const { MP_ACCESS_TOKEN } = process.env;
 const { Customers, Orders, Orderdetails, Product } = require('../db');
-const axios = require('axios')
+const axios = require('axios');
+
 
 const postOrder = async (req, res) => {
     
@@ -10,6 +11,8 @@ const postOrder = async (req, res) => {
         access_token: `${MP_ACCESS_TOKEN}`
     });
     
+    let orderId = 0;
+
     const { 
         userId,
         userMail,
@@ -21,11 +24,11 @@ const postOrder = async (req, res) => {
         country,
         phone
     } = req.body;
-    console.log(req.body)
+    // console.log(req.body)
 
     let options = {
         method: 'GET',
-        url: `http://localhost:3001/users/roles/${userId}`,
+        url: `/users/roles/${userId}`,
         headers: {
             authorization: req.headers.authorization,
             "content-type": "application/json"
@@ -71,7 +74,11 @@ const postOrder = async (req, res) => {
             orderDate: String(new Date()),
             orderStatus: 'created'
         })
-        .then( order => order.setCustomer(customer.id) )
+        .then( order => {
+            orderId = order.id
+            // console.log(order.id)
+            return order.setCustomer(customer.id)
+        })
     })
     .then( orderUpdated => {
         // console.log(orderUpdated);
@@ -98,11 +105,13 @@ const postOrder = async (req, res) => {
         // console.log(products);
         // Seteamos la moneda
         let currency = '';
+        // console.log(country)
         if ( country === 'ARG' ) currency = 'ARS';
         if ( country === 'COL' ) currency = 'COP';
         if ( country === 'EEUU' ) currency = 'USD';
         // etc...
         
+        // NOTA: No modificar newPurchaseItems ni las preferencias que se envían a MP
         let newPurchaseItems = purchaseItems.map( item => {
             let prod = products.filter( product => product.id === item.productId )
             return {
@@ -110,30 +119,83 @@ const postOrder = async (req, res) => {
                 quantity: item.quantity,
                 currency_id: currency,
                 unit_price: item.price,
-                //   notification_url: 'endpoint a crear en back, se recibira la notificacion del pago realizado',
-                //   external_reference: 'id de la orden que se creó',
-                //   back_urls: 'url de front end para mostrar que el pago fue exitoso o no'
+                // picture_url: prod[0].imgUrl
             }
         })
 
-        console.log(newPurchaseItems)
-        
         let preference = {
-            items: newPurchaseItems
+            items: newPurchaseItems,
+            back_urls: {
+                success: "http://localhost:3000/checkout-handler/success",
+                failure: "http://localhost:3000/checkout-handler/failure",
+                pending: "http://localhost:3000/checkout-handler/pending"
+            },
+            external_reference: `${orderId}`,
         }
         
+        console.log(preference)
         return mercadopago.preferences.create(preference)
     })
     .then( createdPref => res.json(createdPref.response.id) )
     .catch( function (error) {
         console.error(error);
-        res.send(error)
+        res.status(500).send(error)
     });
    
 }
 
+const completeOrder = async ( req, res ) => {
+    // debemos poner la orden con estado COMPLETADA en la base de datos
+    const { orderId } = req.body;
+    // const orderId = 10 ---> TEST
+
+    Orders.findByPk(orderId, {
+        include: [
+            { 
+                model: Orderdetails,
+                include: [
+                    { model: Product },
+                ]
+            },
+            { model: Customers },
+            
+        ]
+    })
+    .then( order => {
+        // console.log(order);
+        order.orderStatus = 'completed';    
+        return order.save()
+    })
+    .then( updatedOrder => {
+        console.log(updatedOrder.datavalues)
+        
+        let mailOptions = {
+            method: "POST",
+            url: "/sendemail",
+            data: {
+                amount: updatedOrder.amount,
+                shippingAddress: updatedOrder.shippingAddress,
+                orderEmail: updatedOrder.orderEmail,
+                orderStatus: 'completed',
+                image: updatedOrder.dataValues.orderdetails[0].product.imagecover,
+                customer: 'test name'
+            }
+        }
+        // return axios.request(mailOptions)
+        // .then( response => res.json(updatedOrder))
+
+        res.json(updatedOrder)
+    })
+    // .then( res => console.log(res) )
+    .catch( function (error) {
+        console.error(error);
+        res.status(500).send(error)
+    })
+};
+
 module.exports = {
     postOrder,
+    completeOrder
 };    
 
 

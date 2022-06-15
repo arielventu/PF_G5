@@ -3,7 +3,7 @@ import generateStore from "./store";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Login from "./components/Login";
+// import Login from "./components/Login";
 import Shop from "./components/Shop";
 import Detail from "./components/Detail";
 import Favorites from "./components/Favorites";
@@ -18,6 +18,7 @@ import Products from "./components/Products";
 import Checkout from "./components/Checkout";
 import Administration from "./components/Administration";
 import Orders from "./components/Orders";
+import CheckoutHandler from "./components/CheckoutHandler"
 
 function App() {
   const store = generateStore();
@@ -29,7 +30,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/shoppingCar" element={<ShoppingCar />} />
         <Route exact path="/shop/details/:id" element={<Detail />} />
         <Route exact path="/search/:keyword" element={<SearchResult />} />
@@ -42,6 +43,7 @@ function App() {
         <Route exact path="/newreview" element={<NewReview />} />
         <Route exact path="/reviews" element={<Reviews />} />
         <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/checkout-handler/:status" element={<CheckoutHandler />} />
         <Route exact path="/administration" element={<Administration />} />
         <Route exact path="/orders" element={<Orders />} />
       </Routes>

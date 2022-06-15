@@ -3,6 +3,7 @@ import SearchBar from './SearchBar'
 import cart from "../image/cart.png"
 import BlueBird from "../image/BlueBird.svg"
 import userQuest from "../image/userQuest.png"
+import loadingNavInfo from "../image/loadingNavInfo.gif"
 import styles from './Navbar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import fav from "../image/favorito.png"
@@ -22,10 +23,11 @@ const Navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
   const [ droppedMenu, setDroppedMenu ] = useState(false);
   const [ admin, setAdmin ] = useState(false);
+  const [ loadingInfo, setLoadingInfo ] = useState(false);
   const favo = useSelector((state) => state.favorites)  
   const car = useSelector((state) => state.shoppingCar)  
   const dispatch = useDispatch() 
-  const navegation = useNavigate()
+  const navigation = useNavigate()
   var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
@@ -53,22 +55,24 @@ const Navbar = () => {
     if (valit ==="favorites") {
       console.log("favorito")
       if (localStorage.getItem('favoritos') === "[]") {
-        return navegation(1)
+        return navigation(1)
       }else{
-        navegation("/favorites")
+        navigation("/favorites")
       }      
     }
     if (valit ==="car") {
       if (localStorage.getItem('carrito') === "[]") {
-        return navegation(1)
+        return navigation(1)
       }else{
-        navegation("/shoppingCar")
+        navigation("/shoppingCar")
       }    
     }  
   }
 
   const dropMenu = () => {
     if ( droppedMenu === false ) {
+      setDroppedMenu(true);
+      setLoadingInfo(true)
       getToken()
         .then( apiToken => getUserRoles(user.sub, apiToken) )
         .then( data => {
@@ -87,7 +91,7 @@ const Navbar = () => {
               }
             }
           }
-          setDroppedMenu(true);
+          setLoadingInfo(false);
         })
         .catch( err => console.log(err) )
     }
@@ -97,11 +101,15 @@ const Navbar = () => {
   }
 
   const profileRedirect = () => {
-    navegation("/user-profile")
+    navigation("/user-profile")
   }
 
   const administrationRedirect = () => {
-    navegation("/administration")
+    navigation("/administration")
+  }
+
+  const myOrdersRedirect = () => {
+    navigation("/my-orders")
   }
   
   console.log(user)
@@ -118,22 +126,28 @@ const Navbar = () => {
               />
             </div>
           </Link>
-          {isAuthenticated ? <img className={styles.pictureprofile} src={user?.picture}/> : null }
-          {isLoading ? (
-            <button className={styles.loginButton}> Loading </button>
-          ) : isAuthenticated ? (
-            <button className={styles.loginButton} onClick={() => dropMenu()}>
-              {" "}
-              {user?.name}{" "}
-            </button>
+          { !isLoading ? (
+              isAuthenticated ? (
+              <div className={styles.divLogin} onClick={() => dropMenu()}>
+                <img className={styles.pictureprofile} src={user?.picture}/>
+                <button className={styles.loginText}>
+                  {" "}
+                  {user.name}{" "}
+                </button>
+              </div>
+            ) : (
+              <div className={styles.divLogin} onClick={() => loginWithRedirect()}>
+                <button
+                  className={styles.loginText}
+                  onClick={() => loginWithRedirect()}
+                >
+                  {" "}
+                  Login{" "}
+                </button>
+              </div>
+            )
           ) : (
-            <button
-              className={styles.loginButton}
-              onClick={() => loginWithRedirect()}
-            >
-              {" "}
-              Login{" "}
-            </button>
+            <></>
           )}
         </div>
         <ul className={styles.menu}>
@@ -143,19 +157,6 @@ const Navbar = () => {
           <Link to="/Shop">
             <button className={styles.buttonNavBar}>Shop</button>
           </Link>
-          {/* <Link to="/products">
-            <button className={styles.buttonNavBar}>Products</button>
-          </Link> */}
-          {/* <Link to="/about">
-            <button className={styles.buttonNavBar}>About Us</button>
-          </Link> */}
-
-          {/* {
-          isAuthenticated ? 
-          <button className={styles.button} onClick={() => logout()}> Log Out </button> :
-          <button className={styles.button} onClick={() => loginWithRedirect()}> Log In </button>
-        } */}
-
           <div className={styles.favCarBtns}>
             <div className={styles.favCarBtns}>
               <img
@@ -180,42 +181,66 @@ const Navbar = () => {
         <div className={styles.divSearch}>
           <SearchBar />
         </div>
+        { droppedMenu && 
+          <div className={styles.drpMenuStyles}>
+            { loadingInfo && (
+              <div className={styles.loadingInfo}>
+                <img src={loadingNavInfo} />
+              </div>
+            )}
+
+            { !loadingInfo && (
+              <>
+                <button
+                  className={styles.customFont}
+                  onClick={() => {
+                    dropMenu();
+                    profileRedirect();
+                  }}
+                >
+                  My Account
+                </button>
+                <button
+                  className={styles.customFont}
+                  onClick={() => {
+                    dropMenu();
+                    myOrdersRedirect();
+                  }}
+                >
+                  My Orders
+                </button>
+                { admin && (
+                  <button
+                    className={styles.customFont}
+                    onClick={() => {
+                      dropMenu();
+                      administrationRedirect();
+                    }}
+                  >
+                    Administration
+                  </button>
+                )}
+                <button
+                  className={styles.customFont}
+                  onClick={() => {
+                    dropMenu();
+                    logout();
+                  }}
+                >
+                  Logout
+                </button>
+              </>
+            )}
+          </div>
+        }
       </div>
-      {droppedMenu && (
-        <div className={styles.drpMenuStyles}>
-          <button
-            className={styles.customFont}
-            onClick={() => {
-              dropMenu();
-              profileRedirect();
-            }}
-          >
-            My Account
-          </button>
-          { admin && (
-            <button
-              className={styles.customFont}
-              onClick={() => {
-                dropMenu();
-                administrationRedirect();
-              }}
-            >
-              Administration
-            </button>
-          )}
-          <button
-            className={styles.customFont}
-            onClick={() => {
-              dropMenu();
-              logout();
-            }}
-          >
-            Logout
-          </button>
-        </div>
-      )}
     </>
   );
 }
 
 export default Navbar
+
+
+// {isLoading ? (
+//   <button className={styles.loginButton}> Loading </button>
+// ) 
