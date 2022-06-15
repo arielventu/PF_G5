@@ -7,3 +7,8 @@
 #userAdminContainer {
     margin-bottom: 4rem;
 }
+
+.divLoading {
+    margin: 5% auto;
+    text-align: center;
+}

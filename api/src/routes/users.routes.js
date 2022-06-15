@@ -20,13 +20,15 @@ const {
   resetPass,
   getUserRoles,
   setAdmin,
-  revokeAdmin
+  revokeAdmin,
+  getAdminUsers
 } = require("../controllers/users.controllers.js");
 
 // crud
 router.get("/users", getUsers);
-router.get("/users/:id", getUser);
+router.get("/users/admins", getAdminUsers);
 router.get("/users/roles/:id", getUserRoles);
+router.get("/users/:id", getUser);
 router.delete("/users/:id", deleteUser);
 router.post("/users/resetPass/:email", resetPass);
 router.put("/users/:id", updateUser);

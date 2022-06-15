@@ -53,7 +53,7 @@ const putBasketList = async (req, res) => {
   }
 };
 
-const deleteBasketList = async (req, res) => {
+const deleteBasketListItem = async (req, res) => {
   try {
     const { id } = req.params;
     await BasketList.destroy({ where: { id } });
@@ -65,9 +65,11 @@ const deleteBasketList = async (req, res) => {
   }
 };
 
+
+
 module.exports = {
   getBasketListByUser,
   postBasketList,
   putBasketList,
-  deleteBasketList,
+  deleteBasketListItem,
 };

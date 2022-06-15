@@ -1,8 +1,6 @@
-// import Construction from './Construction'
-import React, { useState, useEffect } from 'react'   
+import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react'
 import { postCheckoutOrder, getApiJWT } from '../actions/actions'
-// import styles from './CheckoutTest.module.css';
 import styles from './Checkout.module.css';
 import { firstWordBye } from '../utils';
 import { Link } from 'react-router-dom';
@@ -34,11 +32,13 @@ const Checkout = () => {
   const FORM_ID = 'checkoutForm';
 
   const lStorage = JSON.parse(localStorage.getItem('carrito'));
-  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * (item.cantidad === undefined ? 1 : item.cantidad ), 0);
+  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * (item.cantidad === undefined ? 1 : item.cantidad), 0);
+  const selectedSize = lStorage.reduce((acc, item) => item.selecSize, 0);
 
   const [newOrder, setNewOrder] = useState({
         userId: '',
         userMail: '',
+        userFullName: '',
         purchaseItems: [],
         totalPrice: '',
         billingAddress: '',
@@ -63,32 +63,46 @@ const Checkout = () => {
 
   // console.log(user.name);
 
-  const products = lStorage.map(item => {
-        return {
-          productId: item.id,
-          quantity: item.cantidad,
-          price: item.price
-        }
-      })
+
+  const sizeId = lStorage.map(item =>
+    item.stocks.filter(stock => stock.size.size === selectedSize).map(stock => stock.sizeId)
+  );
+  // sizeId = new Set(sizeId);
+    
+  
+
+  // console.log(JSON.parse(localStorage.getItem('carrito')));
+  // console.log("selectedSize", selectedSize);
+  // console.log("sizeId", sizeId[0][0])
+
+  // const products = lStorage.map(item => {
+  //       return {
+  //         productId: item.id,
+  //         quantity: item.cantidad,
+  //         price: item.price,
+  //       }
+  //     })
   
   const handleChange = (e) => {
     e.preventDefault();
-    const { defaultValue, name, value } = e.target;
+    const { name, value } = e.target;
     // console.log(e.target)
     setNewOrder({
       ...newOrder,
       userId: `${user?.sub}`,
+      // userMail: `${user?.email}`,
       fullName: `${user?.name}`,
+      totalPrice: totalOrder,
+      shippingAddress: newOrder.billingAddress,
       purchaseItems: lStorage.map(item => {
-        return {
+      return {
           productId: item.id,
           quantity: item.cantidad,
-          price: item.price
+          price: item.price,
+          sizeId:sizeId[0][0]
         }
       }),
-      totalPrice: totalOrder,
       [name]: value,
-      shippingAddress: newOrder.billingAddress,
     });
     setErrors(validate({
       ...newOrder,
@@ -96,7 +110,6 @@ const Checkout = () => {
     }));
     setErrorFlag(Object.keys(errors).length === 0 ? false : true);
   }
-  
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -124,6 +137,7 @@ const Checkout = () => {
           postCheckoutOrder(newOrder, apiToken)
             .then(res => {
               console.log(res)
+              console.log(newOrder)
               setpreferenceId(res.data)
               swal({
                 title: "Success",
@@ -156,30 +170,18 @@ const Checkout = () => {
   }
   
   // console.log(user.sub)
-  // const sendData = () => {
-  //   getToken()
-  //         .then( apiToken => postCheckoutOrder(
-  //             // {
-  //             //     userId: `${user.sub}`,
-  //             //     userMail: "mail@mail.com",
-  //             //     purchaseItems: [
-  //             //         { productId: 1, price: 12000, quantity: 5 }
-  //             //     ],
-  //             //     totalPrice: 60000,
-  //             //     billingAddress: "Carlos Casares 3001",
-  //             //     shippingAddress: "Carlos Casares 3001",
-  //             //     country: "Argentina",
-  //             //     phone: "1157351408"
-  //             // }, 
-  //             newOrder,
-  //             apiToken
-  //         ))
-  //         .then( response => {
-  //           console.log(response)
-  //           setpreferenceId(response.data);
-  //         })
-  //     .catch(err => console.log(err))
-  // };
+  const sendData = (e) => {
+      getToken()
+          .then( apiToken => postCheckoutOrder( 
+              newOrder,
+              apiToken
+          ))
+          .then( response => {
+            console.log(response)
+            setpreferenceId(response.data);
+          })
+          .catch( err => console.log(err) )
+  };
 
   useEffect(() => {
     if (preferenceId) {
@@ -211,17 +213,17 @@ const Checkout = () => {
               <div className={styles.divCheckoutItemInfo}>
                 <h2 className={styles.h3CheckoutItemInfo}>{firstWordBye(item.fullName)}</h2>
                 {/* <h2 className={styles.h2}>{firstWordBye(fullName)}</h2> */}
-                <p className={styles.pch}>Price by unit: ${item.price}</p>
+                <p className={styles.pch}>Price by unit: ${new Intl.NumberFormat("en-EN").format(item.price)}</p>
                 {item.cantidad === 1 || item.cantidad === undefined?
                   <p className={styles.pch}>Qty: {item.cantidad === undefined ? item.cantidad = 1 : item.cantidad} unit</p>
                   : <p className={styles.pch}>Qty: {item.cantidad} units</p>
                 }
-                <p className={styles.pch}>Total: ${item.price * (item.cantidad === undefined ? item.cantidad = 1 : item.cantidad )}</p>
+                <p className={styles.pch}>Total: ${new Intl.NumberFormat("en-EN").format(item.price * (item.cantidad === undefined ? item.cantidad = 1 : item.cantidad))}</p>
               </div>
             </div>
           ))}
           <div className={styles.divTotal}>
-            <h2 className={styles.total}>Total: ${totalOrder}</h2>
+            <h2 className={styles.total}>Total: ${new Intl.NumberFormat("en-EN").format(totalOrder)}</h2>
           </div>
           
           <form>

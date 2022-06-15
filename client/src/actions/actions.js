@@ -238,7 +238,8 @@ export function postProduct(payload) {
 export function editProduct(payload) {
   return async function (dispatch) {
     try {
-      var yeison = await axios.put("/product", payload);
+      console.log(payload, "ante del put");
+      var yeison = await axios.put("/products", payload);
       return yeison;
     } catch (error) {
       console.log(error);
@@ -459,8 +460,10 @@ export const resetUserPass = async (email, apiToken) => {
 
     const backRes = await axios.request(options);
     return backRes.data;
-  } catch (error) {
-    console.log(error);
+  } 
+  catch (err) {
+    console.log(err)
+    throw new Error(err)
   }
 };
 
@@ -572,10 +575,32 @@ export async function postCheckoutOrder(order, apiToken) {
 
     const preferenceSandBox = await axios.request(options);
     return preferenceSandBox;
-  } catch (error) {
-    console.log(error);
+  }
+  catch (err) {
+    console.log(err)
+    throw new Error(err)
   }
 }
+
+export async function completeCheckoutOrder( orderId, apiToken ) {
+  try {
+    let options = {
+      method: "POST",
+      url: `/checkout/completeOrder`,
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+      },
+      data: { orderId: orderId },
+    };
+
+    const orderCompleted = await axios.request(options);
+    return orderCompleted;
+  }
+  catch (err) {
+    console.log(err)
+    throw new Error(err)
+  }
+};
 
 // ----------- ACTIONS FOR ORDERS  -----------
 // Adding by ELIECER

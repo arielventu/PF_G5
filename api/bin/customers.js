@@ -1,15 +1,6 @@
 const customers = [
   {
-    id: "1",
-    fullName: "Rodrigo Alcino",
-    billingAddress: "CL XX XX XX",
-    defaultShippingAddress: "CL XX XX XX",
-    country: "ARG",
-    phone: "111111111",
-    userType: "user",
-  },
-  {
-    id: "2",
+    id: "google-oauth2|100810497740092440206",
     fullName: "Diana Cortés",
     billingAddress: "CL XX XX XX",
     defaultShippingAddress: "CL XX XX XX",
@@ -18,7 +9,7 @@ const customers = [
     userType: "user",
   },
   {
-    id: "3",
+    id: "google-oauth2|112420871468081807642",
     fullName: "Ariel Ventura",
     billingAddress: "CL XX XX XX",
     defaultShippingAddress: "CL XX XX XX",
@@ -27,7 +18,7 @@ const customers = [
     userType: "user",
   },
   {
-    id: "4",
+    id: "google-oauth2|100899213157859968687",
     fullName: "Pablo Lesta",
     billingAddress: "CL XX XX XX",
     defaultShippingAddress: "CL XX XX XX",
@@ -35,17 +26,9 @@ const customers = [
     phone: "777777777",
     userType: "user",
   },
+
   {
-    id: "5",
-    fullName: "Cristian Lobo",
-    billingAddress: "CL XX XX XX",
-    defaultShippingAddress: "CL XX XX XX",
-    country: "COL",
-    phone: "666666666",
-    userType: "user",
-  },
-  {
-    id: "6",
+    id: "google-oauth2|103024745375955293192",
     fullName: "Javier Ferrari",
     billingAddress: "CL XX XX XX",
     defaultShippingAddress: "CL XX XX XX",
@@ -54,7 +37,7 @@ const customers = [
     userType: "user",
   },
   {
-    id: "7",
+    id: "google-oauth2|109608505870686205941",
     fullName: "Ivan Monzón",
     billingAddress: "CL XX XX XX",
     defaultShippingAddress: "CL XX XX XX",
@@ -63,7 +46,7 @@ const customers = [
     userType: "user",
   },
   {
-    id: "8",
+    id: "google-oauth2|115385561392133755844",
     fullName: "Eliecer Villalba",
     billingAddress: "CL XX XX XX",
     defaultShippingAddress: "CL XX XX XX",

@@ -27,7 +27,6 @@ const UsersAdmin = () => {
     
     const refreshList = () => {
         // console.log('refresh')
-        setUsersList([]);
         getToken()
         .then( apiToken => getUsers(apiToken) )
         .then( users => {
@@ -43,13 +42,16 @@ const UsersAdmin = () => {
         <>
 
         { usersList.length === 0 ?
-            <h2 className={styles.usersTitle}> LOADING ... </h2> :
+            <div className={styles.divLoading}>
+                <img src="https://thumbs.gfycat.com/PepperyMediumBrahmancow-size_restricted.gif" />
+            </div> :
             <div id={styles.userAdminContainer}>
                 <h1 className={styles.usersTitle}> Users Management </h1>
                 {usersList.map( (u, i) => (
                     <UsersCard 
                         key={i}
-                        id={`${u.user_id}`} 
+                        id={`${u.user_id}`}
+                        admin={u.admin}
                         name={`${u.name}`} 
                         email={`${u.email}`}
                         picture={`${u.picture}`}

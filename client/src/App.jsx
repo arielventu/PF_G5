@@ -18,6 +18,7 @@ import Products from "./components/Products";
 import Checkout from "./components/Checkout";
 import Administration from "./components/Administration";
 import Orders from "./components/Orders";
+import CheckoutHandler from "./components/CheckoutHandler"
 
 function App() {
   const store = generateStore();
@@ -42,6 +43,7 @@ function App() {
         <Route exact path="/newreview" element={<NewReview />} />
         <Route exact path="/reviews" element={<Reviews />} />
         <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/checkout-handler/:status" element={<CheckoutHandler />} />
         <Route exact path="/administration" element={<Administration />} />
         <Route exact path="/orders" element={<Orders />} />
       </Routes>
