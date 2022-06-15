@@ -11,6 +11,7 @@ import {vix} from '../utils'
 
 const Shop = () => {
   const products = useSelector(state => state.shoes)
+  console.log(products, "products cuadno inicia");
   const auxProducts = useSelector(state => state.shoes3)
   const bestFor = useSelector(state => state.categories)
   const categories = useSelector(state => state.auxShoes)

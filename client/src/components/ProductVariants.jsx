@@ -40,6 +40,7 @@ const ProductVariants = ({ idproduct, productName }) => {
   // global redux states
   const state = useSelector((state) => state);
   const colors = state.colors;
+  console.log(colors, "colores produc variant");
   const sizes = state.sizes;
   const stock = state.stock;
   const dispatch = useDispatch();
