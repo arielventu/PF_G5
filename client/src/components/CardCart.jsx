@@ -180,7 +180,7 @@ export default function CardCart({img, fullName, price,component,id,state,selecS
                 <img className={styles.starAvg} src={starY} alt="star" />
               </div>}
               </div>
-              <p className={styles.price}>${price}</p>
+              <p className={styles.price}>${new Intl.NumberFormat("en-EN").format(price)}</p>
               <p className={styles.price}>size {selecSize}</p>
             <div className={styles.icontainer}>
                 <div className={styles.counter}>

@@ -86,7 +86,7 @@ export default function Card({img, fullName, price,component,id , stock}){
         <div className={styles.container}>
             <img className={styles.img}src= {img} alt='img'></img>  
             <h2 className={styles.h2}>{firstWordBye(fullName)}</h2>
-            <p className={styles.price}>${price}</p>
+            <p className={styles.price}>${new Intl.NumberFormat("en-EN").format(price)}</p>
             <p >{stock}</p>
             {/* <img className={styles.rating} src={rating} alt='rating'/>  */}
             <div className = {styles.starsContainer}>
