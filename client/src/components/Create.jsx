@@ -23,13 +23,13 @@ export default function Create(props) {
 
     React.useEffect(() => {
         const getColor = async function getColor() {
-            setColors(await axios.get('http://localhost:3001/colors/'))
+            setColors(await axios.get('/colors'))
         }
         const getCategories = async function getCategories() {
-            setCategories(await axios.get('http://localhost:3001/categories/'))
+            setCategories(await axios.get('/categories'))
         }
         const getSizes = async function getSizes() {
-            setSizes(await axios.get('http://localhost:3001/sizes/'))
+            setSizes(await axios.get('/sizes'))
         }
         Promise.all([getColor(), getCategories(), getSizes()]);
         

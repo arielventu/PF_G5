@@ -1,7 +1,7 @@
 // import libraries
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts, postProduct, getCategories, editProduct } from "../actions/actions";
+import { getProducts, postProduct, getCategories, editProduct, getColors } from "../actions/actions";
 import styles from "./Products.module.css";
 import axios from 'axios';
 
@@ -56,6 +56,7 @@ const Products = () => {
     price: 0,
     imagecover: "",
     imageurl: [],
+    colors: [],
     available: true,
     categories: [],
     newCategory: "",
@@ -64,13 +65,34 @@ const Products = () => {
 
   // get 'redux store' of shoes / products
   const categorie = useSelector((state) => state.categories);
-  // console.log(categorie, "categoriesssss");
+  const colors = useSelector((state) => state.colors);
+  
   const dispatch = useDispatch();
   // console.log(categorie);
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getCategories());
+    dispatch(getColors());
   }, []);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [products.length]);
+
+  const color = [
+    {name: "black", hex: "#000000" },
+    {name: "white", hex: "#FFFFFF" },
+    {name: "orange", hex: "#FFA500" },
+    {name: "blue", hex: "#0000FF" },
+    {name: "yellow", hex: "#FFFF00" },
+    {name: "purple", hex: "#800080" },
+    {name: "green", hex: "#008000" },
+    {name: "pink", hex: "#FF00FF" },
+    {name: "grey", hex: "#808080" },
+    {name: "beige", hex: "#F5F5DC" },
+    {name: "red", hex: "#FF0000" },
+    {name: "brown", hex: "#800000" },
+  ]
 
   // ----------------------------------------------------
 
@@ -208,6 +230,7 @@ const Products = () => {
     // console.log(form);
   };
 
+
   /*  }; */
   /* form.categories=[] */
   const handleChange = (e) => {
@@ -217,7 +240,7 @@ const Products = () => {
       setForm({ ...form, [e.target.name]: e.target.value }); */
     const { value, name } = e.target;
     name === "imageurl" &&
-      setForm({ ...form, [e.target.name]: [e.target.value] });
+      setForm({ ...form, [e.target.name]: e.target.value.split(",") });
     name === "imagecover" &&
       setForm({ ...form, [e.target.name]: e.target.value });
     name === "name" && setForm({ ...form, [e.target.name]: e.target.value });
@@ -225,6 +248,7 @@ const Products = () => {
     name === "masterName" && setForm({ ...form, [e.target.name]: e.target.value });
     name === "price" &&
       setForm({ ...form, [e.target.name]: parseInt(e.target.value) });
+    name === "colors" && setForm({ ...form, [e.target.name]: [e.target.value] });
     name === "detail" && setForm({ ...form, [e.target.name]: e.target.value });
     name === "gender" && setForm({ ...form, [e.target.name]: e.target.value });
     name === "categories" &&
@@ -416,6 +440,20 @@ const Products = () => {
               name="detail"
               onChange={(e) => handleChange(e)}
             ></textarea>
+          </FormGroup>
+
+          <FormGroup className={styles.form}>
+            <label>
+              {`Colors: `}
+              <select
+                //className="form-control"
+                name="colors"
+                onChange={(e) => handleChange(e)}
+              >
+                <option value=''>...</option>
+              {color && color.map(e => <option value={e.hex}>{e.name}</option>)}
+              </select>
+            </label>
           </FormGroup>
 
           <FormGroup className={styles.form}>
