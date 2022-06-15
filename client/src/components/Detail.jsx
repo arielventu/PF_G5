@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { favorites, getDetail, getProducts, ShopCar, getReviewsById, getOrders} from "../actions/actions";
+import { favorites, getDetail, getProducts, ShopCar, getReviewsById, getOrders, getStockByProductId} from "../actions/actions";
 import { useEffect } from "react";
 import Reviews from "./Reviews";
 import NewReview from "./NewReview";
@@ -26,6 +26,9 @@ export default function Detail(){
   const products = useSelector(state => state.shoes)
   const auxProducts = useSelector(state => state.auxShoes)
   const orders = useSelector(state => state.orders)
+  const stockProductId = useSelector(state => state.stock);
+  const [stock, setStock] = useState(0)
+
   const [showAddReview, setShowAddReview] = useState(false)
   const [otrasFotos, setotrasFotos] = useState('')
   
@@ -43,8 +46,9 @@ export default function Detail(){
 
   useEffect( () => {
     dispatch(getProducts())
+    dispatch(getStockByProductId(id))    
+    console.log(stockProductId)
     let arraySizeUnit = []
-    
     arraySizeUnit =  JSON.parse(localStorage.getItem('favoritos'))
     const idMap = arraySizeUnit.find(item => item.id === id)
     // console.log(idMap)
@@ -58,7 +62,7 @@ export default function Detail(){
     const findedProduct = findedOrders.find(order => order.orderdetails.find(product => product.id === Number(id)))
     // console.log("FINDED PRODUCTS", findedProduct)
     findedProduct ? setShowAddReview(true) : setShowAddReview(false)
-  }, [isAuthenticated])
+  }, [isAuthenticated, id])
 
   useEffect(() => {
     setotrasFotos(detailstate2.imagecover)
@@ -183,14 +187,27 @@ export default function Detail(){
   }
   // console.log(findProductImages())
 
-  // console.log(starsAvg);
-  const select = (e)=>{
+  
+  const obtainStock = () => {
+    const stockProd = detailstate2?.stocks?.filter(stock => stock.size.size === detailstate2?.selecSize);
+    const stockProd2 = stockProd?.find(stock => stock.size.size === detailstate2?.selecSize);
+    setStock(stockProd2?.quantity)
+  }
+  
+  useEffect(() => {
+    dispatch(getStockByProductId(id))
+    obtainStock()
+  }, [detailstate2, id])
+  
+  const select = (e) => {
     detailstate2.selecSize = e.target.value
     lala2 = e.target.value
-    // console.log(detailstate2)
+    obtainStock()
   }
-  // console.log(detailstate2)
 
+    
+  // console.log("detailstate2", detailstate2)
+  // console.log("detailstate", detailstate)
   
   return(
     <div className={styles.details}>
@@ -201,7 +218,9 @@ export default function Detail(){
           <p className={styles.description}>{detailstate2.detail}</p>
           <div className = {styles.innercontainer}>
             <h3 className={styles.subtitles}>Sizes:</h3>
-            <select onChange={(e)=>select(e)}>{lala.map(item => <option value={item}>{item}</option>)}</select>
+            <select onChange={(e) => select(e)}>
+              {stockProductId.map(item => <option value={item.size.size}>{item.size.size}</option>)}
+            </select>
           </div>
           <h3 className={styles.subtitles}>colors:</h3>
           <div className={styles.containercolors}>
@@ -218,13 +237,18 @@ export default function Detail(){
               </Link>
             )}
             )}
-            </div>
+          </div>
+          {stock < 50 && stock >= 10 ? <p className={styles.stock}>last units</p>: null}
+          {stock < 10 && stock >= 5 ? <p className={styles.stock}>less than 10 units</p> : null}
+          {stock < 5 && stock >= 1 ? <p className={styles.stock}>last { stock } units</p>: null}
+          {stock <= 0 && <p className={styles.stock}>out of stock</p>}
+
             {/* <div className={styles.containercolors}>
               <div className={styles.color1} style={{ backgroundColor: `${detailstate2.colors[0]}` }}></div>
               <div className={styles.color2} style={{ backgroundColor: `${detailstate2.colors[1]}` }}></div>
             </div> */}
             <div className = {styles.innercontainer2}>
-              <h5 className={styles.price}> ${detailstate2.price}</h5>
+              <h5 className={styles.price}> ${new Intl.NumberFormat("en-EN").format(detailstate2.price)}</h5>
             {/* <img className={styles.rating} src={rating} alt='rating'/>  */}
             {starsAvg === 1 &&
               <div className={styles.divStarsContainer}>
@@ -282,9 +306,7 @@ export default function Detail(){
                 </div>
               </div>}
             </div>
-            <div className={styles.divButtonAddReview}>
-              {showAddReview && <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>}
-            </div>
+           
 
             <div className = {styles.innercontainer3}>
             {findProductImages().map((e) => {
@@ -296,7 +318,9 @@ export default function Detail(){
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
             </div>
           <div>
-            
+            <div className={styles.divButtonAddReview}>
+              {showAddReview && <button onClick={handleModal} className={styles.buttonAddReview}>Add review</button>}
+            </div>
             <Modal isOpen={showModal} className={styles.containerModal}>
               <div className={styles.divModal}>
                 <button onClick={handleModal} className={styles.buttonCloseModal}>x</button>
@@ -304,7 +328,7 @@ export default function Detail(){
               </div>
             </Modal>
             <Reviews productId={ id } name={ detailstate2.fullName }/>
-            </div>
+          </div>
       </div> : 
         <div className={styles.divLoading}>
             <img src="https://thumbs.gfycat.com/PepperyMediumBrahmancow-size_restricted.gif" />
