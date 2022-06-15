@@ -131,10 +131,10 @@ function Orders() {
 
             // -------------------------------------------------------------------
             // Embeber aquí endpoint para enviar emails si la order es cancelada
-            // axios
-            //   .post("/sendemail", newCurrent)
-            //   .then((resp) => console.log(resp))
-            //   .catch((error) => console.log(error));
+            axios
+              .post("/sendemail", newCurrent)
+              .then((resp) => console.log(resp))
+              .catch((error) => console.log(error));
             // -------------------------------------------------------------------
           } else return;
         });
@@ -188,10 +188,10 @@ function Orders() {
 
             // -------------------------------------------------------------------
             // Embeber aquí componente para enviar emails si la order es cancelada
-            // axios
-            //   .post("/sendemail", newCurrent)
-            //   .then((resp) => console.log(resp))
-            //   .catch((error) => console.log(error));
+            axios
+              .post("/sendemail", newCurrent)
+              .then((resp) => console.log(resp))
+              .catch((error) => console.log(error));
 
             // -------------------------------------------------------------------
           } else return;
