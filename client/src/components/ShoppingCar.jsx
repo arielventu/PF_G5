@@ -47,7 +47,7 @@ const ShoppingCar = () => {
         }
         </div>
         <div >
-          <h3 className={styles.pricecart}>Total: {sumW}</h3>
+          <h3 className={styles.pricecart}>Total: ${new Intl.NumberFormat("en-EN").format(sumW)}</h3>
         </div>
         <div className={styles.divButtoncart}>
           <Link to="/checkout">

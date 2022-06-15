@@ -77,7 +77,7 @@ const Checkout = () => {
     setNewOrder({
       ...newOrder,
       userId: `${user?.sub}`,
-      userMail: `${user?.email}`,
+      // userMail: `${user?.email}`,
       fullName: `${user?.name}`,
       totalPrice: totalOrder,
       shippingAddress: newOrder.billingAddress,
@@ -198,17 +198,17 @@ const Checkout = () => {
               <div className={styles.divCheckoutItemInfo}>
                 <h2 className={styles.h3CheckoutItemInfo}>{firstWordBye(item.fullName)}</h2>
                 {/* <h2 className={styles.h2}>{firstWordBye(fullName)}</h2> */}
-                <p className={styles.pch}>Price by unit: ${item.price}</p>
+                <p className={styles.pch}>Price by unit: ${new Intl.NumberFormat("en-EN").format(item.price)}</p>
                 {item.cantidad === 1 || item.cantidad === undefined?
                   <p className={styles.pch}>Qty: {item.cantidad === undefined ? item.cantidad = 1 : item.cantidad} unit</p>
                   : <p className={styles.pch}>Qty: {item.cantidad} units</p>
                 }
-                <p className={styles.pch}>Total: ${item.price * (item.cantidad === undefined ? item.cantidad = 1 : item.cantidad )}</p>
+                <p className={styles.pch}>Total: ${new Intl.NumberFormat("en-EN").format(item.price * (item.cantidad === undefined ? item.cantidad = 1 : item.cantidad))}</p>
               </div>
             </div>
           ))}
           <div className={styles.divTotal}>
-            <h2 className={styles.total}>Total: ${totalOrder}</h2>
+            <h2 className={styles.total}>Total: ${new Intl.NumberFormat("en-EN").format(totalOrder)}</h2>
           </div>
           
           <form>

@@ -35,10 +35,6 @@ h3 {
   display: flex;
 }
 
-.innercontainer:hover {
-  transform: translateY(-1.2px);
-}
-
 .innercontainer2 {
   display: flex;
   justify-content: space-between;
@@ -49,6 +45,13 @@ h3 {
   display: flex;
   margin-top: 2.5rem;
   align-items: center;
+}
+
+.stock {
+  position: absolute;
+  font-size: 1.5rem;
+  margin-left: 26.3rem;
+  color: rgb(253, 53, 27);
 }
 
 .price {
