@@ -52,9 +52,33 @@
   border: 0.1rem solid rgb(190, 190, 190);
   cursor: pointer;
   position: left;
+  margin-right: 0.5rem;
 }
 
 .bfav:hover {
   background-color: rgb(75, 74, 74);
   color: white;
+}
+
+.starsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.divStarsAvg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.2rem;
+}
+
+.pStars {
+  margin: 0 0 0 .3rem;
+  font-size: 0.9rem;
+}
+
+.starAvg {
+  width: 1rem;
+  margin: 0 0.1rem 0 0.1rem;
 }

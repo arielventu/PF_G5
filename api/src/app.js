@@ -16,7 +16,7 @@ const reviewsRoutes = require("./routes/reviews.routes");
 const stockRoutes = require("./routes/stock.routes");
 const customersRoutes = require("./routes/customers.routes");
 const ordersRoutes = require("./routes/orders.routes");
-const orderDetailsRoutes = require("./routes/orderDetails.routes");
+const orderDetailsRoutes = require("./routes/orderdetails.routes");
 const authRoutes = require("./routes/auth.routes");
 const usersRoutes = require("./routes/users.routes")
 const checkoutRoutes = require("./routes/checkout.routes")
@@ -59,7 +59,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept, ");
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");

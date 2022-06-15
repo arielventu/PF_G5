@@ -1,0 +1,37 @@
+.mainAdminContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.sectionButtonsContainer {
+    min-height: 12rem;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgb(177, 177, 177);
+    background-color: rgb(233, 233, 233);
+    /* justify-content: space-around; */
+    /* border: 1px solid black; */
+}
+
+.sectionContentContainer {
+    min-height: max-content;
+    width: 90%;
+    /* border: 1px solid black; */
+}
+
+.adminBtn {
+    height: 4rem;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+.adminBtn:hover {
+    background-color: rgba(0, 0, 0, 0.205);
+}
+
+.active {
+    background-color: rgb(106, 203, 233);
+}

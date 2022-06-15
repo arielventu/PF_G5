@@ -1,0 +1,14 @@
+.usersTitle {
+    margin: 2rem auto;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+
+#userAdminContainer {
+    margin-bottom: 4rem;
+}
+
+.divLoading {
+    margin: 5% auto;
+    text-align: center;
+}

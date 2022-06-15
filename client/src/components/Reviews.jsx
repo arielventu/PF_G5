@@ -19,27 +19,29 @@ const Reviews = ({ productId, name }) => {
 
   useEffect(() => {
     dispatch(getReviewsById(productId));
-    // console.log(reviewsById);
-  }, []);
-  
-  useEffect(() => {
-    dispatch(getReviewsById(productId));
+    setReviewsList([]);
     setReviewsList(reviewsById);
-  }, [reviewsById.length]);
+  }, [productId, reviewsById.length, reviewsById[0]?.id]);
+  
+  // useEffect(() => {
+  //   dispatch(getReviewsById(productId));
+  //   setReviewsList(reviewsById);
+  // }, [reviewsById[0].id]);
+  
   
   // console.log('productId: ', productId)
-  // console.log('reviewsById: ',reviewsById.length);
+  // console.log('reviewsById: ',reviewsById);
   // console.log('reviewsList: ',reviewsList);
 
   return (
     <div className={styles.divContainer}>
       <div className={styles.divReviews}>
         <div className={styles.divReviewsTitle}>
-          <h2>Reviews of { name }</h2>
-          {reviewsList?.map((review) => (
-            <div key={productId} className={styles.divReviewsContent}>
-              <div key={productId * 2} className={styles.divReviewsContentTitle}>
-                <h4 key={productId * 3}>{review.username === null || review.username === '' ? 'Anonymous' : review.username}</h4>
+          <h2>Reviews of { name }:</h2>
+          {reviewsList?.map((review, i) => (
+            <div key={i} className={styles.divReviewsContent}>
+              <div key={`b${productId}`} className={styles.divReviewsContentTitle}>
+                <h4 key={`c${productId}`}>{review.username === null || review.username === '' ? 'Anonymous' : review.username}</h4>
                   {review.starsLevel === 1 &&
                     <div className={styles.divStar}>
                       <img className={styles.star} src={starY} alt="star" />
@@ -80,7 +82,7 @@ const Reviews = ({ productId, name }) => {
                       <img className={styles.star} src={starY} alt="star" />
                       <img className={styles.star} src={starY} alt="star" />
                     </div>}
-                <p key={productId * 4}>{review.description}</p>
+                <p key={`p${productId}`} className={styles.reviewp}>{review.description}</p>
               </div>
             </div>
           ))}

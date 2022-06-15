@@ -21,6 +21,8 @@ body {
   width: 25%;
   /* border: 1px solid black; */
   justify-content: flex-start;
+  /* align-items: center; */
+  height: 100%;
 }
 
 .divLogo {
@@ -28,6 +30,8 @@ body {
   padding: 0;
   /* border: 1px solid black; */
   width: 30%;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -36,20 +40,37 @@ body {
   /* border: 1px solid black; */
 }
 
-.loginButton {
+.divLogin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 70%;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.pictureprofile {
+  height: 75%;
+  width: 20%;
+  border-radius: 50%;
+  /* margin: 0 2.5%; */
+}
+
+.loginText {
   font-family: Koulen;
   font-size: 1rem;
   color: black;
   border: none;
   text-decoration: none;
-  background-color: white;
-  width: 50%;
+  background-color: transparent;
+  width: fit-content;
   /* border: 1px solid black; */
 }
 
-.loginButton:hover {
+.divLogin:hover {
   cursor: pointer;
-  border-bottom: 0.1rem solid rgb(226, 226, 226);
+  /* border-bottom: 0.1rem solid rgb(226, 226, 226); */
+  background-color: rgb(106, 203, 233);
 }
 
 .menu {
@@ -112,27 +133,35 @@ a {
   color: black;
   border: none;
   text-decoration: none;
-  margin-top: 0.5rem;
-  height: 2rem;
+  /* margin-top: 0.5rem; */
+  height: 3.5rem;
   background-color: transparent;
 }
 
 .customFont:hover {
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.205);
 }
 
 .drpMenuStyles {
   position: fixed;
   z-index: 1000;
-  background-color: rgba(233, 233, 233, 0.671);
-  border-end-end-radius: 10px;
-  border-end-start-radius: 10px;
-  width: 12.3%;
-  height: 100px;
-  left: 7.5%;
+  background-color: #F1F2F3;
+  /* border-end-end-radius: 10px;
+  border-end-start-radius: 10px; */
+  border: 1px solid rgb(106, 203, 233);
+  border-top: none;
+  width: 17.1%;
+  /* height: 100px; */
+  left: 7.4%;
+  top: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.loadingInfo {
+  margin: 0 auto;
 }
 
 .divSearch {
@@ -141,12 +170,22 @@ a {
 }
 
 .iconsCartFav {
-  background-color: powderblue;
+  background-color: #6acbe9;
   border-radius: 50%;
-  padding: 0.1rem 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
   margin-top: -1.5rem;
+  margin-left: -0.3rem;
+  color: white;
 }
 
 .buttonNavBar {
   cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+  .container {
+    display: none;
+  }
 }

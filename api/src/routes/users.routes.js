@@ -14,18 +14,26 @@ const checkPermissions = jwtAuthz(["read:users"])
 // import controllers
 const {
   getUsers,
+  getUser,
   updateUser,
   deleteUser,
   resetPass,
-  getUserRoles
+  getUserRoles,
+  setAdmin,
+  revokeAdmin,
+  getAdminUsers
 } = require("../controllers/users.controllers.js");
 
 // crud
 router.get("/users", getUsers);
+router.get("/users/admins", getAdminUsers);
 router.get("/users/roles/:id", getUserRoles);
+router.get("/users/:id", getUser);
 router.delete("/users/:id", deleteUser);
 router.post("/users/resetPass/:email", resetPass);
 router.put("/users/:id", updateUser);
+router.post("/users/setAdmin/:id", setAdmin)
+router.delete("/users/revokeAdmin/:id", revokeAdmin)
 
 
 module.exports = router;

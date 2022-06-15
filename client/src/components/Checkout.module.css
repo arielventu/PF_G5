@@ -1,8 +1,193 @@
-.checkContainer {
-    margin: 1rem auto;
-    width: fit-content;
+.divCheckoutContainer {
+    /* margin: 1rem auto; */
+    /* width: fit-content; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
+.checkoutTitle{
+  text-align: center;
+  margin-top: 2rem;
+}
+.mpButton {
+    padding: 0 1.7142857142857142em;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.875em;
+    line-height: 2.7142857142857144;
+    background: #d2d2d2;
+    border-radius: 0.2857142857142857em;
+    color: #fff;
+    border: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(223, 221, 221, 0.993);
+    height: 12rem;
+    width: 80vw;
+    color: black;
+    font-family: Koulen;
+    margin-bottom: .5rem;
+    border-radius: 0.3rem;
+  }
+  
+  /* .container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 0px 10px rgba(69, 167, 212, 0.829);
+  } */
+  
+  .h2 {
+    margin-left: 0.2rem;
+    font-size: 1.5rem;
+  }
+  
+  .img {
+    float: left;
+    height: 10.8rem;
+    width: 10.8rem;
+    margin: 1rem;
+    background-color: white;
+    border: 0.05rem solid rgba(240, 240, 240, 0.993);
+  }
+  
+  .pch {
+    /* margin-top: 1.5rem; */
+    margin-left: 0.2rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: rgb(23, 74, 105);
+    font-family: Koulen;
+  }
+
+  .divBack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .divTotal {
+    display: flex;
+    padding: 0 1rem;
+    margin: .5rem 0;
+    background-color:rgb(23, 74, 105);
+    border-radius: 0.3rem;
+  }
+
+  .total {
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: Koulen;
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+  }
+
+  .divCheckoutForm {
+    background-color: rgba(223, 221, 221, 0.993);
+    height: 8.5rem;
+    width: 80vw;
+    color: black;
+    font-family: Koulen;
+    border-radius: 0.3rem;
+  }
+  
+  .divCheckoutFormHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0.13rem solid rgb(255, 255, 255);
+    height: 3rem;
+  }
+
+  .divCheckoutFormBody {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: .5rem .5rem;
+  }
+
+  .labelCheckoutFormBodyRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    font-family: Koulen;
+    color: rgb(23, 74, 105);
+    font-weight: 100;
+    padding: 0.1rem;
+  }
+
+  .inputCheckoutFormBodyRow::-webkit-outer-spin-button,
+  .inputCheckoutFormBodyRow::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .inputCheckoutFormBodyRow[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  .divCheckoutFooter {
+    display: flex;
+    justify-content: space-around;
+    width: 80vw;
+    height: auto;
+    margin: .5rem .5rem;
+    padding: 2rem;
+  }
+
+    /* .buttonBack {
+    background-color: rgb(207, 196, 93);
+    border: 0.1rem solid rgb(207, 196, 93);
+    color: rgb(255, 255, 255);
+    padding: 0.3rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: Koulen;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    width: 12rem;
+  } */
+  
+  .buttonSend {
+    background-color: rgb(64, 177, 74);
+    border: 0.1rem solid rgb(64, 177, 74);
+    color: rgb(255, 255, 255);
+    padding: 0.3rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: Koulen;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    width: 12rem;
+    height: 2.5rem;
+  }
+
+  .buttonSenddis {
+    background-color: rgb(219, 219, 219);
+    border: 0.1rem solid rgb(219, 219, 219);
+    color: rgb(255, 255, 255);
+    padding: 0.3rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: Koulen;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    width: 12rem;
+    height: 2.5rem;
+  }
+
+  .divMPButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0rem .5rem 2rem .5rem; */
+  }
+
+  

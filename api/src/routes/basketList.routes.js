@@ -13,12 +13,12 @@ const {
   getBasketListByUser,
   postBasketList,
   putBasketList,
-  deleteBasketList,
+  deleteBasketListItem,
 } = require("../controllers/basketList.controllers.js");
 
 // C.R.U.D.
 router.get("/basketList/:user", getBasketListByUser);
 router.post("/basketList", postBasketList);
 router.put("/basketList/:id", putBasketList);
-router.delete("/basketList/:id", deleteBasketList);
+router.delete("/basketList/:id", deleteBasketListItem);
 module.exports = router;

@@ -38,12 +38,20 @@ h3 {
 .innercontainer2 {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 .innercontainer3 {
   display: flex;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
+  align-items: center;
+}
+
+.stock {
+  position: absolute;
+  font-size: 1.5rem;
+  margin-left: 26.3rem;
+  color: rgb(253, 53, 27);
 }
 
 .price {
@@ -57,6 +65,16 @@ h3 {
   height: 25rem;
   width: auto;
   border: 0.05rem solid rgba(240, 240, 240, 0.993);
+}
+
+.otherimg {
+  height: 3.5rem;
+  width: auto;
+  border: 0.05rem solid rgba(240, 240, 240, 0.993);
+}
+
+.otherimg:hover {
+  cursor: pointer;
 }
 
 .description {
@@ -98,25 +116,32 @@ select {
 
 .add {
   padding: 0.8rem;
-  width: 80%;
+  width: 58%;
   font-size: 1.5rem;
   font-family: Koulen;
   border: none;
   background: linear-gradient(180deg, #79f7ff 0%, #6584d5 66.67%);
   color: white;
+  border-radius: 0.3rem;
+  margin-left: 3.8rem;
 }
 
 .add:hover {
   cursor: pointer;
+  background: linear-gradient(180deg, #68e1ec 0%, #6584d5 66.67%);
 }
 
 .fav {
   height: 4.2rem;
-  margin-left: 4rem;
+  margin-left: 1.5rem;
+  filter: invert(79%) sepia(21%) saturate(1278%) hue-rotate(161deg)
+    brightness(94%) contrast(94%);
 }
 
 .fav:hover {
   cursor: pointer;
+  filter: invert(42%) sepia(51%) saturate(416%) hue-rotate(147deg)
+    brightness(97%) contrast(87%);
 }
 
 .subtitles {
@@ -141,7 +166,7 @@ select {
   border-bottom-right-radius: 100% 50%;
   border: 1px solid rgb(124, 124, 124);
   border-left: none;
-  margin-right: .3rem;
+  margin-right: 0.3rem;
 }
 
 .containercolors {
@@ -155,7 +180,7 @@ select {
   height: 100vh;
   width: 100vw;
   top: 0;
-  left: 0; 
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +192,7 @@ select {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  margin-bottom: 10px;
+  margin-bottom: 5rem;
   width: 20rem;
   height: 23rem;
   border: 3px solid rgb(255, 255, 255);
@@ -183,20 +208,20 @@ select {
   border-radius: 5px;
   width: 2rem;
   height: 2rem;
-  background-color: #f5f5f5
+  background-color: #f5f5f5;
 }
 
 .buttonCloseModal:hover {
   cursor: pointer;
-  background-color:white;
+  background-color: white;
 }
 
 .divStarsContainer {
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: flex-end;
- margin-right: 2rem;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
 }
 
 .divStarsAvg {
@@ -206,10 +231,33 @@ select {
 }
 
 .pStars {
-  margin: 0 0 0 0 ;
+  margin: 0 0 0 0;
 }
 
 .starAvg {
   width: 1.4rem;
   margin: 0 0.1rem 0 0.1rem;
+}
+
+.divButtonAddReview {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(240, 240, 240, 0.993);
+}
+
+.buttonAddReview {
+  height: 2.5rem;
+  width: 10rem;
+  border: none;
+  background: linear-gradient(180deg, #79f7ff 0%, #6584d5 66.67%);
+  color: white;
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+}
+
+.buttonAddReview:hover {
+  cursor: pointer;
+  background: linear-gradient(180deg, #68e1ec 0%, #6584d5 66.67%);
 }

@@ -1,7 +1,8 @@
 const mercadopago = require('mercadopago');
 const { MP_ACCESS_TOKEN } = process.env;
-const { Customers } = require('../db');
-const axios = require('axios')
+const { Customers, Orders, Orderdetails, Product } = require('../db');
+const axios = require('axios');
+
 
 const postOrder = async (req, res) => {
     
@@ -10,9 +11,12 @@ const postOrder = async (req, res) => {
         access_token: `${MP_ACCESS_TOKEN}`
     });
     
+    let orderId = 0;
+
     const { 
         userId,
         userMail,
+        fullName,
         purchaseItems,
         totalPrice,
         billingAddress,
@@ -20,70 +24,179 @@ const postOrder = async (req, res) => {
         country,
         phone
     } = req.body;
-
-    console.log(req.body)
+    // console.log(req.body)
 
     let options = {
         method: 'GET',
-        url: `http://localhost:3001/users/roles/${userId}`,
+        url: `/users/roles/${userId}`,
         headers: {
             authorization: req.headers.authorization,
             "content-type": "application/json"
         }
     };
-      
-    axios.request(options)
-        .then( function (response) {
-            console.log(response.data)
-        })
-        .catch( function (error) {
-            console.error(error);
-        });
 
-
-    // DE ACA PARA ABAJO ES TODO DE TEST. FALTAN MEJORAR COSAS 
-    
-    // const newCustomer = await Customers.create({
-    //     id: userId,
-    //     billingAddress,
-    //     defaultShippingAddress: shippingAddress,
-    //     country,
-    //     phone
-    // });
-
-    // console.log(newCustomer)
-
-
-
-
-    // let currency = '';
-    // if ( country === 'ARG' ) currency = 'ARS';
-    // if ( country === 'EEUU' ) currenci = 'USD';
-    // // etc...
-    
-    // let items = purchaseItems.map( item => { return { ...item, currency_id: currency } } )
-// ---------------------------------------------------------------------------------------------------
-    var preference = {
-      items: [
-        {
-          title: 'Test',
-          quantity: 3,
-          currency_id: 'ARS',
-          unit_price: 10.5,
+    Promise.all([
+        Customers.findByPk(userId),
+        axios.request(options)
+    ])
+    .then( responses => {
+        // console.log('>>>>> CUSTOMER: ')
+        // console.log(responses[0])
+        // console.log('>>>>> ROLES REQUEST: ')
+        // console.log(responses[1].data)
         
+        let adminArr = responses[1].data.filter( role => role.name === 'Admin' );
+        let userType = adminArr.length > 0 ? 'admin' : 'user';
 
-        //   notification_url: 'endpoint a crear en back, se recibira la notificacion del pago realizado',
-        //   external_reference: 'id de la orden que se creó',
-        //   back_urls: 'url de front end para mostrar que el pago fue exitoso o no'
-        
+        if( !responses[0] ) {
+            return Customers.create({
+                id: userId,
+                fullName: fullName,
+                billingAddress,
+                defaultShippingAddress: shippingAddress,
+                country,
+                phone,
+                userType: userType
+            });
         }
-      ]
-    };
-    
-    mercadopago.preferences.create(preference)
-        .then( createdPref => res.json(createdPref.response.id) )
+        else {
+            return Customers.findByPk(userId)
+        }
+
+    })
+    .then( customer => {
+        // Luego creamos la nueva orden y le asociamos el customer ID creado en el paso anterior
+        // console.log(customer)
+        return Orders.create({
+            amount: totalPrice,
+            shippingAddress: shippingAddress,
+            orderEmail: userMail,
+            orderDate: String(new Date()),
+            orderStatus: 'created'
+        })
+        .then( order => {
+            orderId = order.id
+            // console.log(order.id)
+            return order.setCustomer(customer.id)
+        })
+    })
+    .then( orderUpdated => {
+        // console.log(orderUpdated);
+        // console.log(purchaseItems)
+        let details = purchaseItems.map( detail => {
+            return Orderdetails.create({
+                price: detail.price,
+                quantity: detail.quantity,
+                productId: detail.productId
+            })
+            .then( detail => detail.setOrder(orderUpdated.id) )
+        })
+        return Promise.all(details)
+    })
+    .then( orderDetails => {
+        // console.log(orderDetails);
+        // Buscamos los nombres de los productos
+        let productsIds = purchaseItems.map( item => {
+            return Product.findByPk(item.productId)
+        })
+        return Promise.all(productsIds)
+    })
+    .then( products => {
+        // console.log(products);
+        // Seteamos la moneda
+        let currency = '';
+        // console.log(country)
+        if ( country === 'ARG' ) currency = 'ARS';
+        if ( country === 'COL' ) currency = 'COP';
+        if ( country === 'EEUU' ) currency = 'USD';
+        // etc...
+        
+        let newPurchaseItems = purchaseItems.map( item => {
+            let prod = products.filter( product => product.id === item.productId )
+            return {
+                title: prod[0].fullName,
+                quantity: item.quantity,
+                currency_id: currency,
+                unit_price: item.price,
+                // picture_url: prod[0].imgUrl
+            }
+        })
+
+        let preference = {
+            items: newPurchaseItems,
+            back_urls: {
+                success: "http://localhost:3000/checkout-handler/success",
+                failure: "http://localhost:3000/checkout-handler/failure",
+                pending: "http://localhost:3000/checkout-handler/pending"
+            },
+            external_reference: `${orderId}`,
+        }
+        
+        console.log(preference)
+        return mercadopago.preferences.create(preference)
+    })
+    .then( createdPref => res.json(createdPref.response.id) )
+    .catch( function (error) {
+        console.error(error);
+        res.status(500).send(error)
+    });
+   
 }
+
+const completeOrder = async ( req, res ) => {
+    // debemos poner la orden con estado COMPLETADA en la base de datos
+    const { orderId } = req.body;
+    // const orderId = 10 ---> TEST
+
+    Orders.findByPk(orderId, {
+        include: [
+            { 
+                model: Orderdetails,
+                include: [
+                    { model: Product },
+                ]
+            },
+            { model: Customers },
+            
+        ]
+    })
+    .then( order => {
+        // console.log(order);
+        order.orderStatus = 'completed';    
+        return order.save()
+    })
+    .then( updatedOrder => {
+        console.log(updatedOrder.datavalues)
+        
+        let mailOptions = {
+            method: "POST",
+            url: "/sendemail",
+            data: {
+                amount: updatedOrder.amount,
+                shippingAddress: updatedOrder.shippingAddress,
+                orderEmail: updatedOrder.orderEmail,
+                orderStatus: 'completed',
+                image: updatedOrder.dataValues.orderdetails[0].product.imagecover,
+                customer: 'test name'
+            }
+        }
+        // return axios.request(mailOptions)
+        // .then( response => res.json(updatedOrder))
+
+        res.json(updatedOrder)
+    })
+    // .then( res => console.log(res) )
+    .catch( function (error) {
+        console.error(error);
+        res.status(500).send(error)
+    })
+};
 
 module.exports = {
     postOrder,
-};
+    completeOrder
+};    
+
+
+
+
