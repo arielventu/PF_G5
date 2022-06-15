@@ -55,11 +55,11 @@ const ProductVariants = ({ idproduct, productName }) => {
     size: {},
     color: {},
   };
-
   // local react states
   const [current, setCurrent] = useState(initialState);
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalCreate, setModalCreate] = useState(false);
+  console.log(current)
 
   // get all data stock by productId
   useEffect(() => {
