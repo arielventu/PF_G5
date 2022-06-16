@@ -99,14 +99,14 @@ const Shop = () => {
   }
   /* console.log(currentShoes.map( e =>e.price)) */
    const handleSort = (e) =>{
-    e.preventDefault(e)
+    e.preventDefault()
       dispatch(filterByPrice(e.target.value))
       setFilterSelected(e.target.value)
       setCurrentPage(1)
     
    }
    const handle = (e) =>{
-    e.preventDefault(e)
+    e.preventDefault()
       dispatch(orderByFn(e.target.value))
       setFilterSelected(e.target.value)
       setCurrentPage(1)
