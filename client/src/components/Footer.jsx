@@ -6,10 +6,12 @@ import wa from '../image/whatsapp.png'
 import tw from '../image/gorjeo.png'
 import inst from '../image/instagram.png'
 import email from '../image/email.png'
+import ChatbotBB from './Chatbot'
 
 export default function Footer() {
     return (
-      <div className={styles.container}>
+        <div className={styles.container}>
+            <ChatbotBB />
         <div className={styles.innercontainer}>
             <div className={styles.innercontainer2}>
                 <h3 className={styles.bluetitle}>BlueBird Store</h3>

@@ -173,10 +173,10 @@ const promisifiedPostSizes = () => {
 const promisifiedPostStock = async () => {
   return new Promise(async (resolve, reject) => {
     try {
-      let stockReg = {
-        quantity: 1000,
-        available: true,
-      };
+      // let stockReg = {
+      //   quantity: 1000,
+      //   available: true,
+      // };
       items.forEach(async (prod) => {
         const prodIdQuery = await Product.findAll({
           where: {
@@ -207,7 +207,9 @@ const promisifiedPostStock = async () => {
 
                     try {
                       const newStock = await Stock.create({
-                        ...stockReg,
+                        //...stockReg,
+                        quantity: Math.floor(Math.random() * (100 - 0 + 1) + 0),
+                        available: true,
                         productId: prodId,
                         sizeId: sizeId,
                         colorId: colorId,

@@ -1,6 +1,7 @@
 import React, { useEffect }from "react";
 import { firstWordBye } from '../utils';
 import styles from './Card.module.css'
+import axios from "axios"
 // import rating from '../image/rating.png'
 import Favorites from "./Favorites";
 import { favorites, ShopCar, getReviewsById } from "../actions/actions";
@@ -16,7 +17,7 @@ export default function Card({img, fullName, price,component,id , stock}){
     const dispatch = useDispatch() 
     const sampleLocation = useLocation();
     var array = []
-    const quitar = (e) =>{
+    const  quitar  = (e) =>{
         e.preventDefault()
         const {value} = e.target
         //console.log(sampleLocation.pathname.includes("/favorites"))
@@ -38,7 +39,7 @@ export default function Card({img, fullName, price,component,id , stock}){
               buttons: false,
               timer: 1300,
             });
-            if (sampleLocation.pathname.includes("/favorites")) {      
+            if (sampleLocation.pathname.includes("/favorites"))  {      
               if(localStorage.getItem('favoritos') != null){
                   array = JSON.parse(localStorage.getItem('favoritos'))
               }
@@ -47,6 +48,7 @@ export default function Card({img, fullName, price,component,id , stock}){
                       return item
                   }
               })
+              if(localStorage.getItem('authenticated') === "true")  axios.delete(`http://localhost:3001/favorites/${value}`)
               localStorage.setItem('favoritos', JSON.stringify(filterA));
               dispatch(favorites( JSON.parse(localStorage.getItem('favoritos'))))
             }
@@ -59,6 +61,7 @@ export default function Card({img, fullName, price,component,id , stock}){
                         return item
                     }
                 })
+                if(localStorage.getItem('authenticated') === "true")  axios.delete(`http://localhost:3001/basketList/${value}`)
                 localStorage.setItem('carrito', JSON.stringify(filterAr));
                 dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
             }
@@ -86,7 +89,7 @@ export default function Card({img, fullName, price,component,id , stock}){
         <div className={styles.container}>
             <img className={styles.img}src= {img} alt='img'></img>  
             <h2 className={styles.h2}>{firstWordBye(fullName)}</h2>
-            <p className={styles.price}>${price}</p>
+            <p className={styles.price}>${new Intl.NumberFormat("en-EN").format(price)}</p>
             <p >{stock}</p>
             {/* <img className={styles.rating} src={rating} alt='rating'/>  */}
             <div className = {styles.starsContainer}>

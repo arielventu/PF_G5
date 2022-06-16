@@ -2,10 +2,11 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DataTable from "react-data-table-component";
-import { getOrders, putOrders } from "../actions/actions";
+import { getOrders, getOrdersByCustomerId, putOrders } from "../actions/actions";
 //import styled from "styled-components";
 import styles from "./Orders.module.css";
 import axios from "axios";
+import swal from "sweetalert";
 
 //import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -13,7 +14,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCancel, faCheck } from "@fortawesome/free-solid-svg-icons";
 
-function Orders() {
+function Orders({ user }) {
   // calling global state
   const orders = useSelector((state) => state.orders);
   const dispatch = useDispatch();
@@ -23,11 +24,18 @@ function Orders() {
 
   // set component lifecycle
   useEffect(() => {
-    dispatch(getOrders());
+    if (user === 'all') {
+      console.log('all users')
+      dispatch(getOrders())
+    }
+    else {
+      console.log('user ' + user)
+      dispatch(getOrdersByCustomerId( user ))
+    }
   }, [dispatch, current]);
 
   const fakeUsers = orders;
-  console.log("fakeusers : ", fakeUsers);
+  console.log(orders)
 
   //-----------------------------------------------------------
   //------------- BUILD COMPONENT: ORDERS DETAIL --------------
@@ -98,27 +106,56 @@ function Orders() {
   const handleButtonClickDispatch = () => {
     if (current !== null) {
       if (
-        window.confirm(
-          `Do you really you want dispatch the order # ${current.id}?`
-        )
+        current.orderStatus === "dispatched" ||
+        current.orderStatus === "cancelled"
       ) {
-        let newCurrent = current;
-        newCurrent.orderStatus = "dispatched";
-        dispatch(putOrders(newCurrent));
-        setCurrent(null);
-        // -------------------------------------------------------------------
-        // Embeber aquí componente para enviar emails si la order es cancelada
-        axios
-          .post("/sendemail", newCurrent)
-          .then((resp) => console.log(resp))
-          .catch((error) => console.log(error));
+        swal({
+          text: `Unable to reship or cancel order # ${current.id}`,
+          icon: "warning",
+          buttons: false,
+          timer: 2000,
+        });
+      } else {
+        swal({
+          title: "Are you sure?",
+          text: `Do you really you want dispatch the order # ${current.id} ?`,
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            let newCurrent = current;
+            newCurrent.orderStatus = "dispatched";
+            dispatch(putOrders(newCurrent));
+            setCurrent(null);
 
-        // -------------------------------------------------------------------
-      } else return;
+            swal({
+              text: "The order was dispatched",
+              icon: "success",
+              buttons: false,
+              timer: 1300,
+            });
+
+            // -------------------------------------------------------------------
+            // Embeber aquí endpoint para enviar emails si la order es cancelada
+            axios
+              .post("/sendemail", newCurrent)
+              .then((resp) => console.log(resp))
+              .catch((error) => console.log(error));
+            // -------------------------------------------------------------------
+          } else return;
+        });
+      }
     } else {
-      alert(
-        "First select the row of the order you want to dispatch and try again."
-      );
+      // alert(
+      //   "First select the row of the order you want to dispatch and try again."
+      // );
+      swal({
+        text: "First select the row of the order you want to dispatch and try again.",
+        icon: "warning",
+        buttons: false,
+        timer: 3000,
+      });
     }
   };
 
@@ -126,32 +163,59 @@ function Orders() {
   const handleButtonClickCancel = () => {
     if (current !== null) {
       if (
-        window.confirm(
-          `Do you really you want cancel the order # ${current.id} ?`
-        )
+        current.orderStatus === "dispatched" ||
+        current.orderStatus === "cancelled"
       ) {
-        let newCurrent = current;
-        newCurrent.orderStatus = "cancelled";
-        dispatch(putOrders(newCurrent));
-        setCurrent(null);
-        // -------------------------------------------------------------------
-        // Embeber aquí componente para enviar emails si la order es cancelada
-        axios
-          .post("/sendemail", newCurrent)
-          .then((resp) => console.log(resp))
-          .catch((error) => console.log(error));
+        swal({
+          text: `Unable to reship or cancel order # ${current.id}`,
+          icon: "warning",
+          buttons: false,
+          timer: 2000,
+        });
+      } else {
+        swal({
+          title: "Are you sure?",
+          text: `Do you really you want cancel the order # ${current.id} ?`,
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            let newCurrent = current;
+            newCurrent.orderStatus = "cancelled";
+            dispatch(putOrders(newCurrent));
+            setCurrent(null);
 
-        // -------------------------------------------------------------------
-      } else return;
+            swal({
+              text: "The order was cancelled",
+              icon: "success",
+              buttons: false,
+              timer: 1300,
+            });
+
+            // -------------------------------------------------------------------
+            // Embeber aquí componente para enviar emails si la order es cancelada
+            axios
+              .post("/sendemail", newCurrent)
+              .then((resp) => console.log(resp))
+              .catch((error) => console.log(error));
+
+            // -------------------------------------------------------------------
+          } else return;
+        });
+      }
     } else {
-      alert(
-        "First select the row of the order you want to cancel and try again."
-      );
+      swal({
+        text: "First select the row of the order you want to cancel and try again.",
+        icon: "warning",
+        buttons: false,
+        timer: 3000,
+      });
     }
   };
 
-  // ----- BUILD HEADER COLUMNS
-  const columnsHeader = [
+  // ----- BUILD ADMIN HEADER COLUMNS
+  const adminColumnsHeader = [
     {
       name: "Order #",
       selector: (row) => row.id,
@@ -214,6 +278,50 @@ function Orders() {
       ignoreRowClick: true,
       allowOverflow: true,
       button: true,
+    },
+  ];
+
+  // ----- BUILD USER HEADER COLUMNS
+  const userColumnsHeader = [
+    {
+      name: "Order #",
+      selector: (row) => row.id,
+      sortable: true,
+    },
+    {
+      name: "Date",
+      selector: (row) => row.orderDate,
+      sortable: true,
+    },
+    {
+      name: "Customer",
+      selector: (row) => row.customer.fullName,
+      sortable: true,
+    },
+    {
+      name: "Shipping Adress",
+      selector: (row) => row.shippingAddress,
+      sortable: true,
+    },
+    {
+      name: "Country",
+      selector: (row) => row.customer.country,
+      sortable: true,
+    },
+    {
+      name: "Phone",
+      selector: (row) => row.customer.phone,
+      sortable: true,
+    },
+    {
+      name: "Amount",
+      selector: (row) => new Intl.NumberFormat("en-EN").format(row.amount),
+      sortable: true,
+    },
+    {
+      name: "Status",
+      selector: (row) => row.orderStatus,
+      sortable: true,
     },
   ];
 
@@ -314,8 +422,8 @@ function Orders() {
   return (
     <div>
       <DataTable
-        title="Order Management"
-        columns={columnsHeader}
+        // title="Orders Management"
+        columns={ user === 'all' ? adminColumnsHeader : userColumnsHeader}
         data={filteredItems}
         highlightOnHover
         pointerOnHover

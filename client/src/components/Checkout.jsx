@@ -32,7 +32,8 @@ const Checkout = () => {
   const FORM_ID = 'checkoutForm';
 
   const lStorage = JSON.parse(localStorage.getItem('carrito'));
-  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * (item.cantidad === undefined ? 1 : item.cantidad ), 0);
+  const totalOrder = lStorage.reduce((acc, item) => acc + item.price * (item.cantidad === undefined ? 1 : item.cantidad), 0);
+  const selectedSize = lStorage.reduce((acc, item) => item.selecSize, 0);
 
   const [newOrder, setNewOrder] = useState({
         userId: '',
@@ -62,13 +63,25 @@ const Checkout = () => {
 
   // console.log(user.name);
 
-  const products = lStorage.map(item => {
-        return {
-          productId: item.id,
-          quantity: item.cantidad,
-          price: item.price
-        }
-      })
+
+  const sizeId = lStorage.map(item =>
+    item.stocks.filter(stock => stock.size.size === selectedSize).map(stock => stock.sizeId)
+  );
+  // sizeId = new Set(sizeId);
+    
+  
+
+  console.log(JSON.parse(localStorage.getItem('carrito')));
+  console.log("selectedSize", selectedSize);
+  console.log("sizeId", sizeId[0][0])
+
+  // const products = lStorage.map(item => {
+  //       return {
+  //         productId: item.id,
+  //         quantity: item.cantidad,
+  //         price: item.price,
+  //       }
+  //     })
   
   const handleChange = (e) => {
     e.preventDefault();
@@ -77,7 +90,7 @@ const Checkout = () => {
     setNewOrder({
       ...newOrder,
       userId: `${user?.sub}`,
-      userMail: `${user?.email}`,
+      // userMail: `${user?.email}`,
       fullName: `${user?.name}`,
       totalPrice: totalOrder,
       shippingAddress: newOrder.billingAddress,
@@ -85,9 +98,11 @@ const Checkout = () => {
       return {
           productId: item.id,
           quantity: item.cantidad,
-          price: item.price
+          price: item.price,
+          // sizeId:sizeId[0][0]
         }
       }),
+      sizes: lStorage.map(item => sizeId[0][0]),
       [name]: value,
     });
     setErrors(validate({
@@ -101,7 +116,6 @@ const Checkout = () => {
     e.preventDefault();
     if (!isAuthenticated) {
       swal({
-        // title: "Error",
         text: "Please login to continue",
         icon: "warning",
         buttons: false,
@@ -116,56 +130,36 @@ const Checkout = () => {
           buttons: false,
           timer: 2000,
         });
-        return;
       }
-      getToken()
-        .then(apiToken => {
-          postCheckoutOrder(newOrder, apiToken)
-            .then(res => {
-              console.log(res)
-              setpreferenceId(res.data)
-              swal({
-                title: "Success",
-                text: "Your order has went generated. Please proceed to payment",
-                icon: "success",
-                button: "Ok",
-              });
-            })
-            .catch(err => {
-              console.log(err)
-              swal({
-                title: "Error",
-                text: "Something went wrong",
-                icon: "error",
-                button: "Ok",
-              });
-            })
-        })
-        .catch(err => {
-          console.log(err)
-          swal({
-            title: "Error",
-            text: "Something went wrong",
-            icon: "error",
-            button: "Ok",
-          });
-        }
-        )
+      sendData();
     }
   }
   
-  // console.log(user.sub)
-  const sendData = (e) => {
-      getToken()
-          .then( apiToken => postCheckoutOrder( 
-              newOrder,
-              apiToken
-          ))
-          .then( response => {
-            console.log(response)
-            setpreferenceId(response.data);
-          })
-          .catch( err => console.log(err) )
+  const sendData = () => {
+    getToken()
+    .then( apiToken => postCheckoutOrder( 
+        newOrder,
+        apiToken
+    ))
+    .then( response => {
+      console.log(response)
+      setpreferenceId(response.data);
+      swal({
+        title: "Success",
+        text: "Your order has been generated. Please proceed to payment",
+        icon: "success",
+        button: "Ok",
+      });
+    })
+    .catch( err => {
+      console.log(err)
+      swal({
+        title: "Error",
+        text: "Something went wrong",
+        icon: "error",
+        button: "Ok",
+      });
+    })
   };
 
   useEffect(() => {
@@ -179,10 +173,7 @@ const Checkout = () => {
       form.appendChild(script);
     }
   }, [preferenceId]);
-
-  // console.log(lStorage);
-  
-    
+     
   return (
     <div className={styles.divCheckoutContainer}>
       <div className={styles.divCheckout}>
@@ -198,17 +189,17 @@ const Checkout = () => {
               <div className={styles.divCheckoutItemInfo}>
                 <h2 className={styles.h3CheckoutItemInfo}>{firstWordBye(item.fullName)}</h2>
                 {/* <h2 className={styles.h2}>{firstWordBye(fullName)}</h2> */}
-                <p className={styles.pch}>Price by unit: ${item.price}</p>
+                <p className={styles.pch}>Price by unit: ${new Intl.NumberFormat("en-EN").format(item.price)}</p>
                 {item.cantidad === 1 || item.cantidad === undefined?
                   <p className={styles.pch}>Qty: {item.cantidad === undefined ? item.cantidad = 1 : item.cantidad} unit</p>
                   : <p className={styles.pch}>Qty: {item.cantidad} units</p>
                 }
-                <p className={styles.pch}>Total: ${item.price * (item.cantidad === undefined ? item.cantidad = 1 : item.cantidad )}</p>
+                <p className={styles.pch}>Total: ${new Intl.NumberFormat("en-EN").format(item.price * (item.cantidad === undefined ? item.cantidad = 1 : item.cantidad))}</p>
               </div>
             </div>
           ))}
           <div className={styles.divTotal}>
-            <h2 className={styles.total}>Total: ${totalOrder}</h2>
+            <h2 className={styles.total}>Total: ${new Intl.NumberFormat("en-EN").format(totalOrder)}</h2>
           </div>
           
           <form>
@@ -217,13 +208,6 @@ const Checkout = () => {
                 <h2 className={styles.h2CheckoutFormHeader}>{user?.name} complete your personal data</h2>
               </div>
               <div className={styles.divCheckoutFormBody}>
-                {/* <div className={styles.divInfoUser}>
-                  <div className={styles.divInfoUserName}>
-                    <p className={styles.pInfoUser}>Name: {user?.name}</p>
-                    <p className={styles.pInfoUser}>Email: {user?.email}</p>
-                  </div>
-                  </div> */}
-                
                 <div className={styles.divCheckoutFormBodyRow}>
                   <label className={styles.labelCheckoutFormBodyRow}>
                     <span className={styles.spanCheckoutFormBodyRow}>Address *</span>
@@ -264,18 +248,11 @@ const Checkout = () => {
                       type="email"
                       placeholder="me@example.com"
                       name="userMail" 
-                      // defaultValue={user?.email}
                       value={newOrder.userMail}
                       onChange={handleChange}
                     />
                   </label>
                 </div>
-                {/* <div className={styles.divCheckoutFormBodyRow}>
-                  <label className={styles.labelCheckoutFormBodyRow}>
-                    <span className={styles.spanCheckoutFormBodyRow}>Email</span>
-                    <input className={styles.inputCheckoutFormBodyRow} type="text" name="email" />
-                  </label>
-                </div> */}
               </div>
             </div>
           </form>
@@ -291,18 +268,9 @@ const Checkout = () => {
           {preferenceId === '' && <button disabled className={styles.mpButton} > Pagar </button>} {/*boton de mercadoPago deshabilitado*/}
         </form>
       </div>
-        {/* <div className={styles.divConfirm}> */}
-          {/* <Link to={`/shoppingCar`}>
-            <button className={styles.buttonBack}>Back to Shopping Cart</button>
-          </Link> */}
-        {/* </div> */}
-      </div>
-                
-      
-        {/* { preferenceId && `${preferenceId}` }<br /><br /> */}
-      </div>
-  )
-}
+    </div>
+  </div>
+)}
 
 export default Checkout
 

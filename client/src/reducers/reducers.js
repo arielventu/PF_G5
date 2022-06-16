@@ -14,6 +14,8 @@ import {
   FILTER_BY_CATEGORIES,
   FILTER_BY_COLOR,
   FILTER_BY_GENDER,
+  FILTER_BY_SIZE,
+  ORDER_BY_FN,
   SEARCH_BAR,
   FAVORITES,
   SHOPCAR,
@@ -32,8 +34,9 @@ import {
   GET_ORDERS_BY_CUSTOMER_ID,
   POST_ORDER_DETAILS,
   GET_ORDER_DETAILS_BY_ORDER_ID,
+  FILTER_BY_PRICE
 } from "../actions/actions.js";
-
+import { firstWordBye } from '../utils';
 const initialState = {
   //hacer un estado para los filtros
   shoes: [],
@@ -50,6 +53,7 @@ const initialState = {
   sizes: [],
   orders: [],
   orderDetails: [],
+  otherCat : []
 };
 
 export default function rootReducer(state = initialState, { payload, type }) {
@@ -66,6 +70,7 @@ export default function rootReducer(state = initialState, { payload, type }) {
       return {
         ...state,
         categories: payload,
+        otherCat : payload
       };
     case GET_COLORS:
       // console.log(payload)
@@ -89,14 +94,14 @@ export default function rootReducer(state = initialState, { payload, type }) {
         ...state,
         searchBar: payload,
       };
-    case FILTER_BY_BEST:
-      const best = state.auxShoes;
+      case FILTER_BY_BEST:
+        const best = state.auxShoes;
       const fix = [];
 
       payload === "All"
         ? fix.push(...best)
         : best.map((e) => {
-            let sol = e.categories.map((e) => {
+          let sol = e.categories.map((e) => {
               if (typeof e === "object") return e.name;
               else {
                 return e;
@@ -109,22 +114,72 @@ export default function rootReducer(state = initialState, { payload, type }) {
         ...state,
         shoes: fix,
       };
-    case FILTER_BY_CATEGORIES:
-      const categories = state.auxShoes;
-      const cat = [];
-
-      payload === "All"
+      case FILTER_BY_CATEGORIES:
+        const categories = state.auxShoes;
+        const cat = [];
+        
+        payload === "All"
         ? cat.push(...categories)
         : categories.map((e) => {
-            if (e.masterName === payload) {
-              cat.push(e);
-            }
-          });
-      // console.log(cat)
-      return {
-        ...state,
-        shoes: cat,
-      };
+          if (e.masterName === payload) {
+            cat.push(e);
+          }
+        });
+        // console.log(cat)
+        return {
+          ...state,
+          shoes: cat,
+        };
+      case FILTER_BY_SIZE:
+        const all = state.auxShoes;
+        const size = [];
+        console.log(payload)
+        payload === "All"
+          ? size.push(...allColors)
+          : all.map((e) => {
+              var six = e.stocks.map((e) => {
+               return e.size.size
+              });
+              return six.includes(payload) ? size.push(e) : null;
+             
+            });
+         console.log(size)
+        return {
+          ...state,
+          shoes:size
+        };
+        case FILTER_BY_PRICE:
+          
+			const pokemonsSorted = state.shoes;
+			let orderBy;
+      
+			if (payload === 'All') orderBy = pokemonsSorted
+			if (payload === 'xpensive') orderBy = pokemonsSorted.sort((a, b) => a.price < b.price ? 1 : -1);
+			if (payload === 'cheap') orderBy = pokemonsSorted.sort((a, b) => a.price > b.price ? 1 : -1);
+			 console.log(orderBy);
+			return {
+				...state,
+				shoes: orderBy,
+			};
+     case ORDER_BY_FN:
+          
+			const billyBond = state.shoes;
+     let jugo = billyBond.map((e) => 
+      {firstWordBye(e.masterName)
+        return e
+           })
+     console.log(jugo)
+		  let tomate;
+      
+			if (payload === 'All') tomate = billyBond;
+			if (payload === 'A to Z') tomate = jugo.sort((a, b) => a.fullName > b.fullName ? 1 : -1);
+			if (payload === 'Z to A') tomate = jugo.sort((a, b) => a.fullName < b.fullName ? 1 : -1);
+			 console.log(tomate);
+			return {
+				...state,
+				shoes: tomate,
+			};
+         
     case FILTER_BY_COLOR:
       const allColors = state.auxShoes;
       const col = [];
@@ -204,7 +259,10 @@ export default function rootReducer(state = initialState, { payload, type }) {
     // Adding by ELIECER
     // DateTime: 2022-06-11 00:40:00
     // ------------------------------------------
-    case GET_ORDERS || GET_ORDERS_BY_ID || GET_ORDERS_BY_CUSTOMER_ID:
+    case GET_ORDERS || GET_ORDERS_BY_ID:
+      return { ...state, orders: payload };
+
+    case GET_ORDERS_BY_CUSTOMER_ID:
       return { ...state, orders: payload };
 
     case POST_ORDERS:
