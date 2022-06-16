@@ -56,15 +56,14 @@ const Shop = () => {
    
   })
     sizes= [... new Set(sizes)].sort()
-    console.log(sizes)
+  console.log(sizes)
+  
   useEffect(() => {
-    
     dispatch(getCategories())
     dispatch(getProducts())
     dispatch(getColors())
-   
-   
-  }, [])
+  }, [dispatch])
+  
   const clearFilters = () => {
     dispatch(filterByBestFor('All'))
     dispatch(filterByCategories('All'))
