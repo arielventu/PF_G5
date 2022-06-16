@@ -5,10 +5,22 @@ import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001';
+const environment = 'dev'; // dev | prod
+let reactHost = '';
+
+if (environment === 'prod') {
+  axios.defaults.baseURL = process.env.REACT_APP_API;
+  reactHost = 'https://bluebirdstore.vercel.app/';
+}
+if (environment === 'dev') {
+  axios.defaults.baseURL = 'http://localhost:3001';
+  reactHost = 'http://localhost:3000';
+}
+
+// axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001';
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
-const redirectLogin = process.env.REACT_HOST || 'http://localhost:3000';
+
 
 root.render(
   <React.StrictMode>
@@ -16,7 +28,7 @@ root.render(
       <Auth0Provider
         domain='ivocfh.us.auth0.com'
         clientId='geDq1VgcaFAidcaejuAGEFyZxeF3qDuD'
-        redirectUri={`${redirectLogin}/Shop`}
+        redirectUri={`${reactHost}/Shop`}
         audience='https://ivocfh.us.auth0.com/api/v2/'
         // audience='https://www.bluebirds.api.com'
       >
