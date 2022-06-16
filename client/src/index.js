@@ -10,7 +10,7 @@ let reactHost = '';
 
 if (environment === 'prod') {
   axios.defaults.baseURL = process.env.REACT_APP_API;
-  reactHost = 'https://bluebirdstore.vercel.app/';
+  reactHost = 'https://bluebirdstore.vercel.app';
 }
 if (environment === 'dev') {
   axios.defaults.baseURL = 'http://localhost:3001';
