@@ -6,7 +6,7 @@
   font-family: Koulen;
 }
 
-.color1 {
+/* .color1 {
   width: 20px;
   height: 20px;
   margin: 0px auto;
@@ -15,7 +15,7 @@
   position: relative;
   display: inline-block;
   border: 1px solid rgb(211, 212, 213);
-}
+} */
 
 .color2 {
   height: 2rem;
@@ -47,14 +47,55 @@
 .body {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
 
 .filtersContainer {
-  width: 20rem;
+  width: 16rem;
+  border-right: 1px solid rgba(240, 240, 240, 0.993);
+}
+
+.sortTitle {
+  font-size: 1.2rem;
+  font-family: Koulen;
+}
+
+.divSortTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 6rem 0 0;
+}
+
+.containerSort {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba(240, 240, 240, 0.993);
+  margin-bottom: 0;
+}
+
+.innerContSort {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2rem 0 2rem;
+}
+
+.divSort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sortSubtitle {
+  font-size: 1.6rem;
+  font-family: Koulen;
+  color: black;
+  margin: 1rem 0 0 0;
 }
 
 .divFiltersTitle {
@@ -106,13 +147,13 @@
   color: black;
 }
 
-.divFiltersBestFor:hover {
+/* .divFiltersBestFor:hover {
   background-color: rgb(250, 250, 250);
 }
 
 .divFiltersCategories:hover {
   background-color: rgb(250, 250, 250);
-}
+} */
 
 .selectCategories {
   font-size: 1rem;
@@ -127,9 +168,6 @@
 }
 
 .filters {
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between; */
   margin-top: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
@@ -192,7 +230,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   width: 85%;
-  /* border-left: 0.05rem solid rgba(240, 240, 240, 0.993); */
+  margin: 1rem 0 0 0;
 }
 
 .containercolors {
@@ -212,11 +250,11 @@
   height: 20px;
   margin: 0px auto;
   border-radius: 50%;
-
   position: relative;
   display: inline-block;
   border: 1px solid rgb(211, 212, 213);
   margin-right: 0.5rem;
+
 }
 
 .colorName {
@@ -226,4 +264,43 @@
   font-size: 1rem;
   font-family: Koulen;
   padding: 0.2rem;
+}
+
+.divLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+@media screen and (max-width: 950px) {
+  .filtersContainer {
+    width: 5rem;
+  }
+
+  .divFiltersTitle {
+    margin-bottom: 0.8rem;
+  }
+
+  .filtersTitle {
+    font-size: 1.2rem;
+  }
+
+  .filtersSubtitle {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .radioLabel {
+    font-size: 0.7rem;
+  }
+
+  .colorName {
+    font-size: 0.7rem;
+  }
+
+  .input {
+    height: 0.5rem;
+    width: 0.5rem;
+  }
 }
