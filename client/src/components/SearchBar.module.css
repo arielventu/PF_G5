@@ -1,10 +1,17 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   top: 1rem;
   right: 1.5rem;
   height: 2rem;
+  flex-direction: column;
+}
+
+.searchcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .input {
@@ -27,4 +34,26 @@
   border-radius: 0.5rem;
   width: 3rem;
   margin-left: 0.5rem;
+}
+
+.dropdown {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  border: 1px solid gray;
+}
+
+.dropdown:empty {
+  border: none;
+}
+
+.dropdownrow {
+  cursor: pointer;
+  text-align: start;
+  margin: 2px 0;
+}
+
+.searchinner {
+  display: flex;
 }

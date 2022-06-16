@@ -111,6 +111,7 @@ const postOrder = async (req, res) => {
         if ( country === 'EEUU' ) currency = 'USD';
         // etc...
         
+        // NOTA: No modificar newPurchaseItems ni las preferencias que se envían a MP
         let newPurchaseItems = purchaseItems.map( item => {
             let prod = products.filter( product => product.id === item.productId )
             return {
