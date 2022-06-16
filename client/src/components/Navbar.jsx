@@ -39,7 +39,11 @@ const Navbar = () => {
   //if (user === undefined) localStorage.setItem('authenticated', 'false');
   if (isAuthenticated) localStorage.setItem('authenticated', 'true');
 
+<<<<<<< HEAD
   
+=======
+  // console.log(user)
+>>>>>>> de673b868b999d1eeabba03e2d6809f06fa69029
 
   console.log("primero",localStorage.getItem('authenticated'))
 
@@ -82,7 +86,7 @@ const Navbar = () => {
       getToken()
         .then( apiToken => getUserRoles(user.sub, apiToken) )
         .then( data => {
-          console.log(data)
+          // console.log(data)
           if (data.length === 0) {
             setAdmin(false)
           }
@@ -115,11 +119,15 @@ const Navbar = () => {
   }
 
   const myOrdersRedirect = () => {
-    navigation("/my-orders")
+    navigation("/orders")
   }
  
   
+<<<<<<< HEAD
   //console.log(user)
+=======
+  // console.log(user)
+>>>>>>> de673b868b999d1eeabba03e2d6809f06fa69029
   return (
     <>
       <div className={styles.container}>
@@ -154,7 +162,9 @@ const Navbar = () => {
               </div>
             )
           ) : (
-            <></>
+            <div className={styles.divLogin}>
+              <button className={styles.loginText}>Loading...</button>
+            </div>
           )}
         </div>
         <ul className={styles.menu}>

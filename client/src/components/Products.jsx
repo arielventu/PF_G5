@@ -66,7 +66,7 @@ const Products = () => {
   // get 'redux store' of shoes / products
   const categorie = useSelector((state) => state.categories);
   const colors = useSelector((state) => state.colors);
-  console.log(colors, "coloreeees");
+  
   const dispatch = useDispatch();
   // console.log(categorie);
   useEffect(() => {
