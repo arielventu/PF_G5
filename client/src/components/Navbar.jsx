@@ -26,12 +26,12 @@ const Navbar = () => {
   const favo = useSelector((state) => state.favorites)  
   const car = useSelector((state) => state.shoppingCar)  
   const dispatch = useDispatch() 
-  const navegation = useNavigate()
+  const navigation = useNavigate()
   var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
 
-  console.log(user)
+  // console.log(user)
 
 
   const getToken = () => {
@@ -52,16 +52,16 @@ const Navbar = () => {
     if (valit ==="favorites") {
       console.log("favorito")
       if (localStorage.getItem('favoritos') === "[]") {
-        return navegation(1)
+        return navigation(1)
       }else{
-        navegation("/favorites")
+        navigation("/favorites")
       }      
     }
     if (valit ==="car") {
       if (localStorage.getItem('carrito') === "[]") {
-        return navegation(1)
+        return navigation(1)
       }else{
-        navegation("/shoppingCar")
+        navigation("/shoppingCar")
       }    
     }  
   }
@@ -73,7 +73,7 @@ const Navbar = () => {
       getToken()
         .then( apiToken => getUserRoles(user.sub, apiToken) )
         .then( data => {
-          console.log(data)
+          // console.log(data)
           if (data.length === 0) {
             setAdmin(false)
           }
@@ -98,18 +98,18 @@ const Navbar = () => {
   }
 
   const profileRedirect = () => {
-    navegation("/user-profile")
+    navigation("/user-profile")
   }
 
   const administrationRedirect = () => {
-    navegation("/administration")
+    navigation("/administration")
   }
 
   const myOrdersRedirect = () => {
-    navegation("/my-orders")
+    navigation("/orders")
   }
   
-  console.log(user)
+  // console.log(user)
   return (
     <>
       <div className={styles.container}>
@@ -133,16 +133,20 @@ const Navbar = () => {
                 </button>
               </div>
             ) : (
-              <button
-                className={styles.loginText}
-                onClick={() => loginWithRedirect()}
-              >
-                {" "}
-                Login{" "}
-              </button>
+              <div className={styles.divLogin} onClick={() => loginWithRedirect()}>
+                <button
+                  className={styles.loginText}
+                  onClick={() => loginWithRedirect()}
+                >
+                  {" "}
+                  Login{" "}
+                </button>
+              </div>
             )
           ) : (
-            <></>
+            <div className={styles.divLogin}>
+              <button className={styles.loginText}>Loading...</button>
+            </div>
           )}
         </div>
         <ul className={styles.menu}>

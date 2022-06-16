@@ -259,7 +259,10 @@ export default function rootReducer(state = initialState, { payload, type }) {
     // Adding by ELIECER
     // DateTime: 2022-06-11 00:40:00
     // ------------------------------------------
-    case GET_ORDERS || GET_ORDERS_BY_ID || GET_ORDERS_BY_CUSTOMER_ID:
+    case GET_ORDERS || GET_ORDERS_BY_ID:
+      return { ...state, orders: payload };
+
+    case GET_ORDERS_BY_CUSTOMER_ID:
       return { ...state, orders: payload };
 
     case POST_ORDERS:

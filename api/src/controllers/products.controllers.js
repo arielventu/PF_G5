@@ -94,8 +94,8 @@ const createProduct = async (req, res) => {
     price,
     imagecover,
     imageurl,
+    colors,
     available,
-    newCategory,
   } = req.body;
 
 
@@ -110,18 +110,19 @@ const createProduct = async (req, res) => {
       price,
       imagecover,
       imageurl,
+      colors,
       available,
     });
 
-    if (newCategory) {
-      const newCat = await Category.create({ name: newCategory })
+    if (req.body.newCategory) {
+      const newCat = await Category.create({ name: req.body.newCategory })
+      const findNewCategory = await Category.findAll({attributes: ['id'], where: {name: req.body.newCategory}})
+      console.log(findNewCategory[0].dataValues.id);
+      const categoryToObj = findNewCategory[0].dataValues.id;
+      req.body.categories.push(categoryToObj);
     }
 
     //mejorar est
-    const findNewCategory = await Category.findAll({attributes: ['id'], where: {name: newCategory}})
-    console.log(findNewCategory[0].dataValues.id);
-    const categoryToObj = findNewCategory[0].dataValues.id;
-    req.body.categories.push(categoryToObj);
     // console.log(categoryToObj);
     // await newProduct.setCategories(findNewCategory);
 

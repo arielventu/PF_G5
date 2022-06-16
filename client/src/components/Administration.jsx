@@ -23,7 +23,7 @@ const Administration = () => {
             </div>
             <div className={styles.sectionContentContainer}>
                 { sectionActive === 'stock' && <Products /> }
-                { sectionActive === 'orders' && <Orders /> }
+                { sectionActive === 'orders' && <Orders user='all' /> }
                 { sectionActive === 'users' && <UsersAdmin /> }
             </div>
         </div>

@@ -1,7 +1,7 @@
 const app = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const axios = require("axios");
-axios.defaults.baseURL = process.env.EXPRESS_API || 'http://localhost:3001';
+axios.defaults.baseURL = process.env.EXPRESS_API || `http://localhost:${process.env.PORT}`;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
