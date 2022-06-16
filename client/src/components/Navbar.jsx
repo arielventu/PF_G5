@@ -107,7 +107,7 @@ const Navbar = () => {
   }
 
   const myOrdersRedirect = () => {
-    navegation("/my-orders")
+    navegation("/orders")
   }
   
   console.log(user)
