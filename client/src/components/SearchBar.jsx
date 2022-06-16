@@ -14,7 +14,7 @@ const SearchBar = () => {
   }, []);
   
   const dataMap = data.map(e => e.name);
-  console.log(dataMap, "data data data");
+  //console.log(dataMap, "data data data");
 
 
 

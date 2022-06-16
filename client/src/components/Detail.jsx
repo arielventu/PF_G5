@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { favorites, getDetail, getProducts, ShopCar, getReviewsById, getOrders, getStockByProductId} from "../actions/actions";
 import { useEffect } from "react";
+import axios from "axios"
 import Reviews from "./Reviews";
 import NewReview from "./NewReview";
 import styles from "./Detail.module.css"
@@ -80,6 +81,8 @@ export default function Detail(){
     const {value} = e.target
     if (localStorage.getItem('carrito') === null) {
       var findAdd = detailstate.find(item => item.id == value )
+      if(localStorage.getItem('authenticated') === "true")  await axios.post(`http://localhost:3001/basketList`,
+      { user:user.nickname, productId:findAdd.id, quantity:findAdd.cantidad })
       findAdd.selecSize = lala2
       // console.log("oooo",lala2)
       arrayAdd.push(findAdd)
@@ -94,6 +97,8 @@ export default function Detail(){
       });
       if (idMap === undefined) {
         const find = detailstate.find(item => item.id == value )
+        if(localStorage.getItem('authenticated') === "true")  await axios.post(`http://localhost:3001/basketList`,
+        { user:user.nickname, productId:find.id, quantity:find.cantidad })
         find.selecSize = lala2
         // console.log("gggg",lala2)
         arrayAdd.push(find)
@@ -115,6 +120,8 @@ export default function Detail(){
     // console.log(accessKey)
     if (localStorage.getItem('favoritos') === null) {
       var findKey = detailstate.find(item => item.id == accessKey )
+      if(localStorage.getItem('authenticated') === "true")  await axios.post(`http://localhost:3001/favorites`,
+      { user:user.nickname, productId:findKey.id })
       array.push(findKey)
     }else{
       array = await JSON.parse(localStorage.getItem('favoritos'))
@@ -129,6 +136,8 @@ export default function Detail(){
       if (idMap === undefined) {
         // console.log(detailstate)
         const find = detailstate.find(item => item.id == accessKey )
+        if(localStorage.getItem('authenticated') === "true")  await axios.post(`http://localhost:3001/favorites`,
+        { user:user.nickname, productId:find.id })
         find.selecSize = lala2
         array.push(find)
         swal({

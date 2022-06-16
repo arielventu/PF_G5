@@ -19,6 +19,8 @@ if (localStorage.getItem('carrito') === null ) {
 if (localStorage.getItem('favoritos') === null ) {
   localStorage.setItem('favoritos', JSON.stringify([]))
 }
+localStorage.setItem('authenticated', 'false')
+
 const Navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
   const [ droppedMenu, setDroppedMenu ] = useState(false);
@@ -26,16 +28,20 @@ const Navbar = () => {
   const [ loadingInfo, setLoadingInfo ] = useState(false);
   const favo = useSelector((state) => state.favorites)  
   const car = useSelector((state) => state.shoppingCar)  
+  const products = useSelector(state => state.shoes)
   const dispatch = useDispatch() 
   const navigation = useNavigate()
   var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
-  if (user === undefined) localStorage.setItem('authenticated', 'false');
+ // if(localStorage.getItem('authenticated') === "true")index(user,products)
+ index(user,products)
+  //if (user === undefined) localStorage.setItem('authenticated', 'false');
   if (isAuthenticated) localStorage.setItem('authenticated', 'true');
 
+  
 
-  index(user)
+  console.log("primero",localStorage.getItem('authenticated'))
 
   const getToken = () => {
     return new Promise( (resolve, reject) => {
@@ -111,8 +117,9 @@ const Navbar = () => {
   const myOrdersRedirect = () => {
     navigation("/my-orders")
   }
+ 
   
-  console.log(user)
+  //console.log(user)
   return (
     <>
       <div className={styles.container}>

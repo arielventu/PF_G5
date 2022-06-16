@@ -1,24 +1,42 @@
 import axios from "axios"
 
-
-const index = async (user) => {
+let cont = 0
+const index = async (user, products) => {
+    cont++
     let array = []
     let  authenticated = localStorage.getItem('authenticated')
-    if (authenticated === "true") {
-    let dataFav = await axios.get(`http://localhost:3001/favorites/user/${user.nickname}`)
-    console.log(dataFav.data)
-    if ( dataFav.data.length == 0) {
-        if(localStorage.getItem('favoritos') != null){
-            array = JSON.parse(localStorage.getItem('favoritos'))
-            let mapPost = array.map( async(item)=>{
-                await axios.post(`http://localhost:3001/favorites`,{ user:user.nickname, productId:item.id})
-                //{ "id": 1, "user": "eliecer", "productId": 2 }
-            })
-        }    
+    if (user != undefined){
+        let dataFav = await axios.get(`http://localhost:3001/favorites/user/${user.nickname}`)
+        let idAll = dataFav.data.map(item=>item.id)
+        let arrayData = dataFav.data.map((item, i)=>{
+            return products.find(itemF=>itemF.id === idAll[i])
+        })
+        array = JSON.parse(localStorage.getItem('favoritos'))
+        if(!(arrayData.length === 0 && array.length === 0) || array[0] === null ){
+            localStorage.setItem('favoritos', JSON.stringify(arrayData))  
+        }
     }
-
-        console.log("probando", dataFav.data.length)
+    //----------------------------------------------------------------------------------------------------
+    array = []
+    if (user != undefined) {
+        let dataCar = await axios.get(`http://localhost:3001/basketList/${user.nickname}`)
+        let idAllCar = dataCar.data.map(item=>item.id)
+        let arrayData = dataCar.data.map((item, i)=>{
+            return products.find(itemF=>itemF.id === idAllCar[i])
+        })
+        array = JSON.parse(localStorage.getItem('carrito'))
+        if(!(arrayData.length === 0 && array.length === 0) || array[0] === null ){
+            localStorage.setItem('carrito', JSON.stringify(arrayData))
+        }
+    
     }
+    if(user === undefined){
+      //  localStorage.setItem('authenticated', 'false');
+        localStorage.setItem('carrito', JSON.stringify([]))
+        localStorage.setItem('favoritos', JSON.stringify([]))
+    }  
+    console.log("ultimo",localStorage.getItem('authenticated'))
 }
 
 export default index
+
