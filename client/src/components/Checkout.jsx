@@ -5,7 +5,7 @@ import styles from './Checkout.module.css';
 import { firstWordBye } from '../utils';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
-
+import { reactHost } from '../index'
 
 
 
@@ -99,7 +99,7 @@ const Checkout = () => {
           productId: item.id,
           quantity: item.cantidad,
           price: item.price,
-          productUrl: `http://localhost:3000/Shop/details/${item.id}`,
+          productUrl: `${reactHost}/Shop/details/${item.id}`,
           size: sizeId[0][0]
         }
       }),

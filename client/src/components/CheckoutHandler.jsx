@@ -6,6 +6,7 @@ import Card from './Card'
 import styles from './CheckoutHandler.module.css';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import loadingNavInfo from "../image/loadingNavInfo.gif"
 
 const CheckoutHandler =  () => {
 
@@ -52,7 +53,7 @@ const CheckoutHandler =  () => {
         getToken()
         .then( apiToken => completeCheckoutOrder( orderId, apiToken ))
         .then( order => {
-            // console.log(order)
+            console.log(order)
             setCompletedOrder(order);
             localStorage.setItem('carrito', JSON.stringify([]));
             dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
@@ -63,7 +64,7 @@ const CheckoutHandler =  () => {
                 orderDate: order.data.orderDate,
                 orderStatus: order.data.orderStatus,
                 // image: order.data.orderdetails[0].product.imagecover,
-                customer: order.data.customer.fullName,
+                customer: order.data.customer,
                 orderdetails: order.data.orderdetails
             });
         })
@@ -112,9 +113,13 @@ const CheckoutHandler =  () => {
                     </>
                 ) :
                 (
-                    <>
-                        LOADING
-                    </>
+                    // <>
+                    //     LOADING
+                    // </>
+                    // <div className={styles.loadingInfo}>
+                    // <img src={loadingNavInfo} id={styles.imgLoading}/>
+                    <img src="https://thumbs.gfycat.com/PepperyMediumBrahmancow-size_restricted.gif" id={styles.imgLoading}/>
+                    // </div>
                 )}
         </div>
 

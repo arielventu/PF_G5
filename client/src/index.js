@@ -5,8 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-const environment = 'prod'; // dev | prod
-let reactHost = '';
+const environment = 'dev'; // dev | prod
+export let reactHost = '';
 
 if (environment === 'prod') {
   axios.defaults.baseURL = process.env.REACT_APP_API;
@@ -38,5 +38,7 @@ root.render(
   </React.StrictMode>
 );
 
+
+ 
 
 

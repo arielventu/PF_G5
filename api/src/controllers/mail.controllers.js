@@ -23,7 +23,7 @@ const sendEmail = async (req, res) => {
     orderStatus,
     image,
     customer,
-    orderdetails,
+    orderdetails
   } = req.body;
 
   const orderImage = orderdetails[0].product.imagecover;

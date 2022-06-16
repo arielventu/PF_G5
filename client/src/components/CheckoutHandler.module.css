@@ -56,3 +56,7 @@
     border: 2px solid rgb(70, 70, 70);
     color: white;
 }
+
+#imgLoading {
+    width: 50vw;
+}

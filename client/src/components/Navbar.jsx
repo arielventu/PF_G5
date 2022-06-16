@@ -222,7 +222,7 @@ const Navbar = () => {
                   className={styles.customFont}
                   onClick={() => {
                     dropMenu();
-                    logout();
+                    logout({ returnTo: window.location.origin });
                   }}
                 >
                   Logout
