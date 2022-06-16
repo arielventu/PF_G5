@@ -197,7 +197,7 @@ export default function Detail(){
   useEffect(() => {
     dispatch(getStockByProductId(id))
     obtainStock()
-  }, [detailstate2, id])
+  }, [dispatch, detailstate2, id])
   
   const select = (e) => {
     detailstate2.selecSize = e.target.value
