@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SearchBar from './SearchBar'
 import cart from "../image/cart.png"
 import BlueBird from "../image/BlueBird.svg"
+import burger from "../image/iconBurger.png"
 import userQuest from "../image/userQuest.png"
 import loadingNavInfo from "../image/loadingNavInfo.gif"
 import styles from './Navbar.module.css';
@@ -10,6 +11,7 @@ import fav from "../image/favorito.png"
 import swal from 'sweetalert';
 import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
+import index from '../favoriteAndCar'
 import { useAuth0 } from '@auth0/auth0-react';
 import { getUserRoles, getApiJWT } from "../actions/actions"
 if (localStorage.getItem('carrito') === null ) {
@@ -18,6 +20,8 @@ if (localStorage.getItem('carrito') === null ) {
 if (localStorage.getItem('favoritos') === null ) {
   localStorage.setItem('favoritos', JSON.stringify([]))
 }
+localStorage.setItem('authenticated', 'false')
+
 const Navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
   const [ droppedMenu, setDroppedMenu ] = useState(false);
@@ -25,14 +29,24 @@ const Navbar = () => {
   const [ loadingInfo, setLoadingInfo ] = useState(false);
   const favo = useSelector((state) => state.favorites)  
   const car = useSelector((state) => state.shoppingCar)  
+  const products = useSelector(state => state.shoes)
   const dispatch = useDispatch() 
   const navigation = useNavigate()
   var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+ // if(localStorage.getItem('authenticated') === "true")index(user,products)
+ index(user,products)
+  //if (user === undefined) localStorage.setItem('authenticated', 'false');
+  if (isAuthenticated) localStorage.setItem('authenticated', 'true');
 
+<<<<<<< HEAD
+  
+=======
   // console.log(user)
+>>>>>>> de673b868b999d1eeabba03e2d6809f06fa69029
 
+  console.log("primero",localStorage.getItem('authenticated'))
 
   const getToken = () => {
     return new Promise( (resolve, reject) => {
@@ -108,12 +122,16 @@ const Navbar = () => {
   const myOrdersRedirect = () => {
     navigation("/orders")
   }
+ 
   
+<<<<<<< HEAD
+  //console.log(user)
+=======
   // console.log(user)
+>>>>>>> de673b868b999d1eeabba03e2d6809f06fa69029
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.leftContent}>
           <Link to="/" className={styles.divLogo}>
             <div>
               <img
@@ -123,7 +141,13 @@ const Navbar = () => {
               />
             </div>
           </Link>
-          { !isLoading ? (
+        <div className={styles.divSearch}>
+          <SearchBar />
+        </div>
+        <div className={styles.navigation}>
+        <input type="checkbox" className={styles.toggleMenu}/>
+        <div className={styles.burgerMenu}></div>
+        { !isLoading ? (
               isAuthenticated ? (
               <div className={styles.divLogin} onClick={() => dropMenu()}>
                 <img className={styles.pictureprofile} src={user?.picture}/>
@@ -148,7 +172,6 @@ const Navbar = () => {
               <button className={styles.loginText}>Loading...</button>
             </div>
           )}
-        </div>
         <ul className={styles.menu}>
           <Link to="/">
             <button className={styles.buttonNavBar}>Home</button>
@@ -177,8 +200,6 @@ const Navbar = () => {
             </div>
           </div>
         </ul>
-        <div className={styles.divSearch}>
-          <SearchBar />
         </div>
         { droppedMenu && 
           <div className={styles.drpMenuStyles}>
