@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-const environment = 'dev'; // dev | prod
+const environment = 'prod'; // dev | prod
 let reactHost = '';
 
 if (environment === 'prod') {
