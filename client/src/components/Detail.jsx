@@ -223,7 +223,16 @@ export default function Detail(){
     { detailstate.length > 0 ? 
       <div className = {styles.containerp}>
           <h1 className = {styles.title}> {detailstate2.fullName} </h1>
+          <div className={styles.float}>
           <img src={otrasFotos} alt = 'Shoe Image' className = {styles.img}/>
+          <div className={styles.imagesCont}>
+          {findProductImages().map((e) => {
+              return (
+                <img accessKey={e} src={e} alt = 'Shoes Image' className = {styles.otherimg} onClick={(e)=>producFotos(e)}/>
+              )
+            })}
+          </div>
+          </div>
           <p className={styles.description}>{detailstate2.detail}</p>
           <div className = {styles.innercontainer}>
             <h3 className={styles.subtitles}>Sizes:</h3>
@@ -316,13 +325,7 @@ export default function Detail(){
               </div>}
             </div>
            
-
             <div className = {styles.innercontainer3}>
-            {findProductImages().map((e) => {
-              return (
-                <img accessKey={e} src={e} alt = 'Shoes Image' className = {styles.otherimg} onClick={(e)=>producFotos(e)}/>
-              )
-            })}
                 <button  className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
             </div>
