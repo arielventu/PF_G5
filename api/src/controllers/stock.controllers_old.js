@@ -134,18 +134,6 @@ const deleteStock = async (req, res) => {
   }
 };
 
-const discountStock = async (req, res) => {
-  console.log(req.body)
-  try {
-
-    const orderDetails = req.body;
-
-  } 
-  catch (err) {
-    return res.stuts(500).json({ message: error.message })
-  }
-};
-
 module.exports = {
   getStocks,
   getStock,
@@ -153,5 +141,4 @@ module.exports = {
   createStock,
   updateStock,
   deleteStock,
-  discountStock
 };

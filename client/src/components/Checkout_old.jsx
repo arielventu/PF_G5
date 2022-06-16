@@ -71,9 +71,9 @@ const Checkout = () => {
     
   
 
-  // console.log(JSON.parse(localStorage.getItem('carrito')));
-  // console.log("selectedSize", selectedSize);
-  // console.log("sizeId", sizeId[0][0])
+  console.log(JSON.parse(localStorage.getItem('carrito')));
+  console.log("selectedSize", selectedSize);
+  console.log("sizeId", sizeId[0][0])
 
   // const products = lStorage.map(item => {
   //       return {
@@ -99,7 +99,7 @@ const Checkout = () => {
           productId: item.id,
           quantity: item.cantidad,
           price: item.price,
-          size: sizeId[0][0]
+          // sizeId:sizeId[0][0]
         }
       }),
       sizes: lStorage.map(item => sizeId[0][0]),

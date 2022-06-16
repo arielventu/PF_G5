@@ -7,9 +7,7 @@ import styles from './CheckoutHandler.module.css';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 
-const CheckoutHandler =  () => {
-
-    let inicio = true;
+const CheckoutHandler = () => {
 
     const { status } = useParams();
     console.log(status)
@@ -47,12 +45,12 @@ const CheckoutHandler =  () => {
     // console.log(mpCheckoutCompleted);
 
     let orderId = mpCheckoutCompleted.external_reference;
-    
-    const initiate = () => {
+        
+    useEffect(() => {
         getToken()
         .then( apiToken => completeCheckoutOrder( orderId, apiToken ))
         .then( order => {
-            // console.log(order)
+            console.log(order)
             setCompletedOrder(order);
             localStorage.setItem('carrito', JSON.stringify([]));
             dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
@@ -69,10 +67,6 @@ const CheckoutHandler =  () => {
         })
         .then( mailRes => console.log(mailRes) )
         .catch( err => console.log(err) )
-    }
-
-    useEffect(() => {
-        initiate();
     },[])
         
     const continueShopping = () => {
