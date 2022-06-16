@@ -40,11 +40,7 @@ const Navbar = () => {
   //if (user === undefined) localStorage.setItem('authenticated', 'false');
   if (isAuthenticated) localStorage.setItem('authenticated', 'true');
 
-<<<<<<< HEAD
-  
-=======
   // console.log(user)
->>>>>>> de673b868b999d1eeabba03e2d6809f06fa69029
 
   console.log("primero",localStorage.getItem('authenticated'))
 
@@ -124,11 +120,7 @@ const Navbar = () => {
   }
  
   
-<<<<<<< HEAD
-  //console.log(user)
-=======
   // console.log(user)
->>>>>>> de673b868b999d1eeabba03e2d6809f06fa69029
   return (
     <>
       <div className={styles.container}>
