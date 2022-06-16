@@ -1,75 +1,52 @@
-import ChatBot from 'react-best-chatbot';
-import style from './Chatbot.module.css';
-// import  { ThemeProvider } from 'styled-components';
-
-
-export default function ChatBotBB (){
-
-    // const theme = {
-    //     background: '#f5f8fb',
-    //     fontFamily: 'Koulen',
-    //     headerBgColor: 'rgb(23, 74, 105)',
-    //     headerFontColor: '#fff',
-    //     headerFontSize: '15px',
-    //     botBubbleColor: 'rgb(23, 74, 105)',
-    //     botFontColor: '#fff',
-    //     userBubbleColor: '#fff',
-    //     userFontColor: '#4a4a4a',
-    //     height: '200px',
-    //   };
-    const config = {
-      width: "300px",
-      height: "400px",
-      floating: true
-  };
+import React from 'react';
+import Chatbot from 'react-best-chatbot';
   
-  const steps = [
+const steps = [
     {
       id: 1,
-      content: "Hi, human!",
+      content: "Hi, friend!",
       goTo: 2,
     },
     {
       id: 2,
-      content: "Which animal is my favourite?",
+      content: "How can we help you?",
       options: [
         {
-          content: "Cat 🐱",
+          content: "Tips... 👌​​",
           value: 1,
-          goTo: "error",
+          goTo: "tips",
         },
         {
-          content: "Dog 🐶",
+          content: "seasonal sneakers 👟​​",
           value: 2,
-          goTo: 3,
+          goTo: "season",
         },
         {
-          content: "Bear 🐻",
+          content: "contact information ✍️​",
           value: 3,
-          goTo: "error",
+          goTo: "contact",
         },
       ],
     },
     {
-      id: "error",
-      content: "You're wrong! Try again...",
-      goTo: 2,
+      id: "season",
+      content: "It's autumn 🍂. We recommend warm shoes...",
+      end: true,
     },
     {
-      id: 3,
-      content: "Wow! You're good! I give up...",
-      goTo: 4,
+      id: "tips",
+      content: "temperate days ☀️​, going for a run is a good option 🏃‍♀️ ​🏃. Have you seen our running shoes? 👟​​",
+      end: true,
     },
     {
-      id: 4,
-      content: "Bye!",
+      id: "contact",
+      content: "email: bluebirdcommerce@gmail.com. You can also find us on the networks",
       end: true,
     },
   ];
-    
-return (
-  //<ThemeProvider theme={theme}>
-      <ChatBot steps={steps} {...config} />
-  // </ThemeProvider>
-  )
-}
+
+const ChatbotBB = () => (
+  <Chatbot steps={steps} />
+);
+
+export default ChatbotBB;

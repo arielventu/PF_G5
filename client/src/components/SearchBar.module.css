@@ -42,6 +42,7 @@
   flex-direction: column;
   z-index: 999;
   border: 1px solid gray;
+  border-radius: 5px;
 }
 
 .dropdown:empty {
@@ -51,6 +52,7 @@
 .dropdownrow {
   cursor: pointer;
   text-align: start;
+  color: gray;
   margin: 2px 0;
 }
 

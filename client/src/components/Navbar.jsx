@@ -10,6 +10,7 @@ import fav from "../image/favorito.png"
 import swal from 'sweetalert';
 import { useDispatch, useSelector } from 'react-redux';
 import Favorites from './Favorites';
+import index from '../favoriteAndCar'
 import { useAuth0 } from '@auth0/auth0-react';
 import { getUserRoles, getApiJWT } from "../actions/actions"
 if (localStorage.getItem('carrito') === null ) {
@@ -18,6 +19,8 @@ if (localStorage.getItem('carrito') === null ) {
 if (localStorage.getItem('favoritos') === null ) {
   localStorage.setItem('favoritos', JSON.stringify([]))
 }
+localStorage.setItem('authenticated', 'false')
+
 const Navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
   const [ droppedMenu, setDroppedMenu ] = useState(false);
@@ -25,14 +28,20 @@ const Navbar = () => {
   const [ loadingInfo, setLoadingInfo ] = useState(false);
   const favo = useSelector((state) => state.favorites)  
   const car = useSelector((state) => state.shoppingCar)  
+  const products = useSelector(state => state.shoes)
   const dispatch = useDispatch() 
   const navigation = useNavigate()
   var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+ // if(localStorage.getItem('authenticated') === "true")index(user,products)
+ index(user,products)
+  //if (user === undefined) localStorage.setItem('authenticated', 'false');
+  if (isAuthenticated) localStorage.setItem('authenticated', 'true');
 
-  console.log(user)
+  // console.log(user)
 
+  console.log("primero",localStorage.getItem('authenticated'))
 
   const getToken = () => {
     return new Promise( (resolve, reject) => {
@@ -73,7 +82,7 @@ const Navbar = () => {
       getToken()
         .then( apiToken => getUserRoles(user.sub, apiToken) )
         .then( data => {
-          console.log(data)
+          // console.log(data)
           if (data.length === 0) {
             setAdmin(false)
           }
@@ -106,10 +115,11 @@ const Navbar = () => {
   }
 
   const myOrdersRedirect = () => {
-    navigation("/my-orders")
+    navigation("/orders")
   }
+ 
   
-  console.log(user)
+  // console.log(user)
   return (
     <>
       <div className={styles.container}>
@@ -144,7 +154,9 @@ const Navbar = () => {
               </div>
             )
           ) : (
-            <></>
+            <div className={styles.divLogin}>
+              <button className={styles.loginText}>Loading...</button>
+            </div>
           )}
         </div>
         <ul className={styles.menu}>

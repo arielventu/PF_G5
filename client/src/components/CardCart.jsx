@@ -1,6 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import { firstWordBye } from '../utils';
 import styles from './CardCart.module.css'
+import axios from "axios"
 // import rating from '../image/rating.png'
 import Favorites from "./Favorites";
 import { favorites, ShopCar, getReviewsById } from "../actions/actions";
@@ -101,6 +102,7 @@ export default function CardCart({img, fullName, price,component,id,state,selecS
                     return item
                 }
             })
+            if(localStorage.getItem('authenticated') === "true")  axios.delete(`http://localhost:3001/basketList/${value}`)
             localStorage.setItem('carrito', JSON.stringify(filterA));
             dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
         }
@@ -181,7 +183,7 @@ export default function CardCart({img, fullName, price,component,id,state,selecS
               </div>}
               </div>
               <p className={styles.price}>${new Intl.NumberFormat("en-EN").format(price)}</p>
-              <p className={styles.price}>size {selecSize}</p>
+              {/* <p className={styles.price}>size {selecSize}</p> */}
             <div className={styles.icontainer}>
                 <div className={styles.counter}>
                     <button onClick={handleDecrement} id={id} className={styles.bquantity}>-</button>

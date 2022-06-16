@@ -11,13 +11,17 @@ const SearchBar = () => {
   const data = useSelector((state) => state.shoes3);
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [data.length]);
   
   const dataMap = data.map(e => e.name);
-  console.log(dataMap, "data data data");
+<<<<<<< HEAD
+  //console.log(dataMap, "data data data");
 
 
 
+=======
+  
+>>>>>>> de673b868b999d1eeabba03e2d6809f06fa69029
   // const [keyword, setKeyword] = useState('')
   // const dispatch = useDispatch();
   
