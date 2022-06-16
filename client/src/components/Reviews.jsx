@@ -21,7 +21,7 @@ const Reviews = ({ productId, name }) => {
     dispatch(getReviewsById(productId));
     setReviewsList([]);
     setReviewsList(reviewsById);
-  }, [productId, reviewsById.length, reviewsById[0]?.id]);
+  }, [productId, reviewsById, reviewsById.length, reviewsById[0]?.id, reviewsById[0]?.review]);
   
   // useEffect(() => {
   //   dispatch(getReviewsById(productId));

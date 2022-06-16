@@ -47,22 +47,26 @@ export default function Detail(){
   useEffect( () => {
     dispatch(getProducts())
     dispatch(getStockByProductId(id))    
+    dispatch(getOrders());
     console.log(stockProductId)
     let arraySizeUnit = []
     arraySizeUnit =  JSON.parse(localStorage.getItem('favoritos'))
     const idMap = arraySizeUnit.find(item => item.id === id)
     // console.log(idMap)
-  }, [])
+  }, [dispatch])
   
   useEffect(() => {
-    dispatch(getOrders());
-    // console.log(orders)
-    const findedOrders = orders.filter(order => order.customer.id === user?.sub)
-    // console.log("FINDED", findedOrders)
-    const findedProduct = findedOrders.find(order => order.orderdetails.find(product => product.id === Number(id)))
-    // console.log("FINDED PRODUCTS", findedProduct)
+    showButton()
+  }, [isAuthenticated, id, dispatch, orders])
+  
+  const showButton = () => {
+  // console.log(orders)
+  const findedOrders = orders.filter(order => order.customer.id === user?.sub)
+  // console.log("FINDED", findedOrders)
+  const findedProduct = findedOrders.find(order => order.orderdetails.find(product => product.id === Number(id)))
+  // console.log("FINDED PRODUCTS", findedProduct)
     findedProduct ? setShowAddReview(true) : setShowAddReview(false)
-  }, [isAuthenticated, id])
+  }
 
   useEffect(() => {
     setotrasFotos(detailstate2.imagecover)
