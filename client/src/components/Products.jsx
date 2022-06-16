@@ -302,7 +302,7 @@ const Products = () => {
                   <td>{e.id}</td>
 
                   <td>
-                    <img
+                    <img className={styles.imageCover}
                       src={e.imagecover}
                       alt="img not found!"
                       width="80"
@@ -529,7 +529,7 @@ const Products = () => {
             />
 
           <ModalFooter>
-            <Button color="secundary" onClick={() => closeModalVariants()}>
+            <Button className={styles.bclosev} color="secundary" onClick={() => closeModalVariants()}>
               Close
             </Button>
           </ModalFooter>  
