@@ -2,7 +2,7 @@ const orders = [
   {
     orderDate: "2022-06-01T04:33:12.000Z",
     amount: 24000,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "Chabuco 1580",
     orderEmail: "lestap523@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|100899213157859968687",
@@ -10,7 +10,7 @@ const orders = [
   {
     orderDate: "2022-06-01T04:33:12.000Z",
     amount: 11500,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "CL 34 52 37",
     orderEmail: "dianacorts@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|100810497740092440206",
@@ -18,7 +18,7 @@ const orders = [
   {
     orderDate: "2022-06-02T04:33:12.000Z",
     amount: 11500,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "CL 34 52 37",
     orderEmail: "dianacorts@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|100810497740092440206",
@@ -26,7 +26,7 @@ const orders = [
   {
     orderDate: "2022-06-03T04:33:12.000Z",
     amount: 11500,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "Av. Santa Fe 4815",
     orderEmail: "arielventu@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|112420871468081807642",
@@ -34,7 +34,7 @@ const orders = [
   {
     orderDate: "2022-06-04T04:33:12.000Z",
     amount: 11500,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "Av. Santa Fe 4815",
     orderEmail: "arielventu@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|112420871468081807642",
@@ -42,7 +42,7 @@ const orders = [
   {
     orderDate: "2022-06-05T04:33:12.000Z",
     amount: 11500,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "Av. Santa Fe 4815",
     orderEmail: "arielventu@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|112420871468081807642",
@@ -50,7 +50,7 @@ const orders = [
   {
     orderDate: "2022-06-06T04:33:12.000Z",
     amount: 23000,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "Chabuco 1580",
     orderEmail: "lestap523@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|100899213157859968687",
@@ -58,7 +58,7 @@ const orders = [
   {
     orderDate: "2022-06-08T04:33:12.000Z",
     amount: 11500,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "Pedro Carrasco 31",
     orderEmail: "javierferrarimezher@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|103024745375955293192",
@@ -66,7 +66,7 @@ const orders = [
   {
     orderDate: "2022-06-09T04:33:12.000Z",
     amount: 11500,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "Av. Cnel. Diaz 2190",
     orderEmail: "ivo.monzon.im@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|109608505870686205941",
@@ -74,7 +74,7 @@ const orders = [
   {
     orderDate: "2022-06-10T04:33:12.000Z",
     amount: 11500,
-    shippingAddress: "CL XX XX XX",
+    shippingAddress: "CR 41B 73 125",
     orderEmail: "evillalba510@gmail.com",
     orderStatus: "completed",
     customerId: "google-oauth2|115385561392133755844",
