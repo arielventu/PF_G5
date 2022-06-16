@@ -17,6 +17,17 @@ body {
   background-color: white;
 }
 
+.float {
+  float: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.imagesCont {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
 .innercontainer {
   display: flex;
 }
@@ -35,6 +46,10 @@ h3 {
   display: flex;
 }
 
+.innercontainer:hover {
+  transform: translateY(-1.2px);
+}
+
 .innercontainer2 {
   display: flex;
   justify-content: space-between;
@@ -45,13 +60,6 @@ h3 {
   display: flex;
   margin-top: 2.5rem;
   align-items: center;
-}
-
-.stock {
-  position: absolute;
-  font-size: 1.5rem;
-  margin-left: 26.3rem;
-  color: rgb(253, 53, 27);
 }
 
 .price {
@@ -116,14 +124,14 @@ select {
 
 .add {
   padding: 0.8rem;
-  width: 58%;
+  width: 80%;
   font-size: 1.5rem;
   font-family: Koulen;
   border: none;
   background: linear-gradient(180deg, #79f7ff 0%, #6584d5 66.67%);
   color: white;
   border-radius: 0.3rem;
-  margin-left: 3.8rem;
+  margin-left: 2rem;
 }
 
 .add:hover {
@@ -133,7 +141,7 @@ select {
 
 .fav {
   height: 4.2rem;
-  margin-left: 1.5rem;
+  margin-left: 2rem;
   filter: invert(79%) sepia(21%) saturate(1278%) hue-rotate(161deg)
     brightness(94%) contrast(94%);
 }
@@ -260,4 +268,66 @@ select {
 .buttonAddReview:hover {
   cursor: pointer;
   background: linear-gradient(180deg, #68e1ec 0%, #6584d5 66.67%);
+}
+
+@media screen and (max-width: 950px) {
+  .containerp {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .img {
+    height: 20rem;
+    width: auto;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .innercontainer {
+    margin-top: 1rem;
+  }
+
+  .subtitles {
+    font-size: 1.2rem;
+  }
+
+  .innercontainer2 {
+    margin-top: -0.5rem;
+  }
+
+  .innercontainer3 {
+    margin-top: 0.5rem;
+  }
+
+  .otherimg {
+    height: 3rem;
+    width: auto;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+
+  .add {
+    width: 110rem;
+    margin-right: 0.02rem;
+    margin-left: 0rem;
+  }
+
+  .fav {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 3rem;
+    width: auto;
+  }
 }

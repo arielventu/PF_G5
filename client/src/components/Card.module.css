@@ -3,7 +3,7 @@
   /* margin-left: 1rem;
   margin-right: 1rem; */
   margin-bottom: 3rem;
-  height: 22.5rem;
+  height: 23.5rem;
   width: 14rem;
   overflow: hidden;
   color: black;
@@ -53,6 +53,7 @@
   cursor: pointer;
   position: left;
   margin-right: 0.5rem;
+  margin-top: 1rem;
 }
 
 .bfav:hover {
@@ -74,7 +75,7 @@
 }
 
 .pStars {
-  margin: 0 0 0 .3rem;
+  margin: 0 0 0 0.3rem;
   font-size: 0.9rem;
 }
 

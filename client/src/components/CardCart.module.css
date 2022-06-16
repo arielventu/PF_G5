@@ -1,6 +1,6 @@
 .containercart {
   background-color: rgba(223, 221, 221, 0.993);
-  height: 11rem;
+  height: 13rem;
   width: 35rem;
   color: black;
   align-items: center;
@@ -16,18 +16,18 @@
 
 .icontainer {
   display: flex;
-  margin-top: 3rem;
+  margin-top: 1.9rem;
 }
 
 .h2 {
   margin-top: 0.2rem;
   margin-left: 0.2rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .img {
   float: left;
-  height: 10.8rem;
+  height: 12.8rem;
   width: 10.8rem;
   margin-right: 1rem;
   background-color: white;
@@ -35,11 +35,10 @@
 }
 
 .price {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   margin-left: 0.2rem;
   text-decoration: none;
-  font-size: 1.3rem;
-  margin-bottom: 0.01rem;
+  font-size: 1.2rem;
   font-family: Koulen;
 }
 
@@ -69,7 +68,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0.5rem;
   background-color: white;
   height: 1.4rem;
   font-family: Cabin;
@@ -107,4 +105,50 @@
 .starAvg {
   width: 1rem;
   margin: 0 0.1rem 0 0.1rem;
+}
+
+@media screen and (max-width: 950px) {
+  .containercart {
+    width: 21rem;
+    height: 10rem;
+  }
+
+  .img {
+    float: left;
+    height: 8rem;
+    width: auto;
+  }
+
+  .h2 {
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 0.8rem;
+  }
+
+  .icontainer {
+    margin-top: 1rem;
+  }
+
+  .counter {
+    height: 1.2rem;
+  }
+
+  .quantity {
+    width: 2rem;
+  }
+
+  .bquantity {
+    height: 1.3rem;
+  }
+
+  .bfav {
+    margin-left: 9rem;
+    margin-top: -0.1rem;
+  }
+
+  .starAvg {
+    width: 0.8rem;
+  }
 }

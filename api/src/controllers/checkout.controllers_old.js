@@ -1,11 +1,11 @@
 const mercadopago = require('mercadopago');
 const { MP_ACCESS_TOKEN, REACT_HOST } = process.env;
-const { Customers, Orders, Orderdetails, Product, Stock } = require('../db');
+const { Customers, Orders, Orderdetails, Product } = require('../db');
 const axios = require('axios');
 
 
-
 const postOrder = async (req, res) => {
+    
     // Configuramos una instancia de la herramienta de mercadopago con el access token de la aplicacion CheckoutPro creada
     mercadopago.configure({
         access_token: `${MP_ACCESS_TOKEN}`
@@ -87,9 +87,7 @@ const postOrder = async (req, res) => {
             return Orderdetails.create({
                 price: detail.price,
                 quantity: detail.quantity,
-                productId: detail.productId,
-                productUrl: detail.productUrl,
-                sizeId: detail.size
+                productId: detail.productId
             })
             .then( detail => detail.setOrder(orderUpdated.id) )
         })
@@ -150,7 +148,6 @@ const completeOrder = async ( req, res ) => {
     // debemos poner la orden con estado COMPLETADA en la base de datos
     const { orderId } = req.body;
     // const orderId = 10 ---> TEST
-    let uOrder = {};
 
     Orders.findByPk(orderId, {
         include: [
@@ -170,70 +167,24 @@ const completeOrder = async ( req, res ) => {
         return order.save()
     })
     .then( updatedOrder => {
-        // console.log(updatedOrder.dataValues)
-        uOrder = updatedOrder;
-        return Orderdetails.findAll({
-            where: {
-                ordersId: updatedOrder.dataValues.id
-            },
-            include: [
-                { model: Product }
-            ]
-        })
-        // Stock.findAll({
-        //     where: {
-        //         productId: updated
-        //     }
-        // })
-        // let mailOptions = {
-        //     method: "POST",
-        //     url: "/sendemail",
-        //     data: {
-        //         amount: updatedOrder.amount,
-        //         shippingAddress: updatedOrder.shippingAddress,
-        //         orderEmail: updatedOrder.orderEmail,
-        //         orderStatus: 'completed',
-        //         image: updatedOrder.dataValues.orderdetails[0].product.imagecover,
-        //         customer: 'test name'
-        //     }
-        // }
+        console.log(updatedOrder.datavalues)
+        
+        let mailOptions = {
+            method: "POST",
+            url: "/sendemail",
+            data: {
+                amount: updatedOrder.amount,
+                shippingAddress: updatedOrder.shippingAddress,
+                orderEmail: updatedOrder.orderEmail,
+                orderStatus: 'completed',
+                image: updatedOrder.dataValues.orderdetails[0].product.imagecover,
+                customer: 'test name'
+            }
+        }
         // return axios.request(mailOptions)
         // .then( response => res.json(updatedOrder))
 
-        // res.json(updatedOrder)
-    })
-    .then( orderDetails => {
-        // console.log(orderDetails[0].dataValues.product.dataValues.id);
-        let prodIds = orderDetails.map( orderDetail => {
-            return orderDetail.dataValues.product.dataValues.id
-        })
-        console.log(prodIds)
-        let stocksProm = prodIds.map( id => {
-            return Stock.findAll({
-                where: {
-                    productId: id
-                }
-            })
-        })
-        return Promise.all(stocksProm)
-    })
-    .then( stockArr => {
-        // console.log(stockArr[0][0].dataValues.id)
-        let stocksIds = stockArr.map( stock => {
-            return Promise.all(stock.map( prodStock => {
-                return Stock.findByPk(prodStock.dataValues.id).then( realStock => {
-                    if ( realStock.quantity > 0 ) {
-                        realStock.quantity = realStock.quantity - 1;
-                    }
-                    return realStock.save()
-                })
-            }))
-        })
-        return Promise.all(stocksIds)
-    })
-    .then( resp => {
-        console.log(resp)
-        res.json(uOrder)
+        res.json(updatedOrder)
     })
     // .then( res => console.log(res) )
     .catch( function (error) {

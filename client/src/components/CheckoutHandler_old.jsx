@@ -1,15 +1,12 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import { completeCheckoutOrder, getApiJWT, ShopCar, discountStock } from '../actions/actions'
+import { completeCheckoutOrder, getApiJWT, ShopCar } from '../actions/actions'
 import Card from './Card'
 import styles from './CheckoutHandler.module.css';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 
-const CheckoutHandler =  () => {
-
-    let inicio = true;
+const CheckoutHandler = () => {
 
     const { status } = useParams();
     console.log(status)
@@ -47,32 +44,16 @@ const CheckoutHandler =  () => {
     // console.log(mpCheckoutCompleted);
 
     let orderId = mpCheckoutCompleted.external_reference;
-    
-    const initiate = () => {
+        
+    useEffect(() => {
         getToken()
         .then( apiToken => completeCheckoutOrder( orderId, apiToken ))
         .then( order => {
-            // console.log(order)
             setCompletedOrder(order);
             localStorage.setItem('carrito', JSON.stringify([]));
             dispatch(ShopCar( JSON.parse(localStorage.getItem('carrito'))))
-            return axios.post('/sendemail', {
-                amount: order.data.amount,
-                shippingAddress: order.data.shippingAddress,
-                orderEmail: order.data.orderEmail,
-                orderDate: order.data.orderDate,
-                orderStatus: order.data.orderStatus,
-                // image: order.data.orderdetails[0].product.imagecover,
-                customer: order.data.customer.fullName,
-                orderdetails: order.data.orderdetails
-            });
         })
-        .then( mailRes => console.log(mailRes) )
         .catch( err => console.log(err) )
-    }
-
-    useEffect(() => {
-        initiate();
     },[])
         
     const continueShopping = () => {

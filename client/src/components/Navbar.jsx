@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SearchBar from './SearchBar'
 import cart from "../image/cart.png"
 import BlueBird from "../image/BlueBird.svg"
+import burger from "../image/iconBurger.png"
 import userQuest from "../image/userQuest.png"
 import loadingNavInfo from "../image/loadingNavInfo.gif"
 import styles from './Navbar.module.css';
@@ -26,12 +27,12 @@ const Navbar = () => {
   const favo = useSelector((state) => state.favorites)  
   const car = useSelector((state) => state.shoppingCar)  
   const dispatch = useDispatch() 
-  const navigation = useNavigate()
+  const navegation = useNavigate()
   var valit = ""
   var arrayCar = JSON.parse(localStorage.getItem('carrito'))
   var arrayFav = JSON.parse(localStorage.getItem('favoritos'))
 
-  // console.log(user)
+  console.log(user)
 
 
   const getToken = () => {
@@ -52,16 +53,16 @@ const Navbar = () => {
     if (valit ==="favorites") {
       console.log("favorito")
       if (localStorage.getItem('favoritos') === "[]") {
-        return navigation(1)
+        return navegation(1)
       }else{
-        navigation("/favorites")
+        navegation("/favorites")
       }      
     }
     if (valit ==="car") {
       if (localStorage.getItem('carrito') === "[]") {
-        return navigation(1)
+        return navegation(1)
       }else{
-        navigation("/shoppingCar")
+        navegation("/shoppingCar")
       }    
     }  
   }
@@ -73,7 +74,7 @@ const Navbar = () => {
       getToken()
         .then( apiToken => getUserRoles(user.sub, apiToken) )
         .then( data => {
-          // console.log(data)
+          console.log(data)
           if (data.length === 0) {
             setAdmin(false)
           }
@@ -98,22 +99,21 @@ const Navbar = () => {
   }
 
   const profileRedirect = () => {
-    navigation("/user-profile")
+    navegation("/user-profile")
   }
 
   const administrationRedirect = () => {
-    navigation("/administration")
+    navegation("/administration")
   }
 
   const myOrdersRedirect = () => {
-    navigation("/orders")
+    navegation("/my-orders")
   }
   
-  // console.log(user)
+  console.log(user)
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.leftContent}>
           <Link to="/" className={styles.divLogo}>
             <div>
               <img
@@ -123,7 +123,13 @@ const Navbar = () => {
               />
             </div>
           </Link>
-          { !isLoading ? (
+        <div className={styles.divSearch}>
+          <SearchBar />
+        </div>
+        <div className={styles.navigation}>
+        <input type="checkbox" className={styles.toggleMenu}/>
+        <div className={styles.burgerMenu}></div>
+        { !isLoading ? (
               isAuthenticated ? (
               <div className={styles.divLogin} onClick={() => dropMenu()}>
                 <img className={styles.pictureprofile} src={user?.picture}/>
@@ -133,22 +139,17 @@ const Navbar = () => {
                 </button>
               </div>
             ) : (
-              <div className={styles.divLogin} onClick={() => loginWithRedirect()}>
-                <button
-                  className={styles.loginText}
-                  onClick={() => loginWithRedirect()}
-                >
-                  {" "}
-                  Login{" "}
-                </button>
-              </div>
+              <button
+                className={styles.loginText}
+                onClick={() => loginWithRedirect()}
+              >
+                {" "}
+                Login{" "}
+              </button>
             )
           ) : (
-            <div className={styles.divLogin}>
-              <button className={styles.loginText}>Loading...</button>
-            </div>
+            <></>
           )}
-        </div>
         <ul className={styles.menu}>
           <Link to="/">
             <button className={styles.buttonNavBar}>Home</button>
@@ -177,8 +178,6 @@ const Navbar = () => {
             </div>
           </div>
         </ul>
-        <div className={styles.divSearch}>
-          <SearchBar />
         </div>
         { droppedMenu && 
           <div className={styles.drpMenuStyles}>

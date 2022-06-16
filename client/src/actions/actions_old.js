@@ -511,25 +511,6 @@ export function postStock(payload) {
       console.log(error);
     }
   };
-};
-
-
-export function discountStock( orderdetails ) {
-  return async function (dispatch) {
-    try {
-      console.log('discount from actions')
-      console.log(orderdetails)
-      await axios.post(`/stock/discount`, orderdetails).then( stock => {
-        dispatch({
-          type: POST_STOCK,
-          payload: stock.data
-        })
-      })
-    }
-    catch (err) {
-      console.log( err );
-    }
-  }
 }
 /* export function getSizes (){ 
     return async function (dispatch){
@@ -757,5 +738,4 @@ export function postOrderDetails(payload) {
       console.log(error);
     }
   };
-};
-
+}

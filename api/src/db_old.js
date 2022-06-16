@@ -129,9 +129,6 @@ Orderdetails.belongsTo(Orders, { foreignKey: "ordersId", targetId: "id" });
 Product.hasMany(Orderdetails, { foreignKey: "productId", sourceKey: "id" });
 Orderdetails.belongsTo(Product, { foreignKey: "productId", targetId: "id" });
 
-Sizes.hasMany(Orderdetails, { foreignKey: "sizeId", sourceKey: "id" });
-Orderdetails.belongsTo(Sizes, { foreignKey: "sizeId", targetId: "id" });
-
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
