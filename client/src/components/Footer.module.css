@@ -81,72 +81,71 @@ li {
   cursor: pointer;
 }
 
-.botClosed{
-  position: absolute;
-  bottom: 9rem;
-  left: 1.5rem;
-  /* margin-top: 45vh; */
-  visibility: hidden;
-}
-
-.botOpen{
-  position: fixed;
-  /* position: relative; */
-  /* margin-top: 15rem; */
-  bottom: 9rem;
-  left: 2rem;
-  z-index: 999;
-  visibility: visible;
-  transition: ease-in-out 2s;
-}
-
-.closeBotHidden{
-  display: none;
-}
-
-.closeBot{
-  position: fixed;
-  border: 0.17rem solid white;
-  border-radius: 50%;
-  bottom: 5rem;
-  left: 1rem;
-  z-index: 999;
-  width: 3.5rem;
-  height: 3.5rem;
-  cursor: pointer;
-  background-image: url("../image/close.svg");
-  background-color: rgb(106, 203, 233);
-  background-size: 3rem;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
-}
-
-.bubbleClosed{
-  display: none;
-}
-
-.bubbleOpen{
-  position: fixed;
-  border: 0.17rem solid white;
-  border-radius: 50%;
-  width: 3.5rem;
-  height: 3.5rem;
-  z-index: 999;
-  bottom: 5rem;
-  left: 1rem;
-  cursor: pointer;
-  background-image: url("../image/BlueBird.svg");
-  background-color: rgb(106, 203, 233);
-  background-size: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
-}
-
-@media (max-width: 360px) {
+@media (max-width: 600px) {
+  .container {
+    height: 38rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .innercontainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5em;
+    align-items: center;
+  }
+
+  .innercontainer2 {
+    margin-top: -2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid rgb(197, 194, 194);
+  }
+
+  .bluetitle {
+    text-align: center;
+  }
+
+  .footertitles {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .link {
+    display: flex;
+    justify-content: center;
+  }
+
+  .lista_resp {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    margin-right: 1rem;
+    margin-bottom: -1rem;
+  }
+
+  .copyright {
+    margin-top: 3rem;
+  }
+
+  .footernav {
     margin-top: 2rem;
-    color: rgb(145, 143, 143);
+    list-style: none;
+    margin-right: 2rem;
+  }
+
+  .flink {
+    margin-right: 1rem;
+  }
+
+  .sociallinks {
+    margin-right: 2rem;
+    list-style: none;
+    margin-top: 2rem;
+  }
+
+  .icono {
+    margin-left: 1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
   }
 }

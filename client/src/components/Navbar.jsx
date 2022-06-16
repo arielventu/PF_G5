@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SearchBar from './SearchBar'
 import cart from "../image/cart.png"
 import BlueBird from "../image/BlueBird.svg"
+import burger from "../image/iconBurger.png"
 import userQuest from "../image/userQuest.png"
 import loadingNavInfo from "../image/loadingNavInfo.gif"
 import styles from './Navbar.module.css';
@@ -123,7 +124,6 @@ const Navbar = () => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.leftContent}>
           <Link to="/" className={styles.divLogo}>
             <div>
               <img
@@ -133,7 +133,13 @@ const Navbar = () => {
               />
             </div>
           </Link>
-          { !isLoading ? (
+        <div className={styles.divSearch}>
+          <SearchBar />
+        </div>
+        <div className={styles.navigation}>
+        <input type="checkbox" className={styles.toggleMenu}/>
+        <div className={styles.burgerMenu}></div>
+        { !isLoading ? (
               isAuthenticated ? (
               <div className={styles.divLogin} onClick={() => dropMenu()}>
                 <img className={styles.pictureprofile} src={user?.picture}/>
@@ -158,7 +164,6 @@ const Navbar = () => {
               <button className={styles.loginText}>Loading...</button>
             </div>
           )}
-        </div>
         <ul className={styles.menu}>
           <Link to="/">
             <button className={styles.buttonNavBar}>Home</button>
@@ -187,8 +192,6 @@ const Navbar = () => {
             </div>
           </div>
         </ul>
-        <div className={styles.divSearch}>
-          <SearchBar />
         </div>
         { droppedMenu && 
           <div className={styles.drpMenuStyles}>
