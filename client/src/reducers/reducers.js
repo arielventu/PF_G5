@@ -131,7 +131,7 @@ export default function rootReducer(state = initialState, { payload, type }) {
           shoes: cat,
         };
       case FILTER_BY_SIZE:
-        const all = state.auxShoes;
+        const all = state.shoes;
         const size = [];
         console.log(payload)
         payload === "All"

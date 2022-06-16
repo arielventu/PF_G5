@@ -13,7 +13,7 @@ const Shop = () => {
   const products = useSelector(state => state.shoes)
   const auxProducts = useSelector(state => state.auxShoes)
   const bestFor = useSelector(state => state.categories)
-  const categories = useSelector(state => state.shoes3)
+  const categories = useSelector(state => state.auxShoes)
   const colors = useSelector(state => state.colors)
   const size = useSelector(state => state.sizes)
   /* console.log(size) */
