@@ -5,53 +5,82 @@ body {
 .container {
   background-color: white;
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+  /* flex-direction: row; */
   align-items: center;
   width: 100%;
   height: 4rem;
   /* border: 1px solid black; */
   font-family: Cabin;
   border-bottom: 0.08rem solid rgb(190, 190, 190);
-}
-
-.leftContent {
-  display: flex;
-  /* align-items: center; */
-  flex-direction: row;
-  width: 25%;
-  /* border: 1px solid black; */
-  justify-content: flex-start;
-  /* align-items: center; */
-  height: 100%;
+  margin-right: 15rem;
 }
 
 .divLogo {
-  margin: 0;
+  left: 0;
   padding: 0;
   /* border: 1px solid black; */
   width: 30%;
-  display: flex;
-  align-items: center;
+}
+
+.drpMenuStyles {
+  margin-left: 50rem;
+}
+
+.burgerMenu {
+  position: relative;
+  width: 2rem;
+  height: 0.4rem;
+  background-color: black;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.3s;
+  margin-right: -20rem;
+}
+
+.burgerMenu:before,
+.burgerMenu:after {
+  content: "";
+  position: absolute;
+  height: 0.4rem;
+  right: 0;
+  background-color: black;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.burgerMenu:before {
+  top: -0.8rem;
+  width: 2rem;
+}
+
+.burgerMenu:after {
+  top: 0.8rem;
+  width: 2rem;
 }
 
 .logo {
-  margin: 0 0 0 0.5rem;
-  width: 90%;
+  width: 6rem;
+  margin-left: -2rem;
   /* border: 1px solid black; */
 }
 
 .divLogin {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  width: 70%;
   align-items: center;
+  width: 10rem;
+  margin-left: -1rem;
+  /* margin-right: 20rem; */
   /* border: 1px solid black; */
 }
 
 .pictureprofile {
-  height: 75%;
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
+  /* margin: 0 2.5%; */
 }
 
 .loginText {
@@ -61,7 +90,7 @@ body {
   border: none;
   text-decoration: none;
   background-color: transparent;
-  width: fit-content;
+  width: 8rem;
   /* border: 1px solid black; */
 }
 
@@ -69,6 +98,47 @@ body {
   cursor: pointer;
   /* border-bottom: 0.1rem solid rgb(226, 226, 226); */
   background-color: rgb(106, 203, 233);
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.toggleMenu {
+  position: absolute;
+  width: 2rem;
+  height: 100%;
+  z-index: 3;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.burgerMenu,
+.toggleMenu {
+  display: none;
+}
+
+.navigation input:checked ~ .burgerMenu {
+  background: transparent;
+}
+
+.navigation input:checked ~ .burgerMenu:before {
+  top: 0;
+  transform: rotate(-45deg);
+  width: 2rem;
+}
+
+.navigation input:checked ~ .burgerMenu:after {
+  top: 0;
+  transform: rotate(45deg);
+  width: 2rem;
+}
+
+.navigation input:checked ~ .menu {
+  right: 3.5rem;
 }
 
 .menu {
@@ -79,6 +149,8 @@ body {
   margin: 0;
   width: 50%;
   padding: 0;
+  margin-right: -1rem;
+  /* flex-direction: row; */
   /* border: 1px solid black; */
 }
 
@@ -144,7 +216,7 @@ a {
 .drpMenuStyles {
   position: fixed;
   z-index: 1000;
-  background-color: #F1F2F3;
+  background-color: #f1f2f3;
   /* border-end-end-radius: 10px;
   border-end-start-radius: 10px; */
   border: 1px solid rgb(106, 203, 233);
@@ -164,7 +236,7 @@ a {
 
 .divSearch {
   width: 25%;
-  padding-right: 1.5rem;
+  margin-left: -10rem;
 }
 
 .iconsCartFav {
@@ -181,9 +253,87 @@ a {
   cursor: pointer;
 }
 
-
-@media (max-width: 600px) {
+@media screen and (max-width: 950px) {
   .container {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    /* margin-right: 1rem; */
+  }
+
+  .loginText {
+    margin-left: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .divLogin {
+    width: 4rem;
+    margin-right: 1rem;
+  }
+
+  .pictureprofile {
     display: none;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .burgerMenu,
+  .toggleMenu {
+    display: block;
+    margin-right: -110rem;
+  }
+
+  /* .divSearch {
+    width: 3rem;
+    margin-right: -4rem;
+  } */
+
+  .menu {
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 4rem;
+    right: -30rem;
+    background-color: white;
+    width: 5rem;
+    height: 12rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    z-index: 10;
+    border: 0.1rem solid rgb(106, 203, 233);
+  }
+
+  .favCarBtns {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .icon {
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .buttonNavBar {
+    margin-top: 1rem;
+    margin-right: 1.8rem;
+    font-size: 0.8rem;
+  }
+
+  .iconsCartFav {
+    margin-top: -3.5rem;
+    margin-left: 2rem;
+  }
+
+  .drpMenuStyles {
+    margin-left: 13rem;
+    width: 5rem;
+  }
+
+  .customFont {
+    font-size: 0.8rem;
   }
 }

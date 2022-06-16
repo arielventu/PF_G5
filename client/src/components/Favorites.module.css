@@ -10,3 +10,12 @@
   display: flex;
   margin-left: 3rem;
 }
+
+@media screen and (max-width: 950px) {
+  .icontainerfav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
+}

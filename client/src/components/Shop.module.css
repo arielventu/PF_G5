@@ -272,3 +272,35 @@
   align-items: center;
   width: 100vw;
 }
+
+@media screen and (max-width: 950px) {
+  .filtersContainer {
+    width: 5rem;
+  }
+
+  .divFiltersTitle {
+    margin-bottom: 0.8rem;
+  }
+
+  .filtersTitle {
+    font-size: 1.2rem;
+  }
+
+  .filtersSubtitle {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .radioLabel {
+    font-size: 0.7rem;
+  }
+
+  .colorName {
+    font-size: 0.7rem;
+  }
+
+  .input {
+    height: 0.5rem;
+    width: 0.5rem;
+  }
+}
