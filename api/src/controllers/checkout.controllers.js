@@ -88,6 +88,7 @@ const postOrder = async (req, res) => {
                 price: detail.price,
                 quantity: detail.quantity,
                 productId: detail.productId,
+                productUrl: detail.productUrl,
                 sizeId: detail.size
             })
             .then( detail => detail.setOrder(orderUpdated.id) )
