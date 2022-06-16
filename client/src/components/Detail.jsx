@@ -227,7 +227,9 @@ export default function Detail(){
           <p className={styles.description}>{detailstate2.detail}</p>
           <div className = {styles.innercontainer}>
             <h3 className={styles.subtitles}>Sizes:</h3>
-            <select onChange={(e)=>select(e)}>{lala.map(item => <option value={item}>{item}</option>)}</select>
+            <select onChange={(e) => select(e)}>
+              {stockProductId.map(item => <option value={item.size.size}>{item.size.size}</option>)}
+            </select>
           </div>
           <h3 className={styles.subtitles}>colors:</h3>
           <div className={styles.containercolors}>
@@ -244,13 +246,18 @@ export default function Detail(){
               </Link>
             )}
             )}
-            </div>
+          </div>
+          {stock < 50 && stock >= 10 ? <p className={styles.stock}>last units</p>: null}
+          {stock < 10 && stock >= 5 ? <p className={styles.stock}>less than 10 units</p> : null}
+          {stock < 5 && stock >= 1 ? <p className={styles.stock}>last { stock } units</p>: null}
+          {stock <= 0 && <p className={styles.stock}>out of stock</p>}
+
             {/* <div className={styles.containercolors}>
               <div className={styles.color1} style={{ backgroundColor: `${detailstate2.colors[0]}` }}></div>
               <div className={styles.color2} style={{ backgroundColor: `${detailstate2.colors[1]}` }}></div>
             </div> */}
             <div className = {styles.innercontainer2}>
-              <h5 className={styles.price}> ${detailstate2.price}</h5>
+              <h5 className={styles.price}> ${new Intl.NumberFormat("en-EN").format(detailstate2.price)}</h5>
             {/* <img className={styles.rating} src={rating} alt='rating'/>  */}
             {starsAvg === 1 &&
               <div className={styles.divStarsContainer}>
@@ -308,7 +315,7 @@ export default function Detail(){
                 </div>
               </div>}
             </div>
-
+           
             <div className = {styles.innercontainer3}>
                 <button  className={styles.add} onClick={(e)=>add(e)} value={id}>Add to Cart</button>
                 <img className={styles.fav} onClick={(e)=>favorite(e)} accessKey={id} src={fav} alt='favoritos' title="Add to favorites"/> 
