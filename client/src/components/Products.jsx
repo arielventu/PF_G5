@@ -1,12 +1,22 @@
 // import libraries
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts, postProduct, getCategories, editProduct, getColors } from "../actions/actions";
+import {
+  getProducts,
+  postProduct,
+  getCategories,
+  editProduct,
+  getColors,
+} from "../actions/actions";
 import styles from "./Products.module.css";
-import axios from 'axios';
+import axios from "axios";
 
 //import 'Product.variants (stock)', the auxiliar component.
 import ProductVariants from "./ProductVariants";
+import ModalOwner from "./Modal/Modal";
+
+// for modal screen
+import useModal from "./Hooks/useModal";
 
 // import styles bootstrap and Font Awesome Icon
 // import "bootstrap/dist/css/bootstrap.min.css";
@@ -36,6 +46,7 @@ const Products = () => {
   // initalize local states
   const [all, setProducts] = useState();
   const products = useSelector((state) => state.shoes3);
+
   // console.log(products);
   /*   const [products, setProducts] = useState(
     useSelector((state) => state.auxShoes)
@@ -66,7 +77,7 @@ const Products = () => {
   // get 'redux store' of shoes / products
   const categorie = useSelector((state) => state.categories);
   const colors = useSelector((state) => state.colors);
-  
+
   const dispatch = useDispatch();
   // console.log(categorie);
   useEffect(() => {
@@ -80,38 +91,38 @@ const Products = () => {
   }, [products.length]);
 
   const color = [
-    {name: "black", hex: "#000000" },
-    {name: "white", hex: "#FFFFFF" },
-    {name: "orange", hex: "#FFA500" },
-    {name: "blue", hex: "#0000FF" },
-    {name: "yellow", hex: "#FFFF00" },
-    {name: "purple", hex: "#800080" },
-    {name: "green", hex: "#008000" },
-    {name: "pink", hex: "#FF00FF" },
-    {name: "grey", hex: "#808080" },
-    {name: "beige", hex: "#F5F5DC" },
-    {name: "red", hex: "#FF0000" },
-    {name: "brown", hex: "#800000" },
-  ]
+    { name: "black", hex: "#000000" },
+    { name: "white", hex: "#FFFFFF" },
+    { name: "orange", hex: "#FFA500" },
+    { name: "blue", hex: "#0000FF" },
+    { name: "yellow", hex: "#FFFF00" },
+    { name: "purple", hex: "#800080" },
+    { name: "green", hex: "#008000" },
+    { name: "pink", hex: "#FF00FF" },
+    { name: "grey", hex: "#808080" },
+    { name: "beige", hex: "#F5F5DC" },
+    { name: "red", hex: "#FF0000" },
+    { name: "brown", hex: "#800000" },
+  ];
 
   // ----------------------------------------------------
 
   const showModalUpdate = (data) => {
     console.log(data, "updatingggggdata");
-    const categoriesMap = data.categories.map(e => e.id);
+    const categoriesMap = data.categories.map((e) => e.id);
     setForm({
-    id: data.id,
-    name: data.name,
-    masterName: data.masterName,
-    fullName: data.fullName,
-    gender: data.gender,
-    detail: data.detail,
-    price: data.price,
-    imagecover: data.imagecover,
-    imageurl: data.imageurl,
-    available: data.available,
-    categories: categoriesMap,
-    newCategory: "",
+      id: data.id,
+      name: data.name,
+      masterName: data.masterName,
+      fullName: data.fullName,
+      gender: data.gender,
+      detail: data.detail,
+      price: data.price,
+      imagecover: data.imagecover,
+      imageurl: data.imageurl,
+      available: data.available,
+      categories: categoriesMap,
+      newCategory: "",
     });
     console.log(form, "updatinggggg");
     console.log(categorie, "updatinggggg22222");
@@ -191,7 +202,7 @@ const Products = () => {
           console.log(error);
           console.log(yeison);
         }
-      };
+      }
       editAvailable(data);
       setAvailable((prevStatus) => ({ ...prevStatus, available: !!available }));
     }
@@ -228,8 +239,8 @@ const Products = () => {
     setProducts(list);
     dispatch(postProduct(newForm));
     // console.log(form);
+    setForm(initial);
   };
-
 
   /*  }; */
   /* form.categories=[] */
@@ -244,16 +255,20 @@ const Products = () => {
     name === "imagecover" &&
       setForm({ ...form, [e.target.name]: e.target.value });
     name === "name" && setForm({ ...form, [e.target.name]: e.target.value });
-    name === "fullName" && setForm({ ...form, [e.target.name]: e.target.value });
-    name === "masterName" && setForm({ ...form, [e.target.name]: e.target.value });
+    name === "fullName" &&
+      setForm({ ...form, [e.target.name]: e.target.value });
+    name === "masterName" &&
+      setForm({ ...form, [e.target.name]: e.target.value });
     name === "price" &&
       setForm({ ...form, [e.target.name]: parseInt(e.target.value) });
-    name === "colors" && setForm({ ...form, [e.target.name]: [e.target.value] });
+    name === "colors" &&
+      setForm({ ...form, [e.target.name]: [e.target.value] });
     name === "detail" && setForm({ ...form, [e.target.name]: e.target.value });
     name === "gender" && setForm({ ...form, [e.target.name]: e.target.value });
     name === "categories" &&
       setForm({ ...form, categories: [...form.categories, Number(value)] });
-    name === "newCategory" && setForm({ ...form, [e.target.name]: e.target.value });
+    name === "newCategory" &&
+      setForm({ ...form, [e.target.name]: e.target.value });
     // console.log(form);
   };
 
@@ -264,7 +279,7 @@ const Products = () => {
 
     let newData = parseInt(e.target.value);
     console.log(newData, "nuewData");
-    let categoriesArray = []; 
+    let categoriesArray = [];
     if (form.categories.length > 0) {
       categoriesArray = [...form.categories];
     }
@@ -293,13 +308,17 @@ const Products = () => {
   // ----------------------------------------------------
   // console.log(form);
   //render
+
+  const [isOpenLoginModal, openLoginModal, closeLoginModal] = useModal();
+
   return (
     <>
       <div className={styles.containerproducts}>
         <h3 className={styles.titleproducts}>Product Management</h3>
         <Button
           color="success"
-          onClick={() => showModalInsert()}
+          //onClick={() => showModalInsert()}
+          onClick={openLoginModal}
           className={styles.addProduct}
         >
           <FontAwesomeIcon icon={faPlus} />
@@ -326,7 +345,8 @@ const Products = () => {
                   <td>{e.id}</td>
 
                   <td>
-                    <img className={styles.imageCover}
+                    <img
+                      className={styles.imageCover}
                       src={e.imagecover}
                       alt="img not found!"
                       width="80"
@@ -385,7 +405,7 @@ const Products = () => {
 
       {/* ----------- insert data -------------------- */}
       {/* -------------------------------------------- */}
-      <Modal isOpen={modalInsert} className={styles.containerModal}>
+      {/* <Modal isOpen={modalInsert} className={styles.containerModal}>
         <ModalBody className={styles.modalBody}>
           <ModalHeader className={styles.modalHeader}>
             <div>
@@ -547,13 +567,196 @@ const Products = () => {
             </Button>
           </ModalFooter>
         </ModalBody>
-      </Modal>
+      </Modal> */}
+
+      <ModalOwner
+        isOpen={isOpenLoginModal}
+        closeModal={closeLoginModal}
+        title="Add Products"
+      >
+        <form>
+          <div class="div-container" id="div_container">
+            {/* ------------ form Part II ------------------- */}
+            <div>
+              <FormGroup className={styles.form}>
+                <label>Id:</label>
+                <input
+                  className={styles.inputmodal}
+                  readOnly
+                  type="text"
+                  value={products.length + 1}
+                />
+              </FormGroup>
+
+              <FormGroup className={styles.form}>
+                <label>Name:</label>
+                <input
+                  className="form-control"
+                  name="name"
+                  type="text"
+                  value={form.name}
+                  onChange={(e) => handleChange(e)}
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>Master name:</label>
+                <input
+                  className="form-control"
+                  name="masterName"
+                  type="text"
+                  autoFocus
+                  value={form.masterName}
+                  onChange={(e) => handleChange(e)}
+                />
+              </FormGroup>
+
+              <FormGroup className={styles.form}>
+                <label>Fullname:</label>
+                <input
+                  className="form-control"
+                  name="fullName"
+                  type="text"
+                  value={form.fullName}
+                  onChange={(e) => handleChange(e)}
+                />
+              </FormGroup>
+
+              <FormGroup className={styles.form}>
+                <label>Detail:</label>
+                <textarea
+                  className="form-control"
+                  col="30"
+                  name="detail"
+                  value={form.detail}
+                  onChange={(e) => handleChange(e)}
+                ></textarea>
+              </FormGroup>
+
+              <FormGroup className={styles.form}>
+                <label>
+                  {`Colors: `}
+                  <select
+                    //className="form-control"
+                    name="colors"
+                    value={form.colors}
+                    onChange={(e) => handleChange(e)}
+                  >
+                    <option value="">...</option>
+                    {color &&
+                      color.map((e) => <option value={e.hex}>{e.name}</option>)}
+                  </select>
+                </label>
+              </FormGroup>
+
+              <FormGroup className={styles.form}>
+                <label>Category:</label>
+                <input
+                  className="form-control"
+                  name="newCategory"
+                  type="text"
+                  value={form.newCategory}
+                  onChange={(e) => handleChange(e)}
+                />
+              </FormGroup>
+            </div>
+
+            {/* ------------ form Part II ------------------- */}
+            <div>
+              <FormGroup className={styles.form}>
+                <label>BestFor:</label>
+                {categorie?.map((e, index) => {
+                  return (
+                    <div key={index} className="checkbox">
+                      <label>
+                        <input
+                          id={index}
+                          type="checkbox"
+                          name="categories"
+                          value={e.id}
+                          onClick={(e) => handleChangeCategories(e)}
+                        />
+                        {` ${e.name}`}
+                      </label>
+                    </div>
+                  );
+                })}
+              </FormGroup>
+
+              <FormGroup className={styles.form}>
+                <label>
+                  {`Gender: `}
+                  <select
+                    //className="form-control"
+                    name="gender"
+                    value={form.gender}
+                    onChange={(e) => handleChange(e)}
+                  >
+                    <option value="">...</option>
+                    <option value="mens">mens</option>
+                    <option value="womens">womens</option>
+                  </select>
+                </label>
+              </FormGroup>
+
+              <FormGroup className={styles.form}>
+                <label>Price:</label>
+                <input
+                  className="form-control"
+                  name="price"
+                  type="number"
+                  value={form.price}
+                  onChange={(e) => handleChange(e)}
+                />
+              </FormGroup>
+
+              <FormGroup className={styles.form}>
+                <label>Image Cover:</label>
+                <input
+                  className="form-control"
+                  name="imagecover"
+                  type="text"
+                  value={form.imagecover}
+                  onChange={(e) => handleChange(e)}
+                />
+              </FormGroup>
+
+              <FormGroup className={styles.form}>
+                <label>Other Images:</label>
+                <input
+                  className="form-control"
+                  name="imageurl"
+                  type="text"
+                  value={form.imageurl}
+                  onChange={(e) => handleChange(e)}
+                />
+              </FormGroup>
+              <ModalFooter>
+                <Button
+                  color="primary"
+                  onClick={() => closeLoginModal(insert())}
+                  className={styles.bmodal}
+                >
+                  Add
+                </Button>{" "}
+                <Button
+                  //onClick={() => closeModalInsert()}
+                  onClick={() => closeLoginModal(closeModalInsert)}
+                  className={styles.bmodal}
+                >
+                  Cancel
+                </Button>
+              </ModalFooter>
+            </div>
+          </div>
+        </form>
+      </ModalOwner>
+
       {/* -------------------------------------------- */}
 
       {/* ----------- create variants -------------------- */}
       {/* -------------------------------------------- */}
 
-      <Modal isOpen={modalVariants} className={styles.containerModal}>
+      <ModalOwner isOpen={modalVariants} className={styles.containerModal}>
         <ModalBody className={styles.modalVariants}>
           <ModalHeader className={styles.modalHeader}>
             <div>
@@ -561,23 +764,24 @@ const Products = () => {
             </div>
           </ModalHeader>
 
-            <ProductVariants
-              idproduct={form.id}
-              productName={form.masterName}
-            />
+          <ProductVariants idproduct={form.id} productName={form.masterName} />
 
           <ModalFooter>
-            <Button className={styles.bclosev} color="secundary" onClick={() => closeModalVariants()}>
+            <Button
+              className={styles.bclosev}
+              color="secundary"
+              onClick={() => closeModalVariants()}
+            >
               Close
             </Button>
-          </ModalFooter>  
+          </ModalFooter>
         </ModalBody>
-      </Modal>
+      </ModalOwner>
 
       {/* ----------- update data -------------------- */}
       {/* -------------------------------------------- */}
       <Modal isOpen={modalUpdate} className={styles.containerModal}>
-        <ModalBody className={styles.modalVariant/* modalBody */}>
+        <ModalBody className={styles.modalVariant /* modalBody */}>
           <ModalHeader className={styles.modalHeader}>
             <div>
               <h3 className={styles.modalTitle}>Update Product</h3>
@@ -641,8 +845,7 @@ const Products = () => {
           <FormGroup className={styles.form}>
             <label>BestFor:</label>
             {categorie?.map((e, index) => {
-              if (form.categories.some(u => u === e.id)) {
-
+              if (form.categories.some((u) => u === e.id)) {
                 return (
                   <div key={index} className="checkbox">
                     <label>
@@ -650,27 +853,30 @@ const Products = () => {
                         type="checkbox"
                         name="categories"
                         defaultChecked
-                        value={
-                          e.id
-                        } /* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
+                        value={e.id}
+                        /* findCheckSelected(form, e) */ /* (e) => handleChange(e)} */
                         /* checked={ */
                         /* onClick={(e) => handleChange(e)} */
-                      onClick={(e) => handleChangeCategories(e)}
+                        onClick={(e) => handleChangeCategories(e)}
                       />
                       {` ${e.name}`}
                     </label>
                   </div>
-                )
-              }
-              else {
+                );
+              } else {
                 return (
-                  <div key={index} className='checkbox'>
-                    <input className={styles.input} type="checkbox" id={index} name="categories" value={e.id} onClick={(e) => handleChangeCategories(e)} />
-                    <label htmlFor={index}>
-                      {` ${e.name}`}
-                    </label>
+                  <div key={index} className="checkbox">
+                    <input
+                      className={styles.input}
+                      type="checkbox"
+                      id={index}
+                      name="categories"
+                      value={e.id}
+                      onClick={(e) => handleChangeCategories(e)}
+                    />
+                    <label htmlFor={index}>{` ${e.name}`}</label>
                   </div>
-                )
+                );
               }
             })}
           </FormGroup>
