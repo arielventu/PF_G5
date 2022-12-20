@@ -1,4 +1,4 @@
-import { Action } from "history";
+#import { Action } from "history";
 
 import {
   GET_PRODUCTS,
